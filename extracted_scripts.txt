@@ -1,0 +1,209 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://synkynstudios.com/#organization",
+      "name": "Synkyn Studios",
+      "legalName": "Synkyn Studios Inc.",
+      "alternateName": "Synkyn Studios",
+      "url": "https://synkynstudios.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://synkynstudios.com/images/og-preview.png",
+        "width": 1200,
+        "height": 630
+      },
+      "description": "Synkyn Studios makes Synkyn MICRA — a bolt-on HVAC retrofit system that removes humidity, pre-conditions outdoor air, and cuts energy use by up to 30% for commercial buildings without replacing existing equipment.",
+      "foundingDate": "2023",
+      "industry": "Climate Technology / HVAC",
+      "knowsAbout": [
+        "Commercial HVAC systems",
+        "Humidity control",
+        "Indoor air quality",
+        "Energy efficiency",
+        "NASA desiccant technology",
+        "ASHRAE 62.1 ventilation compliance"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/helix-earth"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "sales",
+        "url": "https://synkynstudios.com/contact.html",
+        "availableLanguage": "English"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://synkynstudios.com/#website",
+      "url": "https://synkynstudios.com",
+      "name": "Synkyn Studios",
+      "description": "Bolt-on HVAC retrofit that cuts humidity, energy use, and equipment wear for commercial buildings.",
+      "publisher": { "@id": "https://synkynstudios.com/#organization" },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
+==================
+<script defer src="./vendor/split-text.min.js"></script>
+==================
+<script defer src="./vendor/gsap.min.js"></script>
+==================
+<script defer src="./vendor/scroll-trigger.min.js"></script>
+==================
+<script defer src="./vendor/draw-svg.min.js"></script>
+==================
+<script defer src="./vendor/motionpathplugin.min.js"></script>
+==================
+<script defer src="./vendor/lenis.min.js"></script>
+==================
+<script defer src="./vendor/springer.min.js"></script>
+==================
+<script type="module" src="./assets/main.js"></script>
+==================
+<script src="./assets/fx.js"></script>
+==================
+<script>
+        (function () {
+            if (window.innerWidth >= 768) return;
+
+            const roadway = document.getElementById('mobile-roadway');
+            const progress = document.getElementById('roadway-progress');
+            const stops = roadway ? roadway.querySelectorAll('.roadway-stop') : [];
+            const dots = roadway ? roadway.querySelectorAll('.roadway-dot') : [];
+            const overlay = document.getElementById('roadway-modal-overlay');
+            const modal = document.getElementById('roadway-modal');
+            const closeBtn = document.getElementById('roadway-modal-close-btn');
+            const modalBody = document.getElementById('roadway-modal-body');
+
+            // Card data for popups
+            const cardData = [
+                {
+                    title: 'AI Film Production',
+                    desc: 'Full sequences, set extensions, and period-accurate worlds — previs to final pixel, built shot by shot with cinematic continuity.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'Ad Films & Campaigns',
+                    desc: 'Agency-polish product films, automotive and FMCG spots, and platform-native cutdowns — delivered in days, not production quarters.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'Key Art & Motion Posters',
+                    desc: 'Theatrical-grade posters and looping motion key art with controlled palettes, real typography space, and print-ready detail.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'Storyboards & Previs',
+                    desc: 'Director-ready boards and animatics that lock blocking, lensing, and tone before a single crew call is made.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'VFX & Set Extension',
+                    desc: 'Generative plates, crowd and environment extension, cleanup, and style-consistent fixes that cut into live-action invisibly.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'Look Development',
+                    desc: 'Custom visual languages for brands and films — palettes, grain, halation, and grade recipes the models obey across every shot.',
+                    img: './images/noise.webp',
+                    bullets: []
+                }
+            ];
+
+            // Scroll-driven dot activation + progress bar
+            function onScroll() {
+                if (!roadway) return;
+                var rect = roadway.getBoundingClientRect();
+                var roadwayTop = rect.top;
+                var roadwayH = rect.height;
+                var viewH = window.innerHeight;
+                var scrolled = (viewH * 0.5 - roadwayTop) / roadwayH;
+                scrolled = Math.max(0, Math.min(1, scrolled));
+                if (progress) progress.style.height = (scrolled * 100) + '%';
+
+                dots.forEach(function (dot, i) {
+                    var stopRect = stops[i].getBoundingClientRect();
+                    var stopCenter = stopRect.top + stopRect.height / 2;
+                    if (stopCenter < viewH * 0.65) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // Open popup
+            function openModal(index) {
+                var d = cardData[index];
+                if (!d) return;
+                var html = '';
+                html += '<h4>' + d.title + '</h4>';
+                html += '<p class="modal-desc">' + d.desc + '</p>';
+                html += '<img class="modal-img" src="' + d.img + '" alt="' + d.title + '" />';
+                html += '<ul>';
+                d.bullets.forEach(function (b) { html += '<li>' + b + '</li>'; });
+                html += '</ul>';
+                modalBody.innerHTML = html;
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Close popup
+            function closeModal() {
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            // Attach click to each stop
+            stops.forEach(function (stop) {
+                stop.addEventListener('click', function () {
+                    var idx = parseInt(stop.getAttribute('data-card'), 10);
+                    openModal(idx);
+                });
+            });
+
+            // Close on X button
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+            // Close on overlay click (anywhere outside modal)
+            if (overlay) overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeModal();
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        })();
+    </script>
+==================
+<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.to("#space-earth-text", {
+                    backgroundPosition: "0% 0",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".space-earth-container",
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        scrub: 1
+                    }
+                });
+            }
+        });
+    </script>
+==================

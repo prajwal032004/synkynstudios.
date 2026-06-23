@@ -1,14 +1,24 @@
-import glob
+import os
+import re
 
-html_files = glob.glob("*.html")
+directory = r'c:\Users\prajw\Documents\Dhiraj skykyn - Copy'
+html_files = [f for f in os.listdir(directory) if f.endswith('.html')]
 
-for f in html_files:
-    with open(f, 'r', encoding='utf-8') as file:
-        content = file.read()
+for file in html_files:
+    path = os.path.join(directory, file)
+    with open(path, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # The logo <a ...> has class="flex min-w-0 shrink-0 items-center gap-2"
+    # We want to make sure its href is ./index.html
     
-    new_content = content.replace('class="w-[82px] h-auto object-contain"', 'class="w-[80px] h-auto object-contain"')
-    
-    if new_content != content:
-        with open(f, 'w', encoding='utf-8') as file:
-            file.write(new_content)
-        print(f"Updated {f}")
+    content = re.sub(
+        r'<a href="[^"]*" class="flex min-w-0 shrink-0 items-center gap-2">',
+        r'<a href="./index.html" class="flex min-w-0 shrink-0 items-center gap-2">',
+        content
+    )
+
+    with open(path, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+print('Logo hrefs fixed in all files.')

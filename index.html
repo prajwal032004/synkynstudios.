@@ -184,6 +184,266 @@
             background-color: #080808 !important
         }
 
+        /* ===== Remove all yellowish section bg tints — transparent on all sections ===== */
+        main>section {
+            background-color: transparent !important;
+        }
+
+        /* Inner wrapper bg overrides (bento grid card wrapper) */
+        section>div[class*="bg-background-12"],
+        section>div[class*="bg-background-3"],
+        section>div[class*="bg-background-2"] {
+            background-color: transparent !important;
+        }
+
+        /* ===== Section 2 — mobile: hide desktop cards, show roadway ===== */
+        @media (max-width: 767px) {
+            .stack-cards {
+                display: none !important;
+            }
+
+            .mobile-roadway {
+                display: flex !important;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .mobile-roadway {
+                display: none !important;
+            }
+        }
+
+        /* ===== Mobile Roadway Timeline ===== */
+        .mobile-roadway {
+            flex-direction: column;
+            align-items: flex-start;
+            position: relative;
+            padding: 20px 16px 40px;
+            width: 100%;
+        }
+
+        .roadway-line {
+            position: absolute;
+            left: 32px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, rgba(255, 216, 77, 0.15) 0%, rgba(255, 216, 77, 0.5) 50%, rgba(255, 216, 77, 0.15) 100%);
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .roadway-progress {
+            position: absolute;
+            left: 32px;
+            top: 0;
+            width: 3px;
+            height: 0%;
+            background: linear-gradient(180deg, #f2d400 0%, #ffd84d 100%);
+            transform: translateX(-50%);
+            border-radius: 2px;
+            transition: height 0.1s linear;
+        }
+
+        .roadway-stop {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            padding: 24px 0;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .roadway-dot {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #232323;
+            border: 3px solid #555;
+            transition: all 0.4s cubic-bezier(.4, 0, .2, 1);
+            box-shadow: 0 0 0 0 rgba(242, 212, 0, 0);
+            flex-shrink: 0;
+            margin-left: 7px;
+        }
+
+        .roadway-dot.active {
+            background: #f2d400;
+            border-color: #ffd84d;
+            box-shadow: 0 0 14px 4px rgba(242, 212, 0, 0.45);
+            transform: scale(1.3);
+        }
+
+        .roadway-label {
+            margin-top: 0;
+            margin-left: 20px;
+            text-align: left;
+            padding: 12px 16px;
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 216, 77, 0.15);
+            border-radius: 12px;
+            flex: 1;
+            transition: all 0.35s ease;
+        }
+
+        .roadway-label h6 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffd84d;
+            margin: 0 0 4px;
+        }
+
+        .roadway-label p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .roadway-stop:active .roadway-dot {
+            transform: scale(1.5);
+        }
+
+        .roadway-tap-hint {
+            font-size: 11px;
+            color: rgba(255, 216, 77, 0.5);
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== Popup Modal ===== */
+        .roadway-modal-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .roadway-modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .roadway-modal {
+            position: relative;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 216, 77, 0.2);
+            border-radius: 20px;
+            width: 100%;
+            max-width: 420px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 0;
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.35s cubic-bezier(.4, 0, .2, 1);
+        }
+
+        .roadway-modal-overlay.open .roadway-modal {
+            transform: translateY(0) scale(1);
+        }
+
+        .roadway-modal-close {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            justify-content: flex-end;
+            padding: 12px 16px;
+            background: linear-gradient(180deg, #1a1a1a 60%, transparent 100%);
+        }
+
+        .roadway-modal-close button {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            background: rgba(40, 40, 40, 0.9);
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            line-height: 1;
+        }
+
+        .roadway-modal-close button:hover,
+        .roadway-modal-close button:active {
+            background: #f2d400;
+            color: #000;
+            border-color: #f2d400;
+        }
+
+        .roadway-modal-body {
+            padding: 0 24px 28px;
+        }
+
+        .roadway-modal-body h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #ffd84d;
+            margin: 0 0 8px;
+        }
+
+        .roadway-modal-body .modal-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 0 16px;
+            line-height: 1.5;
+        }
+
+        .roadway-modal-body .modal-img {
+            width: 100%;
+            border-radius: 14px;
+            margin-bottom: 16px;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .roadway-modal-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .roadway-modal-body ul li {
+            position: relative;
+            padding: 8px 0 8px 20px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.5;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .roadway-modal-body ul li:last-child {
+            border-bottom: none;
+        }
+
+        .roadway-modal-body ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #f2d400;
+        }
+
         [class*="070e15"] {
             background-image: none !important;
             background-color: transparent !important
@@ -203,6 +463,10 @@
             background: radial-gradient(circle at 70% 70%, rgba(255, 216, 77, .38) 0%, rgba(242, 212, 0, .10) 48%, transparent 72%) !important;
         }
 
+        .footer-gradient-blob.footer-gradient-blob--bottom-right {
+            background: radial-gradient(circle at 70% 70%, rgba(242, 212, 0, .42) 0%, rgba(242, 212, 0, .12) 45%, transparent 70%) !important;
+        }
+
         .footer-link:hover {
             color: #f2d400 !important;
         }
@@ -216,12 +480,6 @@
 <!-- <body class="bg-background-2 dark:bg-background-6"> -->
 
 <body class="bg-background-2 dark:bg-helix-blue-dark-2">
-    <!-- =========================
-Header 
-===========================-->
-
-    <!-- Home: light translucent at rest. Non-home + light mode at rest: dark shade. Scroll state overrides via .header-two-scroll. -->
-
     <header>
         <div data-ns-animate data-direction="up" data-offset="20"
             class="header-two header-two-at-rest lp:!max-w-[1290px] header-home fixed top-14 left-1/2 z-50 mx-auto flex w-full max-w-[350px] -translate-x-1/2 items-center justify-between rounded-full px-2.5 py-2.5 backdrop-blur-[25px] max-md:!top-8 min-[425px]:max-w-[380px] min-[500px]:max-w-[450px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xl:py-0">
@@ -352,44 +610,58 @@ Header
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="./terms.html"
-                                                class="group relative flex items-start gap-2 p-3">
+                                            <a href="./terms.html" class="group relative flex items-start gap-2 p-3">
                                                 <div
                                                     class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-background-3 dark:bg-background-7 opacity-0 group-hover:opacity-100 rounded-[10px] z-0 transition-all duration-400 {=$class}">
                                                 </div>
                                                 <div
                                                     class="border-stroke-1 relative z-10 mt-1 flex size-7 shrink-0 items-center justify-center rounded-lg border p-1 dark:border-white/10">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                                        class="stroke-secondary dark:stroke-accent {=$class}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" class="stroke-secondary dark:stroke-accent {=$class}"/>
-                                                        <polyline points="9 12 11 14 15 10" class="stroke-secondary dark:stroke-accent {=$class}"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        class="stroke-secondary dark:stroke-accent {=$class}"
+                                                        stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round">
+                                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"
+                                                            class="stroke-secondary dark:stroke-accent {=$class}" />
+                                                        <polyline points="9 12 11 14 15 10"
+                                                            class="stroke-secondary dark:stroke-accent {=$class}" />
                                                     </svg>
                                                 </div>
                                                 <div class="relative z-10">
-                                                    <p class="text-tagline-1 text-secondary dark:text-accent font-normal">Terms &amp; Conditions</p>
-                                                    <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
+                                                    <p
+                                                        class="text-tagline-1 text-secondary dark:text-accent font-normal">
+                                                        Terms &amp; Conditions</p>
+                                                    <p
+                                                        class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
                                                         Our usage terms and legal agreements
                                                     </p>
                                                 </div>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="./privacy.html"
-                                                class="group relative flex items-start gap-2 p-3">
+                                            <a href="./privacy.html" class="group relative flex items-start gap-2 p-3">
                                                 <div
                                                     class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-background-3 dark:bg-background-7 opacity-0 group-hover:opacity-100 rounded-[10px] z-0 transition-all duration-400 {=$class}">
                                                 </div>
                                                 <div
                                                     class="border-stroke-1 relative z-10 mt-1 flex size-7 shrink-0 items-center justify-center rounded-lg border p-1 dark:border-white/10">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                                        class="stroke-secondary dark:stroke-accent {=$class}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2" class="stroke-secondary dark:stroke-accent {=$class}"/>
-                                                        <path d="M7 11V7a5 5 0 0 1 10 0v4" class="stroke-secondary dark:stroke-accent {=$class}"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                                        viewBox="0 0 24 24" fill="none"
+                                                        class="stroke-secondary dark:stroke-accent {=$class}"
+                                                        stroke-width="1.5" stroke-linecap="round"
+                                                        stroke-linejoin="round">
+                                                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"
+                                                            class="stroke-secondary dark:stroke-accent {=$class}" />
+                                                        <path d="M7 11V7a5 5 0 0 1 10 0v4"
+                                                            class="stroke-secondary dark:stroke-accent {=$class}" />
                                                     </svg>
                                                 </div>
                                                 <div class="relative z-10">
-                                                    <p class="text-tagline-1 text-secondary dark:text-accent font-normal">Privacy Policy</p>
-                                                    <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
+                                                    <p
+                                                        class="text-tagline-1 text-secondary dark:text-accent font-normal">
+                                                        Privacy Policy</p>
+                                                    <p
+                                                        class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
                                                         How we collect, use, and protect your data
                                                     </p>
                                                 </div>
@@ -587,9 +859,9 @@ Header
             </nav>
             <div class="flex items-center gap-2">
                 <div class="hidden items-center justify-center xl:flex">
-                    <a href="#"
+                    <a href="./contact.html"
                         class="btn btn-md hover:btn-white dark:hover:btn-white-dark btn-white-dark dark:btn-white">
-                        <span>Join the Waitlist</span>
+                        <span>Connect</span>
                     </a>
                 </div>
                 <div class="flex xl:hidden">
@@ -611,7 +883,7 @@ Mobile Menu - Synkyn Studios
             class="sidebar dark:bg-background-8 scroll-bar fixed top-0 right-0 z-[9999] h-screen w-full translate-x-full rounded-l-3xl bg-white transition-all duration-300 sm:w-1/2 xl:hidden">
             <div class="space-y-4 p-5 sm:p-8 lg:p-9">
                 <div class="flex items-center justify-between">
-                    <a href="./index.html">
+                    <a href="./contact.html">
                         <span class="sr-only">Home</span>
                         <figure class="max-w-[44px]">
                             <img src="./favicon-96x96.png" alt="Synkyn Studios" class="block w-full dark:hidden" />
@@ -683,11 +955,13 @@ Mobile Menu - Synkyn Studios
                                 </li>
                                 <li>
                                     <a href="./terms.html"
-                                        class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200">Terms &amp; Conditions</a>
+                                        class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200">Terms
+                                        &amp; Conditions</a>
                                 </li>
                                 <li>
                                     <a href="./privacy.html"
-                                        class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200">Privacy Policy</a>
+                                        class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200">Privacy
+                                        Policy</a>
                                 </li>
                                 <li>
                                     <a href="#"
@@ -703,9 +977,9 @@ Mobile Menu - Synkyn Studios
                         </li>
 
                         <li class="pt-2">
-                            <a href="#"
+                            <a href="./contact.html"
                                 class="btn btn-md hover:btn-white dark:hover:btn-white-dark btn-white-dark dark:btn-white block w-full">
-                                <span>Join the Waitlist</span>
+                                <span>Connect</span>
                             </a>
                         </li>
                     </ul>
@@ -825,7 +1099,7 @@ Mobile Menu - Synkyn Studios
                                         </div>
                                         <div
                                             class="absolute bottom-0 right-0 flex items-center justify-center w-32 bg-white dark:bg-secondary p-2 rounded-tl-2xl border-3 border-white dark:border-secondary z-10 overflow-hidden">
-                                            <span class="micra-badge inline-block dark:text-accent">Synkyn MICRA</span>
+                                            <span class="micra-badge inline-block dark:text-accent">Synkyn Studio</span>
                                         </div>
                                     </button>
                                 </div>
@@ -833,20 +1107,13 @@ Mobile Menu - Synkyn Studios
                         </div>
                     </div>
                 </div>
-                <!-- </section> -->
-
-                <!-- Video Modal: content is positioned fixed and animated from thumbnail rect to center -->
                 <div id="video-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
-                    <!-- Backdrop -->
                     <div id="modal-backdrop"
                         class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 cursor-pointer"
                         onclick="closeVideoModal()" aria-hidden="true"></div>
-
-                    <!-- Modal content: position fixed so GSAP can animate left/top/width/height from thumbnail to final -->
                     <div id="modal-content"
                         class="fixed bg-black rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 flex flex-col pointer-events-auto"
                         style="will-change: left, top, width, height">
-                        <!-- Close Button -->
                         <button onclick="closeVideoModal()"
                             class="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/40 text-white/90 hover:bg-black/60 hover:text-white transition-all backdrop-blur-md border border-white/10 group cursor-pointer"
                             aria-label="Close modal">
@@ -857,17 +1124,84 @@ Mobile Menu - Synkyn Studios
                                 <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                         </button>
-
-                        <!-- Video -->
-                        <video id="modal-video" class="w-full h-full object-cover" controls playsinline>
-                            <source src="./video/micraexplainervid.mp4" type="video/mp4" />
-                            Your browser does not support the video tag.
-                        </video>
+                        <div class="relative w-full h-full group/video">
+                            <video id="modal-video" class="w-full h-full object-cover" playsinline>
+                                <source src="./video/micraexplainervid.mp4" type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div
+                                class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover/video:opacity-100 transition-opacity duration-300 flex flex-col gap-2 pointer-events-auto">
+                                <div class="w-full h-1 bg-white/30 rounded-full cursor-pointer relative overflow-hidden group/progress"
+                                    id="custom-progress-container">
+                                    <div class="absolute top-0 left-0 h-full bg-primary-400 w-0 transition-all duration-100 group-hover/progress:bg-primary-500"
+                                        id="custom-progress-bar"></div>
+                                </div>
+                                <!-- Controls Row -->
+                                <div class="flex items-center justify-between text-white">
+                                    <div class="flex items-center gap-4">
+                                        <button id="custom-play-pause"
+                                            class="hover:text-primary-400 transition-colors focus:outline-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                                viewBox="0 0 24 24" fill="currentColor" stroke="none">
+                                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                                            </svg>
+                                        </button>
+                                        <span id="custom-time-display" class="text-sm font-medium tracking-wide">0:00 /
+                                            0:00</span>
+                                    </div>
+                                    <div class="flex items-center gap-4">
+                                        <div class="flex items-center gap-2 group/volume">
+                                            <button id="custom-mute"
+                                                class="hover:text-primary-400 transition-colors focus:outline-none">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                                                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                                                </svg>
+                                            </button>
+                                            <input type="range" id="custom-volume" min="0" max="1" step="0.05" value="1"
+                                                class="w-16 md:w-20 accent-primary-400 cursor-pointer h-1 rounded-lg bg-white/30 focus:outline-none" />
+                                        </div>
+                                        <button id="custom-fullscreen"
+                                            class="hover:text-primary-400 transition-colors focus:outline-none">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                                stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
+                                                <path d="M21 8V5a2 2 0 0 0-2-2h-3"></path>
+                                                <path d="M3 16v3a2 2 0 0 0 2 2h3"></path>
+                                                <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
+        <section class="actually-area overflow-hidden">
+            <div class="actually-area-inner section-spacing">
+                <div class="container">
+                    <div class="bg-area"></div>
+                    <div class="space-earth-container group cursor-pointer relative z-10" style="perspective: 1000px;">
+                        <h2 id="space-earth-text"
+                            class="section-title text-heading-1 font-sequelsans-romanbody transition-all duration-1000 ease-out transform group-hover:scale-105 group-hover:-translate-y-2 drop-shadow-[0_0_15px_rgba(242,194,0,0.5)]"
+                            style="background-image: linear-gradient(to right, #facc15 0%, #eab308 20%, #ffffff 40%, #ffffff 100%); background-size: 300% 100%; background-position: 100% 0; color: transparent; -webkit-background-clip: text; background-clip: text;">
+                            Designed for Space <br>
+                            Destined for Earth
+                        </h2>
+                        <!-- Glow effect behind text -->
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-yellow-500/0 group-hover:bg-yellow-500/10 blur-[60px] rounded-full transition-all duration-1000 pointer-events-none -z-10">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- =========================
 Vision Statement section
 ===========================-->
@@ -876,525 +1210,652 @@ Vision Statement section
                 pointer-events: none !important;
             }
         </style>
-        <section id="the-problem-section"
-            class="pt-24 pb-14 sm:pt-28 md:pt-32 md:pb-16 lg:pb-[88px] xl:pt-[140px] xl:pb-[100px]">
-            <div id="problem-section-cursor-dot" aria-hidden="true">
-                <span class="problem-cursor-tail"></span>
-                <span id="problem-section-cursor-label">Slide the image to see the after</span>
+        <section class="relative py-[50px] md:py-[80px] lg:py-[100px]" aria-label="Hero section">
+            <div class="main-container">
+                <div class="grid grid-cols-12 xl:gap-[60px] gap-y-8 items-start">
+                    <div class="col-span-12 xl:col-span-6 lg:sticky lg:top-28">
+                        <div class="space-y-6 xl:text-left text-left px-2 sm:px-0">
+                            <div class="space-y-4">
+                                <h2 data-ns-animate data-delay="0.2"
+                                    class="xl:max-w-[629px] w-full xl:mx-0 mx-0 text-[32px] leading-[1.15] sm:text-[38px] sm:leading-[1.1] md:text-[44px] lg:text-[52px]">
+                                    <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-yellow-500">Generative
+                                        tools.</span> A <span
+                                        class="text-transparent bg-clip-text bg-gradient-to-r to-blue-500 from-cyan-400">filmmaker's
+                                        eye.</span>
+                                </h2>
+                                <p data-ns-animate data-delay="0.3" class="xl:max-w-[544px] text-base leading-relaxed">
+                                    <span class="font-medium dark:text-accent text-secondary">SynKyn sits</span> between
+                                    the edit suite and the model. We direct AI image and video systems the way a
+                                    cinematographer directs light — with intent, references, and a grade in mind from
+                                    frame one.
+                                </p>
+                            </div>
+                            <div data-ns-animate data-delay="0.4" class="w-full">
+                                <a href="./contact.html"
+                                    class="btn btn-secondary btn-md hover:btn-secondary dark:hover:btn-accent dark:btn-accent w-full sm:w-auto max-w-[320px]">
+                                    <span>Connect</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-12 xl:col-span-6">
+                        <div class="stack-cards js-stack-cards xl:max-w-full max-w-full xl:mx-0 mx-auto">
+                            <!-- card one  -->
+                            <div
+                                class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
+                                <!-- card content – no flip -->
+                                <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
+                                    <div
+                                        class="relative z-10 overflow-hidden p-8 max-md:p-6 rounded-[14px] max-w-full w-full bg-white dark:bg-black h-full flex flex-col justify-between">
+                                        <div class="relative z-10 space-y-6 w-full h-full flex flex-col">
+                                            <div class="space-y-1">
+                                                <p
+                                                    class="text-[12px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                                    2.39:1 · FILM</p>
+                                                <p class="text-heading-5 text-secondary dark:text-accent">
+                                                    AI Film Production
+                                                </p>
+                                                <p>
+                                                    Full sequences, set extensions, and period-accurate worlds — previs
+                                                    to final pixel, built shot by shot with cinematic continuity.
+                                                </p>
+                                            </div>
+                                            <figure class="w-full rounded-2xl overflow-hidden flex-shrink-0 mt-auto">
+                                                <img src="./images/3rd/1.png" alt="AI Film Production"
+                                                    class="md:max-h-[315px] md:min-h-[315px] object-cover w-full" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- card two  -->
+                            <div
+                                class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
+                                <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
+                                    <div
+                                        class="relative z-10 overflow-hidden p-8 max-md:p-6 rounded-[14px] max-w-full w-full bg-white dark:bg-black h-full flex flex-col justify-between">
+                                        <div class="relative z-10 space-y-6 w-full h-full flex flex-col">
+                                            <div class="space-y-1">
+                                                <p
+                                                    class="text-[12px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                                    16:9 · 9:16 · COMMERCIAL</p>
+                                                <p class="text-heading-5 text-secondary dark:text-accent">
+                                                    Ad Films &amp; Campaigns
+                                                </p>
+                                                <p>
+                                                    Agency-polish product films, automotive and FMCG spots, and
+                                                    platform-native cutdowns — delivered in days, not production
+                                                    quarters.
+                                                </p>
+                                            </div>
+                                            <figure class="w-full rounded-2xl overflow-hidden flex-shrink-0 mt-auto">
+                                                <img src="./images/3rd/2.png" alt="Ad Films & Campaigns"
+                                                    class="md:max-h-[315px] md:min-h-[315px] object-cover w-full" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- card three  -->
+                            <div
+                                class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
+                                <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
+                                    <div
+                                        class="relative z-10 overflow-hidden p-8 max-md:p-6 rounded-[14px] max-w-full w-full bg-white dark:bg-black h-full flex flex-col justify-between">
+                                        <div class="relative z-10 space-y-6 w-full h-full flex flex-col">
+                                            <div class="space-y-1">
+                                                <p
+                                                    class="text-[12px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                                    27×40 · ONE-SHEET</p>
+                                                <p class="text-heading-5 text-secondary dark:text-accent">
+                                                    Key Art &amp; Motion Posters
+                                                </p>
+                                                <p>
+                                                    Theatrical-grade posters and looping motion key art with controlled
+                                                    palettes, real typography space, and print-ready detail.
+                                                </p>
+                                            </div>
+                                            <figure class="w-full rounded-2xl overflow-hidden flex-shrink-0 mt-auto">
+                                                <img src="./images/3rd/1.png" alt="Key Art & Motion Posters"
+                                                    class="md:max-h-[315px] md:min-h-[315px] object-cover w-full" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- card four  -->
+                            <div
+                                class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
+                                <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
+                                    <div
+                                        class="relative z-10 overflow-hidden p-8 max-md:p-6 rounded-[14px] max-w-full w-full bg-white dark:bg-black h-full flex flex-col justify-between">
+                                        <div class="relative z-10 space-y-6 w-full h-full flex flex-col">
+                                            <div class="space-y-1">
+                                                <p
+                                                    class="text-[12px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                                    BOARDS · PREVIS</p>
+                                                <p class="text-heading-5 text-secondary dark:text-accent">
+                                                    Storyboards &amp; Previs
+                                                </p>
+                                                <p>
+                                                    Director-ready boards and animatics that lock blocking, lensing, and
+                                                    tone before a single crew call is made.
+                                                </p>
+                                            </div>
+                                            <figure class="w-full rounded-2xl overflow-hidden flex-shrink-0 mt-auto">
+                                                <img src="./images/3rd/2.png" alt="Storyboards & Previs"
+                                                    class="md:max-h-[315px] md:min-h-[315px] object-cover w-full" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- card five  -->
+                            <div
+                                class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
+                                <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
+                                    <div
+                                        class="relative z-10 overflow-hidden p-8 max-md:p-6 rounded-[14px] max-w-full w-full bg-white dark:bg-black h-full flex flex-col justify-between">
+                                        <div class="relative z-10 space-y-6 w-full h-full flex flex-col">
+                                            <div class="space-y-1">
+                                                <p
+                                                    class="text-[12px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                                    PLATES · COMP</p>
+                                                <p class="text-heading-5 text-secondary dark:text-accent">
+                                                    VFX &amp; Set Extension
+                                                </p>
+                                                <p>
+                                                    Generative plates, crowd and environment extension, cleanup, and
+                                                    style-consistent fixes that cut into live-action invisibly.
+                                                </p>
+                                            </div>
+                                            <figure class="w-full rounded-2xl overflow-hidden flex-shrink-0 mt-auto">
+                                                <img src="./images/3rd/1.png" alt="VFX & Set Extension"
+                                                    class="md:max-h-[315px] md:min-h-[315px] object-cover w-full" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- card six  -->
+                            <div
+                                class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
+                                <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
+                                    <div
+                                        class="relative z-10 overflow-hidden p-8 max-md:p-6 rounded-[14px] max-w-full w-full bg-white dark:bg-black h-full flex flex-col justify-between">
+                                        <div class="relative z-10 space-y-6 w-full h-full flex flex-col">
+                                            <div class="space-y-1">
+                                                <p
+                                                    class="text-[12px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                                    LUT · LOOK DEV</p>
+                                                <p class="text-heading-5 text-secondary dark:text-accent">
+                                                    Look Development
+                                                </p>
+                                                <p>
+                                                    Custom visual languages for brands and films — palettes, grain,
+                                                    halation, and grade recipes the models obey across every shot.
+                                                </p>
+                                            </div>
+                                            <figure class="w-full rounded-2xl overflow-hidden flex-shrink-0 mt-auto">
+                                                <img src="./images/3rd/2.png" alt="Look Development"
+                                                    class="md:max-h-[315px] md:min-h-[315px] object-cover w-full" />
+                                            </figure>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== MOBILE ROADWAY TIMELINE ===== -->
+                        <div class="mobile-roadway" id="mobile-roadway">
+                            <div class="roadway-line"></div>
+                            <div class="roadway-progress" id="roadway-progress"></div>
+
+                            <div class="roadway-stop" data-card="0">
+                                <div class="roadway-dot"></div>
+                                <div class="roadway-label w-full">
+                                    <p class="text-[11px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                        2.39:1 · FILM</p>
+                                    <h6 class="text-white text-[15px] font-bold mb-1">AI Film Production</h6>
+                                    <p class="text-[13px] text-white/70 leading-relaxed mb-3">Full sequences, set
+                                        extensions,
+                                        and period-accurate worlds...</p>
+                                    <figure class="w-full rounded-xl overflow-hidden shadow-lg border border-white/10">
+                                        <img src="./images/3rd/1.png" alt="AI Film Production"
+                                            class="w-full h-auto max-h-[160px] object-cover" />
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="roadway-stop" data-card="1">
+                                <div class="roadway-dot"></div>
+                                <div class="roadway-label w-full">
+                                    <p class="text-[11px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">16:9
+                                        · 9:16 · COMMERCIAL</p>
+                                    <h6 class="text-white text-[15px] font-bold mb-1">Ad Films &amp; Campaigns</h6>
+                                    <p class="text-[13px] text-white/70 leading-relaxed mb-3">Agency-polish product
+                                        films,
+                                        automotive and FMCG spots...</p>
+                                    <figure class="w-full rounded-xl overflow-hidden shadow-lg border border-white/10">
+                                        <img src="./images/3rd/2.png" alt="Ad Films & Campaigns"
+                                            class="w-full h-auto max-h-[160px] object-cover" />
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="roadway-stop" data-card="2">
+                                <div class="roadway-dot"></div>
+                                <div class="roadway-label w-full">
+                                    <p class="text-[11px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">27×40
+                                        · ONE-SHEET</p>
+                                    <h6 class="text-white text-[15px] font-bold mb-1">Key Art &amp; Motion Posters</h6>
+                                    <p class="text-[13px] text-white/70 leading-relaxed mb-3">Theatrical-grade posters
+                                        and
+                                        looping motion key art...</p>
+                                    <figure class="w-full rounded-xl overflow-hidden shadow-lg border border-white/10">
+                                        <img src="./images/3rd/1.png" alt="Key Art & Motion Posters"
+                                            class="w-full h-auto max-h-[160px] object-cover" />
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="roadway-stop" data-card="3">
+                                <div class="roadway-dot"></div>
+                                <div class="roadway-label w-full">
+                                    <p class="text-[11px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                        BOARDS · PREVIS</p>
+                                    <h6 class="text-white text-[15px] font-bold mb-1">Storyboards &amp; Previs</h6>
+                                    <p class="text-[13px] text-white/70 leading-relaxed mb-3">Director-ready boards and
+                                        animatics that lock blocking...</p>
+                                    <figure class="w-full rounded-xl overflow-hidden shadow-lg border border-white/10">
+                                        <img src="./images/3rd/2.png" alt="Storyboards & Previs"
+                                            class="w-full h-auto max-h-[160px] object-cover" />
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="roadway-stop" data-card="4">
+                                <div class="roadway-dot"></div>
+                                <div class="roadway-label w-full">
+                                    <p class="text-[11px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">
+                                        PLATES · COMP</p>
+                                    <h6 class="text-white text-[15px] font-bold mb-1">VFX &amp; Set Extension</h6>
+                                    <p class="text-[13px] text-white/70 leading-relaxed mb-3">Generative plates, crowd
+                                        and
+                                        environment extension...</p>
+                                    <figure class="w-full rounded-xl overflow-hidden shadow-lg border border-white/10">
+                                        <img src="./images/3rd/1.png" alt="VFX & Set Extension"
+                                            class="w-full h-auto max-h-[160px] object-cover" />
+                                    </figure>
+                                </div>
+                            </div>
+
+                            <div class="roadway-stop" data-card="5">
+                                <div class="roadway-dot"></div>
+                                <div class="roadway-label w-full">
+                                    <p class="text-[11px] font-bold tracking-widest text-[#f2d400] uppercase mb-1">LUT ·
+                                        LOOK DEV</p>
+                                    <h6 class="text-white text-[15px] font-bold mb-1">Look Development</h6>
+                                    <p class="text-[13px] text-white/70 leading-relaxed mb-3">Custom visual languages
+                                        for
+                                        brands and films...</p>
+                                    <figure class="w-full rounded-xl overflow-hidden shadow-lg border border-white/10">
+                                        <img src="./images/3rd/2.png" alt="Look Development"
+                                            class="w-full h-auto max-h-[160px] object-cover" />
+                                    </figure>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ===== POPUP MODAL ===== -->
+                        <div class="roadway-modal-overlay" id="roadway-modal-overlay">
+                            <div class="roadway-modal" id="roadway-modal">
+                                <div class="roadway-modal-close">
+                                    <button id="roadway-modal-close-btn" aria-label="Close popup">✕</button>
+                                </div>
+                                <div class="roadway-modal-body" id="roadway-modal-body">
+                                    <!-- dynamically filled -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="main-container space-y-12 md:space-y-16 lg:space-y-[50px]">
-                <div class="mx-auto max-w-[780px] space-y-1 text-center">
-                    <span data-ns-animate data-delay="0.2" class="badge badge-gradient-purple mb-5">The Problem</span>
-                    <h2 data-ns-animate data-delay="0.3"
-                        class="xl:text-heading-1 md:mb-3 mb-1 text-secondary dark:text-accent max-md:text-[38px] max-md:leading-[1.1]">
-                        A
-                        <span
-                            class="bg-clip-text text-clip text-transparent bg-gradient-to-r from-orange-500 to-yellow-500">100-Year-Old<br />
-                            Problem</span>
-                        Nobody Fixed
+        </section>
+
+
+        <!-- =========================
+Helix MICRA Video Hero
+===========================-->
+        <section
+            class="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden py-24 border-y border-white/5">
+            <!-- Video Background -->
+            <div class="absolute inset-0 w-full h-full z-0">
+                <video autoplay loop muted playsinline poster="./images/HEHomeVid-poster.webp"
+                    class="object-cover w-full h-full opacity-80">
+                    <source src="./video/HEHomeVid.mp4" type="video/mp4">
+                </video>
+                <div
+                    class="absolute inset-0 bg-gradient-to-b from-background-8/90 via-background-8/40 to-background-8/90">
+                </div>
+                <div class="absolute inset-0 bg-black/30"></div>
+            </div>
+
+            <!-- Content -->
+            <div class="relative z-10 container mx-auto px-4 text-center">
+                <div data-ns-animate data-direction="up" data-delay="0.1">
+                    <h3
+                        class="text-[#f2d400] font-semibold tracking-[0.2em] uppercase text-sm md:text-base mb-6 drop-shadow-md">
+                        Helix MICRA™
+                    </h3>
+                </div>
+                <div data-ns-animate data-direction="up" data-delay="0.2">
+                    <h2
+                        class="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-8 font-sequelsans-romanbody drop-shadow-xl tracking-tight">
+                        The Retrofit Answer
                     </h2>
-                    <p class="text-[1.1rem]" data-ns-animate data-delay="0.4">
-                        For over 100 years, air conditioning has done two jobs at once: cooling the air and removing
-                        moisture. That combination is the problem. In humid climates,
-                        <strong class="text-accent/80">removing moisture consumes up to 80% of your AC’s
-                            energy</strong>. Compressors
-                        work overtime. Equipment wears out faster. Utility bills climb. Mold takes
-                        hold. And comfort is still terrible. The industry's answer has always been, "That's just how
-                        it works."
-                        <br />
-                        <br />
-                        <span data-ns-animate data-delay="0.9" class="inline-block">
-                            <strong
-                                class="we-disagree-letter-reveal  text-xl md:text-2xl bg-clip-text text-clip text-transparent bg-gradient-to-r from-cyan-500 to-helix-blue">We
-                                disagree.</strong>
-                        </span>
+                </div>
+                <div data-ns-animate data-direction="up" data-delay="0.3">
+                    <p
+                        class="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto leading-relaxed font-light">
+                        Our systems work alongside your existing HVAC, handling what it can’t, <span
+                            class="text-white font-medium">so it can finally do what it does best.</span>
                     </p>
                 </div>
-
-                <div class="mx-auto flex w-full max-w-[1100px] flex-col gap-8">
-                    <!-- Technology "The Problem" — tab buttons (pill UI aligned with investors services tabs) -->
-                    <div data-ns-animate data-delay="0.1" data-tab-items-container role="tablist"
-                        aria-label="How conventional cooling fails"
-                        class="order-2 bg-background-3 dark:bg-helix-blue-dark relative grid w-full items-center justify-center gap-1.5 p-1.5 rounded-2xl max-sm:!grid-cols-1 md:order-1 md:flex-nowrap md:gap-1 md:p-1 md:rounded-full"
-                        style="grid-template-columns: repeat(9, 1fr)">
-                        <button id="tab-problem-moisture" data-tab-content="problem-moisture" data-selected role="tab"
-                            aria-controls="tab-panel-problem-moisture" aria-selected="true"
-                            aria-label="Moisture dominates cooling tab" tabindex="0"
-                            class="font-inter-tight text-tagline-1 bg-background-1 w-full cursor-pointer rounded-xl px-4 py-3 text-center font-medium sm:col-span-3 sm:px-6 sm:py-[14px] sm:rounded-2xl md:rounded-[80px] dark:bg-helix-blue-shade">
-                            <span class="services-tab-label relative z-20 dark:text-accent/70 text-secondary/60">Quick
-                                Service Restaurants</span>
-                        </button>
-                        <button id="tab-problem-wear" data-tab-content="problem-wear" role="tab"
-                            aria-controls="tab-panel-problem-wear" aria-selected="false"
-                            aria-label="Equipment and runtime strain tab" tabindex="-1"
-                            class="font-inter-tight text-tagline-1 bg-background-1 w-full cursor-pointer rounded-xl px-4 py-3 text-center font-medium transition-colors duration-300 ease-in-out sm:col-span-3 sm:px-6 sm:py-[14px] sm:rounded-2xl md:rounded-[80px] dark:bg-helix-blue-shade">
-                            <span class="services-tab-label relative z-20 dark:text-accent/70 text-secondary/60">Schools
-                                and Universities</span>
-                        </button>
-                        <button id="tab-problem-comfort" data-tab-content="problem-comfort" role="tab"
-                            aria-controls="tab-panel-problem-comfort" aria-selected="false" aria-label="Comfort gap tab"
-                            tabindex="-1"
-                            class="font-inter-tight text-tagline-1 bg-background-1 w-full cursor-pointer rounded-xl px-4 py-3 text-center font-medium transition-colors duration-300 ease-in-out sm:col-span-3 sm:px-6 sm:py-[14px] sm:rounded-2xl md:rounded-[80px] dark:bg-helix-blue-shade">
-                            <span class="services-tab-label relative z-20 dark:text-accent/70 text-secondary/60">Office
-                                Buildings</span>
-                        </button>
-                        <div data-active-tab-indicator
-                            class="bg-gradient-to-r from-helix-blue to-cyan-500 absolute left-0 z-10 rounded-xl transition-all duration-500 ease-out sm:rounded-2xl md:rounded-[80px]">
-                        </div>
-                    </div>
-
-                    <!-- Technology "The Problem" — tab panels with distinct before/after comparisons -->
-                    <div data-tab-contents-container data-ns-animate data-delay="0.2" role="tabpanel" aria-live="polite"
-                        aria-atomic="true" class="order-1 w-full max-lg:min-h-0 md:order-2">
-                        <div data-tab-content="problem-moisture" id="tab-panel-problem-moisture" role="tabpanel"
-                            aria-labelledby="tab-problem-moisture" aria-hidden="false"
-                            class="flex w-full flex-col items-center justify-center max-lg:min-h-0 max-lg:items-stretch max-lg:justify-start">
-                            <!-- Before/after slider for technology "The Problem" tab panels -->
-                            <article class="w-full">
-                                <figure data-ns-animate data-delay="0.5" data-instant
-                                    class="problem-comparison-slider w-full mx-auto max-w-[1100px] overflow-hidden rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] select-none">
-                                    <div
-                                        class="problem-slider-frame relative w-full min-h-[280px] overflow-hidden rounded-[20px] sm:min-h-[360px] lg:min-h-[320px]">
-                                        <div
-                                            class="slider relative h-full w-full min-h-0 cursor-ew-resize max-lg:min-h-0 lg:min-h-[596px]">
-                                            <picture>
-                                                <source media="(max-width: 1023px)" type="image/avif"
-                                                    srcset="./images/helixrestauranthumid.avif" />
-                                                <source media="(max-width: 1023px)" type="image/webp"
-                                                    srcset="./images/helixrestauranthumid.webp" />
-                                                <source media="(max-width: 1023px)"
-                                                    srcset="./images/helixrestauranthumid.jpg" />
-                                                <source type="image/avif"
-                                                    srcset="./images/helixquickservicehumid-640.avif 640w, ./images/helixquickservicehumid-1100.avif 1100w, ./images/helixquickservicehumid-1280.avif 1280w, ./images/helixquickservicehumid.avif 1380w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <source type="image/webp"
-                                                    srcset="./images/helixquickservicehumid-640.webp 640w, ./images/helixquickservicehumid-1100.webp 1100w, ./images/helixquickservicehumid-1280.webp 1280w, ./images/helixquickservicehumid.webp 1380w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <img src="./images/helixquickservicehumid.png"
-                                                    alt="Before – humid, clammy quick-service dining space"
-                                                    class="before absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-10"
-                                                    loading="lazy" decoding="async"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                            </picture>
-                                            <picture>
-                                                <source media="(max-width: 1023px)" type="image/avif"
-                                                    srcset="./images/helixrestaurantcool.avif" />
-                                                <source media="(max-width: 1023px)" type="image/webp"
-                                                    srcset="./images/helixrestaurantcool.webp" />
-                                                <source media="(max-width: 1023px)"
-                                                    srcset="./images/helixrestaurantcool.jpg" />
-                                                <source type="image/avif"
-                                                    srcset="./images/helixquickservicecool-640.avif 640w, ./images/helixquickservicecool-1100.avif 1100w, ./images/helixquickservicecool-1280.avif 1280w, ./images/helixquickservicecool.avif 1380w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <source type="image/webp"
-                                                    srcset="./images/helixquickservicecool-640.webp 640w, ./images/helixquickservicecool-1100.webp 1100w, ./images/helixquickservicecool-1280.webp 1280w, ./images/helixquickservicecool.webp 1380w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <img src="./images/helixquickservicecool.png"
-                                                    alt="After – dry, comfortable quick-service dining space"
-                                                    class="after absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-20"
-                                                    loading="lazy" decoding="async"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                            </picture>
-                                            <span
-                                                class="slider-label slider-label-before absolute left-0 top-0 z-[25] rounded-br-md bg-helix-blue-dark px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm pointer-events-none sm:px-3 sm:py-1.5 sm:text-sm">
-                                                After
-                                            </span>
-                                            <span
-                                                class="slider-label slider-label-after absolute right-0 top-0 z-[25] rounded-bl-md bg-helix-blue-dark px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm pointer-events-none sm:px-3 sm:py-1.5 sm:text-sm">
-                                                Before
-                                            </span>
-                                            <div
-                                                class="slider-handle absolute top-0 left-[20%] w-1 h-full z-30 -translate-x-1/2 transition-all duration-200 ease-in-out">
-                                                <div
-                                                    class="handle-line absolute top-0 left-1/2 w-0.5 h-full bg-stroke-1 dark:bg-stroke-6 -translate-x-1/2">
-                                                </div>
-                                                <div class="w-20 h-[267px] absolute top-1/2 left-1/2 blur-[30px] -translate-x-1/2 -translate-y-1/2"
-                                                    style="background: var(--color-gradient-12)"></div>
-                                                <div
-                                                    class="handle-circle absolute top-1/2 left-1/2 w-[17px] h-[30px] py-[7px] px-[1px] bg-white dark:bg-background-8 ring-2 ring-background-9/50 dark:ring-background-7/50 backdrop-blur-[17px] rounded-[40px] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center gap-[10px] transition-all duration-200 ease-in-out hover:scale-105 hover:bg-white/90 dark:hover:bg-background-7 active:scale-110 md:w-[15px] md:h-[28px] md:py-[6px]">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16"
-                                                        viewBox="0 0 15 16" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M8.625 2.6668C8.625 3.32954 8.12132 3.8668 7.5 3.8668C6.87868 3.8668 6.375 3.32954 6.375 2.6668C6.375 2.00406 6.87868 1.4668 7.5 1.4668C8.12132 1.4668 8.625 2.00406 8.625 2.6668ZM8.625 8.00013C8.625 8.66287 8.12132 9.20013 7.5 9.20013C6.87868 9.20013 6.375 8.66287 6.375 8.00013C6.375 7.33739 6.87868 6.80013 7.5 6.80013C8.12132 6.80013 8.625 7.33739 8.625 8.00013ZM7.5 14.5335C8.12132 14.5335 8.625 13.9962 8.625 13.3335C8.625 12.6707 8.12132 12.1335 7.5 12.1335C6.87868 12.1335 6.375 12.6707 6.375 13.3335C6.375 13.9962 6.87868 14.5335 7.5 14.5335Z"
-                                                            class="fill-black dark:fill-accent" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="sr-only">Drag the slider to compare a humid versus comfortable
-                                        quick-service dining environment.</figcaption>
-                                </figure>
-                            </article>
-
-                        </div>
-
-                        <div data-tab-content="problem-wear" id="tab-panel-problem-wear" role="tabpanel"
-                            aria-labelledby="tab-problem-wear" aria-hidden="true"
-                            class="hidden w-full flex-col items-center justify-center max-lg:min-h-0 max-lg:items-stretch max-lg:justify-start">
-                            <!-- Before/after slider for technology "The Problem" tab panels -->
-                            <article class="w-full">
-                                <figure data-ns-animate data-delay="0.5" data-instant
-                                    class="problem-comparison-slider w-full mx-auto max-w-[1100px] overflow-hidden rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] select-none">
-                                    <div
-                                        class="problem-slider-frame relative w-full min-h-[280px] overflow-hidden rounded-[20px] sm:min-h-[360px] lg:min-h-[320px]">
-                                        <div
-                                            class="slider relative h-full w-full min-h-0 cursor-ew-resize max-lg:min-h-0 lg:min-h-[596px]">
-                                            <picture>
-                                                <source media="(max-width: 1023px)" type="image/avif"
-                                                    srcset="./images/schoolclassroomhumidmobile.avif" />
-                                                <source media="(max-width: 1023px)" type="image/webp"
-                                                    srcset="./images/schoolclassroomhumidmobile.webp" />
-                                                <source media="(max-width: 1023px)"
-                                                    srcset="./images/schoolclassroomhumidmobile.png" />
-                                                <source type="image/avif"
-                                                    srcset="./images/schoolclassroomhumid-640.avif 640w, ./images/schoolclassroomhumid.avif 1200w, ./images/schoolclassroomhumid-1280.avif 1280w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <source type="image/webp"
-                                                    srcset="./images/schoolclassroomhumid-640.webp 640w, ./images/schoolclassroomhumid.webp 1200w, ./images/schoolclassroomhumid-1280.webp 1280w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <img src="./images/schoolclassroomhumid.jpg"
-                                                    alt="Before – warm, stressed retail floor and displays"
-                                                    class="before absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-10"
-                                                    loading="lazy" decoding="async"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                            </picture>
-                                            <picture>
-                                                <source media="(max-width: 1023px)" type="image/avif"
-                                                    srcset="./images/schoolclassroomcoolmobile.avif" />
-                                                <source media="(max-width: 1023px)" type="image/webp"
-                                                    srcset="./images/schoolclassroomcoolmobile.webp" />
-                                                <source media="(max-width: 1023px)"
-                                                    srcset="./images/schoolclassroomcoolmobile.png" />
-                                                <source type="image/avif"
-                                                    srcset="./images/schoolclassroomcool-640.avif 640w, ./images/schoolclassroomcool.avif 1200w, ./images/schoolclassroomcool-1280.avif 1280w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <source type="image/webp"
-                                                    srcset="./images/schoolclassroomcool-640.webp 640w, ./images/schoolclassroomcool.webp 1200w, ./images/schoolclassroomcool-1280.webp 1280w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <img src="./images/schoolclassroomcool.jpg"
-                                                    alt="After – cool, stable retail environment"
-                                                    class="after absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-20"
-                                                    loading="lazy" decoding="async"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                            </picture>
-                                            <span
-                                                class="slider-label slider-label-before absolute left-0 top-0 z-[25] rounded-br-md bg-helix-blue-dark px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm pointer-events-none sm:px-3 sm:py-1.5 sm:text-sm">
-                                                After
-                                            </span>
-                                            <span
-                                                class="slider-label slider-label-after absolute right-0 top-0 z-[25] rounded-bl-md bg-helix-blue-dark px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm pointer-events-none sm:px-3 sm:py-1.5 sm:text-sm">
-                                                Before
-                                            </span>
-                                            <div
-                                                class="slider-handle absolute top-0 left-[20%] w-1 h-full z-30 -translate-x-1/2 transition-all duration-200 ease-in-out">
-                                                <div
-                                                    class="handle-line absolute top-0 left-1/2 w-0.5 h-full bg-stroke-1 dark:bg-stroke-6 -translate-x-1/2">
-                                                </div>
-                                                <div class="w-20 h-[267px] absolute top-1/2 left-1/2 blur-[30px] -translate-x-1/2 -translate-y-1/2"
-                                                    style="background: var(--color-gradient-12)"></div>
-                                                <div
-                                                    class="handle-circle absolute top-1/2 left-1/2 w-[17px] h-[30px] py-[7px] px-[1px] bg-white dark:bg-background-8 ring-2 ring-background-9/50 dark:ring-background-7/50 backdrop-blur-[17px] rounded-[40px] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center gap-[10px] transition-all duration-200 ease-in-out hover:scale-105 hover:bg-white/90 dark:hover:bg-background-7 active:scale-110 md:w-[15px] md:h-[28px] md:py-[6px]">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16"
-                                                        viewBox="0 0 15 16" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M8.625 2.6668C8.625 3.32954 8.12132 3.8668 7.5 3.8668C6.87868 3.8668 6.375 3.32954 6.375 2.6668C6.375 2.00406 6.87868 1.4668 7.5 1.4668C8.12132 1.4668 8.625 2.00406 8.625 2.6668ZM8.625 8.00013C8.625 8.66287 8.12132 9.20013 7.5 9.20013C6.87868 9.20013 6.375 8.66287 6.375 8.00013C6.375 7.33739 6.87868 6.80013 7.5 6.80013C8.12132 6.80013 8.625 7.33739 8.625 8.00013ZM7.5 14.5335C8.12132 14.5335 8.625 13.9962 8.625 13.3335C8.625 12.6707 8.12132 12.1335 7.5 12.1335C6.87868 12.1335 6.375 12.6707 6.375 13.3335C6.375 13.9962 6.87868 14.5335 7.5 14.5335Z"
-                                                            class="fill-black dark:fill-accent" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="sr-only">Drag the slider to compare overloaded versus balanced
-                                        retail cooling.</figcaption>
-                                </figure>
-                            </article>
-
-                        </div>
-
-                        <div data-tab-content="problem-comfort" id="tab-panel-problem-comfort" role="tabpanel"
-                            aria-labelledby="tab-problem-comfort" aria-hidden="true"
-                            class="hidden w-full flex-col items-center justify-center max-lg:min-h-0 max-lg:items-stretch max-lg:justify-start">
-                            <!-- Before/after slider for technology "The Problem" tab panels -->
-                            <article class="w-full">
-                                <figure data-ns-animate data-delay="0.5" data-instant
-                                    class="problem-comparison-slider w-full mx-auto max-w-[1100px] overflow-hidden rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.1)] dark:shadow-[0_10px_30px_rgba(0,0,0,0.3)] select-none">
-                                    <div
-                                        class="problem-slider-frame relative w-full min-h-[280px] overflow-hidden rounded-[20px] sm:min-h-[360px] lg:min-h-[320px]">
-                                        <div
-                                            class="slider relative h-full w-full min-h-0 cursor-ew-resize max-lg:min-h-0 lg:min-h-[596px]">
-                                            <picture>
-                                                <source media="(max-width: 1023px)" type="image/avif"
-                                                    srcset="./images/officehumidmobile.avif" />
-                                                <source media="(max-width: 1023px)" type="image/webp"
-                                                    srcset="./images/officehumidmobile.webp" />
-                                                <source media="(max-width: 1023px)"
-                                                    srcset="./images/officehumidmobile.jpg" />
-                                                <source type="image/avif"
-                                                    srcset="./images/helixofficeheater-640.avif 640w, ./images/helixofficeheater-1280.avif 1280w, ./images/helixofficeheater.avif 2200w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <source type="image/webp"
-                                                    srcset="./images/helixofficeheater-640.webp 640w, ./images/helixofficeheater-1280.webp 1280w, ./images/helixofficeheater.webp 2200w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <img src="./images/helixofficeheater.jpg"
-                                                    alt="Before – warm, uncomfortable office workspace"
-                                                    class="before absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-10"
-                                                    loading="lazy" decoding="async"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                            </picture>
-                                            <picture>
-                                                <source media="(max-width: 1023px)" type="image/avif"
-                                                    srcset="./images/officecoolmobile.avif" />
-                                                <source media="(max-width: 1023px)" type="image/webp"
-                                                    srcset="./images/officecoolmobile.webp" />
-                                                <source media="(max-width: 1023px)"
-                                                    srcset="./images/officecoolmobile.jpg" />
-                                                <source type="image/avif"
-                                                    srcset="./images/helixofficecomfort-640.avif 640w, ./images/helixofficecomfort-1280.avif 1280w, ./images/helixofficecomfort.avif 2200w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <source type="image/webp"
-                                                    srcset="./images/helixofficecomfort-640.webp 640w, ./images/helixofficecomfort-1280.webp 1280w, ./images/helixofficecomfort.webp 2200w"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                                <img src="./images/helixofficecomfort.jpeg"
-                                                    alt="After – cool, comfortable office workspace"
-                                                    class="after absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-20"
-                                                    loading="lazy" decoding="async"
-                                                    sizes="(max-width: 1023px) 100vw, min(1100px, 100vw)" />
-                                            </picture>
-                                            <span
-                                                class="slider-label slider-label-before absolute left-0 top-0 z-[25] rounded-br-md bg-helix-blue-dark px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm pointer-events-none sm:px-3 sm:py-1.5 sm:text-sm">
-                                                After
-                                            </span>
-                                            <span
-                                                class="slider-label slider-label-after absolute right-0 top-0 z-[25] rounded-bl-md bg-helix-blue-dark px-2 py-1 text-[11px] font-semibold uppercase tracking-wider text-white backdrop-blur-sm pointer-events-none sm:px-3 sm:py-1.5 sm:text-sm">
-                                                Before
-                                            </span>
-                                            <div
-                                                class="slider-handle absolute top-0 left-[20%] w-1 h-full z-30 -translate-x-1/2 transition-all duration-200 ease-in-out">
-                                                <div
-                                                    class="handle-line absolute top-0 left-1/2 w-0.5 h-full bg-stroke-1 dark:bg-stroke-6 -translate-x-1/2">
-                                                </div>
-                                                <div class="w-20 h-[267px] absolute top-1/2 left-1/2 blur-[30px] -translate-x-1/2 -translate-y-1/2"
-                                                    style="background: var(--color-gradient-12)"></div>
-                                                <div
-                                                    class="handle-circle absolute top-1/2 left-1/2 w-[17px] h-[30px] py-[7px] px-[1px] bg-white dark:bg-background-8 ring-2 ring-background-9/50 dark:ring-background-7/50 backdrop-blur-[17px] rounded-[40px] -translate-x-1/2 -translate-y-1/2 flex items-center justify-center gap-[10px] transition-all duration-200 ease-in-out hover:scale-105 hover:bg-white/90 dark:hover:bg-background-7 active:scale-110 md:w-[15px] md:h-[28px] md:py-[6px]">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="16"
-                                                        viewBox="0 0 15 16" fill="none">
-                                                        <path fill-rule="evenodd" clip-rule="evenodd"
-                                                            d="M8.625 2.6668C8.625 3.32954 8.12132 3.8668 7.5 3.8668C6.87868 3.8668 6.375 3.32954 6.375 2.6668C6.375 2.00406 6.87868 1.4668 7.5 1.4668C8.12132 1.4668 8.625 2.00406 8.625 2.6668ZM8.625 8.00013C8.625 8.66287 8.12132 9.20013 7.5 9.20013C6.87868 9.20013 6.375 8.66287 6.375 8.00013C6.375 7.33739 6.87868 6.80013 7.5 6.80013C8.12132 6.80013 8.625 7.33739 8.625 8.00013ZM7.5 14.5335C8.12132 14.5335 8.625 13.9962 8.625 13.3335C8.625 12.6707 8.12132 12.1335 7.5 12.1335C6.87868 12.1335 6.375 12.6707 6.375 13.3335C6.375 13.9962 6.87868 14.5335 7.5 14.5335Z"
-                                                            class="fill-black dark:fill-accent" />
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <figcaption class="sr-only">Drag the slider to compare uncomfortable versus
-                                        comfortable office conditioning.</figcaption>
-                                </figure>
-                            </article>
-
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
-        <!-- actually-area area start -->
-        <section class="actually-area overflow-hidden">
-            <div class="actually-area-inner section-spacing">
-                <div class="container">
-                    <div class="bg-area"></div>
-                    <div class="space-earth-container group cursor-pointer relative z-10" style="perspective: 1000px;">
-                        <h2 class="section-title text-heading-1 font-sequelsans-romanbody t_line transition-all duration-1000 ease-out transform group-hover:scale-105 group-hover:-translate-y-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-100 via-yellow-400 to-yellow-600 drop-shadow-[0_0_15px_rgba(242,194,0,0.5)]">
-                            Designed for Space <br>
-                            <span class="text-white group-hover:text-yellow-100 transition-colors duration-700">Destined for Earth</span>
-                        </h2>
-                        <!-- Glow effect behind text -->
-                        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-yellow-500/0 group-hover:bg-yellow-500/10 blur-[60px] rounded-full transition-all duration-1000 pointer-events-none -z-10"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- actually-area area end -->
 
         <!-- =========================
 Why Choose us section
 ===========================-->
 
         <!-- make the top of the section background color to fade from white to the color its now -->
-        <section id="features"
-            class="pb-16 md:pb-26 lg:pb-30 xl:pb-38 -mt-16 md:-mt-20 lg:-mt-24 xl:-mt-100 relative overflow-hidden bg-background-8">
-            <div class="absolute top-0 left-0 w-full h-full shadow-sm"></div>
-            <div class="main-container">
-                <div
-                    class="relative overflow-hidden rounded-4xl px-6 pt-[100px] lg:px-14 bg-background-8 max-md:px-5 max-md:pt-14 max-md:pb-12">
-                    <div
-                        class="absolute -top-20 -right-40 rotate-45 w-1/3 h-1/2 bg-gradient-to-b from-helix-blue to-transparent blur-3xl">
-                    </div>
-                    <div
-                        class="absolute -bottom-20 -left-40 rotate-45 w-1/4 h-1/2 bg-gradient-to-t from-helix-blue to-transparent blur-3xl">
-                    </div>
+        <section class="max-[1920px]:px-5 py-14 md:py-24 lg:py-32 xl:py-40">
+            <div class="mx-auto max-w-[1880px] py-12 md:px-5 md:py-24 xl:py-28">
+                <div class="main-container 2xl:!max-w-[1440px]">
+                    <div class="grid grid-cols-1 gap-y-4 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+                        <div data-ns-animate data-delay="0.1"
+                            class="flex flex-col justify-between rounded-2xl bg-white dark:bg-background-8 p-8 max-md:p-6 md:col-span-2 lg:col-span-1 lg:row-span-4">
+                            <div class="space-y-6">
+                                <div>
+                                    <h6 class="text-secondary/60 dark:text-accent/60 uppercase tracking-wide">
+                                        Lowest cost per CFM
+                                    </h6>
+                                    <p class="text-secondary/80 dark:text-accent/40 text-tagline-2 mt-2">
+                                        Bring in the outdoor air ventilation you need without the massive equipment
+                                        upgrades.
+                                    </p>
+                                </div>
 
-                    <div class="relative space-y-[70px] max-md:space-y-12">
-                        <!-- heading  -->
+                                <h5 class="flex flex-wrap items-center 2xl:flex-nowrap">
+                                    <span class="font-inherit mr-1 text-inherit"> Up to </span>
+                                    <span class="font-inherit text-inherit w-2" data-counter data-number="5"
+                                        data-speed="1500" data-interval="1" data-height-space="1" data-rooms="1">
+                                        5
+                                    </span>
+                                    <span class="font-inherit text-inherit ml-1">X cheaper </span>
+                                </h5>
+                            </div>
 
-                        <div class="mb-8 md:w-full">
-                            <span data-ns-animate data-delay="0.1" data-start="top 96%"
-                                class="badge badge-gradient-helix mb-5">
-                                Key Benefits
-                            </span>
-                            <h2 data-ns-animate data-delay="0.15" data-start="top 96%" id="features-heading"
-                                class="max-w-[571px] text-white xl:text-heading-1 max-md:text-[38px] max-md:leading-[1.1]">
-                                Meet Synkyn MICRA<sup class="md:text-[40px] -mt-10">&trade;</sup>
-                            </h2>
-                            <p data-ns-animate data-delay="0.2" data-start="top 96%"
-                                class="sm:max-w-[115px] md:max-w-[490px] md:w-full text-tagline-1 text-accent/60">
-                                The filtration breakthrough powering our bolt-on solution for separating humidity from
-                                cooling. No more
-                                overcooling.
-                                Your AC works less. Your building performs better. Your equipment lives longer.
-                            </p>
+                            <div class="space-y-4">
+                                <div class="space-y-2">
+
+                                </div>
+                                <div class="group w-full sm:w-auto mt-4">
+                                    <div
+                                        class="group/btn-v2 !w-full mx-auto inline-block w-[85%] rounded-full transition-transform duration-500 ease-in-out md:mx-0 md:w-auto">
+                                        <a href="./contact.html"
+                                            class="btn-xl-v2 btn-secondary-v2 group-hover/btn-v2:btn-primary-v2 !w-full bg-helix-blue text-white rounded-full py-3 hover:bg-blue-700 transition mx-auto inline-flex h-12 w-full cursor-pointer items-center justify-center gap-1.5 rounded-full text-center font-medium text-nowrap lowercase transition-all duration-500 ease-in-out md:mx-0 md:h-auto md:w-auto">
+                                            <span
+                                                class="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase">Connect
+                                            </span>
+
+                                            <div class="relative size-6 overflow-hidden">
+                                                <!-- one  -->
+                                                <span
+                                                    class="btn-v2-icon absolute inset-0 size-6 -translate-x-6 transition-all duration-300 ease-in-out group-hover/btn-v2:translate-x-1">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                        <path d="M11 5H13V7H11V5Z" />
+                                                        <path d="M5 5H7V7H5V5Z" />
+                                                        <path d="M14 8H16V10H14V8Z" />
+                                                        <path d="M8 8H10V10H8V8Z" />
+                                                        <path d="M17 11H19V13H17V11Z" />
+                                                        <path d="M11 11H13V13H11V11Z" />
+                                                        <path d="M14 14H16V16H14V14Z" />
+                                                        <path d="M8 14H10V16H8V14Z" />
+                                                        <path d="M11 17H13V19H11V17Z" />
+                                                        <path d="M5 17H7V19H5V17Z" />
+                                                    </svg>
+                                                </span>
+
+                                                <!-- two  -->
+                                                <span
+                                                    class="btn-v2-icon absolute size-6 -translate-x-2 transition-all duration-300 ease-in-out group-hover/btn-v2:translate-x-6">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                        <path d="M11 5H13V7H11V5Z" />
+                                                        <path d="M5 5H7V7H5V5Z" />
+                                                        <path d="M14 8H16V10H14V8Z" />
+                                                        <path d="M8 8H10V10H8V8Z" />
+                                                        <path d="M17 11H19V13H17V11Z" />
+                                                        <path d="M11 11H13V13H11V11Z" />
+                                                        <path d="M14 14H16V16H14V14Z" />
+                                                        <path d="M8 14H10V16H8V14Z" />
+                                                        <path d="M11 17H13V19H11V17Z" />
+                                                        <path d="M5 17H7V19H5V17Z" />
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
 
-                        <!-- feature list with img  -->
-                        <div
-                            class="mx-auto flex max-w-[1200px] flex-col items-center gap-10 lg:flex-row lg:gap-0 justify-between max-md:grid max-md:grid-cols-2 max-md:gap-x-5 max-md:gap-y-7 max-md:items-start">
-                            <!-- left side features  -->
-                            <div
-                                class="order-first mt-4 flex w-full flex-col gap-8 px-2 sm:mt-0 sm:px-0 md:flex-row md:pb-10 lg:max-w-[300px] lg:flex-col max-md:contents">
-                                <!-- feature one  -->
-                                <div data-ns-animate data-delay="0.25" data-start="top 94%" data-direction="left"
-                                    data-offset="100" class="space-y-2 md:max-lg:max-w-[200px] md:space-y-3">
-                                    <div class="inline-block overflow-hidden">
-                                        <img src="./images/icons/helix-fresh-air.svg" alt="Fresh Air, No Humidity"
-                                            class="w-full h-[28px] object-cover object-center">
-                                        <!-- <span class="ns-shape-13 text-accent text-[36px]"> </span> -->
-                                    </div>
+                        <div data-ns-animate data-delay="0.2"
+                            class="item-center flex flex-col justify-center rounded-2xl bg-gradient-to-b from-helix-blue to-cyan-400 p-8 max-md:p-6 lg:col-span-1 lg:row-span-1 relative overflow-hidden">
+                            <svg class="absolute -right-6 -bottom-6 opacity-20 w-32 h-32 text-white" fill="currentColor"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.59 6.5 22.08 12 22.08C17.5 22.08 22 17.59 22 12.06C22 6.53 17.5 2.04 12 2.04ZM12 20.04C7.6 20.04 4.04 16.48 4.04 12.06C4.04 7.64 7.6 4.08 12 4.08C16.4 4.08 19.96 7.64 19.96 12.06C19.96 16.48 16.4 20.04 12 20.04ZM12 6.06C8.68 6.06 6 8.74 6 12.06C6 15.38 8.68 18.06 12 18.06C15.32 18.06 18 15.38 18 12.06C18 8.74 15.32 6.06 12 6.06Z" />
+                            </svg>
+                            <div class="text-center relative z-10">
+                                <h3 class="flex items-center justify-center text-white mb-2">
+                                    <span class="font-inherit text-inherit" data-counter data-number="100"
+                                        data-speed="1500" data-interval="10" data-height-space="2.0" data-rooms="3">
+                                        100
+                                    </span>
+                                    <span class="font-inherit text-inherit">%</span>
+                                </h3>
+                                <h5 class="text-white mb-2">Better performance from what you already own</h5>
+                                <p class="text-white/80 text-tagline-4">
+                                    Less strain means fewer breakdowns, longer life, and lower maintenance costs.
+                                </p>
+                            </div>
+                        </div>
 
-                                    <div>
-                                        <h3 id="passcode-policy-heading" class="text-heading-6 text-accent font-medium">
-                                            Fresh Air, No Humidity
-                                        </h3>
-                                        <p class="text-tagline-1 text-accent/70">
-                                            Bring in more outdoor air without the humidity penalty. Lower CO2, eliminate
-                                            odors, and stop mold before it starts.
-                                        </p>
-                                    </div>
+                        <div data-ns-animate data-delay="0.3"
+                            class="flex flex-col items-center justify-center rounded-2xl bg-white dark:bg-background-8 p-8 max-md:p-6 lg:col-span-1 lg:row-span-1">
+                            <div class="flex flex-col items-center justify-center">
+                                <div class="bg-green-100 dark:bg-green-900/40 p-4 rounded-full mb-4">
+                                    <svg class="w-10 h-10 text-green-600 dark:text-green-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
                                 </div>
+                                <div class="text-center">
+                                    <h5 class="flex items-center justify-center mb-1">
+                                        Day-One
 
-                                <!-- feature two  -->
-                                <div data-ns-animate data-delay="0.3" data-start="top 94%" data-direction="left"
-                                    data-offset="100" class="space-y-2 md:max-lg:max-w-[200px] md:space-y-3">
-                                    <div class="inline-block overflow-hidden">
-                                        <!-- <span class="ns-shape-41 text-accent text-[36px]"> </span> -->
-                                        <img src="./images/icons/helix-equipment-lasts.svg" alt="Equipment That Lasts"
-                                            class="w-full h-[36px] object-cover object-center">
-                                    </div>
-
-                                    <div>
-                                        <h3 id="kiosk-mode-heading" class="text-heading-6 text-accent font-medium">
-                                            Equipment That Lasts
-                                        </h3>
-                                        <p class="text-tagline-1 text-accent/70">
-                                            Synkyn Studios strips moisture before it reaches your AC. Less strain on
-                                            compressors. Fewer breakdowns. Longer equipment life.
-                                        </p>
-                                    </div>
+                                    </h5>
+                                    <p class="text-secondary/60 dark:text-accent/60 text-tagline-4">Energy Savings</p>
+                                    <p class="text-secondary/40 dark:text-accent/40 text-tagline-4 mt-2">
+                                        We remove moisture before cooling starts.
+                                    </p>
                                 </div>
+                            </div>
+                        </div>
 
-                                <!-- feature three  -->
-                                <div data-ns-animate data-delay="0.35" data-start="top 94%" data-direction="left"
-                                    data-offset="100" class="space-y-2 md:max-lg:max-w-[200px] md:space-y-3">
-                                    <div class="inline-block overflow-hidden">
-                                        <!-- <span class="ns-shape-52 text-accent text-[36px]"> </span> -->
-                                        <img src="./images/icons/helix-lower-energy-cost.svg"
-                                            alt="Lower Energy Bills From Day One"
-                                            class="w-full h-[36px] object-cover object-center">
-                                    </div>
+                        <div data-ns-animate data-delay="0.4"
+                            class="flex flex-col items-center justify-center rounded-2xl bg-gray-50 dark:bg-background-9 p-8 max-md:p-6 md:col-span-2 lg:col-span-1 lg:row-span-3 lg:min-h-[361px] relative">
+                            <svg class="absolute top-6 left-6 w-12 h-12 text-gray-200 dark:text-white/10"
+                                fill="currentColor" viewBox="0 0 32 32">
+                                <path
+                                    d="M10 8c-3.3 0-6 2.7-6 6v10h10V14H8c0-2.2 1.8-4 4-4V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8z" />
+                            </svg>
+                            <div class="text-center relative z-10 space-y-4">
+                                <h5 class="italic text-secondary dark:text-accent">
+                                    "Your rooftop units have years left. Let them run. We'll handle the humidity
+                                    upstream."
+                                </h5>
+                                <p class="text-secondary/60 dark:text-accent/60 text-tagline-3 uppercase mt-4">
+                                    — No equipment replacement needed
+                                </p>
+                            </div>
+                        </div>
 
-                                    <div>
-                                        <h3 id="sync-heading" class="text-heading-6 text-accent font-medium">
-                                            Lower Energy Bills From Day One
-                                        </h3>
-                                        <p class="text-tagline-1 text-accent/70 w-full max-w-[325px]">
-                                            When humidity is handled separately, your AC uses dramatically less energy.
+                        <div data-ns-animate data-delay="0.1" data-start="top 98%"
+                            class="relative flex flex-col justify-center rounded-2xl bg-white dark:bg-background-8 p-8 max-md:p-6 md:col-span-3 lg:col-span-2 lg:row-span-6 lg:min-h-[452px] overflow-hidden">
+                            <!-- Video background (no grey overlay) -->
+                            <div class="absolute inset-0 z-0 overflow-hidden rounded-2xl">
+                                <video src="./video/HEHomeVid.mp4"
+                                    class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+                                    autoplay loop muted playsinline aria-label="Synkyn Studios background"></video>
+                                <div
+                                    class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/50 pointer-events-none">
+                                </div>
+                            </div>
+
+                            <div class="relative z-10 space-y-6 text-center">
+
+                                <div>
+                                    <h2 class="text-secondary dark:text-accent max-md:text-[38px] max-md:leading-[1.1]">
+                                        <span
+                                            class="text-transparent bg-clip-text bg-gradient-to-r from-helix-blue to-cyan-400">Helix
+                                            MICRA™</span>
+                                        <br class="hidden lg:block" />
+                                        The Retrofit Answer
+                                    </h2>
+                                    <div class="px-4 md:px-16 flex items-center justify-center pt-4">
+                                        <p class="text-secondary dark:text-accent">
+                                            Our systems work alongside your existing HVAC, handling what it can’t, so it
+                                            can
+                                            finally do what it does best.
                                         </p>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <!-- feature video  -->
-                            <figure data-ns-animate data-delay="0.25" data-start="top 96%" data-offset="100"
-                                class="order-last w-[500px] h-[600px] flex-shrink-0 overflow-hidden rounded-lg md:-mb-[70px] lg:order-none lg:mt-10 xl:mt-0 xl:-mb-0 max-md:w-full max-md:h-auto max-md:max-w-[380px] max-md:aspect-[5/6] max-md:mx-auto max-md:rounded-2xl max-md:col-span-2 max-md:order-first max-md:mb-2">
-                                <video id="why-choice-us-video" src="./video/meethelixmicralight.mp4"
-                                    class="size-full object-cover object-[50%_40%]" muted playsinline
-                                    aria-label="Helix Micra product video"></video>
-                            </figure>
-
-                            <!-- right side feature  -->
+                        <div data-ns-animate data-delay="0.1" data-start="top 97%"
+                            class="bg-gray-900 dark:bg-background-8 flex flex-col items-center justify-center rounded-2xl p-8 max-md:p-6 lg:col-span-1 lg:row-span-2 lg:min-h-[226px] relative overflow-hidden">
                             <div
-                                class="flex w-full flex-col gap-8 px-2 sm:px-0 md:mb-10 md:flex-row lg:ml-4 lg:flex-col xl:ml-0 xl:max-w-[300px] max-md:contents">
-                                <!-- feature one  -->
-                                <div data-ns-animate data-delay="0.25" data-start="top 94%" data-direction="right"
-                                    data-offset="100" class="space-y-2 md:max-lg:max-w-[200px] md:space-y-3">
-                                    <div class="inline-block overflow-hidden">
-                                        <!-- <span class="ns-shape-35 text-accent text-[36px]"> </span> -->
-                                        <img src="./images/icons/helix-code-ready.svg" alt="Code-Ready Ventilation"
-                                            class="w-full h-[36px] object-cover object-center">
-                                    </div>
+                                class="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiNmZmYiLz48L3N2Zz4=')]">
+                            </div>
+                            <div class="text-center relative z-10">
+                                <svg class="w-10 h-10 text-cyan-400 mx-auto mb-4" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z">
+                                    </path>
+                                </svg>
+                                <h5 class="text-white">Meet compliance without tearing everything out.</h5>
+                            </div>
+                        </div>
 
-                                    <div>
-                                        <h3 id="app-listing-heading" class="text-heading-6 text-accent font-medium">
-                                            Code-Ready Ventilation
-                                        </h3>
-                                        <p class="text-tagline-1 text-accent/70">
-                                            Meet ASHRAE outdoor air requirements for up to 5x less cost than other
-                                            systems.
-                                        </p>
+                        <div data-ns-animate data-delay="0.1" data-start="top 95%"
+                            class="flex flex-col justify-between rounded-2xl bg-white dark:bg-background-8 p-8 max-md:p-6 md:col-span-2 lg:col-span-1 lg:row-span-4">
+                            <div class="text-center">
+                                <p class="text-secondary/60 dark:text-accent/60 text-tagline-4 uppercase">Deployment</p>
+                                <p class="text-secondary/60 dark:text-accent/60 text-tagline-4">
+                                    No need to re-eningeer the roof
+                                </p>
+                            </div>
+                            <div class="space-y-4 text-center my-6">
+                                <div class="flex items-center justify-center max-[375px]:flex-col">
+                                    <div
+                                        class="relative flex items-center justify-center w-24 h-24 rounded-full bg-blue-50 dark:bg-background-9 border-4 border-blue-100 dark:border-stroke-7 text-blue-600 dark:text-blue-400 font-bold text-heading-2">
+                                        0
                                     </div>
                                 </div>
+                                <h5 class="text-secondary dark:text-accent">Fast install, zero downtime</h5>
+                            </div>
+                            <div class="text-center">
+                                <p class="text-secondary/60 dark:text-accent/60 text-tagline-4">
+                                    Install in hours. Light weight. No roof reinforcement. No weeks-long shutdowns.
+                                </p>
+                            </div>
+                        </div>
 
-                                <!-- feature two  -->
-                                <div data-ns-animate data-delay="0.3" data-start="top 94%" data-direction="right"
-                                    data-offset="100" class="space-y-2 md:max-lg:max-w-[200px] md:space-y-3">
-                                    <div class="inline-block overflow-hidden">
-                                        <!-- <span class="ns-shape-34 text-accent text-[36px]"> </span> -->
-                                        <img src="./images/icons/helix-bolt-on.svg" alt="Bolt-On, Not Rip-and-Replace"
-                                            class="w-full h-[36px] object-cover object-center">
-                                    </div>
+                        <div data-ns-animate data-delay="0.3" data-start="top 80%"
+                            class="flex flex-col items-center justify-center rounded-2xl bg-gray-50 dark:bg-background-9 p-8 max-md:p-6 lg:col-span-1 lg:row-span-3 lg:min-h-[361px]">
+                            <div class="text-center space-y-4">
+                                <div class="bg-white dark:bg-background-8 p-4 rounded-full inline-block mb-2">
+                                    <svg class="w-8 h-8 text-blue-500 dark:text-blue-400" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4">
+                                        </path>
+                                    </svg>
+                                </div>
+                                <h5 class="text-secondary dark:text-accent">
+                                    Built for buildings with unitary packaged cooling facing energy regulations.
+                                </h5>
+                                <p class="text-secondary/60 dark:text-accent/60 text-tagline-3">
+                                    Your compressors work easier compared to using your RTU for the same ventilation
+                                    levels.
+                                </p>
+                            </div>
+                        </div>
 
-                                    <div>
-                                        <h3 id="wifi-settings-heading" class="text-heading-6 text-accent font-medium">
-                                            Bolt-On, Not Rip-and-Replace
-                                        </h3>
-                                        <p class="text-tagline-1 text-accent/70">
-                                            Retrofit onto existing rooftop units with no major construction and no
-                                            downtime.
-                                        </p>
-                                    </div>
+                        <div data-ns-animate data-delay="0.2" data-start="top 96%"
+                            class="flex flex-col items-center justify-center space-y-6 rounded-2xl bg-white dark:bg-background-8 p-8 max-md:p-6 lg:col-span-1 lg:row-span-1">
+                            <div class="flex items-center justify-center">
+                                <p class="text-tagline-1 text-secondary dark:text-accent font-normal text-center">
+                                    HVAC Strain Reduction
+                                </p>
+
+                            </div>
+
+                            <span class="flex items-center justify-center text-green-600 dark:text-green-400">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                    class="lucide lucide-arrow-down-to-line">
+                                    <path d="M12 5V19M12 19L5 12M12 19L19 12" />
+                                </svg>
+
+                            </span>
+                        </div>
+
+                        <div data-ns-animate data-delay="0.3" data-start="top 96%"
+                            class="flex flex-col items-center justify-center space-y-6 rounded-2xl bg-white dark:bg-background-8 p-8 max-md:p-6 lg:col-span-1 lg:row-span-1">
+                            <div class="w-full space-y-3 text-center">
+                                <div class="flex items-center justify-center gap-2">
+                                    <span
+                                        class="bg-green-100 dark:bg-green-900/40 flex size-[20px] items-center justify-center rounded-full p-1 text-green-600 dark:text-green-400">
+                                        <!-- add a check icon -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check">
+                                            <path d="M20 6 9 17l-5-5" />
+                                        </svg>
+                                    </span>
+
+                                </div>
+                                <div>
+                                    <h5
+                                        class="flex items-center justify-center text-secondary dark:text-accent md:flex-wrap 2xl:flex-nowrap">
+                                        Works anywhere there is humidity, inside or outside
+                                    </h5>
                                 </div>
 
-                                <!-- feature three  -->
-                                <div data-ns-animate data-delay="0.35" data-start="top 94%" data-direction="right"
-                                    data-offset="100" class="space-y-2 md:max-lg:max-w-[200px] md:space-y-3">
-                                    <div class="inline-block overflow-hidden">
-                                        <!-- <span class="ns-shape-27 text-accent text-[36px]"> </span> -->
-                                        <img src="./images/icons/helix-nasa.svg" alt="Built on NASA Technology"
-                                            class="w-full h-[12px] object-cover object-center opacity-70">
-                                    </div>
-
-                                    <div>
-                                        <h3 id="remote-wipe-heading" class="text-heading-6 text-accent font-medium">
-                                            Built on <span
-                                                class="text-transparent bg-clip-text bg-gradient-to-r to-cyan-500 from-helix-blue">NASA</span>
-                                            Technology
-                                        </h3>
-                                        <p class="text-tagline-1 text-accent/70 w-full max-w-[245px]">
-                                            Engineered from technology originally developed for spacecraft life support
-                                            and
-                                            proven under extreme conditions.
-                                        </p>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1622,7 +2083,7 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
 Use Cases – Why Synkyn Studios Technology Changes Everything for HVAC
 ===========================-->
         <section id="process-steps-v2-root"
-            class="relative pt-32 pb-14 sm:pt-36 md:pt-42 md:pb-16 lg:pb-[88px] xl:pt-[180px] xl:pb-[100px] bg-background-1 dark:bg-helix-blue-dark space-y-[70px] max-md:space-y-12">
+            class="relative pt-32 pb-14 sm:pt-36 md:pt-42 md:pb-16 lg:pb-[88px] xl:pt-[180px] xl:pb-[100px] space-y-[70px] max-md:space-y-12">
             <div class="main-container space-y-[70px] max-md:space-y-12">
                 <div class="space-y-5 max-w-[804px] mx-auto text-center">
                     <span data-ns-animate data-delay="0.1" class="badge badge-gradient-purple capitalize">Use
@@ -1784,9 +2245,9 @@ Feature section
                         </div>
                         <div data-ns-animate data-delay="0.6"
                             class="data-visualization-feature-button mt-11 md:mt-[70px]">
-                            <a href="#"
+                            <a href="./contact.html"
                                 class="text-tagline-2 btn btn-secondary btn-md dark:btn-transparent hover:btn-white mx-auto w-[90%] font-medium md:mx-0 md:w-auto">
-                                <span>Join the Waitlist</span>
+                                <span>Connect</span>
                             </a>
                         </div>
                     </div>
@@ -1890,7 +2351,7 @@ Highlights section — Apple-inspired: soft depth, generous space, minimal divid
         <!-- =========================
 How It's Work section
 ===========================-->
-        <section class="py-20 md:py-28 lg:py-34 xl:py-39 bg-background-3 dark:bg-helix-blue-dark-1">
+        <section class="py-20 md:py-28 lg:py-34 xl:py-39">
             <div class="main-container">
                 <div class="mb-10 text-center md:mb-11 lg:mx-auto lg:max-w-[730px]">
                     <span data-ns-animate data-delay="0.1" class="badge badge-gradient-helix mb-4 capitalize">Beyond
@@ -2115,7 +2576,7 @@ How It's Work section
         <!-- =========================
 Blog section
 ===========================-->
-        <section class="md:py-[100px] py-20 bg-background-2 dark:bg-helix-blue-dark-2">
+        <section class="md:py-[100px] py-20">
             <div class="main-container">
                 <div class="text-center space-y-5 md:mb-[70px] mb-10">
                     <span data-ns-animate data-delay="0.1"
@@ -2390,10 +2851,7 @@ Blog section
             </div>
         </section>
 
-        <!-- =========================
-CTA v2 section
-===========================-->
-        <section class="py-16 md:py-20 lg:py-28 dark:bg-helix-blue-dark-2 bg-white" aria-label="Use Case Overview">
+        <section class="py-16 md:py-20 lg:py-28" aria-label="Use Case Overview">
             <div class="main-container">
                 <div class="flex items-center flex-col lg:flex-row justify-between">
                     <div class="xl:max-w-[650px] lg:max-w-[476px] w-full space-y-5 text-center lg:text-left">
@@ -2458,9 +2916,6 @@ CTA v2 section
             </div>
         </section>
     </main>
-    <!-- =========================
-Footer 
-===========================-->
     <footer class="bg-secondary dark:bg-background-8 {=$class} relative overflow-hidden">
         <style></style>
 
@@ -2468,6 +2923,12 @@ Footer
         <figure data-ns-animate data-delay="0.4" data-duration="0.8" data-direction="right" data-offset="400"
             class="{=$hide-gradient} pointer-events-none absolute top-[-17%] right-[-64%] size-[550px] rotate-[-30deg] bg-top-right select-none max-[376px]:right-[-83%] md:top-[-25%] md:right-[-30%] lg:right-[-19%] xl:top-[-32%] xl:right-[-9%]">
             <div class="footer-gradient-blob size-full"></div>
+        </figure>
+
+        <!-- bottom right gradient -->
+        <figure data-ns-animate data-delay="0.4" data-duration="0.8" data-direction="right" data-offset="400"
+            class="{=$hide-gradient} pointer-events-none absolute bottom-[-17%] right-[-64%] size-[550px] rotate-[30deg] bg-bottom-right select-none max-[376px]:right-[-83%] md:bottom-[-25%] md:right-[-30%] lg:right-[-19%] xl:bottom-[-32%] xl:right-[-9%]">
+            <div class="footer-gradient-blob footer-gradient-blob--bottom-right size-full"></div>
         </figure>
 
         <!-- left gradient -->
@@ -2615,7 +3076,276 @@ Footer
     <div id="sticky-bar" data-gradual-blur data-target="page" data-position="bottom" data-height="7rem"
         data-strength="2" data-div-count="5" data-curve="bezier" data-exponential="true" data-opacity="1"
         data-z-index="50" data-duration="0.3s" data-easing="ease-out" data-show-on-scroll="50"></div>
-<script src="./assets/fx.js"></script>
+    <script src="./assets/fx.js"></script>
+
+    <!-- ===== Mobile Roadway: scroll animation + popup logic ===== -->
+    <script>
+        (function () {
+            if (window.innerWidth >= 768) return;
+
+            const roadway = document.getElementById('mobile-roadway');
+            const progress = document.getElementById('roadway-progress');
+            const stops = roadway ? roadway.querySelectorAll('.roadway-stop') : [];
+            const dots = roadway ? roadway.querySelectorAll('.roadway-dot') : [];
+            const overlay = document.getElementById('roadway-modal-overlay');
+            const modal = document.getElementById('roadway-modal');
+            const closeBtn = document.getElementById('roadway-modal-close-btn');
+            const modalBody = document.getElementById('roadway-modal-body');
+
+            // Card data for popups
+            const cardData = [
+                {
+                    title: 'AI Film Production',
+                    desc: 'Full sequences, set extensions, and period-accurate worlds — previs to final pixel, built shot by shot with cinematic continuity.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'Ad Films & Campaigns',
+                    desc: 'Agency-polish product films, automotive and FMCG spots, and platform-native cutdowns — delivered in days, not production quarters.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'Key Art & Motion Posters',
+                    desc: 'Theatrical-grade posters and looping motion key art with controlled palettes, real typography space, and print-ready detail.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'Storyboards & Previs',
+                    desc: 'Director-ready boards and animatics that lock blocking, lensing, and tone before a single crew call is made.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'VFX & Set Extension',
+                    desc: 'Generative plates, crowd and environment extension, cleanup, and style-consistent fixes that cut into live-action invisibly.',
+                    img: './images/noise.webp',
+                    bullets: []
+                },
+                {
+                    title: 'Look Development',
+                    desc: 'Custom visual languages for brands and films — palettes, grain, halation, and grade recipes the models obey across every shot.',
+                    img: './images/noise.webp',
+                    bullets: []
+                }
+            ];
+
+            // Scroll-driven dot activation + progress bar
+            function onScroll() {
+                if (!roadway) return;
+                var rect = roadway.getBoundingClientRect();
+                var roadwayTop = rect.top;
+                var roadwayH = rect.height;
+                var viewH = window.innerHeight;
+                var scrolled = (viewH * 0.5 - roadwayTop) / roadwayH;
+                scrolled = Math.max(0, Math.min(1, scrolled));
+                if (progress) progress.style.height = (scrolled * 100) + '%';
+
+                dots.forEach(function (dot, i) {
+                    var stopRect = stops[i].getBoundingClientRect();
+                    var stopCenter = stopRect.top + stopRect.height / 2;
+                    if (stopCenter < viewH * 0.65) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+            window.addEventListener('scroll', onScroll, { passive: true });
+            onScroll();
+
+            // Open popup
+            function openModal(index) {
+                var d = cardData[index];
+                if (!d) return;
+                var html = '';
+                html += '<h4>' + d.title + '</h4>';
+                html += '<p class="modal-desc">' + d.desc + '</p>';
+                html += '<img class="modal-img" src="' + d.img + '" alt="' + d.title + '" />';
+                html += '<ul>';
+                d.bullets.forEach(function (b) { html += '<li>' + b + '</li>'; });
+                html += '</ul>';
+                modalBody.innerHTML = html;
+                overlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Close popup
+            function closeModal() {
+                overlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+
+            // Attach click to each stop
+            stops.forEach(function (stop) {
+                stop.addEventListener('click', function () {
+                    var idx = parseInt(stop.getAttribute('data-card'), 10);
+                    openModal(idx);
+                });
+            });
+
+            // Close on X button
+            if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+            // Close on overlay click (anywhere outside modal)
+            if (overlay) overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) closeModal();
+            });
+
+            // Close on Escape key
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape') closeModal();
+            });
+        })();
+    </script>
+    <!-- Inline GSAP animation for Designed for Space section -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+                gsap.to("#space-earth-text", {
+                    backgroundPosition: "0% 0",
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".space-earth-container",
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        scrub: 1
+                    }
+                });
+            }
+        });
+    </script>
+
+    <!-- Custom Video Controls Logic -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const video = document.getElementById("modal-video");
+            const playBtn = document.getElementById("custom-play-pause");
+            const muteBtn = document.getElementById("custom-mute");
+            const volumeSlider = document.getElementById("custom-volume");
+            const fullscreenBtn = document.getElementById("custom-fullscreen");
+            const progressContainer = document.getElementById("custom-progress-container");
+            const progressBar = document.getElementById("custom-progress-bar");
+            const timeDisplay = document.getElementById("custom-time-display");
+
+            if (!video || !playBtn) return;
+
+            // Format time
+            const formatTime = (time) => {
+                if (isNaN(time)) return "0:00";
+                const m = Math.floor(time / 60);
+                const s = Math.floor(time % 60);
+                return m + ":" + (s < 10 ? "0" + s : s);
+            };
+
+            // Play/Pause
+            const togglePlay = () => {
+                if (video.paused) {
+                    video.play();
+                    playBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>';
+                } else {
+                    video.pause();
+                    playBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+                }
+            };
+            playBtn.addEventListener("click", (e) => { e.stopPropagation(); togglePlay(); });
+            video.addEventListener("click", togglePlay);
+
+            // Mute/Volume Logic
+            let lastVolume = 1.0;
+
+            const updateVolumeUI = () => {
+                const isMuted = video.muted || video.volume === 0;
+                const currentVol = isMuted ? 0 : video.volume;
+                if (volumeSlider) {
+                    volumeSlider.value = currentVol;
+                }
+
+                if (isMuted) {
+                    muteBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><line x1="23" y1="9" x2="17" y2="15"></line><line x1="17" y1="9" x2="23" y2="15"></line></svg>';
+                } else if (currentVol <= 0.5) {
+                    muteBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>';
+                } else {
+                    muteBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path></svg>';
+                }
+            };
+
+            muteBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (video.muted || video.volume === 0) {
+                    video.muted = false;
+                    video.volume = lastVolume > 0 ? lastVolume : 1.0;
+                } else {
+                    lastVolume = video.volume;
+                    video.muted = true;
+                }
+            });
+
+            if (volumeSlider) {
+                volumeSlider.addEventListener("input", (e) => {
+                    e.stopPropagation();
+                    const val = parseFloat(e.target.value);
+                    video.volume = val;
+                    if (val > 0) {
+                        video.muted = false;
+                        lastVolume = val;
+                    } else {
+                        video.muted = true;
+                    }
+                });
+
+                volumeSlider.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                });
+            }
+
+            video.addEventListener("volumechange", updateVolumeUI);
+            updateVolumeUI();
+
+            // Time Update
+            video.addEventListener("timeupdate", () => {
+                if (!video.duration) return;
+                const percent = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = percent + "%";
+                timeDisplay.textContent = formatTime(video.currentTime) + " / " + formatTime(video.duration);
+            });
+
+            // Handle metadata load to set initial time
+            video.addEventListener("loadedmetadata", () => {
+                timeDisplay.textContent = "0:00 / " + formatTime(video.duration);
+            });
+
+            // Seek
+            progressContainer.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (!video.duration) return;
+                const rect = progressContainer.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                video.currentTime = pos * video.duration;
+            });
+
+            // Fullscreen
+            fullscreenBtn.addEventListener("click", (e) => {
+                e.stopPropagation();
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                }
+            });
+
+            // Add a hook to pause video when modal is closed via existing function
+            const originalClose = window.closeVideoModal;
+            window.closeVideoModal = function () {
+                if (originalClose) originalClose();
+                video.pause();
+                playBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
+            };
+        });
+    </script>
 </body>
 
 </html>
