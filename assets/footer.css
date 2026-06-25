@@ -201,18 +201,29 @@ footer.site-footer {
     margin-top: 106px;
 }
 
+@media (max-width: 767px) {
+    .site-footer .footer-links-grid {
+        margin-top: 3.5rem;
+    }
+}
+
 @media (max-width: 639px) {
     .site-footer .footer-links-grid {
-        grid-template-columns: 1fr;
-        gap: 2.5rem 0;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 1rem;
+        margin-top: 2.5rem;
+    }
+    .site-footer .footer-col:last-child {
+        grid-column: span 2;
     }
 }
 
 .site-footer .footer-col-title {
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--color-primary-50);
-    font-weight: 500;
-    margin-bottom: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
 }
 
 .site-footer .footer-nav {
