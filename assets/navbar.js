@@ -46,10 +46,8 @@
             <nav class="mobile-menu-links">
                 <a href="./" class="mobile-menu-link" data-path="index.html">Home</a>
                 <a href="./about-us.html" class="mobile-menu-link" data-path="about-us.html">About Us</a>
-                <a href="./#features" class="mobile-menu-link" data-path="index.html#features">Our Product</a>
-                <a href="./why-retrofit.html" class="mobile-menu-link" data-path="why-retrofit.html">Retrofit Advantage</a>
+                <a href="./album.html" class="mobile-menu-link" data-path="album.html">Gallery</a>
                 <a href="./about-us.html#team" class="mobile-menu-link" data-path="about-us.html#team">Our Team</a>
-                <a href="https://synkynstudios.printful.me" target="_blank" rel="noopener noreferrer" class="mobile-menu-link">Store</a>
                 <a href="./contact.html" class="mobile-menu-link" data-path="contact.html">Contact</a>
             </nav>
 
@@ -282,7 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             }
-        } catch(e) {}
+        } catch (e) { }
     }
 
     // Scroll on page load
@@ -297,10 +295,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Intercept clicks on anchor tags pointing to the same page
     document.querySelectorAll('a[href^="about-us.html#"], a[href^="#"]').forEach(a => {
-        a.addEventListener('click', function(e) {
+        a.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
             let targetHash = '';
-            
+
             if (href.startsWith('#')) {
                 targetHash = href;
             } else if (href.startsWith('about-us.html#') && window.location.pathname.includes('about-us.html')) {

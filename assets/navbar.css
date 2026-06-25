@@ -8,14 +8,17 @@
    DESKTOP (>= 1280px) — keep the existing floating pill behaviour untouched
    -------------------------------------------------------------------------- */
 .header-two {
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    will-change: transform;
+    transition: top 0.5s ease-in-out, opacity 0.4s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    will-change: transform, opacity, top;
     z-index: 99999 !important;
+    opacity: 1;
 }
 
-/* Desktop hidden state: translated upward out of view, keeping centering */
+/* Desktop hidden state: faded out, keeping centering */
 .header-two.nav-hidden {
-    transform: translate3d(-50%, -200px, 0) !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translate3d(-50%, 0, 0) !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -66,6 +69,7 @@
     /* Hidden state — slide the whole bar up out of view (no display:none) */
     body header .header-two.nav-hidden {
         transform: translate3d(0, -100%, 0) !important;
+        opacity: 1 !important;
     }
 
     /* Logo — clear, correctly sized, left aligned */

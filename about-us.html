@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
+<!-- Synkyn Studios: About Us Page -->
 
 <head>
     <meta charset="utf-8" />
@@ -55,61 +55,59 @@
     <link as="font" crossorigin="" href="./fonts/inter-tight-latin-normal.woff2" rel="preload" type="font/woff2" />
     <link as="font/woff2" crossorigin="" href="./fonts/inter-tight-latin-italic.woff2" rel="preload" />
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "@id": "https://synkynstudios.com/#organization",
-      "name": "Synkyn Studios",
-      "legalName": "Synkyn Studios Inc.",
-      "alternateName": "Synkyn Studios",
-      "url": "https://synkynstudios.com",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://synkynstudios.com/images/og-preview.png",
-        "width": 1200,
-        "height": 630
-      },
-      "description": "Synkyn Studios makes Synkyn MICRA — a bolt-on HVAC retrofit system that removes humidity, pre-conditions outdoor air, and cuts energy use by up to 30% for commercial buildings without replacing existing equipment.",
-      "foundingDate": "2023",
-      "industry": "Climate Technology / HVAC",
-      "knowsAbout": [
-        "Commercial HVAC systems",
-        "Humidity control",
-        "Indoor air quality",
-        "Energy efficiency",
-        "NASA desiccant technology",
-        "ASHRAE 62.1 ventilation compliance"
-      ],
-      "sameAs": [
-        "https://www.linkedin.com/company/helix-earth"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "url": "https://synkynstudios.com/contact.html",
-        "availableLanguage": "English"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://synkynstudios.com/#organization",
+            "name": "Synkyn Studios",
+            "legalName": "Synkyn Studios Inc.",
+            "alternateName": "Synkyn Studios",
+            "url": "https://synkynstudios.com",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://synkynstudios.com/images/og-preview.png",
+              "width": 1200,
+              "height": 630
+            },
+            "description": "Synkyn Studios makes Synkyn MICRA — a bolt-on HVAC retrofit system that removes humidity, pre-conditions outdoor air, and cuts energy use by up to 30% for commercial buildings without replacing existing equipment.",
+            "foundingDate": "2023",
+            "industry": "Climate Technology / HVAC",
+            "knowsAbout": [
+              "Commercial HVAC systems",
+              "Humidity control",
+              "Indoor air quality",
+              "Energy efficiency",
+              "NASA desiccant technology",
+              "ASHRAE 62.1 ventilation compliance"
+            ],
+            "sameAs": ["https://www.linkedin.com/company/helix-earth"],
+            "contactPoint": {
+              "@type": "ContactPoint",
+              "contactType": "sales",
+              "url": "https://synkynstudios.com/contact.html",
+              "availableLanguage": "English"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://synkynstudios.com/#website",
+            "url": "https://synkynstudios.com",
+            "name": "Synkyn Studios",
+            "description": "Bolt-on HVAC retrofit that cuts humidity, energy use, and equipment wear for commercial buildings.",
+            "publisher": { "@id": "https://synkynstudios.com/#organization" },
+            "inLanguage": "en-US"
+          }
+        ]
       }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://synkynstudios.com/#website",
-      "url": "https://synkynstudios.com",
-      "name": "Synkyn Studios",
-      "description": "Bolt-on HVAC retrofit that cuts humidity, energy use, and equipment wear for commercial buildings.",
-      "publisher": { "@id": "https://synkynstudios.com/#organization" },
-      "inLanguage": "en-US"
-    }
-  ]
-}
-</script>
+    </script>
     <link href="https://synkynstudios.com/about-us.html" rel="canonical" />
     <title>About — Synkyn Studios</title>
     <link href="./assets/main.js" rel="modulepreload" />
     <link as="style" href="./assets/main.css" rel="preload" />
     <link href="./assets/main.css" rel="stylesheet" />
-    <link href="./assets/navbar.css?v=6" rel="stylesheet" />
+    <link href="./assets/navbar.css?v=8" rel="stylesheet" />
     <link href="./assets/about-us.css" rel="stylesheet" />
     <style id="synkyn-theme">
         /* Synkyn Studios — yellow / dark-yellow / black theme (overrides main.css) */
@@ -153,51 +151,51 @@
             --color-gradient-6: linear-gradient(#ffd54a 0%, #efe85c 100%);
             --color-gradient-7: linear-gradient(#fff 0%, #ffd84d 100%);
             --color-gradient-8: linear-gradient(156deg, #fff 32.92%, #f2c200 91%);
-            --color-gradient-12: radial-gradient(73.01% 80.77% at 19.23% 47.79%, #ffd54a 0%, #f2d40000 100%);
+            --color-gradient-12: radial-gradient(73.01% 80.77% at 19.23% 47.79%,
+                    #ffd54a 0%,
+                    #f2d40000 100%);
             --color-gradient-13: linear-gradient(156deg, #fff 32.92%, #ffe0a8 91%);
-            --color-gradient-helix-dark: linear-gradient(135deg, #101010 0%, #080808 100%);
+            --color-gradient-helix-dark: linear-gradient(135deg,
+                    #101010 0%,
+                    #080808 100%);
             --swiper-theme-color: #f2c200;
         }
 
-        /* yellow buttons need dark text */
         .btn-primary,
         .btn-primary-v2 {
-            color: #0a0a0a !important
+            color: #0a0a0a !important;
         }
 
         .btn-primary svg,
         .btn-primary-v2 svg {
-            color: #0a0a0a !important
+            color: #0a0a0a !important;
         }
 
-        /* recolor the blue particle effect + blue Helix hero media to gold */
         #particle-effect-canvas,
         .particle-effect-container {
-            filter: sepia(1) saturate(3.4) hue-rotate(10deg) brightness(1.12) contrast(1.04)
+            filter: sepia(1) saturate(3.4) hue-rotate(10deg) brightness(1.12) contrast(1.04);
         }
 
         img[src*="HEHomeVid"],
         video[poster*="HEHomeVid"],
         [style*="HEHomeVid"] {
-            filter: sepia(.9) saturate(2.6) hue-rotate(8deg) brightness(1.06)
+            filter: sepia(0.9) saturate(2.6) hue-rotate(8deg) brightness(1.06);
         }
 
-        /* JS-animated navy section + leftover navy edge-fades -> black */
         .actually-area {
-            background-color: #080808 !important
+            background-color: #080808 !important;
         }
 
         [class*="070e15"] {
             background-image: none !important;
-            background-color: transparent !important
+            background-color: transparent !important;
         }
-    
+
         .btn-primary:hover {
             background-color: #000 !important;
             color: #fff !important;
             border-color: #000 !important;
         }
-
     </style>
     <style id="sk3d-styles">
         /* ============================================================
@@ -206,7 +204,6 @@
    by default; degrades gracefully without JS and respects
    prefers-reduced-motion.
 ============================================================ */
-
         /* ── origin-story 3D tilt cards ── */
         .sk3d-cards {
             display: flex;
@@ -227,7 +224,7 @@
             outline: none;
             cursor: default;
             transform-style: preserve-3d;
-            transition: transform .2s ease-out;
+            transition: transform 0.2s ease-out;
             will-change: transform;
         }
 
@@ -235,7 +232,10 @@
         .sk3d-cards.sk3d-anim .sk3d-card {
             opacity: 0;
             translate: 0 28px;
-            transition: opacity .7s ease, translate .7s cubic-bezier(.22, .61, .36, 1), transform .2s ease-out;
+            transition:
+                opacity 0.7s ease,
+                translate 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
+                transform 0.2s ease-out;
         }
 
         .sk3d-cards.sk3d-anim .sk3d-card.is-in {
@@ -248,20 +248,28 @@
             height: 100%;
             padding: 2rem 1.6rem;
             border-radius: 20px;
-            background: linear-gradient(160deg, rgba(255, 255, 255, .055), rgba(255, 255, 255, .02));
-            border: 1px solid rgba(255, 216, 77, .16);
-            box-shadow: 0 12px 44px rgba(0, 0, 0, .45), inset 0 1px 0 rgba(255, 216, 77, .08);
+            background: linear-gradient(160deg,
+                    rgba(255, 255, 255, 0.055),
+                    rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 216, 77, 0.16);
+            box-shadow:
+                0 12px 44px rgba(0, 0, 0, 0.45),
+                inset 0 1px 0 rgba(255, 216, 77, 0.08);
             -webkit-backdrop-filter: blur(14px);
             backdrop-filter: blur(14px);
             transform-style: preserve-3d;
             overflow: hidden;
-            transition: border-color .35s ease, box-shadow .35s ease;
+            transition:
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
         }
 
         .sk3d-card:hover .sk3d-card__inner,
         .sk3d-card:focus-visible .sk3d-card__inner {
-            border-color: rgba(255, 216, 77, .34);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, .55), inset 0 1px 0 rgba(255, 216, 77, .14);
+            border-color: rgba(255, 216, 77, 0.34);
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.55),
+                inset 0 1px 0 rgba(255, 216, 77, 0.14);
         }
 
         .sk3d-card__glare {
@@ -270,9 +278,10 @@
             border-radius: inherit;
             pointer-events: none;
             background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 0%),
-                    rgba(255, 224, 130, .20), transparent 60%);
+                    rgba(255, 224, 130, 0.2),
+                    transparent 60%);
             opacity: 0;
-            transition: opacity .3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .sk3d-card:hover .sk3d-card__glare,
@@ -289,8 +298,8 @@
             border-radius: 15px;
             color: #f2c200;
             margin-bottom: 1.15rem;
-            background: rgba(242, 196, 0, .1);
-            border: 1px solid rgba(242, 196, 0, .22);
+            background: rgba(242, 196, 0, 0.1);
+            border: 1px solid rgba(242, 196, 0, 0.22);
         }
 
         .sk3d-card__icon svg {
@@ -302,19 +311,19 @@
             color: #fff;
             font-size: 1.18rem;
             font-weight: 600;
-            letter-spacing: -.01em;
-            margin: 0 0 .55rem;
+            letter-spacing: -0.01em;
+            margin: 0 0 0.55rem;
         }
 
         .sk3d-card__copy {
-            color: rgba(255, 255, 255, .6);
-            font-size: .95rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
             line-height: 1.62;
             margin: 0;
         }
 
         .sk3d-card:focus-visible {
-            outline: 2px solid rgba(242, 196, 0, .65);
+            outline: 2px solid rgba(242, 196, 0, 0.65);
             outline-offset: 5px;
         }
 
@@ -327,15 +336,15 @@
 
         .sk3d-core-grid {
             display: grid;
-            grid-template-columns: 1.05fr .95fr;
+            grid-template-columns: 1.05fr 0.95fr;
             gap: clamp(2rem, 5vw, 5rem);
             align-items: center;
         }
 
         .sk3d-eyebrow {
             display: inline-block;
-            font-size: .72rem;
-            letter-spacing: .22em;
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
             text-transform: uppercase;
             color: #f2c200;
             font-weight: 600;
@@ -345,7 +354,7 @@
         .sk3d-core-title {
             font-size: clamp(1.9rem, 4vw, 3rem);
             font-weight: 700;
-            letter-spacing: -.03em;
+            letter-spacing: -0.03em;
             line-height: 1.08;
             color: #fff;
             margin: 0 0 1.25rem;
@@ -359,7 +368,7 @@
         }
 
         .sk3d-core-lead {
-            color: rgba(255, 255, 255, .6);
+            color: rgba(255, 255, 255, 0.6);
             font-size: clamp(1rem, 1.7vw, 1.12rem);
             line-height: 1.75;
             max-width: 48ch;
@@ -370,18 +379,18 @@
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            gap: .6rem;
+            gap: 0.6rem;
             padding: 0;
             margin: 0 0 2rem;
         }
 
         .sk3d-chips li {
-            font-size: .8rem;
-            color: rgba(255, 255, 255, .82);
-            padding: .42rem .9rem;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.82);
+            padding: 0.42rem 0.9rem;
             border-radius: 50px;
-            border: 1px solid rgba(255, 216, 77, .2);
-            background: rgba(255, 216, 77, .05);
+            border: 1px solid rgba(255, 216, 77, 0.2);
+            background: rgba(255, 216, 77, 0.05);
         }
 
         .sk3d-stats {
@@ -392,11 +401,11 @@
         }
 
         .sk3d-stats dt {
-            font-size: .7rem;
-            letter-spacing: .12em;
+            font-size: 0.7rem;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, .42);
-            margin-bottom: .3rem;
+            color: rgba(255, 255, 255, 0.42);
+            margin-bottom: 0.3rem;
         }
 
         .sk3d-stats dd {
@@ -421,20 +430,22 @@
             width: 68%;
             aspect-ratio: 1/1;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(242, 196, 0, .22), transparent 66%);
+            background: radial-gradient(circle,
+                    rgba(242, 196, 0, 0.22),
+                    transparent 66%);
             filter: blur(42px);
             pointer-events: none;
         }
 
         .sk3d-stage__label {
             position: absolute;
-            bottom: .25rem;
+            bottom: 0.25rem;
             left: 50%;
             transform: translateX(-50%);
-            font-size: .68rem;
-            letter-spacing: .16em;
+            font-size: 0.68rem;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: rgba(255, 255, 255, .32);
+            color: rgba(255, 255, 255, 0.32);
         }
 
         .sk3d-core {
@@ -443,7 +454,7 @@
             height: clamp(220px, 26vw, 320px);
             transform-style: preserve-3d;
             transform: rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
-            transition: transform .25s ease-out;
+            transition: transform 0.25s ease-out;
         }
 
         .sk3d-rotor {
@@ -455,11 +466,11 @@
 
         @keyframes sk3dCoreSpin {
             from {
-                transform: rotateY(0)
+                transform: rotateY(0);
             }
 
             to {
-                transform: rotateY(360deg)
+                transform: rotateY(360deg);
             }
         }
 
@@ -475,21 +486,21 @@
 
         @keyframes sk3dRingSpin {
             to {
-                transform: rotateX(var(--tilt)) rotateZ(360deg)
+                transform: rotateX(var(--tilt)) rotateZ(360deg);
             }
         }
 
         .sk3d-ring--a {
             --tilt: 72deg;
-            border-color: rgba(242, 196, 0, .55);
-            box-shadow: 0 0 24px rgba(242, 196, 0, .22);
+            border-color: rgba(242, 196, 0, 0.55);
+            box-shadow: 0 0 24px rgba(242, 196, 0, 0.22);
             animation-duration: 9s;
         }
 
         .sk3d-ring--b {
             --tilt: 72deg;
             inset: 9%;
-            border-color: rgba(255, 216, 77, .42);
+            border-color: rgba(255, 216, 77, 0.42);
             animation-duration: 13s;
             animation-direction: reverse;
         }
@@ -497,7 +508,7 @@
         .sk3d-ring--c {
             --tilt: 26deg;
             inset: 17%;
-            border-color: rgba(255, 243, 117, .34);
+            border-color: rgba(255, 243, 117, 0.34);
             animation-duration: 17s;
         }
 
@@ -517,7 +528,7 @@
             margin: -6px 0 0 -6px;
             background: #ffe375;
             clip-path: polygon(50% 0, 100% 100%, 0 100%);
-            box-shadow: 0 0 12px rgba(255, 216, 77, .85);
+            box-shadow: 0 0 12px rgba(255, 216, 77, 0.85);
             --r: 140px;
         }
 
@@ -540,10 +551,13 @@
             width: 40%;
             height: 40%;
             margin: 0;
-            background: linear-gradient(155deg, rgba(255, 243, 117, .96), rgba(242, 196, 0, .62) 55%, rgba(154, 115, 0, .55));
+            background: linear-gradient(155deg,
+                    rgba(255, 243, 117, 0.96),
+                    rgba(242, 196, 0, 0.62) 55%,
+                    rgba(154, 115, 0, 0.55));
             clip-path: polygon(50% 3%, 97% 97%, 3% 97%);
-            box-shadow: 0 0 30px rgba(242, 196, 0, .55);
-            filter: drop-shadow(0 0 12px rgba(255, 216, 77, .5));
+            box-shadow: 0 0 30px rgba(242, 196, 0, 0.55);
+            filter: drop-shadow(0 0 12px rgba(255, 216, 77, 0.5));
             animation: sk3dGemFloat 6s ease-in-out infinite;
         }
 
@@ -559,7 +573,7 @@
             }
         }
 
-        @media (max-width:900px) {
+        @media (max-width: 900px) {
             .sk3d-core-grid {
                 grid-template-columns: 1fr;
             }
@@ -593,24 +607,18 @@
             }
         }
     </style>
-    <link href="./assets/footer.css?v=2" rel="stylesheet" />
+    <link href="./assets/footer.css?v=4" rel="stylesheet" />
 </head>
 
 <body class="bg-background-3 dark:bg-helix-blue-dark-2">
-    <!-- =========================
-Header 
-===========================-->
-    <!-- Home: light translucent at rest. Non-home + light mode at rest: dark shade. Scroll state overrides via .header-two-scroll. -->
     <header>
         <div class="header-two header-two-at-rest lp:!max-w-[1290px] {=$class} fixed top-14 left-1/2 z-50 mx-auto flex w-full max-w-[350px] -translate-x-1/2 items-center justify-between rounded-full px-2.5 py-2.5 backdrop-blur-[25px] max-md:!top-8 min-[425px]:max-w-[380px] min-[500px]:max-w-[450px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xl:py-0"
             data-direction="up" data-ns-animate="" data-offset="20">
             <div>
                 <a class="flex min-w-0 shrink-0 items-center gap-2" href="./">
-                    <!-- Desktop logo -->
                     <figure class="m-0 hidden lg:block lg:max-w-[112px]">
                         <img alt="Synkyn Studios" class="w-[80px] h-auto object-contain" src="./images/logo.png" />
                     </figure>
-                    <!-- Mobile logo -->
                     <figure class="m-0 flex max-w-[52px] shrink-0 lg:hidden">
                         <img alt="Synkyn Studios" class="w-full h-auto object-contain" src="./images/logo.png" />
                     </figure>
@@ -652,32 +660,26 @@ Header
                                 <div class="flex-1 space-y-3">
                                     <ul class="space-y-2">
                                         <li>
-                                            <a class="group relative flex items-start gap-2 p-3" href="./about-us.html">
+                                            <a class="group relative flex items-start gap-2 p-3" href="./album.html">
                                                 <div
                                                     class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-background-3 dark:bg-background-7 opacity-0 group-hover:opacity-100 rounded-[10px] z-0 transition-all duration-400 {=$class}">
                                                 </div>
                                                 <div
                                                     class="border-stroke-1 relative z-10 mt-1 flex size-7 shrink-0 items-center justify-center rounded-lg border p-1 dark:border-white/10">
-                                                    <svg fill="none" height="20" viewbox="0 0 20 20" width="20"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path class="stroke-secondary dark:stroke-accent {=$class}"
-                                                            d="M10.0003 18.3334C14.6027 18.3334 18.3337 14.6024 18.3337 10C18.3337 5.39765 14.6027 1.66669 10.0003 1.66669C5.39795 1.66669 1.66699 5.39765 1.66699 10C1.66699 14.6024 5.39795 18.3334 10.0003 18.3334Z"
-                                                            stroke-linecap="round" stroke-linejoin="round"></path>
-                                                        <path class="stroke-secondary dark:stroke-accent {=$class}"
-                                                            d="M10 13.3333H10.0083" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                        <path class="stroke-secondary dark:stroke-accent {=$class}"
-                                                            d="M10 6.66669V10" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
+                                                    <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                                        <rect class="stroke-secondary dark:stroke-accent {=$class}" x="3" y="3" width="14" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></rect>
+                                                        <path class="stroke-secondary dark:stroke-accent {=$class}" d="M3 14l4-4 4 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                                        <path class="stroke-secondary dark:stroke-accent {=$class}" d="M14 10l3 3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                                        <circle class="stroke-secondary dark:stroke-accent {=$class}" cx="13" cy="7" r="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></circle>
                                                     </svg>
                                                 </div>
                                                 <div class="relative z-10">
                                                     <p
                                                         class="text-tagline-1 text-secondary dark:text-accent font-normal">
-                                                        About Us</p>
+                                                        Album</p>
                                                     <p
                                                         class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
-                                                        Learn about our story, mission, and values.
+                                                        Our Works- Skykyn
                                                     </p>
                                                 </div>
                                             </a>
@@ -709,7 +711,8 @@ Header
                                                 <div class="relative z-10">
                                                     <p
                                                         class="text-tagline-1 text-secondary dark:text-accent font-normal">
-                                                        Our Team</p>
+                                                        Our Team
+                                                    </p>
                                                     <p
                                                         class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
                                                         Meet the people behind Synkyn Studios.
@@ -744,7 +747,8 @@ Header
                                                 <div class="relative z-10">
                                                     <p
                                                         class="text-tagline-1 text-secondary dark:text-accent font-normal">
-                                                        Research Sponsors</p>
+                                                        Research Sponsors
+                                                    </p>
                                                     <p
                                                         class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
                                                         Discover our research partners
@@ -780,7 +784,8 @@ Header
                                                 <div class="relative z-10">
                                                     <p
                                                         class="text-tagline-1 text-secondary dark:text-accent font-normal">
-                                                        Contact Us</p>
+                                                        Contact Us
+                                                    </p>
                                                     <p
                                                         class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
                                                         Get in touch with us
@@ -808,7 +813,8 @@ Header
                                                 <div class="relative z-10">
                                                     <p
                                                         class="text-tagline-1 text-secondary dark:text-accent font-normal">
-                                                        Terms &amp; Conditions</p>
+                                                        Terms &amp; Conditions
+                                                    </p>
                                                     <p
                                                         class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
                                                         Our usage terms and legal agreements
@@ -836,7 +842,8 @@ Header
                                                 <div class="relative z-10">
                                                     <p
                                                         class="text-tagline-1 text-secondary dark:text-accent font-normal">
-                                                        Privacy Policy</p>
+                                                        Privacy Policy
+                                                    </p>
                                                     <p
                                                         class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
                                                         How we collect, use, and protect your data
@@ -848,11 +855,11 @@ Header
                                 </div>
                                 <div class="flex-1">
                                     <div class="space-y-3">
-                                        <ul class="space-y-2">
-                                        </ul>
+                                        <ul class="space-y-2"></ul>
                                     </div>
                                     <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 p-3 font-medium">
-                                        What’s new</p>
+                                        What’s new
+                                    </p>
                                     <div>
                                         <figure
                                             class="group relative min-h-[166px] w-full max-w-full overflow-hidden rounded-[14px]">
@@ -869,8 +876,9 @@ Header
                                             </div>
                                             <div class="absolute top-3 bottom-3 left-3 w-full space-y-5 p-2">
                                                 <div>
-                                                    <p class="text-tagline-1 text-accent font-normal">Latest News &amp;
-                                                        Awards</p>
+                                                    <p class="text-tagline-1 text-accent font-normal">
+                                                        Latest News &amp; Awards
+                                                    </p>
                                                     <p
                                                         class="text-tagline-2 text-accent/60 w-full max-w-[169px] font-normal">
                                                         Stay updated with the latest from Synkyn Studios.
@@ -914,9 +922,6 @@ Header
                 </div>
             </div>
         </div>
-        <!-- =========================
-Mobile Menu - Synkyn Studios
-===========================-->
         <aside
             class="sidebar dark:bg-background-8 scroll-bar fixed top-0 right-0 z-[9999] h-screen w-full translate-x-full rounded-l-3xl bg-white transition-all duration-300 sm:w-1/2 xl:hidden">
             <div class="space-y-4 p-5 sm:p-8 lg:p-9">
@@ -949,8 +954,7 @@ Mobile Menu - Synkyn Studios
                         </li>
                         <li>
                             <a class="text-tagline-1 text-secondary dark:text-accent block py-2.5 text-left font-normal transition-all duration-200"
-                                href="./about-us.html">About
-                                Us</a>
+                                href="./about-us.html">About Us</a>
                         </li>
                         <li class="space-y-2">
                             <button
@@ -969,13 +973,11 @@ Mobile Menu - Synkyn Studios
                             <ul class="mobile-submenu block" data-submenu="company">
                                 <li>
                                     <a class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200"
-                                        href="./about-us.html">About
-                                        Us</a>
+                                        href="./about-us.html">About Us</a>
                                 </li>
                                 <li>
                                     <a class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200"
-                                        href="./about-us.html#team">Our
-                                        Team</a>
+                                        href="./about-us.html#team">Our Team</a>
                                 </li>
                                 <li>
                                     <a class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200"
@@ -983,23 +985,19 @@ Mobile Menu - Synkyn Studios
                                 </li>
                                 <li>
                                     <a class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200"
-                                        href="./terms.html">Terms
-                                        &amp; Conditions</a>
+                                        href="./terms.html">Terms &amp; Conditions</a>
                                 </li>
                                 <li>
                                     <a class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200"
-                                        href="./privacy.html">Privacy
-                                        Policy</a>
+                                        href="./privacy.html">Privacy Policy</a>
                                 </li>
                                 <li>
                                     <a class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200"
-                                        href="#">News
-                                        &amp; Awards</a>
+                                        href="#">News &amp; Awards</a>
                                 </li>
                                 <li>
                                     <a class="text-tagline-1 text-secondary dark:text-accent ml-4 block py-2.5 text-left font-normal transition-all duration-200"
-                                        href="./contact.html">Contact
-                                        Us</a>
+                                        href="./contact.html">Contact Us</a>
                                 </li>
                             </ul>
                         </li>
@@ -1023,9 +1021,6 @@ Mobile Menu - Synkyn Studios
                 </div>
             </div>
             <div class="about-hero-origin-stack__scroll" data-about-origin-snap="" data-particles-scroll-root="">
-                <!-- =========================
-Hero section
-===========================-->
                 <section class="hero-section w-full min-h-screen bg-transparent">
                     <div class="w-full max-w-none bg-transparent pt-[220px] pb-[0px] rounded-none relative">
                         <div class="space-y-5 text-center relative z-10 pointer-events-none">
@@ -1047,9 +1042,9 @@ Hero section
                                 </h1>
                                 <p class="text-accent/60 pointer-events-auto w-fit text-base md:w-[700px] max-w-full mx-auto md:text-lg"
                                     data-delay="0.3" data-ns-animate="" data-orion-obstacle="">
-                                    The technology behind Synkyn MICRA was developed at NASA to handle extreme
-                                    conditions in
-                                    space. We brought it to Earth to fix the way buildings manage air.
+                                    The technology behind Synkyn MICRA was developed at NASA to
+                                    handle extreme conditions in space. We brought it to Earth
+                                    to fix the way buildings manage air.
                                 </p>
                                 <ul class="flex items-center lg:gap-9 sm:gap-4 gap-2 justify-center lg:flex-nowrap flex-wrap pointer-events-auto w-fit max-w-full mx-auto"
                                     data-orion-obstacle="">
@@ -1064,7 +1059,9 @@ Hero section
                                                     fill="white"></path>
                                             </svg>
                                         </span>
-                                        <span class="text-accent/60 text-tagline-2"> Building humidity control </span>
+                                        <span class="text-accent/60 text-tagline-2">
+                                            Building humidity control
+                                        </span>
                                     </li>
                                     <li class="flex items-center gap-2" data-delay="0.5" data-ns-animate="">
                                         <span
@@ -1076,7 +1073,9 @@ Hero section
                                                     fill="white"></path>
                                             </svg>
                                         </span>
-                                        <span class="text-accent/60 text-tagline-2"> Better indoor air quality </span>
+                                        <span class="text-accent/60 text-tagline-2">
+                                            Better indoor air quality
+                                        </span>
                                     </li>
                                     <li class="flex items-center gap-2" data-delay="0.6" data-ns-animate="">
                                         <span
@@ -1088,7 +1087,9 @@ Hero section
                                                     fill="white"></path>
                                             </svg>
                                         </span>
-                                        <span class="text-accent/60 text-tagline-2"> Reduced HVAC energy use </span>
+                                        <span class="text-accent/60 text-tagline-2">
+                                            Reduced HVAC energy use
+                                        </span>
                                     </li>
                                 </ul>
                             </div>
@@ -1102,21 +1103,10 @@ Hero section
                                     <span>Connect with us</span>
                                 </a>
                             </li>
-                            <li class="w-full sm:w-auto pointer-events-auto" data-delay="0.9" data-direction="left"
-                                data-ns-animate="" data-offset="50" data-orion-obstacle="">
-                                <a class="btn btn-dark btn-xl hover:btn-secondary sm:w-auto w-[85%]"
-                                    href="./contact.html">
-                                    <span>Connect</span>
-                                </a>
-                            </li>
                         </ul>
-                        <div class="relative z-10 pointer-events-none">
-                        </div>
+                        <div class="relative z-10 pointer-events-none"></div>
                     </div>
                 </section>
-                <!-- =========================
-Services section
-===========================-->
                 <section
                     class="origin-story-section w-full max-w-none pt-32 pb-14 sm:pt-36 md:pt-42 md:pb-16 lg:pb-[0px] xl:pt-[180px] xl:pb-[0px]">
                     <div class="w-full max-w-none space-y-14">
@@ -1133,23 +1123,19 @@ Services section
                                     </h2>
                                 </div>
                             </div>
-                            <!-- Space station: center-left → halfway up → center-right (viewport hook for arc animation) -->
-                            <div class="relative z-10 w-full h-[15rem] flex items-center justify-center overflow-visible"
-                                data-orion-arc-root="">
-                                <img alt="" aria-hidden="true"
-                                    class="helix-space-station-float max-w-[220px] sm:max-w-[220px] w-full h-auto object-contain pointer-events-none absolute"
-                                    src="./images/orion.png" />
+                            <div class="relative z-10 w-full py-6 md:py-10 flex items-center justify-center">
+                                <img alt="Synkyn Studios Logo" class="w-[160px] md:w-[220px] h-auto object-contain"
+                                    src="./images/logo.png" />
                             </div>
-                            <!-- NASA origin story -->
                             <div class="relative z-8 max-w-3xl mx-auto px-4 sm:px-6 rounded-4xl p-10 max-md:p-6">
                                 <div class="space-y-6 dark:text-accent/90 text-center">
                                     <p class="text-tagline-1 sm:text-lg leading-relaxed text-accent/60"
                                         data-delay="0.25" data-ns-animate="">
-                                        <strong class="text-white font-semibold">Dr. Rawand Rasheed, our CEO and
-                                            co-founder</strong>, developed the first version of
-                                        <strong class="text-white font-semibold">Synkyn MICRA at NASA’s Johnson Space
-                                            Center.</strong>
-                                        The mission was to protect astronauts from fire and smoke aboard the
+                                        <strong class="text-white font-semibold">Dhiraj Kishore, our CEO</strong>,
+                                        developed the first version of
+                                        <strong class="text-white font-semibold">Synkyn Studio </strong>
+                                        The mission was to protect astronauts from fire and smoke
+                                        aboard the
                                         <span
                                             class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-blue-500 font-bold">
                                             Orion spacecraft</span>
@@ -1157,10 +1143,10 @@ Services section
                                     </p>
                                     <p class="text-tagline-1 sm:text-lg leading-relaxed text-accent/60" data-delay="0.3"
                                         data-ns-animate="">
-                                        The challenge was removing toxic particles from cabin air in microgravity, where
-                                        traditional filtration fails completely. The solution had to be compact, never
-                                        clog, use
-                                        minimal energy, and capture contaminants instantly.
+                                        The challenge was removing toxic particles from cabin air
+                                        in microgravity, where traditional filtration fails
+                                        completely. The solution had to be compact, never clog,
+                                        use minimal energy, and capture contaminants instantly.
                                     </p>
                                     <p class="text-tagline-1 sm:text-lg leading-relaxed text-accent/60"
                                         data-delay="0.35" data-ns-animate="">
@@ -1169,19 +1155,20 @@ Services section
                                                 class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-helix-blue">Helix
                                                 MICRA™</span></strong>.
                                         <span class="text-accent/50 italic">The Multiplexed Inertial Coalescence
-                                            Refining Apparatus.</span>
+                                            Refining
+                                            Apparatus.</span>
                                     </p>
                                     <p class="text-tagline-1 sm:text-lg leading-relaxed text-accent/60" data-delay="0.4"
                                         data-ns-animate="">
                                         Now, with an exclusive worldwide license from NASA,
                                         <strong class="text-white font-semibold">we are applying that same technology to
-                                            the buildings where people live, learn, work,
-                                            and eat every day.</strong>
+                                            the buildings
+                                            where people live, learn, work, and eat every
+                                            day.</strong>
                                     </p>
                                 </div>
                             </div>
                             <div aria-label="What makes the MICRA apparatus different" class="sk3d-cards">
-                                <!-- card one -->
                                 <article class="sk3d-card" tabindex="0">
                                     <div class="sk3d-card__inner">
                                         <span aria-hidden="true" class="sk3d-card__glare"></span>
@@ -1194,11 +1181,12 @@ Services section
                                             </svg>
                                         </span>
                                         <h3 class="sk3d-card__title" data-z="42">Never clogs</h3>
-                                        <p class="sk3d-card__copy" data-z="28">Continuous inertial coalescence keeps the
-                                            airstream open — there is no filter media to load up and replace.</p>
+                                        <p class="sk3d-card__copy" data-z="28">
+                                            Continuous inertial coalescence keeps the airstream open
+                                            — there is no filter media to load up and replace.
+                                        </p>
                                     </div>
                                 </article>
-                                <!-- card two -->
                                 <article class="sk3d-card" tabindex="0">
                                     <div class="sk3d-card__inner">
                                         <span aria-hidden="true" class="sk3d-card__glare"></span>
@@ -1210,12 +1198,15 @@ Services section
                                                 </ellipse>
                                             </svg>
                                         </span>
-                                        <h3 class="sk3d-card__title" data-z="42">Microgravity‑proven</h3>
-                                        <p class="sk3d-card__copy" data-z="28">Engineered for the Orion cabin, where
-                                            conventional filtration fails completely in zero g.</p>
+                                        <h3 class="sk3d-card__title" data-z="42">
+                                            Microgravity‑proven
+                                        </h3>
+                                        <p class="sk3d-card__copy" data-z="28">
+                                            Engineered for the Orion cabin, where conventional
+                                            filtration fails completely in zero g.
+                                        </p>
                                     </div>
                                 </article>
-                                <!-- card three -->
                                 <article class="sk3d-card" tabindex="0">
                                     <div class="sk3d-card__inner">
                                         <span aria-hidden="true" class="sk3d-card__glare"></span>
@@ -1225,12 +1216,15 @@ Services section
                                                 <polygon points="13 2 4 14 10 14 9 22 18 10 12 10 13 2"></polygon>
                                             </svg>
                                         </span>
-                                        <h3 class="sk3d-card__title" data-z="42">Minimal energy</h3>
-                                        <p class="sk3d-card__copy" data-z="28">Contaminants are captured passively,
-                                            cutting the load — and the running cost — of building HVAC.</p>
+                                        <h3 class="sk3d-card__title" data-z="42">
+                                            Minimal energy
+                                        </h3>
+                                        <p class="sk3d-card__copy" data-z="28">
+                                            Contaminants are captured passively, cutting the load —
+                                            and the running cost — of building HVAC.
+                                        </p>
                                     </div>
                                 </article>
-                                <!-- card four -->
                                 <article class="sk3d-card" tabindex="0">
                                     <div class="sk3d-card__inner">
                                         <span aria-hidden="true" class="sk3d-card__glare"></span>
@@ -1243,12 +1237,15 @@ Services section
                                                 </circle>
                                             </svg>
                                         </span>
-                                        <h3 class="sk3d-card__title" data-z="42">Instant capture</h3>
-                                        <p class="sk3d-card__copy" data-z="28">Particles are refined out of the air the
-                                            moment they arrive, not gradually trapped over time.</p>
+                                        <h3 class="sk3d-card__title" data-z="42">
+                                            Instant capture
+                                        </h3>
+                                        <p class="sk3d-card__copy" data-z="28">
+                                            Particles are refined out of the air the moment they
+                                            arrive, not gradually trapped over time.
+                                        </p>
                                     </div>
                                 </article>
-                                <!-- card five -->
                                 <article class="sk3d-card" tabindex="0">
                                     <div class="sk3d-card__inner">
                                         <span aria-hidden="true" class="sk3d-card__glare"></span>
@@ -1260,9 +1257,13 @@ Services section
                                                 <path d="M12 3a14.5 14.5 0 0 1 0 18 14.5 14.5 0 0 1 0-18z"></path>
                                             </svg>
                                         </span>
-                                        <h3 class="sk3d-card__title" data-z="42">Earth‑licensed</h3>
-                                        <p class="sk3d-card__copy" data-z="28">An exclusive worldwide license from NASA
-                                            brings the apparatus to the buildings people use every day.</p>
+                                        <h3 class="sk3d-card__title" data-z="42">
+                                            Earth‑licensed
+                                        </h3>
+                                        <p class="sk3d-card__copy" data-z="28">
+                                            An exclusive worldwide license from NASA brings the
+                                            apparatus to the buildings people use every day.
+                                        </p>
                                     </div>
                                 </article>
                             </div>
@@ -1270,40 +1271,42 @@ Services section
                     </div>
                     <script>
                         (function () {
-                            if (!window.matchMedia || !window.matchMedia('(max-width: 767.98px)').matches) return;
-                            var root = document.querySelector('.origin-story-section');
+                            if (
+                                !window.matchMedia ||
+                                !window.matchMedia("(max-width: 767.98px)").matches
+                            )
+                                return;
+                            var root = document.querySelector(".origin-story-section");
                             if (!root) return;
-                            root.querySelectorAll('[data-ns-animate]').forEach(function (el) {
-                                el.removeAttribute('data-ns-animate');
-                                el.removeAttribute('data-delay');
-                                el.removeAttribute('data-duration');
-                                el.removeAttribute('data-offset');
-                                el.removeAttribute('data-start');
-                                el.removeAttribute('data-direction');
-                                el.removeAttribute('data-spring');
-                            });
+                            root
+                                .querySelectorAll("[data-ns-animate]")
+                                .forEach(function (el) {
+                                    el.removeAttribute("data-ns-animate");
+                                    el.removeAttribute("data-delay");
+                                    el.removeAttribute("data-duration");
+                                    el.removeAttribute("data-offset");
+                                    el.removeAttribute("data-start");
+                                    el.removeAttribute("data-direction");
+                                    el.removeAttribute("data-spring");
+                                });
                         })();
                     </script>
                 </section>
             </div>
         </div>
-        <!-- =====================================================
-             THE MICRA CORE — interactive 3D signature (pure CSS 3D)
-        ====================================================== -->
         <section aria-labelledby="sk3d-core-heading" class="sk3d-core-section">
             <div class="main-container">
                 <div class="sk3d-core-grid">
-                    <!-- copy -->
                     <div class="sk3d-core-copy">
                         <span class="sk3d-eyebrow">The Apparatus</span>
                         <h2 class="sk3d-core-title" id="sk3d-core-heading">
                             A core engineered in orbit,<br /><span>refined for Earth.</span>
                         </h2>
                         <p class="sk3d-core-lead">
-                            At the heart of every Synkyn MICRA unit sits a coalescence core: spinning
-                            geometry that draws particles out of the air by inertia alone. No membrane to
-                            clog, no element to swap — just a continuous, self‑clearing path for
-                            clean air.
+                            At the heart of every Synkyn MICRA unit sits a coalescence core:
+                            spinning geometry that draws particles out of the air by inertia
+                            alone. No membrane to clog, no element to swap — just a
+                            continuous, self‑clearing path for clean air.
                         </p>
                         <ul aria-label="Core characteristics" class="sk3d-chips">
                             <li>No filter media</li>
@@ -1326,7 +1329,6 @@ Services section
                             </div>
                         </dl>
                     </div>
-                    <!-- 3D stage -->
                     <div aria-hidden="true" class="sk3d-stage">
                         <div class="sk3d-stage__glow"></div>
                         <div class="sk3d-core" id="sk3dCore">
@@ -1347,10 +1349,6 @@ Services section
                 </div>
             </div>
         </section>
-        <!-- < src="src/components/pages/about-page-03/our-story.htm" /> -->
-        <!-- =========================
-Why Choose Us section
-===========================-->
         <section
             class="pb-14 pt-14 md:pb-16 md:pt-16 lg:pb-[88px] lg:pt-[88px] xl:pb-[100px] xl:pt-[100px] overflow-hidden">
             <div class="main-container">
@@ -1360,11 +1358,13 @@ Why Choose Us section
                             Our Mission
                         </span>
                         <h2 class="mb-3 max-md:text-[38px] max-md:leading-[1.1]" data-delay="0.3" data-ns-animate="">
-                            Cut global HVAC energy use in half. It’s that simple. And that hard.
+                            Cut global HVAC energy use in half. It’s that simple. And that
+                            hard.
                         </h2>
                         <p class="lg:max-w-[536px]" data-delay="0.4" data-ns-animate="">
-                            Our phased deployment strategy prioritizes markets where the Synkyn MICRA System delivers
-                            the greatest immediate impact in energy savings and occupant comfort.
+                            Our phased deployment strategy prioritizes markets where the
+                            Synkyn MICRA System delivers the greatest immediate impact in
+                            energy savings and occupant comfort.
                         </p>
                         <ul class="sm:space-y-2 mt-10 md:mt-14">
                             <li class="flex items-center gap-4 list-none py-2" data-delay="0.5" data-ns-animate="">
@@ -1393,40 +1393,42 @@ Why Choose Us section
                         class="relative max-w-[460px] min-h-[400px] md:min-h-[450px] lg:min-h-[500px] xl:min-h-[558px] max-h-[598px] w-full h-full bg-linear-[156deg,_#FFF_32.92%,_#83E7EE_91%] dark:bg-gradient-to-l dark:from-helix-blue dark:to-cyan-500 rounded-[20px] overflow-hidden">
                         <figure class="" data-delay="0.3" data-ns-animate="">
                             <img alt="transaction-statistics" class="size-full" src="./images/helixrooftop.png" />
-                            <!-- <img src="./images/helixmicrasoloflipped.png" alt="transaction-statistics" class="size-full" /> -->
                         </figure>
                         <figure
                             class="absolute top-[5%] -right-2.5 md:-right-[4%] lg:-right-[2%] 2xl:-right-[19%] shadow-3 rounded-2xl overflow-hidden max-xl:w-[180px] max-w-[244px] w-full"
-                            data-delay="0.4" data-direction="right" data-duration="1" data-ns-animate="">
-                        </figure>
+                            data-delay="0.4" data-direction="right" data-duration="1" data-ns-animate=""></figure>
                         <figure
                             class="absolute bottom-[2%] shadow-3 -right-2.5 md:-right-[4%] lg:-right-[2%] 2xl:-right-[8%] rounded-[20px] overflow-hidden max-w-[270px] lg:max-w-[330px] xl:max-w-[180px] w-full"
                             data-delay="0.6" data-direction="right" data-duration="1" data-ns-animate=""
-                            data-offset="100">
-                        </figure>
+                            data-offset="100"></figure>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- =========================
-Traction timeline section – dates above bar, nodes on bar, cards below
-===========================-->
         <style>
             @media (max-width: 767px) {
                 .investor-timeline-fade-left {
-                    background: linear-gradient(to right, var(--color-background-3), transparent);
+                    background: linear-gradient(to right,
+                            var(--color-background-3),
+                            transparent);
                 }
 
                 .investor-timeline-fade-right {
-                    background: linear-gradient(to left, var(--color-background-3), transparent);
+                    background: linear-gradient(to left,
+                            var(--color-background-3),
+                            transparent);
                 }
 
                 .dark .investor-timeline-fade-left {
-                    background: linear-gradient(to right, var(--color-helix-blue-dark-2), transparent);
+                    background: linear-gradient(to right,
+                            var(--color-helix-blue-dark-2),
+                            transparent);
                 }
 
                 .dark .investor-timeline-fade-right {
-                    background: linear-gradient(to left, var(--color-helix-blue-dark-2), transparent);
+                    background: linear-gradient(to left,
+                            var(--color-helix-blue-dark-2),
+                            transparent);
                 }
             }
         </style>
@@ -1442,7 +1444,6 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                 <div aria-hidden="true" class="investor-timeline-fade investor-timeline-fade-right">
                                 </div>
                                 <div class="investor-timeline-track pr-8 md:pr-12 lg:pr-16">
-                                    <!-- Row 1: Dates above the bar -->
                                     <div class="investor-timeline-dates flex gap-4 md:gap-5 lg:gap-6 w-max">
                                         <div
                                             class="investor-timeline-date-cell w-[280px] md:w-[340px] lg:w-[400px] shrink-0 flex justify-center">
@@ -1471,7 +1472,6 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                 class="text-heading-6 font-medium max-md:text-base text-secondary dark:text-accent/90">2026+</span>
                                         </div>
                                     </div>
-                                    <!-- Row 2: Timeline bar with nodes -->
                                     <div class="investor-timeline-bar-row relative w-full flex items-center py-2">
                                         <div
                                             class="investor-timeline-bar-track absolute left-0 right-0 h-2 rounded-full overflow-hidden bg-helix-blue/10 dark:bg-white/10">
@@ -1502,7 +1502,6 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- Row 3: Info cards below -->
                                     <ol
                                         class="investor-timeline-cards flex gap-4 md:gap-5 lg:gap-6 w-max list-none m-0 p-0 mt-4 md:mt-5">
                                         <li
@@ -1528,7 +1527,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Founded by Dr. Rawand Rasheed and Brad Husick</span>
+                                                    <span>Founded by Dr. Rawand Rasheed and Brad
+                                                        Husick</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1607,7 +1607,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>$750K in non-dilutive grants (NSF SBIR Phase I, DOE)</span>
+                                                    <span>$750K in non-dilutive grants (NSF SBIR Phase I,
+                                                        DOE)</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1672,7 +1673,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Built first commercial-scale HVAC prototype components</span>
+                                                    <span>Built first commercial-scale HVAC prototype
+                                                        components</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1698,7 +1700,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Won 6 major awards, including SXSW Pitch (Smart Cities)</span>
+                                                    <span>Won 6 major awards, including SXSW Pitch (Smart
+                                                        Cities)</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1711,8 +1714,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Dr. Rasheed named Forbes 30 Under 30 and ACHR 40 Under
-                                                        40</span>
+                                                    <span>Dr. Rasheed named Forbes 30 Under 30 and ACHR 40
+                                                        Under 40</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1725,9 +1728,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Selected for NYU's Endless Frontier Labs; won NYU Urban
-                                                        Future Prize
-                                                        and 2nd in DOE EPIC Prize</span>
+                                                    <span>Selected for NYU's Endless Frontier Labs; won NYU
+                                                        Urban Future Prize and 2nd in DOE EPIC Prize</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1740,9 +1742,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Graduated from Greentown Labs and closed a $6M seed round (led
-                                                        by
-                                                        Veriten)</span>
+                                                    <span>Graduated from Greentown Labs and closed a $6M
+                                                        seed round (led by Veriten)</span>
                                                 </li>
                                             </ul>
                                         </li>
@@ -1781,8 +1782,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Scaled to commercial-size units and validated in field
-                                                        tests</span>
+                                                    <span>Scaled to commercial-size units and validated in
+                                                        field tests</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1795,8 +1796,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Rooftop and wall-mount testing completed with early
-                                                        customers</span>
+                                                    <span>Rooftop and wall-mount testing completed with
+                                                        early customers</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1809,8 +1810,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Manufacturing partners identified and distribution commitments
-                                                        secured</span>
+                                                    <span>Manufacturing partners identified and
+                                                        distribution commitments secured</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1836,8 +1837,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Dr. Rasheed recognized in FTSG Pioneers &amp; Power
-                                                        Players</span>
+                                                    <span>Dr. Rasheed recognized in FTSG Pioneers &amp;
+                                                        Power Players</span>
                                                 </li>
                                             </ul>
                                         </li>
@@ -1902,7 +1903,8 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                                                                 stroke-linejoin="round"></path>
                                                         </svg>
                                                     </span>
-                                                    <span>Early customer list expands to 50+ buildings</span>
+                                                    <span>Early customer list expands to 50+
+                                                        buildings</span>
                                                 </li>
                                                 <li
                                                     class="flex items-start gap-3 text-tagline-1 text-secondary/80 dark:text-accent/80 max-md:text-[13px]">
@@ -1940,9 +1942,6 @@ Traction timeline section – dates above bar, nodes on bar, cards below
                 </div>
             </div>
         </section>
-        <!-- =========================
-Leadership Team section
-===========================-->
         <style>
             @media (max-width: 767px) {
                 .chroma-spotlight-section .chroma-spotlight-veil {
@@ -1955,7 +1954,7 @@ Leadership Team section
             }
         </style>
         <section
-            class="chroma-spotlight-section js-chroma-spotlight-section overflow-x-clip py-16 md:py-20 lg:py-24 xl:py-[150px] max-md:py-12"
+            class="chroma-spotlight-section js-chroma-spotlight-section overflow-x-clip py-12 md:py-14 lg:py-16 xl:py-[50px] max-md:py-12"
             data-spotlight-damping="0.18" data-spotlight-ease="power3.out" data-spotlight-radius="400"
             data-spotlight-scroll-end="top 18%" data-spotlight-scroll-exit-from="0.72"
             data-spotlight-scroll-exit-to="0.50" data-spotlight-scroll-start="top 48%" id="team">
@@ -1967,33 +1966,34 @@ Leadership Team section
                             Team</span>
                         <h2 class="max-w-[760px] text-balance max-md:text-[38px] max-md:leading-[1.1]" data-delay="0.2"
                             data-ns-animate="">
-                            Founders with NASA-grade engineering discipline and proven scale-up execution.
+                            Founders with NASA-grade engineering discipline and proven
+                            scale-up execution.
                         </h2>
                     </div>
                     <div class="col-span-12 lg:col-span-5">
                         <p class="text-paragraph dark:text-accent/70 leading-relaxed lg:max-w-[420px] max-lg:max-w-[52ch]"
                             data-delay="0.3" data-ns-animate="">
-                            A cleaner, lower-energy future needs both deep technical rigor and commercial momentum.
-                            Synkyn Studios is led by
-                            operators who have built both.
+                            A cleaner, lower-energy future needs both deep technical rigor
+                            and commercial momentum. Synkyn Studios is led by operators who
+                            have built both.
                         </p>
                     </div>
                 </div>
-                <div class="mt-8 space-y-6 sm:mt-10 md:mt-14 md:space-y-8">
+                <div class="mt-6 space-y-4 sm:mt-8 md:mt-6 md:space-y-4">
                     <div class="relative min-h-0 w-full min-w-0">
-                        <div class="chroma-grid js-chroma-grid relative mx-auto grid w-full min-w-0 max-w-[min(100%,800px)] grid-cols-1 items-stretch justify-items-center gap-3 px-0 sm:gap-4 md:gap-6 lg:grid-cols-2 lg:justify-items-stretch lg:px-0"
-                            data-columns="2" data-damping="0.45" data-ease="power3.out" data-fade-out="0.6"
+                        <div class="chroma-grid js-chroma-grid relative mx-auto grid w-full min-w-0 max-w-[min(100%,1200px)] grid-cols-1 items-stretch justify-items-center gap-3 px-0 sm:gap-4 md:gap-6 lg:grid-cols-3 lg:justify-items-stretch lg:px-0"
+                            data-columns="3" data-damping="0.45" data-ease="power3.out" data-fade-out="0.6"
                             data-radius="240">
                             <article
-                                class="chroma-card js-founder-card relative flex h-full min-h-0 w-full min-w-0 max-w-[400px] cursor-pointer flex-col items-stretch overflow-visible rounded-[18px] border border-[#333] transition-colors duration-300 sm:rounded-[20px] [background:var(--card-gradient)] lg:max-w-none"
-                                data-url="https://www.linkedin.com/in/rawand-rasheed/" style="
-              --card-border: #06b6d4;
-              --card-gradient: linear-gradient(145deg, #06b6d4, #000);
-            ">
+                                class="chroma-card relative flex h-full min-h-0 w-full min-w-0 max-w-[400px] flex-col items-stretch overflow-visible rounded-[18px] border border-[#333] transition-colors duration-300 sm:rounded-[20px] [background:var(--card-gradient)] lg:max-w-none"
+                                style="
+                    --card-border: #06b6d4;
+                    --card-gradient: linear-gradient(145deg, #06b6d4, #000);
+                  ">
                                 <div
                                     class="chroma-img-wrapper relative z-[1] box-border shrink-0 bg-transparent p-2 sm:p-[10px]">
                                     <div
-                                        class="relative h-[230px] w-full overflow-hidden rounded-[10px] sm:h-[270px] max-md:h-[300px] md:h-[310px] lg:h-[350px]">
+                                        class="relative h-[230px] w-full overflow-hidden rounded-[10px] sm:h-[270px] max-md:h-[300px] md:h-[200px] lg:h-[180px]">
                                         <img alt="Dr. Rawand Rasheed headshot"
                                             class="absolute inset-0 h-full w-full object-cover object-top"
                                             loading="lazy" src="./images/rawand.jpg" />
@@ -2001,68 +2001,21 @@ Leadership Team section
                                 </div>
                                 <footer
                                     class="chroma-info z-[1] grid grid-cols-1 items-start gap-x-3 gap-y-1 p-3 text-white min-[480px]:grid-cols-[1fr_auto]">
-                                    <h3 class="name m-0 text-base leading-5 text-white">Dr. Rawand Rasheed</h3>
-                                    <span class="handle text-[14px] text-accent/60 font-medium">Co-Founder &amp;
+                                    <h3 class="name m-0 text-base leading-5 text-white">
+                                        Dhiraj Kishore
+                                    </h3>
+                                    <span class="handle text-[14px] text-accent/60 font-medium">
                                         CEO</span>
-                                    <p class="role m-0 text-[14px] text-accent/60">PhD, Mechanical Engineering - Rice
-                                        University</p>
+                                    <p class="role m-0 text-[14px] text-accent/60">
+                                        School of Filmography,Mumbai
+                                    </p>
                                     <p
                                         class="bio col-span-1 mt-[0.15rem] text-[0.9rem] leading-[1.45] text-[#d5d5d5] min-[480px]:col-span-2">
-                                        NASA Johnson Space Center alum; invented Synkyn MICRA™ for Orion. Founded
-                                        Synkyn Studios to
-                                        commercialize that filtration for buildings.
+                                        After working as a director, producer, and screenwriter, he
+                                        founded Synkyn Studios to commercialize that
+                                        filtration for buildings.
                                     </p>
-                                    <div
-                                        class="chroma-card-details js-chroma-card-details col-span-1 mt-2 space-y-4 min-[480px]:col-span-2">
-                                        <p class="text-sm leading-relaxed text-[#d5d5d5]">
-                                            Rawand spent over five years at NASA’s Johnson Space Center on
-                                            thermal-fluid systems for
-                                            spacecraft water recovery, carbon dioxide scrubbers, astronaut respirator
-                                            filters, and other microgravity
-                                            life support. He invented the patented Synkyn MICRA™ filtration system
-                                            for Orion, designed to filter
-                                            toxic air from fire byproducts on deep-space missions to Mars.
-                                        </p>
-                                        <p class="text-sm leading-relaxed text-[#d5d5d5]">
-                                            He founded Synkyn Studios to bring that technology to commercial buildings,
-                                            cutting HVAC energy use while
-                                            improving indoor health. The company has raised $19.3MM in venture funding
-                                            and $2.3MM in non-dilutive
-                                            support from agencies including NSF and DOE.
-                                        </p>
-                                        <p class="text-sm leading-relaxed text-[#d5d5d5]">
-                                            Rawand holds multiple patents and publications, including a top 5% journal
-                                            by impact factor for Helix
-                                            MICRA™. He has been named to Forbes 30 Under 30 in Energy &amp; Green
-                                            Tech, ACHR 40 Under 40,
-                                            and the ASME Mechanical Engineering Magazine Watch List in 2025, and
-                                            received Rice’s Herschel M.
-                                            Rich Invention Award for Synkyn MICRA™.
-                                        </p>
-                                        <div class="space-y-2">
-                                            <h4
-                                                class="text-[11px] font-semibold tracking-[0.14em] text-accent/55 uppercase">
-                                                Recognition</h4>
-                                            <ul class="space-y-2 text-[13px] text-[#d5d5d5]">
-                                                <li class="chroma-recognition-item">Forbes 30 Under 30 (Energy &amp;
-                                                    Green Tech, 2025)</li>
-                                                <li class="chroma-recognition-item">ACHR 40 Under 40 HVACR Professionals
-                                                    (2024)</li>
-                                                <li class="chroma-recognition-item">ASME Mechanical Engineering Magazine
-                                                    Watch List (2025)</li>
-                                                <li class="chroma-recognition-item">FTSG Pioneers &amp; Power Players
-                                                    (Tech Trends Report, 2025)</li>
-                                                <li class="chroma-recognition-item">
-                                                    NASA Space Technology Research Fellowship, DOE IBUILD Fellowship,
-                                                    and Chain Reaction Innovations
-                                                    Fellowship
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <span
-                                        class="chroma-card-hint col-span-1 mt-2 text-xs font-medium text-accent/70 min-[480px]:col-span-2">Click
-                                        to expand profile</span>
+
                                 </footer>
                                 <style>
                                     @media (max-width: 767.98px) {
@@ -2077,15 +2030,15 @@ Leadership Team section
                                     data-z-index="50" id="sticky-bar"></div>
                             </article>
                             <article
-                                class="chroma-card js-founder-card relative flex h-full min-h-0 w-full min-w-0 max-w-[400px] cursor-pointer flex-col items-stretch overflow-visible rounded-[18px] border border-[#333] transition-colors duration-300 sm:rounded-[20px] [background:var(--card-gradient)] lg:max-w-none"
-                                data-url="https://www.linkedin.com/in/brad-husick/" style="
-              --card-border: #3b82f6;
-              --card-gradient: linear-gradient(145deg, #3b82f6, #000);
-            ">
+                                class="chroma-card relative flex h-full min-h-0 w-full min-w-0 max-w-[400px] flex-col items-stretch overflow-visible rounded-[18px] border border-[#333] transition-colors duration-300 sm:rounded-[20px] [background:var(--card-gradient)] lg:max-w-none"
+                                style="
+                    --card-border: #3b82f6;
+                    --card-gradient: linear-gradient(145deg, #3b82f6, #000);
+                  ">
                                 <div
                                     class="chroma-img-wrapper relative z-[1] box-border shrink-0 bg-transparent p-2 sm:p-[10px]">
                                     <div
-                                        class="relative h-[230px] w-full overflow-hidden rounded-[10px] sm:h-[270px] max-md:h-[300px] md:h-[310px] lg:h-[350px]">
+                                        class="relative h-[230px] w-full overflow-hidden rounded-[10px] sm:h-[270px] max-md:h-[300px] md:h-[200px] lg:h-[180px]">
                                         <img alt="Brad Husick headshot"
                                             class="absolute inset-0 h-full w-full object-cover object-top"
                                             loading="lazy" src="./images/brad1.png" />
@@ -2093,48 +2046,48 @@ Leadership Team section
                                 </div>
                                 <footer
                                     class="chroma-info z-[1] grid min-h-0 flex-1 grid-cols-1 content-start items-start gap-x-3 gap-y-1 p-3 text-white min-[480px]:grid-cols-[1fr_auto]">
-                                    <h3 class="name m-0 text-base leading-5 text-white">Brad Husick</h3>
-                                    <span class="handle text-[14px] text-accent/60 font-medium">Co-Founder &amp; Chief
-                                        Business Officer</span>
-                                    <p class="role m-0 text-[14px] text-accent/60">Ex-Apple, BA Astrophysics (Rice), MBA
-                                        (Columbia)</p>
+                                    <h3 class="name m-0 text-base leading-5 text-white">
+                                        Deepen
+                                    </h3>
+                                    <span class="handle text-[14px] text-accent/60 font-medium">Co-Founder</span>
+                                    <p class="role m-0 text-[14px] text-accent/60">
+                                        Synkyn Studio
+                                    </p>
                                     <p
                                         class="bio col-span-1 mt-[0.15rem] text-[0.9rem] leading-[1.45] text-[#d5d5d5] min-[480px]:col-span-2">
-                                        Serial entrepreneur with multiple exits, bringing deep product, business
-                                        development, and scale-up
-                                        execution experience.
+                                        AI, Automation & Business Architect
                                     </p>
+                                </footer>
+                            </article>
+                            <article
+                                class="chroma-card relative flex h-full min-h-0 w-full min-w-0 max-w-[400px] flex-col items-stretch overflow-visible rounded-[18px] border border-[#333] transition-colors duration-300 sm:rounded-[20px] [background:var(--card-gradient)] lg:max-w-none"
+                                style="
+                    --card-border: #a855f7;
+                    --card-gradient: linear-gradient(145deg, #a855f7, #000);
+                  ">
+                                <div
+                                    class="chroma-img-wrapper relative z-[1] box-border shrink-0 bg-transparent p-2 sm:p-[10px]">
                                     <div
-                                        class="chroma-card-details js-chroma-card-details col-span-1 mt-2 space-y-4 min-[480px]:col-span-2">
-                                        <p class="text-sm leading-relaxed text-[#d5d5d5]">
-                                            Brad is a serial entrepreneur who co-founded three successful tech companies
-                                            with exits including IPO,
-                                            acquisition, and a privately-held company valued at $1.5B. He also had an
-                                            early entry into a company
-                                            that reached a $9B peak valuation at IPO.
-                                        </p>
-                                        <p class="text-sm leading-relaxed text-[#d5d5d5]">
-                                            Before startups, Brad worked at Apple and Hewlett Packard (HP). He holds a
-                                            BA in Astrophysics from Rice
-                                            University and an MBA from Columbia Business School.
-                                        </p>
-                                        <p class="text-sm leading-relaxed text-[#d5d5d5]">
-                                            His experience spans product marketing, business development, sales,
-                                            operations, and fundraising across
-                                            technology and advertising sectors. At The Ocean Cleanup, Brad worked on
-                                            sustainability initiatives to
-                                            remove plastic from the Great Pacific Garbage Patch, sparking his commitment
-                                            to climate solutions.
-                                        </p>
-                                        <p class="text-sm leading-relaxed text-[#d5d5d5]">
-                                            Brad combines technical knowledge with proven business execution. These
-                                            well-honed skills are essential
-                                            for scaling deep-tech hardware from prototype to market.
-                                        </p>
+                                        class="relative h-[230px] w-full overflow-hidden rounded-[10px] sm:h-[270px] max-md:h-[300px] md:h-[200px] lg:h-[180px]">
+                                        <img alt="Third Founder headshot"
+                                            class="absolute inset-0 h-full w-full object-cover object-top"
+                                            loading="lazy" src="./images/noise.webp" />
                                     </div>
-                                    <span
-                                        class="chroma-card-hint col-span-1 mt-2 text-xs font-medium text-accent/70 min-[480px]:col-span-2">Click
-                                        to expand profile</span>
+                                </div>
+                                <footer
+                                    class="chroma-info z-[1] grid min-h-0 flex-1 grid-cols-1 content-start items-start gap-x-3 gap-y-1 p-3 text-white min-[480px]:grid-cols-[1fr_auto]">
+                                    <h3 class="name m-0 text-base leading-5 text-white">
+                                        Pruthvij Prabhu
+                                    </h3>
+                                    <span class="handle text-[14px] text-accent/60 font-medium">Co-Founder &amp;
+                                        CTO</span>
+                                    <p class="role m-0 text-[14px] text-accent/60">
+                                        Video Editing, Visual Design &amp; Content Creation
+                                    </p>
+                                    <p
+                                        class="bio col-span-1 mt-[0.15rem] text-[0.9rem] leading-[1.45] text-[#d5d5d5] min-[480px]:col-span-2">
+                                        Aesthetic & Video Director who has worked with multiple international brands,
+                                    </p>
                                 </footer>
                             </article>
                         </div>
@@ -2290,15 +2243,10 @@ Leadership Team section
                 </div>
             </div>
         </section>
-        <!-- < src="src/components/pages/about-page-03/values.htm" /> -->
-        <!-- ============================
-    Review section
-============================ -->
         <section class="xl:py-[160px] lg:py-[90px] md:py-20 py-16 overflow-hidden max-lg:mt-12">
             <div class="main-container">
                 <div class="bg-background-2 dark:bg-helix-blue-dark-1 relative flex flex-col items-center overflow-hidden rounded-4xl py-[100px] max-md:py-14"
                     data-delay="0.1" data-ns-animate="">
-                    <!-- gradient bg  -->
                     <div class="pointer-events-none absolute -top-[90%] -left-[65%] h-[600px] w-[500px] rotate-[34deg] select-none max-[376px]:-left-[76%] md:-top-[73%] md:-left-[30%] lg:-top-[70%] lg:-left-[21%] xl:-left-[15%]"
                         data-delay="0.2" data-direction="left" data-ns-animate="" data-offset="100">
                         <img alt="Decorative gradient background overlay" class="h-full w-full object-cover"
@@ -2307,143 +2255,126 @@ Leadership Team section
                     <figure class="flex flex-col items-center justify-center space-y-4">
                         <img alt="Avatar" class="bg-ns-yellow size-10 rounded-full object-cover ring-2 ring-white"
                             src="./images/Rawand.png" />
-                        <figcaption class="text-tagline-2 dark:text-accent font-medium">From our CEO</figcaption>
+                        <figcaption class="text-tagline-2 dark:text-accent font-medium">
+                            From our CEO
+                        </figcaption>
                     </figure>
                     <p class="max-sm:text-tagline-2 mx-auto mt-6 mb-4 max-w-[626px] text-center text-xl max-sm:px-2">
-                        Fail as much as you can. Fail fast. Don’t be ashamed of it. Pursue new things as much as
-                        possible. Step outside of your comfort zone and just don’t be afraid to look silly
+                        AI & Management of Higgsfield
                     </p>
                     <strong class="dark:text-accent text-lg leading-[1.5] font-medium">
-                        Dr. Rawand Rasheed, CEO &amp; Co-Founder
+                        Dhiraj Kishore, CEO
                     </strong>
                 </div>
             </div>
         </section>
     </main>
-    <!-- ══════════════════════════════
-     FOOTER
-══════════════════════════════ -->
-<footer class="site-footer">
-
-  <!-- right gradient blob -->
-  <figure class="footer-blob footer-blob--right" aria-hidden="true">
-    <div class="footer-gradient-blob"></div>
-  </figure>
-
-  <!-- left gradient blob -->
-  <figure class="footer-blob footer-blob--left" aria-hidden="true">
-    <div class="footer-gradient-blob footer-gradient-blob--left"></div>
-  </figure>
-
-  <div class="main-container">
-
-    <!-- top grid: brand + links -->
-    <div class="footer-grid">
-
-      <!-- brand -->
-      <div class="footer-brand">
-        <img
-          src="./images/logo.png"
-          alt="Synkyn Studios Logo"
-          class="footer-logo"
-          onerror="this.style.display='none'"
-        />
-
-        <p class="footer-brand-title">About the studio</p>
-        <p class="footer-tagline">
-          Synkyn Studios is a cinematic, AI-first creative studio — directing generative image and video with a filmmaker's eye. We build brands and films that feel as good as they look, from Bengaluru to everywhere.
-        </p>
-        <p class="footer-tagline footer-tagline--motto">— Designed for space. Destined for Earth.</p>
-
-        <ul class="footer-social-list" role="list">
-          <li>
-            <a
-              href="https://www.linkedin.com/company/synkynstudios/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer-social-link"
-              aria-label="LinkedIn"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff" viewBox="0 0 16 16" aria-hidden="true">
-                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- nav columns -->
-      <div class="footer-links-grid">
-
-        <!-- Company -->
-        <div>
-          <p class="footer-col-title">Company</p>
-          <ul class="footer-nav" role="list">
-            <li><a href="./about-us.html" class="footer-link">About Us</a></li>
-            <li><a href="./contact.html" class="footer-link">Contact us</a></li>
-            <li><a href="#" class="footer-link">Career</a></li>
-          </ul>
+    <footer class="site-footer">
+        <figure class="footer-blob footer-blob--right" aria-hidden="true">
+            <div class="footer-gradient-blob"></div>
+        </figure>
+        <figure class="footer-blob footer-blob--left" aria-hidden="true">
+            <div class="footer-gradient-blob footer-gradient-blob--left"></div>
+        </figure>
+        <div class="main-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="./images/logo.png" alt="Synkyn Studios Logo" class="footer-logo"
+                        onerror="this.style.display = 'none'" />
+                    <p class="footer-brand-title">About the studio</p>
+                    <p class="footer-tagline">
+                        Synkyn Studios is a cinematic, AI-first creative studio —
+                        directing generative image and video with a filmmaker's eye. We
+                        build brands and films that feel as good as they look, from
+                        Bengaluru to everywhere.
+                    </p>
+                    <p class="footer-tagline footer-tagline--motto">
+                        — Designed for space. Destined for Earth.
+                    </p>
+                    <ul class="footer-social-list" role="list">
+                        <li>
+                            <a href="https://www.linkedin.com/company/synkynstudios/" target="_blank"
+                                rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff"
+                                    viewBox="0 0 16 16" aria-hidden="true">
+                                    <path
+                                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-links-grid">
+                    <div>
+                        <p class="footer-col-title">Company</p>
+                        <ul class="footer-nav" role="list">
+                            <li>
+                                <a href="./about-us.html" class="footer-link">About Us</a>
+                            </li>
+                            <li>
+                                <a href="./contact.html" class="footer-link">Contact us</a>
+                            </li>
+                            <li><a href="#" class="footer-link">Career</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="footer-col-title">Support</p>
+                        <ul class="footer-nav" role="list">
+                            <li><a href="#" class="footer-link">FAQ</a></li>
+                            <li>
+                                <a href="mailto:info@synkynstudios.com" class="footer-link">Support</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="footer-col-title">Legal Policies</p>
+                        <ul class="footer-nav" role="list">
+                            <li>
+                                <a href="./terms.html" class="footer-link">Terms &amp; Conditions</a>
+                            </li>
+                            <li>
+                                <a href="./privacy.html" class="footer-link">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider" aria-hidden="true"></div>
+                <p class="footer-copy footer-copy--location">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg>
+                    Bengaluru, Karnataka, India
+                </p>
+                <p class="footer-copy">© 2026 Synkyn Studios. All Rights Reserved.</p>
+            </div>
         </div>
-
-        <!-- Support -->
-        <div>
-          <p class="footer-col-title">Support</p>
-          <ul class="footer-nav" role="list">
-            <li><a href="#" class="footer-link">FAQ</a></li>
-            <li><a href="mailto:info@synkynstudios.com" class="footer-link">Support</a></li>
-          </ul>
-        </div>
-
-        <!-- Legal Policies -->
-        <div>
-          <p class="footer-col-title">Legal Policies</p>
-          <ul class="footer-nav" role="list">
-            <li><a href="./terms.html" class="footer-link">Terms &amp; Conditions</a></li>
-            <li><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
-          </ul>
-        </div>
-
-      </div>
-    </div><!-- /footer-grid -->
-
-    <!-- bottom bar -->
-    <div class="footer-bottom">
-      <div class="footer-divider" aria-hidden="true"></div>
-      <p class="footer-copy footer-copy--location"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Bengaluru, Karnataka, India</p>
-      <p class="footer-copy">© 2026 Synkyn Studios. All Rights Reserved.</p>
-    </div>
-
-  </div><!-- /main-container -->
-
-</footer>
-
-<!-- ── JS: animated divider line on scroll ── -->
-<script>
-(function () {
-  'use strict';
-
-  /* Animate the footer-divider width from 0 → 100% when the footer enters the viewport */
-  const divider = document.querySelector('.footer-divider');
-  if (!divider || !('IntersectionObserver' in window)) return;
-
-  divider.style.width = '0';
-  divider.style.transition = 'width 0.9s cubic-bezier(.22,.68,0,1.2)';
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          divider.style.width = '100%';
-          io.disconnect();
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  io.observe(divider.parentElement);
-})();
-</script>
+    </footer>
+    <script>
+        (function () {
+            "use strict";
+            const divider = document.querySelector(".footer-divider");
+            if (!divider || !("IntersectionObserver" in window)) return;
+            divider.style.width = "0";
+            divider.style.transition = "width 0.9s cubic-bezier(.22,.68,0,1.2)";
+            const io = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            divider.style.width = "100%";
+                            io.disconnect();
+                        }
+                    });
+                },
+                { threshold: 0.2 },
+            );
+            io.observe(divider.parentElement);
+        })();
+    </script>
     <script defer="" src="./vendor/split-text.min.js"></script>
     <script defer="" src="./vendor/gsap.min.js"></script>
     <script defer="" src="./vendor/scroll-trigger.min.js"></script>
@@ -2451,40 +2382,55 @@ Leadership Team section
     <script defer="" src="./vendor/motionpathplugin.min.js"></script>
     <script defer="" src="./vendor/lenis.min.js"></script>
     <script defer="" src="./vendor/springer.min.js"></script>
-    <!-- < src="src/components/shared/awwwards-badge.htm" /> -->
     <script src="./assets/main5.js" type="module"></script>
     <script src="./assets/main.js" type="module"></script>
     <script src="./assets/fx.js?v=3"></script>
     <script>
         (function () {
-            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+            var reduce =
+                window.matchMedia &&
+                window.matchMedia("(prefers-reduced-motion: reduce)").matches;
             /* reveal-on-scroll for the 3D tilt cards */
-            var cards = Array.prototype.slice.call(document.querySelectorAll('.sk3d-card'));
+            var cards = Array.prototype.slice.call(
+                document.querySelectorAll(".sk3d-card"),
+            );
             if (cards.length) {
-                if ('IntersectionObserver' in window && !reduce) {
-                    var cardsWrap = document.querySelector('.sk3d-cards');
-                    if (cardsWrap) { cardsWrap.classList.add('sk3d-anim'); }
-                    var io = new IntersectionObserver(function (entries) {
-                        entries.forEach(function (en, i) {
-                            if (en.isIntersecting) {
-                                var el = en.target;
-                                setTimeout(function () { el.classList.add('is-in'); },
-                                    (Array.prototype.indexOf.call(cards, el) % 3) * 90);
-                                io.unobserve(el);
-                            }
-                        });
-                    }, { threshold: 0.2 });
-                    cards.forEach(function (c) { io.observe(c); });
+                if ("IntersectionObserver" in window && !reduce) {
+                    var cardsWrap = document.querySelector(".sk3d-cards");
+                    if (cardsWrap) {
+                        cardsWrap.classList.add("sk3d-anim");
+                    }
+                    var io = new IntersectionObserver(
+                        function (entries) {
+                            entries.forEach(function (en, i) {
+                                if (en.isIntersecting) {
+                                    var el = en.target;
+                                    setTimeout(
+                                        function () {
+                                            el.classList.add("is-in");
+                                        },
+                                        (Array.prototype.indexOf.call(cards, el) % 3) * 90,
+                                    );
+                                    io.unobserve(el);
+                                }
+                            });
+                        },
+                        { threshold: 0.2 },
+                    );
+                    cards.forEach(function (c) {
+                        io.observe(c);
+                    });
                 } else {
-                    cards.forEach(function (c) { c.classList.add('is-in'); });
+                    cards.forEach(function (c) {
+                        c.classList.add("is-in");
+                    });
                 }
-
                 /* lift inner layers for parallax depth + pointer tilt + glare */
                 if (!reduce) {
                     cards.forEach(function (card) {
-                        card.querySelectorAll('[data-z]').forEach(function (l) {
-                            l.style.transform = 'translateZ(' + l.getAttribute('data-z') + 'px)';
+                        card.querySelectorAll("[data-z]").forEach(function (l) {
+                            l.style.transform =
+                                "translateZ(" + l.getAttribute("data-z") + "px)";
                         });
                         var MAX = 9;
                         function onMove(e) {
@@ -2492,33 +2438,38 @@ Leadership Team section
                             var px = (e.clientX - r.left) / r.width;
                             var py = (e.clientY - r.top) / r.height;
                             card.style.transform =
-                                'rotateX(' + ((0.5 - py) * MAX).toFixed(2) + 'deg) ' +
-                                'rotateY(' + ((px - 0.5) * MAX).toFixed(2) + 'deg)';
-                            card.style.setProperty('--mx', (px * 100).toFixed(1) + '%');
-                            card.style.setProperty('--my', (py * 100).toFixed(1) + '%');
+                                "rotateX(" +
+                                ((0.5 - py) * MAX).toFixed(2) +
+                                "deg) " +
+                                "rotateY(" +
+                                ((px - 0.5) * MAX).toFixed(2) +
+                                "deg)";
+                            card.style.setProperty("--mx", (px * 100).toFixed(1) + "%");
+                            card.style.setProperty("--my", (py * 100).toFixed(1) + "%");
                         }
-                        function reset() { card.style.transform = ''; }
-                        card.addEventListener('pointermove', onMove);
-                        card.addEventListener('pointerleave', reset);
-                        card.addEventListener('blur', reset);
+                        function reset() {
+                            card.style.transform = "";
+                        }
+                        card.addEventListener("pointermove", onMove);
+                        card.addEventListener("pointerleave", reset);
+                        card.addEventListener("blur", reset);
                     });
                 }
             }
-
             /* pointer parallax on the MICRA core */
-            var core = document.getElementById('sk3dCore');
+            var core = document.getElementById("sk3dCore");
             if (core && !reduce) {
-                var stage = core.closest('.sk3d-stage') || core.parentNode;
-                stage.addEventListener('pointermove', function (e) {
+                var stage = core.closest(".sk3d-stage") || core.parentNode;
+                stage.addEventListener("pointermove", function (e) {
                     var r = stage.getBoundingClientRect();
                     var px = (e.clientX - r.left) / r.width - 0.5;
                     var py = (e.clientY - r.top) / r.height - 0.5;
-                    core.style.setProperty('--ry', (px * 26).toFixed(2) + 'deg');
-                    core.style.setProperty('--rx', (-py * 26).toFixed(2) + 'deg');
+                    core.style.setProperty("--ry", (px * 26).toFixed(2) + "deg");
+                    core.style.setProperty("--rx", (-py * 26).toFixed(2) + "deg");
                 });
-                stage.addEventListener('pointerleave', function () {
-                    core.style.setProperty('--ry', '0deg');
-                    core.style.setProperty('--rx', '0deg');
+                stage.addEventListener("pointerleave", function () {
+                    core.style.setProperty("--ry", "0deg");
+                    core.style.setProperty("--rx", "0deg");
                 });
             }
         })();

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="en">
+<!-- Synkyn Studios: Home Page -->
 
 <head>
     <meta charset="utf-8" />
@@ -112,9 +112,8 @@
     <link href="./assets/main.js" rel="modulepreload" />
     <link as="style" href="./assets/main.css" rel="preload" />
     <link href="./assets/main.css" rel="stylesheet" />
-    <link href="./assets/navbar.css?v=6" rel="stylesheet" />
+    <link href="./assets/navbar.css?v=8" rel="stylesheet" />
     <style id="synkyn-theme">
-        /* Synkyn Studios — yellow / dark-yellow / black theme (overrides main.css) */
         :root,
         :host {
             --color-primary-50: #faf8ee;
@@ -161,7 +160,6 @@
             --swiper-theme-color: #f2c200;
         }
 
-        /* yellow buttons need dark text */
         .btn-primary,
         .btn-primary-v2 {
             color: #0a0a0a !important
@@ -172,7 +170,6 @@
             color: #0a0a0a !important
         }
 
-        /* recolor the blue particle effect + blue Helix hero media to gold */
         #particle-effect-canvas,
         .particle-effect-container {
             filter: sepia(1) saturate(3.4) hue-rotate(10deg) brightness(1.12) contrast(1.04)
@@ -184,24 +181,20 @@
             filter: sepia(.9) saturate(2.6) hue-rotate(8deg) brightness(1.06)
         }
 
-        /* JS-animated navy section + leftover navy edge-fades -> black */
         .actually-area {
             background-color: #080808 !important
         }
 
-        /* ===== Remove all yellowish section bg tints — transparent on all sections ===== */
         main>section {
             background-color: transparent !important;
         }
 
-        /* Inner wrapper bg overrides (bento grid card wrapper) */
         section>div[class*="bg-background-12"],
         section>div[class*="bg-background-3"],
         section>div[class*="bg-background-2"] {
             background-color: transparent !important;
         }
 
-        /* ===== Section 2 — mobile: hide desktop cards, show roadway ===== */
         @media (max-width: 767px) {
             .stack-cards {
                 display: none !important;
@@ -218,7 +211,6 @@
             }
         }
 
-        /* ===== Mobile Roadway Timeline ===== */
         .mobile-roadway {
             flex-direction: column;
             align-items: flex-start;
@@ -320,7 +312,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* ===== Popup Modal ===== */
         .roadway-modal-overlay {
             position: fixed;
             inset: 0;
@@ -464,23 +455,31 @@
             color: #fff !important;
             border-color: #000 !important;
         }
+
+        #space-earth-text::selection {
+            -webkit-text-fill-color: #ffffff;
+            color: #ffffff;
+            background-color: rgba(255, 235, 59, 0.3);
+        }
+
+        #space-earth-text::-moz-selection {
+            -webkit-text-fill-color: #ffffff;
+            color: #ffffff;
+            background-color: rgba(255, 235, 59, 0.3);
+        }
     </style>
-    <link href="./assets/footer.css?v=3" rel="stylesheet" />
+    <link href="./assets/footer.css?v=4" rel="stylesheet" />
 </head>
-<!-- <body class="bg-background-2 dark:bg-background-6"> -->
 
 <body class="bg-background-2 dark:bg-helix-blue-dark-2">
     <header>
-        <div
-            class="header-two header-two-at-rest lp:!max-w-[1290px] fixed top-14 left-1/2 z-50 mx-auto flex w-full max-w-[350px] -translate-x-1/2 items-center justify-between rounded-full px-2.5 py-2.5 backdrop-blur-[25px] max-md:!top-8 min-[425px]:max-w-[380px] min-[500px]:max-w-[450px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xl:py-0"
+        <div class="header-two header-two-at-rest lp:!max-w-[1290px] fixed top-14 left-1/2 z-50 mx-auto flex w-full max-w-[350px] -translate-x-1/2 items-center justify-between rounded-full px-2.5 py-2.5 backdrop-blur-[25px] max-md:!top-8 min-[425px]:max-w-[380px] min-[500px]:max-w-[450px] sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xl:py-0"
             data-direction="up" data-ns-animate="" data-offset="20">
             <div>
                 <a class="flex min-w-0 shrink-0 items-center gap-2" href="/">
-                    <!-- Desktop logo -->
                     <figure class="m-0 hidden lg:block lg:max-w-[112px]">
                         <img alt="Synkyn Studios" class="w-[80px] h-auto object-contain" src="./images/logo.png" />
                     </figure>
-                    <!-- Mobile logo -->
                     <figure class="m-0 flex max-w-[52px] shrink-0 lg:hidden">
                         <img alt="Synkyn Studios" class="w-full h-auto object-contain" src="./images/logo.png" />
                     </figure>
@@ -522,32 +521,26 @@
                                 <div class="flex-1 space-y-3">
                                     <ul class="space-y-2">
                                         <li>
-                                            <a class="group relative flex items-start gap-2 p-3" href="./about-us.html">
+                                            <a class="group relative flex items-start gap-2 p-3" href="./album.html">
                                                 <div
                                                     class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-background-3 dark:bg-background-7 opacity-0 group-hover:opacity-100 rounded-[10px] z-0 transition-all duration-400 {=$class}">
                                                 </div>
                                                 <div
                                                     class="border-stroke-1 relative z-10 mt-1 flex size-7 shrink-0 items-center justify-center rounded-lg border p-1 dark:border-white/10">
-                                                    <svg fill="none" height="20" viewbox="0 0 20 20" width="20"
-                                                        xmlns="http://www.w3.org/2000/svg">
-                                                        <path class="stroke-secondary dark:stroke-accent {=$class}"
-                                                            d="M10.0003 18.3334C14.6027 18.3334 18.3337 14.6024 18.3337 10C18.3337 5.39765 14.6027 1.66669 10.0003 1.66669C5.39795 1.66669 1.66699 5.39765 1.66699 10C1.66699 14.6024 5.39795 18.3334 10.0003 18.3334Z"
-                                                            stroke-linecap="round" stroke-linejoin="round"></path>
-                                                        <path class="stroke-secondary dark:stroke-accent {=$class}"
-                                                            d="M10 13.3333H10.0083" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
-                                                        <path class="stroke-secondary dark:stroke-accent {=$class}"
-                                                            d="M10 6.66669V10" stroke-linecap="round"
-                                                            stroke-linejoin="round"></path>
+                                                    <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+                                                        <rect class="stroke-secondary dark:stroke-accent {=$class}" x="3" y="3" width="14" height="14" rx="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></rect>
+                                                        <path class="stroke-secondary dark:stroke-accent {=$class}" d="M3 14l4-4 4 4" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                                        <path class="stroke-secondary dark:stroke-accent {=$class}" d="M14 10l3 3" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+                                                        <circle class="stroke-secondary dark:stroke-accent {=$class}" cx="13" cy="7" r="1.5" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></circle>
                                                     </svg>
                                                 </div>
                                                 <div class="relative z-10">
                                                     <p
                                                         class="text-tagline-1 text-secondary dark:text-accent font-normal">
-                                                        About Us</p>
+                                                        Album</p>
                                                     <p
                                                         class="text-tagline-2 text-secondary/60 dark:text-accent/60 font-normal">
-                                                        Learn about our story, mission, and values.
+                                                        Our Works- Skykyn
                                                     </p>
                                                 </div>
                                             </a>
@@ -784,9 +777,6 @@
                 </div>
             </div>
         </div>
-        <!-- =========================
-Mobile Menu - Synkyn Studios
-===========================-->
         <aside
             class="sidebar dark:bg-background-8 scroll-bar fixed top-0 right-0 z-[9999] h-screen w-full translate-x-full rounded-l-3xl bg-white transition-all duration-300 sm:w-1/2 xl:hidden">
             <div class="space-y-4 p-5 sm:p-8 lg:p-9">
@@ -882,14 +872,12 @@ Mobile Menu - Synkyn Studios
         </aside>
     </header>
     <main>
-        <!-- Hero Section -->
         <section aria-label="Hero"
             class="flex flex-col flex-none place-content-center items-center gap-8 sm:gap-12 md:gap-16 w-full overflow-hidden relative"
             id="hero" style="padding: 0; height: min-content">
             <div class="relative w-full px-2 sm:px-3 md:px-2 lg:px-4 pt-4 sm:pt-14 md:pt-6 pb-8 sm:pb-10 md:pb-12">
                 <div class="relative rounded-[12px] sm:rounded-[16px] md:rounded-[20px] overflow-hidden mx-auto max-w-[2090px] hero-inner min-h-[min(90vh,100dvh)] md:min-h-[95vh]"
                     style="background-color: #000">
-                    <!-- Background: hero video -->
                     <div class="absolute inset-0 -z-0 overflow-hidden">
                         <div class="absolute inset-0"
                             style="filter: grayscale(1); -webkit-filter: grayscale(1); opacity: 1 !important;">
@@ -900,11 +888,9 @@ Mobile Menu - Synkyn Studios
                                 style="opacity: 1 !important; mix-blend-mode: normal !important;"></video>
                         </div>
                     </div>
-                    <!-- Content -->
                     <div class="relative z-10 flex flex-col h-full min-h-[min(90vh,100dvh)] md:min-h-[92vh] px-4 pt-26 sm:px-6 md:px-12 lg:px-24 py-10 sm:py-12 md:py-14 md:pt-28"
                         style="place-content: center flex-start">
                         <div class="flex-1 flex flex-col max-w-8xl mx-auto w-full">
-                            <!-- Top: Synkyn Studios (left) | Services list (right) -->
                             <div
                                 class="hero-top-layout flex flex-col lg:flex-row lg:items-start lg:justify-between md:flex-col md:items-start md:justify-start gap-6 sm:gap-8 lg:gap-16 mb-8 sm:mb-10 lg:mb-14">
                                 <div class="flex flex-col min-w-0">
@@ -944,7 +930,6 @@ Mobile Menu - Synkyn Studios
                                         HVAC Energy Use</span>
                                 </div>
                             </div>
-                            <!-- Bottom: Tagline (left) | Copyright + Contact card (right) -->
                             <div
                                 class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 sm:gap-4 lg:gap-6 mt-auto">
                                 <div class="flex flex-col gap-3 flex-1 max-w-2xl min-w-0">
@@ -962,17 +947,14 @@ Mobile Menu - Synkyn Studios
                                         © 2026 Synkyn Studios · Made in Bengaluru, India
                                     </p>
                                 </div>
-                                <!-- Contact card – visible from lg up -->
                                 <div class="shrink-0 hidden lg:block">
                                     <button aria-label="Watch how it works"
                                         class="relative block w-[340px] h-[200px] overflow-hidden group active:scale-[0.98] transition-transform bg-black border-6 border-accent dark:border-secondary rounded-2xl cursor-pointer outline-none focus-visible:ring-4 focus-visible:ring-secondary/50 dark:focus-visible:ring-accent/30"
                                         id="hero-how-it-works-btn" onclick="openVideoModal()" type="button">
-                                        <!-- Video Background -->
                                         <video autoplay=""
                                             class="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:blur-sm grayscale-50"
                                             id="hero-thumbnail-video" loop="" muted="" playsinline=""
                                             src="./video/micraexplainervid.mp4"></video>
-                                        <!-- Hover Overlay Text -->
                                         <div
                                             class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/40 z-10">
                                             <span
@@ -1017,7 +999,6 @@ Mobile Menu - Synkyn Studios
                                     <div class="absolute top-0 left-0 h-full bg-primary-400 w-0 transition-all duration-100 group-hover/progress:bg-primary-500"
                                         id="custom-progress-bar"></div>
                                 </div>
-                                <!-- Controls Row -->
                                 <div class="flex items-center justify-between text-white">
                                     <div class="flex items-center gap-4">
                                         <button class="hover:text-primary-400 transition-colors focus:outline-none"
@@ -1076,7 +1057,6 @@ Mobile Menu - Synkyn Studios
                             Designed for Space <br />
                             Destined for Earth
                         </h2>
-                        <!-- Glow effect behind text -->
                         <div
                             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-yellow-500/0 group-hover:bg-yellow-500/10 blur-[60px] rounded-full transition-all duration-1000 pointer-events-none -z-10">
                         </div>
@@ -1084,9 +1064,6 @@ Mobile Menu - Synkyn Studios
                 </div>
             </div>
         </section>
-        <!-- =========================
-Vision Statement section
-===========================-->
         <style>
             #problem-section-cursor-dot {
                 pointer-events: none !important;
@@ -1124,10 +1101,8 @@ Vision Statement section
                     </div>
                     <div class="col-span-12 xl:col-span-6">
                         <div class="stack-cards js-stack-cards xl:max-w-full max-w-full xl:mx-0 mx-auto">
-                            <!-- card one  -->
                             <div
                                 class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
-                                <!-- card content – no flip -->
                                 <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
                                     <div
                                         class="relative z-10 overflow-hidden p-8 max-md:p-6 rounded-[14px] max-w-full w-full bg-white dark:bg-black h-full flex flex-col justify-between">
@@ -1153,7 +1128,6 @@ Vision Statement section
                                     </div>
                                 </div>
                             </div>
-                            <!-- card two  -->
                             <div
                                 class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
                                 <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
@@ -1182,7 +1156,6 @@ Vision Statement section
                                     </div>
                                 </div>
                             </div>
-                            <!-- card three  -->
                             <div
                                 class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
                                 <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
@@ -1210,7 +1183,6 @@ Vision Statement section
                                     </div>
                                 </div>
                             </div>
-                            <!-- card four  -->
                             <div
                                 class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
                                 <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
@@ -1238,7 +1210,6 @@ Vision Statement section
                                     </div>
                                 </div>
                             </div>
-                            <!-- card five  -->
                             <div
                                 class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
                                 <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
@@ -1266,7 +1237,6 @@ Vision Statement section
                                     </div>
                                 </div>
                             </div>
-                            <!-- card six  -->
                             <div
                                 class="stack-cards__item js-stack-cards__item p-2 relative rounded-[20px] z-20 flex items-center justify-center max-w-full w-full overflow-hidden">
                                 <div class="relative z-10 max-w-full w-full min-h-[380px] sm:min-h-[420px]">
@@ -1295,7 +1265,6 @@ Vision Statement section
                                 </div>
                             </div>
                         </div>
-                        <!-- ===== MOBILE ROADWAY TIMELINE ===== -->
                         <div class="mobile-roadway" id="mobile-roadway">
                             <div class="roadway-line"></div>
                             <div class="roadway-progress" id="roadway-progress"></div>
@@ -1389,14 +1358,12 @@ Vision Statement section
                                 </div>
                             </div>
                         </div>
-                        <!-- ===== POPUP MODAL ===== -->
                         <div class="roadway-modal-overlay" id="roadway-modal-overlay">
                             <div class="roadway-modal" id="roadway-modal">
                                 <div class="roadway-modal-close">
                                     <button aria-label="Close popup" id="roadway-modal-close-btn">✕</button>
                                 </div>
                                 <div class="roadway-modal-body" id="roadway-modal-body">
-                                    <!-- dynamically filled -->
                                 </div>
                             </div>
                         </div>
@@ -1404,12 +1371,8 @@ Vision Statement section
                 </div>
             </div>
         </section>
-        <!-- =========================
-Helix MICRA Video Hero
-===========================-->
         <section
             class="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden py-24 border-y border-white/5">
-            <!-- Video Background -->
             <div class="absolute inset-0 w-full h-full z-0">
                 <video autoplay="" class="object-cover w-full h-full opacity-80" loop="" muted="" playsinline=""
                     poster="./images/HEHomeVid-poster.webp">
@@ -1420,7 +1383,6 @@ Helix MICRA Video Hero
                 </div>
                 <div class="absolute inset-0 bg-black/30"></div>
             </div>
-            <!-- Content -->
             <div class="relative z-10 container mx-auto px-4 text-center">
                 <div data-delay="0.1" data-direction="up" data-ns-animate="">
                     <h3
@@ -1443,10 +1405,6 @@ Helix MICRA Video Hero
                 </div>
             </div>
         </section>
-        <!-- =========================
-Why Choose us section
-===========================-->
-        <!-- make the top of the section background color to fade from white to the color its now -->
         <section class="max-[1920px]:px-5 py-14 md:py-24 lg:py-32 xl:py-40">
             <div class="mx-auto max-w-[1880px] py-12 md:px-5 md:py-24 xl:py-28">
                 <div class="main-container 2xl:!max-w-[1440px]">
@@ -1484,7 +1442,6 @@ Why Choose us section
                                                 class="inline-block transition-transform duration-300 ease-in-out first-letter:uppercase">Connect
                                             </span>
                                             <div class="relative size-6 overflow-hidden">
-                                                <!-- one  -->
                                                 <span
                                                     class="btn-v2-icon absolute inset-0 size-6 -translate-x-6 transition-all duration-300 ease-in-out group-hover/btn-v2:translate-x-1">
                                                     <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1500,7 +1457,6 @@ Why Choose us section
                                                         <path d="M5 17H7V19H5V17Z"></path>
                                                     </svg>
                                                 </span>
-                                                <!-- two  -->
                                                 <span
                                                     class="btn-v2-icon absolute size-6 -translate-x-2 transition-all duration-300 ease-in-out group-hover/btn-v2:translate-x-6">
                                                     <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1586,7 +1542,6 @@ Why Choose us section
                         </div>
                         <div class="relative flex flex-col justify-center rounded-2xl bg-white dark:bg-background-8 p-8 max-md:p-6 md:col-span-3 lg:col-span-2 lg:row-span-6 lg:min-h-[452px] overflow-hidden"
                             data-delay="0.1" data-ns-animate="" data-start="top 98%">
-                            <!-- Video background (no grey overlay) -->
                             <div class="absolute inset-0 z-0 overflow-hidden rounded-2xl">
                                 <video aria-label="Synkyn Studios background" autoplay=""
                                     class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
@@ -1696,7 +1651,6 @@ Why Choose us section
                                 <div class="flex items-center justify-center gap-2">
                                     <span
                                         class="bg-green-100 dark:bg-green-900/40 flex size-[20px] items-center justify-center rounded-full p-1 text-green-600 dark:text-green-400">
-                                        <!-- add a check icon -->
                                         <svg class="lucide lucide-check" fill="none" height="24" stroke="currentColor"
                                             stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
@@ -1716,13 +1670,8 @@ Why Choose us section
                 </div>
             </div>
         </section>
-        <!-- < src="src/components/pages/helix-earth/nasa-breakthrough.htm" /> -->
-        <!-- =========================
-Process Steps section — vertical timeline with step dots, bar, and alternating left/right cards
-===========================-->
         <section class="pt-32 pb-14 sm:pt-36 md:pt-42 md:pb-16 lg:pb-[88px] xl:pt-[180px] xl:pb-[100px]">
             <div class="main-container" fetchpriority="high">
-                <!-- Section header -->
                 <div class="text-center space-y-5 mb-[70px] max-md:mb-12">
                     <span class="badge badge-gradient-purple" data-delay="0.1" data-ns-animate="">Technology</span>
                     <div class="space-y-3" data-delay="0.2" data-ns-animate="">
@@ -1735,9 +1684,7 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
                     </div>
                 </div>
                 <div class="process-steps" data-delay="0.4" data-ns-animate="">
-                    <!-- Each step = 3-column grid: [ left slot | timeline | right slot ]. Fill either slot; no absolute positioning. -->
                     <div class="max-w-[1160px] xl:max-w-[1280px] mx-auto mb-[100px] max-md:space-y-14">
-                        <!-- STEP 1 — card left, optional content right -->
                         <div class="grid lg:grid-cols-[1fr_auto_1fr] gap-x-6 lg:gap-x-10 items-center max-lg:flex max-lg:flex-col max-lg:gap-6 rounded-lg overflow-hidden"
                             id="hero">
                             <div
@@ -1858,7 +1805,6 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
                                 </div>
                             </div>
                         </div>
-                        <!-- STEP 3 — card left, optional content right -->
                         <div class="grid lg:grid-cols-[1fr_auto_1fr] gap-x-6 lg:gap-x-10 items-center max-lg:flex max-lg:flex-col max-lg:gap-6"
                             id="hero">
                             <div
@@ -1919,132 +1865,105 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
                             </div>
                         </div>
                     </div>
-                </section>
-            </main>
-        <!-- ══════════════════════════════
-     FOOTER
-══════════════════════════════ -->
-<footer class="site-footer">
+        </section>
+    </main>
+    <footer class="site-footer">
+        <figure class="footer-blob footer-blob--right" aria-hidden="true">
+            <div class="footer-gradient-blob"></div>
+        </figure>
+        <figure class="footer-blob footer-blob--left" aria-hidden="true">
+            <div class="footer-gradient-blob footer-gradient-blob--left"></div>
+        </figure>
+        <div class="main-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="./images/logo.png" alt="Synkyn Studios Logo" class="footer-logo"
+                        onerror="this.style.display='none'" />
 
-  <!-- right gradient blob -->
-  <figure class="footer-blob footer-blob--right" aria-hidden="true">
-    <div class="footer-gradient-blob"></div>
-  </figure>
+                    <p class="footer-brand-title">About the studio</p>
+                    <p class="footer-tagline">
+                        Synkyn Studios is a cinematic, AI-first creative studio — directing generative image and video
+                        with a filmmaker's eye. We build brands and films that feel as good as they look, from Bengaluru
+                        to everywhere.
+                    </p>
+                    <p class="footer-tagline footer-tagline--motto">— Designed for space. Destined for Earth.</p>
 
-  <!-- left gradient blob -->
-  <figure class="footer-blob footer-blob--left" aria-hidden="true">
-    <div class="footer-gradient-blob footer-gradient-blob--left"></div>
-  </figure>
+                    <ul class="footer-social-list" role="list">
+                        <li>
+                            <a href="https://www.linkedin.com/company/synkynstudios/" target="_blank"
+                                rel="noopener noreferrer" class="footer-social-link" aria-label="LinkedIn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff"
+                                    viewBox="0 0 16 16" aria-hidden="true">
+                                    <path
+                                        d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z" />
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
 
-  <div class="main-container">
+                <div class="footer-links-grid">
+                    <div>
+                        <p class="footer-col-title">Company</p>
+                        <ul class="footer-nav" role="list">
+                            <li><a href="./about-us.html" class="footer-link">About Us</a></li>
+                            <li><a href="./contact.html" class="footer-link">Contact us</a></li>
+                            <li><a href="#" class="footer-link">Career</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="footer-col-title">Support</p>
+                        <ul class="footer-nav" role="list">
+                            <li><a href="#" class="footer-link">FAQ</a></li>
+                            <li><a href="mailto:info@synkynstudios.com" class="footer-link">Support</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="footer-col-title">Legal Policies</p>
+                        <ul class="footer-nav" role="list">
+                            <li><a href="./terms.html" class="footer-link">Terms &amp; Conditions</a></li>
+                            <li><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-divider" aria-hidden="true"></div>
+                <p class="footer-copy footer-copy--location"><svg xmlns="http://www.w3.org/2000/svg" width="14"
+                        height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                        <circle cx="12" cy="10" r="3" />
+                    </svg> Bengaluru, Karnataka, India</p>
+                <p class="footer-copy">© 2026 Synkyn Studios. All Rights Reserved.</p>
+            </div>
 
-    <!-- top grid: brand + links -->
-    <div class="footer-grid">
-
-      <!-- brand -->
-      <div class="footer-brand">
-        <img
-          src="./images/logo.png"
-          alt="Synkyn Studios Logo"
-          class="footer-logo"
-          onerror="this.style.display='none'"
-        />
-
-        <p class="footer-brand-title">About the studio</p>
-        <p class="footer-tagline">
-          Synkyn Studios is a cinematic, AI-first creative studio — directing generative image and video with a filmmaker's eye. We build brands and films that feel as good as they look, from Bengaluru to everywhere.
-        </p>
-        <p class="footer-tagline footer-tagline--motto">— Designed for space. Destined for Earth.</p>
-
-        <ul class="footer-social-list" role="list">
-          <li>
-            <a
-              href="https://www.linkedin.com/company/synkynstudios/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="footer-social-link"
-              aria-label="LinkedIn"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="#ffffff" viewBox="0 0 16 16" aria-hidden="true">
-                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- nav columns -->
-      <div class="footer-links-grid">
-
-        <!-- Company -->
-        <div>
-          <p class="footer-col-title">Company</p>
-          <ul class="footer-nav" role="list">
-            <li><a href="./about-us.html" class="footer-link">About Us</a></li>
-            <li><a href="./contact.html" class="footer-link">Contact us</a></li>
-            <li><a href="#" class="footer-link">Career</a></li>
-          </ul>
         </div>
+    </footer>
+    <script>
+        (function () {
+            'use strict';
+            const divider = document.querySelector('.footer-divider');
+            if (!divider || !('IntersectionObserver' in window)) return;
 
-        <!-- Support -->
-        <div>
-          <p class="footer-col-title">Support</p>
-          <ul class="footer-nav" role="list">
-            <li><a href="#" class="footer-link">FAQ</a></li>
-            <li><a href="mailto:info@synkynstudios.com" class="footer-link">Support</a></li>
-          </ul>
-        </div>
+            divider.style.width = '0';
+            divider.style.transition = 'width 0.9s cubic-bezier(.22,.68,0,1.2)';
 
-        <!-- Legal Policies -->
-        <div>
-          <p class="footer-col-title">Legal Policies</p>
-          <ul class="footer-nav" role="list">
-            <li><a href="./terms.html" class="footer-link">Terms &amp; Conditions</a></li>
-            <li><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
-          </ul>
-        </div>
+            const io = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            divider.style.width = '100%';
+                            io.disconnect();
+                        }
+                    });
+                },
+                { threshold: 0.2 }
+            );
 
-      </div>
-    </div><!-- /footer-grid -->
-
-    <!-- bottom bar -->
-    <div class="footer-bottom">
-      <div class="footer-divider" aria-hidden="true"></div>
-      <p class="footer-copy footer-copy--location"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Bengaluru, Karnataka, India</p>
-      <p class="footer-copy">© 2026 Synkyn Studios. All Rights Reserved.</p>
-    </div>
-
-  </div><!-- /main-container -->
-
-</footer>
-
-<!-- ── JS: animated divider line on scroll ── -->
-<script>
-(function () {
-  'use strict';
-
-  /* Animate the footer-divider width from 0 → 100% when the footer enters the viewport */
-  const divider = document.querySelector('.footer-divider');
-  if (!divider || !('IntersectionObserver' in window)) return;
-
-  divider.style.width = '0';
-  divider.style.transition = 'width 0.9s cubic-bezier(.22,.68,0,1.2)';
-
-  const io = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          divider.style.width = '100%';
-          io.disconnect();
-        }
-      });
-    },
-    { threshold: 0.2 }
-  );
-
-  io.observe(divider.parentElement);
-})();
-</script>
+            io.observe(divider.parentElement);
+        })();
+    </script>
     <style>
         @media (max-width: 767.98px) {
             #sticky-bar {
@@ -2063,9 +1982,7 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
     <script defer="" src="./vendor/lenis.min.js"></script>
     <script defer="" src="./vendor/springer.min.js"></script>
     <script src="./assets/main.js" type="module"></script>
-    <!-- < src="src/components/shared/awwwards-badge.htm" /> -->
     <script src="./assets/fx.js?v=3"></script>
-    <!-- ===== Mobile Roadway: scroll animation + popup logic ===== -->
     <script>
         (function () {
             if (window.innerWidth >= 768) return;
@@ -2078,8 +1995,6 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
             const modal = document.getElementById('roadway-modal');
             const closeBtn = document.getElementById('roadway-modal-close-btn');
             const modalBody = document.getElementById('roadway-modal-body');
-
-            // Card data for popups
             const cardData = [
                 {
                     title: 'AI Film Production',
@@ -2118,8 +2033,6 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
                     bullets: []
                 }
             ];
-
-            // Scroll-driven dot activation + progress bar
             function onScroll() {
                 if (!roadway) return;
                 var rect = roadway.getBoundingClientRect();
@@ -2142,8 +2055,6 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
             }
             window.addEventListener('scroll', onScroll, { passive: true });
             onScroll();
-
-            // Open popup
             function openModal(index) {
                 var d = cardData[index];
                 if (!d) return;
@@ -2158,36 +2069,25 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
                 overlay.classList.add('open');
                 document.body.style.overflow = 'hidden';
             }
-
-            // Close popup
             function closeModal() {
                 overlay.classList.remove('open');
                 document.body.style.overflow = '';
             }
-
-            // Attach click to each stop
             stops.forEach(function (stop) {
                 stop.addEventListener('click', function () {
                     var idx = parseInt(stop.getAttribute('data-card'), 10);
                     openModal(idx);
                 });
             });
-
-            // Close on X button
             if (closeBtn) closeBtn.addEventListener('click', closeModal);
-
-            // Close on overlay click (anywhere outside modal)
             if (overlay) overlay.addEventListener('click', function (e) {
                 if (e.target === overlay) closeModal();
             });
-
-            // Close on Escape key
             document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') closeModal();
             });
         })();
     </script>
-    <!-- Inline GSAP animation for Designed for Space section -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
@@ -2205,7 +2105,6 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
             }
         });
     </script>
-    <!-- Custom Video Controls Logic -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const video = document.getElementById("modal-video");
@@ -2218,16 +2117,12 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
             const timeDisplay = document.getElementById("custom-time-display");
 
             if (!video || !playBtn) return;
-
-            // Format time
             const formatTime = (time) => {
                 if (isNaN(time)) return "0:00";
                 const m = Math.floor(time / 60);
                 const s = Math.floor(time % 60);
                 return m + ":" + (s < 10 ? "0" + s : s);
             };
-
-            // Play/Pause
             const togglePlay = () => {
                 if (video.paused) {
                     video.play();
@@ -2239,8 +2134,6 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
             };
             playBtn.addEventListener("click", (e) => { e.stopPropagation(); togglePlay(); });
             video.addEventListener("click", togglePlay);
-
-            // Mute/Volume Logic
             let lastVolume = 1.0;
 
             const updateVolumeUI = () => {
@@ -2290,21 +2183,15 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
 
             video.addEventListener("volumechange", updateVolumeUI);
             updateVolumeUI();
-
-            // Time Update
             video.addEventListener("timeupdate", () => {
                 if (!video.duration) return;
                 const percent = (video.currentTime / video.duration) * 100;
                 progressBar.style.width = percent + "%";
                 timeDisplay.textContent = formatTime(video.currentTime) + " / " + formatTime(video.duration);
             });
-
-            // Handle metadata load to set initial time
             video.addEventListener("loadedmetadata", () => {
                 timeDisplay.textContent = "0:00 / " + formatTime(video.duration);
             });
-
-            // Seek
             progressContainer.addEventListener("click", (e) => {
                 e.stopPropagation();
                 if (!video.duration) return;
@@ -2312,8 +2199,6 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
                 const pos = (e.clientX - rect.left) / rect.width;
                 video.currentTime = pos * video.duration;
             });
-
-            // Fullscreen
             fullscreenBtn.addEventListener("click", (e) => {
                 e.stopPropagation();
                 if (video.requestFullscreen) {
@@ -2323,10 +2208,41 @@ Process Steps section — vertical timeline with step dots, bar, and alternating
                 }
             });
 
-            // Add a hook to pause video when modal is closed via existing function
+            const videoModal = document.getElementById("video-modal");
+            const navbar = document.querySelector(".header-two");
+
+            window.openVideoModal = function () {
+                if (videoModal) {
+                    videoModal.classList.remove("hidden");
+                    setTimeout(() => {
+                        const backdrop = document.getElementById("modal-backdrop");
+                        if (backdrop) backdrop.classList.remove("opacity-0");
+                        if (backdrop) backdrop.classList.add("opacity-100");
+                    }, 10);
+                }
+                if (navbar) {
+                    navbar.classList.add("nav-hidden");
+                }
+                document.body.style.overflow = "hidden";
+            };
+
             const originalClose = window.closeVideoModal;
             window.closeVideoModal = function () {
                 if (originalClose) originalClose();
+
+                const backdrop = document.getElementById("modal-backdrop");
+                if (backdrop) backdrop.classList.remove("opacity-100");
+                if (backdrop) backdrop.classList.add("opacity-0");
+
+                setTimeout(() => {
+                    if (videoModal) videoModal.classList.add("hidden");
+                }, 300);
+
+                if (navbar) {
+                    navbar.classList.remove("nav-hidden");
+                }
+                document.body.style.overflow = "";
+
                 video.pause();
                 playBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>';
             };

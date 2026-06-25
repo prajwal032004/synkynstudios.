@@ -1,0 +1,10 @@
+/* TEAM */
+  Creator: Synkyn Studios
+  Site: https://synkynstudios.com
+  Location: Bengaluru, India
+
+/* SITE */
+  Last update: 2026-06-25
+  Language: English
+  Doctype: HTML5
+  Design: Space-inspired, Earth-destined

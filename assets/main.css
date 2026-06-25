@@ -20884,6 +20884,16 @@ html:not(.dark) .header-two.header-home:not(.header-two-scroll) nav a[aria-curre
     transition: opacity .3s, transform .3s, pointer-events 0s .3s
 }
 
+/* ── Custom Selection Color ── */
+::selection {
+    background-color: rgba(255, 235, 59, 0.3); /* slight yellowish color */
+    color: inherit;
+}
+::-moz-selection {
+    background-color: rgba(255, 235, 59, 0.3); /* slight yellowish color */
+    color: inherit;
+}
+
 .mega-menu.active,
 .dropdown-menu.active,
 .customer-dropdown-menu.active {

@@ -328,4 +328,18 @@
     else if (mq.addListener) mq.addListener(onChange);
   }
 
+  /* ============================================================
+     7. SECURITY (Prevent right-click/download)
+  ============================================================ */
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('dragstart', function(e) {
+    var tag = e.target.tagName ? e.target.tagName.toLowerCase() : '';
+    if (tag === 'img' || tag === 'video') {
+      e.preventDefault();
+    }
+  }, { passive: false });
+
 })();
