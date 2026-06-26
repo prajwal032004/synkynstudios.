@@ -961,10 +961,10 @@
                                     <button aria-label="Watch how it works"
                                         class="relative block w-[340px] h-[200px] overflow-hidden group active:scale-[0.98] transition-transform bg-black border-6 border-accent dark:border-secondary rounded-2xl cursor-pointer outline-none focus-visible:ring-4 focus-visible:ring-secondary/50 dark:focus-visible:ring-accent/30"
                                         id="hero-how-it-works-btn" onclick="openVideoModal()" type="button">
-                                        <video autoplay=""
+                                        <video autoplay="" preload="auto"
                                             class="absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:blur-sm grayscale-50"
                                             id="hero-thumbnail-video" loop="" muted="" playsinline=""
-                                            src="./video/micraexplainervid.mp4"></video>
+                                            src="https://websitemain-tau.vercel.app/videos/herovideo.mp4"></video>
                                         <div
                                             class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/40 z-10">
                                             <span
@@ -981,79 +981,43 @@
                         </div>
                     </div>
                 </div>
-                <div aria-modal="true" class="fixed inset-0 z-[100] hidden" id="video-modal" role="dialog">
-                    <div aria-hidden="true"
-                        class="absolute inset-0 bg-black/80 backdrop-blur-md opacity-0 cursor-pointer"
-                        id="modal-backdrop" onclick="closeVideoModal()"></div>
-                    <div class="fixed bg-black rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 flex flex-col pointer-events-auto"
-                        id="modal-content" style="will-change: left, top, width, height">
-                        <button aria-label="Close modal"
+                <!-- </section> -->
+
+                <!-- Video Modal: content is positioned fixed and animated from thumbnail rect to center -->
+                <div id="video-modal" class="fixed inset-0 z-[100] hidden" role="dialog" aria-modal="true">
+                    <!-- Backdrop -->
+                    <div id="modal-backdrop"
+                        class="absolute inset-0 bg-black/80 backdrop-blur-[40px] opacity-0 cursor-pointer transition-opacity duration-300"
+                        onclick="closeVideoModal()" aria-hidden="true"></div>
+
+                    <!-- Modal content: position fixed so GSAP can animate left/top/width/height from thumbnail to final -->
+                    <div id="modal-content"
+                        class="fixed bg-black rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10 flex flex-col pointer-events-auto"
+                        style="will-change: left, top, width, height">
+                        <!-- Close Button -->
+                        <button onclick="closeVideoModal()"
                             class="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/40 text-white/90 hover:bg-black/60 hover:text-white transition-all backdrop-blur-md border border-white/10 group cursor-pointer"
-                            onclick="closeVideoModal()">
-                            <svg class="group-hover:rotate-90 transition-transform duration-300" fill="none" height="24"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                <line x1="18" x2="6" y1="6" y2="18"></line>
-                                <line x1="6" x2="18" y1="6" y2="18"></line>
+                            aria-label="Close modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="group-hover:rotate-90 transition-transform duration-300">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
                             </svg>
                         </button>
-                        <div class="relative w-full h-full group/video">
-                            <video class="w-full h-full object-cover" id="modal-video" playsinline="">
-                                <source src="./video/micraexplainervid.mp4" type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
-                            <div
-                                class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover/video:opacity-100 transition-opacity duration-300 flex flex-col gap-2 pointer-events-auto">
-                                <div class="w-full h-1 bg-white/30 rounded-full cursor-pointer relative overflow-hidden group/progress"
-                                    id="custom-progress-container">
-                                    <div class="absolute top-0 left-0 h-full bg-primary-400 w-0 transition-all duration-100 group-hover/progress:bg-primary-500"
-                                        id="custom-progress-bar"></div>
-                                </div>
-                                <div class="flex items-center justify-between text-white">
-                                    <div class="flex items-center gap-4">
-                                        <button class="hover:text-primary-400 transition-colors focus:outline-none"
-                                            id="custom-play-pause">
-                                            <svg fill="currentColor" height="24" stroke="none" viewbox="0 0 24 24"
-                                                width="24" xmlns="http://www.w3.org/2000/svg">
-                                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                                            </svg>
-                                        </button>
-                                        <span class="text-sm font-medium tracking-wide" id="custom-time-display">0:00 /
-                                            0:00</span>
-                                    </div>
-                                    <div class="flex items-center gap-4">
-                                        <div class="flex items-center gap-2 group/volume">
-                                            <button class="hover:text-primary-400 transition-colors focus:outline-none"
-                                                id="custom-mute">
-                                                <svg fill="none" height="22" stroke="currentColor"
-                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    viewbox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg">
-                                                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                                                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                                                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-                                                </svg>
-                                            </button>
-                                            <input
-                                                class="w-16 md:w-20 accent-primary-400 cursor-pointer h-1 rounded-lg bg-white/30 focus:outline-none"
-                                                id="custom-volume" max="1" min="0" step="0.05" type="range" value="1" />
-                                        </div>
-                                        <button class="hover:text-primary-400 transition-colors focus:outline-none"
-                                            id="custom-fullscreen">
-                                            <svg fill="none" height="20" stroke="currentColor" stroke-linecap="round"
-                                                stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M8 3H5a2 2 0 0 0-2 2v3"></path>
-                                                <path d="M21 8V5a2 2 0 0 0-2-2h-3"></path>
-                                                <path d="M3 16v3a2 2 0 0 0 2 2h3"></path>
-                                                <path d="M16 21h3a2 2 0 0 0 2-2v-3"></path>
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+                        <!-- Video -->
+                        <video id="modal-video" class="w-full h-full object-cover outline-none" playsinline="" controls
+                            controlsList="nodownload noplaybackrate" disablePictureInPicture
+                            oncontextmenu="return false" preload="auto">
+                            <source src="https://websitemain-tau.vercel.app/videos/herovideo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                 </div>
+
+            </div>
+
             </div>
         </section>
         <section class="actually-area overflow-hidden">
