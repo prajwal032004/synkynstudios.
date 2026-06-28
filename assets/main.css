@@ -1935,7 +1935,7 @@ body {
 }
 
 .actually-area .bg-area {
-    background-color: #101010;
+    background-color: transparent;
     border-radius: 50%;
     width: 250px;
     height: 250px;

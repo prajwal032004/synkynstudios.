@@ -313,3 +313,63 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+/* ----------------------------------------------------------------------
+   What's New Dynamic Configuration
+   ---------------------------------------------------------------------- */
+window.SynkynWhatsNew = {
+    // Set to 'video' for auto-playing background, or 'image' for static thumbnail
+    type: 'image',
+    src: './images/ns-img-485.png', // using the default image
+    title: 'NBK111 Glimpse',
+    description: '#NBK111 Glimpse - Entry of an Era',
+    link: './album.html#work-yt-1'
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Find the "What's new" section by looking for its title text
+    const pElements = document.querySelectorAll('p');
+    let whatsNewTitle = null;
+    for (const p of pElements) {
+        if (p.textContent.trim() === 'What’s new') {
+            whatsNewTitle = p;
+            break;
+        }
+    }
+
+    if (whatsNewTitle && window.SynkynWhatsNew) {
+        const container = whatsNewTitle.nextElementSibling; // the <div> wrapping the <figure>
+        if (!container) return;
+
+        const figure = container.querySelector('figure');
+        if (!figure) return;
+
+        // Update Title & Description
+        const titleEl = figure.querySelector('.text-tagline-1');
+        const descEl = figure.querySelector('.text-tagline-2');
+        if (titleEl) titleEl.textContent = window.SynkynWhatsNew.title;
+        if (descEl) descEl.textContent = window.SynkynWhatsNew.description;
+
+        // Update Link
+        const linkEl = figure.querySelector('a');
+        if (linkEl) linkEl.href = window.SynkynWhatsNew.link;
+
+        // Update Background Media
+        const mediaContainer = figure.querySelector('.relative.max-w-\\[596px\\]');
+        if (mediaContainer) {
+            if (window.SynkynWhatsNew.type === 'video') {
+                mediaContainer.innerHTML = `
+                    <video src="${window.SynkynWhatsNew.src}" autoplay loop muted playsinline 
+                           class="h-full w-full object-cover blur-sm opacity-80" 
+                           style="position:absolute; inset:0;"></video>
+                `;
+            } else if (window.SynkynWhatsNew.type === 'image') {
+                mediaContainer.innerHTML = `
+                    <img src="${window.SynkynWhatsNew.src}" alt="What's new" 
+                         class="h-full w-full object-cover blur-sm opacity-80" 
+                         style="position:absolute; inset:0;" />
+                `;
+            }
+        }
+    }
+});
