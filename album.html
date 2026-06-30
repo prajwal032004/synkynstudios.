@@ -431,28 +431,38 @@
                   <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 p-3 font-medium">
                     What’s new</p>
                   <div>
-                    <a href="./album.html#work-yt-1" class="group relative block min-h-[166px] w-full max-w-full overflow-hidden rounded-[14px] cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
-                        <div class="absolute inset-0 w-full h-full overflow-hidden rounded-[14px]">
-                            <picture>
-                                <source srcset="./images/ns-img-485.avif" type="image/avif" />
-                                <source srcset="./images/ns-img-485.webp" type="image/webp" />
-                                <img alt="What’s new" class="h-full w-full object-cover blur-sm" decoding="async" loading="lazy" sizes="(max-width: 596px) 100vw, 596px" src="./images/ns-img-485.png" />
-                            </picture>
+                    <a href="./album.html#work-yt-1"
+                      class="group relative block min-h-[166px] w-full max-w-full overflow-hidden rounded-[14px] cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300">
+                      <div class="absolute inset-0 w-full h-full overflow-hidden rounded-[14px]">
+                        <picture>
+                          <source srcset="./images/ns-img-485.avif" type="image/avif" />
+                          <source srcset="./images/ns-img-485.webp" type="image/webp" />
+                          <img alt="What’s new" class="h-full w-full object-cover blur-sm" decoding="async"
+                            loading="lazy" sizes="(max-width: 596px) 100vw, 596px" src="./images/ns-img-485.png" />
+                        </picture>
+                      </div>
+                      <div class="absolute inset-0 p-4 flex flex-col justify-between">
+                        <div
+                          class="bg-black/50 backdrop-blur-md p-2.5 px-3.5 rounded-[10px] border border-white/10 inline-block w-fit shadow-lg">
+                          <p class="text-[12px] text-accent font-semibold drop-shadow-lg">NBK111 Glimpse</p>
+                          <p
+                            class="text-[10px] text-white/90 w-full max-w-[240px] font-normal mt-0.5 leading-[1.3] drop-shadow-md">
+                            #NBK111 Glimpse - Entry of an Era | NBK | Gopichandh Malineni | Thaman S</p>
                         </div>
-                        <div class="absolute inset-0 p-4 flex flex-col justify-between">
-                            <div class="bg-black/50 backdrop-blur-md p-2.5 px-3.5 rounded-[10px] border border-white/10 inline-block w-fit shadow-lg">
-                                <p class="text-[12px] text-accent font-semibold drop-shadow-lg">NBK111 Glimpse</p>
-                                <p class="text-[10px] text-white/90 w-full max-w-[240px] font-normal mt-0.5 leading-[1.3] drop-shadow-md">#NBK111 Glimpse - Entry of an Era | NBK | Gopichandh Malineni | Thaman S</p>
-                            </div>
-                            <div class="pl-1">
-                                <div class="group-hover:bg-helix-blue bg-secondary relative flex h-8 w-14 items-center justify-center overflow-hidden rounded-[40px] ring-[3px] ring-white transition-all duration-500 ease-in-out">
-                                    <figure class="relative size-5 items-center justify-center overflow-hidden">
-                                        <img alt="new-arrow" class="absolute inset-0 size-full -translate-x-5 object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-1" src="./images/icons/new-arrow-white.svg" />
-                                        <img alt="new-arrow" class="size-full object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-5" src="./images/icons/new-arrow-white.svg" />
-                                    </figure>
-                                </div>
-                            </div>
+                        <div class="pl-1">
+                          <div
+                            class="group-hover:bg-helix-blue bg-secondary relative flex h-8 w-14 items-center justify-center overflow-hidden rounded-[40px] ring-[3px] ring-white transition-all duration-500 ease-in-out">
+                            <figure class="relative size-5 items-center justify-center overflow-hidden">
+                              <img alt="new-arrow"
+                                class="absolute inset-0 size-full -translate-x-5 object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-1"
+                                src="./images/icons/new-arrow-white.svg" />
+                              <img alt="new-arrow"
+                                class="size-full object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-5"
+                                src="./images/icons/new-arrow-white.svg" />
+                            </figure>
+                          </div>
                         </div>
+                      </div>
                     </a>
                   </div>
                 </div>
@@ -584,7 +594,7 @@
               Real buildings, real numbers. Tap any tile to see the project up close.
             </p>
           </div>
-          <div id="bento-grid-container" class="grid grid-cols-1 gap-y-4 md:grid-cols-3 md:gap-4 lg:grid-cols-4">
+          <div id="bento-grid-container" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-4">
             <!-- Javascript will populate this with Bento logic -->
           </div>
         </div>
@@ -602,9 +612,29 @@
           </svg>
         </button>
 
-        <!-- Media pane -->
-        <div id="modal-media-container" class="media-modal__media">
-          <!-- media injected here -->
+        <!-- Media Wrapper (Carousel controls and media) -->
+        <div class="media-modal__media-wrapper">
+          <!-- Media pane (Carousel for multiple sources) -->
+          <div id="modal-media-container" class="media-modal__media">
+            <!-- media slides injected here -->
+          </div>
+
+          <!-- Carousel controls (Arrows) -->
+          <button id="modal-prev-btn" class="media-modal__nav-btn media-modal__nav-btn--prev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M15 18l-6-6 6-6"></path>
+            </svg>
+          </button>
+          <button id="modal-next-btn" class="media-modal__nav-btn media-modal__nav-btn--next" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 18l6-6-6-6"></path>
+            </svg>
+          </button>
+
+          <!-- Dots will be injected here when multiple sources exist -->
+          <div id="modal-dots-container" class="media-modal__dots"></div>
         </div>
 
         <!-- Detail pane -->
@@ -627,6 +657,60 @@
     </div>
 
     <style>
+      /* ============================================================
+         BENTO GRID — robust responsive layout
+         The compiled main.css does not include some arbitrary
+         min-h-[..] utilities, so heights are guaranteed here in
+         plain CSS. This is what fixes the "only 6 tiles on mobile"
+         bug (tiles relying on min-h-[250px] were collapsing to 0).
+         ============================================================ */
+
+      /* MOBILE: single column, every tile guaranteed a height */
+      @media (max-width: 767.98px) {
+        #bento-grid-container {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        #bento-grid-container>.bento-item {
+          grid-column: auto !important;
+          grid-row: auto !important;
+          min-height: 230px;
+          display: flex !important;
+        }
+
+        /* Slightly taller hero tile on mobile for visual rhythm */
+        #bento-grid-container>.bento-item:nth-child(5) {
+          min-height: 300px;
+        }
+      }
+
+      /* TABLET: exactly two equal columns, clean and even */
+      @media (min-width: 768px) and (max-width: 1023.98px) {
+        #bento-grid-container {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 1rem;
+        }
+
+        /* Neutralise any desktop col/row spans so tablet stays 2-up */
+        #bento-grid-container>.bento-item {
+          grid-column: auto !important;
+          grid-row: auto !important;
+          min-height: 260px;
+          display: flex !important;
+        }
+      }
+
+      /* DESKTOP: keep the original bento (handled by lg: utilities).
+         Safety net so any tile lacking a compiled min-h still has size. */
+      @media (min-width: 1024px) {
+        #bento-grid-container>.bento-item {
+          min-height: 200px;
+        }
+      }
+
       /* -------- Bento tiles -------- */
       .bento-item {
         cursor: pointer;
@@ -702,37 +786,103 @@
         }
       }
 
-      /* Media pane — media is fully visible (object-contain), never cropped */
-      .media-modal__media {
+      /* Media Wrapper (Carousel setup) */
+      .media-modal__media-wrapper {
         position: relative;
         flex: 1 1 40%;
         min-height: 300px;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: clamp(14px, 2vw, 28px);
-        background:
-          radial-gradient(120% 120% at 50% 0%, #161616 0%, #060606 70%);
+        background: radial-gradient(120% 120% at 50% 0%, #161616 0%, #060606 70%);
         overflow: hidden;
       }
 
+      .media-modal__media {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        /* For carousel scrolling */
+        padding: 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+      }
+
+      .media-modal__media::-webkit-scrollbar {
+        display: none;
+      }
+
+      /* Navigation Buttons (Arrows) */
+      .media-modal__nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        z-index: 20;
+        transition: background 0.3s, transform 0.3s;
+        opacity: 0;
+        /* hidden by default if single source */
+        pointer-events: none;
+      }
+
+      .media-modal__nav-btn.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .media-modal__nav-btn:hover {
+        background: rgba(255, 255, 255, 0.4);
+        transform: translateY(-50%) scale(1.1);
+      }
+
+      .media-modal__nav-btn--prev {
+        left: 16px;
+      }
+
+      .media-modal__nav-btn--next {
+        right: 16px;
+      }
+
+      .media-modal__nav-btn svg {
+        width: 20px;
+        height: 20px;
+      }
+
       @media (min-width: 1024px) {
-        .media-modal__media {
+        .media-modal__media-wrapper {
           flex: 1.45 1 0%;
           min-height: 0;
         }
       }
 
-      .media-modal__media::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        box-shadow: inset 0 0 90px rgba(0, 0, 0, .55);
+      .media-modal__slide {
+        flex: 0 0 100%;
+        width: 100%;
+        height: 100%;
+        scroll-snap-align: center;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: clamp(14px, 2vw, 28px);
       }
 
-      .media-modal__media img,
-      .media-modal__media video {
+      .media-modal__slide img,
+      .media-modal__slide video,
+      .media-modal__slide iframe {
         position: relative;
         z-index: 1;
         max-width: 100%;
@@ -744,6 +894,53 @@
         box-shadow: 0 18px 50px rgba(0, 0, 0, .5);
       }
 
+      .media-modal__slide iframe {
+        width: 100%;
+        height: 100%;
+        border-radius: 14px;
+      }
+
+      /* Give native <video> controls room and keep the bar visible */
+      .media-modal__slide video {
+        background: #000;
+      }
+
+      .media-modal__slide video::-webkit-media-controls-panel {
+        display: flex !important;
+        opacity: 1 !important;
+      }
+
+      .iframe-swipe-overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 10;
+      }
+
+      /* Navigation dots for horizontal swipe inside card */
+      .media-modal__dots {
+        position: absolute;
+        bottom: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 6px;
+        z-index: 30;
+        pointer-events: none;
+      }
+
+      .media-modal__dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        transition: background 0.3s, transform 0.3s;
+      }
+
+      .media-modal__dot.active {
+        background: #fff;
+        transform: scale(1.2);
+      }
+
       /* Detail pane — comfortable reading column */
       .media-modal__detail {
         flex: 0 0 auto;
@@ -753,6 +950,7 @@
         background: #0a0a0a;
         border-top: 1px solid rgba(255, 255, 255, .07);
         overflow-y: auto;
+        z-index: 10;
       }
 
       @media (min-width: 1024px) {
@@ -847,7 +1045,7 @@
         position: absolute;
         top: 16px;
         right: 16px;
-        z-index: 20;
+        z-index: 50;
         width: 44px;
         height: 44px;
         display: flex;
@@ -875,11 +1073,59 @@
         transform: scale(1.06);
       }
 
-      /* -------- Mobile / tablet responsiveness for the modal -------- */
-      @media (max-width: 1023.98px) {
+      /* ============================================================
+         MODAL — TABLET (768–1023): stacked, generous media area
+         ============================================================ */
+      @media (min-width: 768px) and (max-width: 1023.98px) {
         .media-modal {
-          padding: 14px;
-          align-items: flex-start;
+          padding: 20px;
+          align-items: center;
+        }
+
+        .media-modal__card {
+          height: auto;
+          max-height: 90vh;
+          max-width: 680px;
+          border-radius: 22px;
+          margin: auto;
+        }
+
+        .media-modal__media-wrapper {
+          flex: 0 0 auto;
+          width: 100%;
+          min-height: 0;
+          aspect-ratio: 16 / 9;
+          max-height: 52vh;
+        }
+
+        .media-modal__slide {
+          padding: 18px;
+        }
+
+        .media-modal__detail {
+          flex: 1 1 auto;
+          width: 100%;
+          border-top: 1px solid rgba(255, 255, 255, .07);
+          border-left: none;
+          padding: 26px 30px 30px;
+        }
+
+        .media-modal__desc {
+          display: block;
+        }
+
+        .media-modal__dots {
+          bottom: 12px;
+        }
+      }
+
+      /* ============================================================
+         MODAL — MOBILE (≤767): stacked, readable, description shown
+         ============================================================ */
+      @media (max-width: 767.98px) {
+        .media-modal {
+          padding: 12px;
+          align-items: center;
         }
 
         .media-modal__card {
@@ -889,16 +1135,42 @@
           margin: auto;
         }
 
-        .media-modal__media {
+        .media-modal__media-wrapper {
           flex: 0 0 auto;
-          min-height: 200px;
+          width: 100%;
+          min-height: 0;
+          aspect-ratio: 16 / 10;
           max-height: 46vh;
-          padding: 16px;
+        }
+
+        .media-modal__slide {
+          padding: 14px;
         }
 
         .media-modal__detail {
           flex: 1 1 auto;
+          width: 100%;
           min-height: 0;
+          border-top: 1px solid rgba(255, 255, 255, .07);
+          border-left: none;
+          padding: 20px 22px 24px;
+        }
+
+        .media-modal__desc {
+          display: block;
+        }
+
+        .media-modal__dots {
+          bottom: 12px;
+        }
+
+        .media-modal__nav-btn {
+          width: 38px;
+          height: 38px;
+        }
+
+        .bento-item {
+          display: flex !important;
         }
       }
 
@@ -912,32 +1184,38 @@
           border-radius: 18px;
         }
 
-        .media-modal__media {
-          min-height: 250px;
-          max-height: 60vh;
+        .media-modal__media-wrapper {
+          aspect-ratio: 4 / 3;
+          max-height: 50vh;
+        }
+
+        .media-modal__slide {
           padding: 12px;
         }
 
-        .media-modal__media img,
-        .media-modal__media video {
+        .media-modal__slide img,
+        .media-modal__slide video {
           border-radius: 10px;
         }
 
         .media-modal__detail {
-          padding: 16px 18px 20px;
+          padding: 18px 18px 22px;
         }
 
         .media-modal__title {
-          font-size: 20px;
-          margin-bottom: 16px;
-        }
-
-        .media-modal__desc {
-          display: none;
+          font-size: 21px;
+          margin-bottom: 14px;
         }
 
         .media-modal__rule {
-          margin-bottom: 18px;
+          margin-bottom: 16px;
+        }
+
+        /* Description stays visible on phones now (was hidden before) */
+        .media-modal__desc {
+          display: block;
+          font-size: 14px;
+          line-height: 1.62;
         }
 
         .media-modal__close {
@@ -950,7 +1228,11 @@
         .media-modal__cta {
           align-self: stretch;
           justify-content: center;
-          margin-top: 22px;
+          margin-top: 20px;
+        }
+
+        .bento-item {
+          display: flex !important;
         }
       }
 
@@ -984,130 +1266,128 @@
 
         // ==========================================
         // BENTO LAYOUT CLASSES
+        // NOTE: Desktop (lg:) bento spans are kept exactly as the
+        // working desktop layout. Mobile/tablet sizing is now driven
+        // by plain CSS above, so it no longer depends on whether an
+        // arbitrary min-h-[..] utility was compiled into main.css.
         // ==========================================
         const bentoClasses = [
-          'md:col-span-2 lg:col-span-1 lg:row-span-4 min-h-[250px]',
-          'lg:col-span-1 lg:row-span-1 min-h-[200px]',
-          'lg:col-span-1 lg:row-span-1 min-h-[200px]',
-          'md:col-span-2 lg:col-span-1 lg:row-span-3 min-h-[250px] lg:min-h-[361px]',
-          'md:col-span-3 lg:col-span-2 lg:row-span-6 min-h-[300px] md:min-h-[400px] lg:min-h-[452px]',
-          'lg:col-span-1 lg:row-span-2 min-h-[200px] lg:min-h-[226px]',
-          'md:col-span-2 lg:col-span-1 lg:row-span-4 min-h-[250px]',
-          'lg:col-span-1 lg:row-span-3 min-h-[250px] lg:min-h-[361px]',
-          'lg:col-span-1 lg:row-span-1 min-h-[200px]',
-          'lg:col-span-1 lg:row-span-1 min-h-[200px]'
+          'lg:col-span-1 lg:row-span-4',
+          'lg:col-span-1 lg:row-span-1',
+          'lg:col-span-1 lg:row-span-1',
+          'lg:col-span-1 lg:row-span-3 lg:min-h-[361px]',
+          'lg:col-span-2 lg:row-span-6 lg:min-h-[452px]',
+          'lg:col-span-1 lg:row-span-2 lg:min-h-[226px]',
+          'lg:col-span-1 lg:row-span-4',
+          'lg:col-span-1 lg:row-span-3 lg:min-h-[361px]',
+          'lg:col-span-1 lg:row-span-1',
+          'lg:col-span-1 lg:row-span-1'
         ];
 
         // ==========================================
-        // WORKS DICTIONARY
+        // WORKS DICTIONARY (sources array)
         // ==========================================
-        //
-        // Supported types:
-        //   'video'     – local / hosted .mp4 (src = file path or full URL)
-        //   'youtube'   – YouTube short or long URL
-        //                   src: 'https://youtu.be/VIDEO_ID'
-        //                     or 'https://www.youtube.com/watch?v=VIDEO_ID'
-        //   'instagram' – public Instagram post
-        //                   src: the full post URL  e.g. 'https://www.instagram.com/p/ABC123/'
-        //   'image'     – local / hosted image (src = path or full URL)
-        //
-        // Tile previews:
-        //   youtube   → shows the official YouTube thumbnail (hqdefault)
-        //   instagram → shows a placeholder gradient; Instagram doesn't expose
-        //               public thumbnails — swap `src` for a screenshot if you have one
-        //   video     → plays inline (autoplay / muted)
-        //   image     → static image
-        //
         const worksData = [
-
-          // ── YouTube videos ─────────────────────────────────────────────
           {
             id: 'work-ig-1',
-            type: 'instagram',
-            src: 'https://www.instagram.com/p/DaDJji0DY_x/',
-            // Optional: swap the line below with a screenshot path to show a real
-            // image on the bento tile (Instagram thumbnails aren't publicly available).
-            // thumbnail: './images/ig-DaDJji0DY_x-thumb.jpg',
+            sources: [
+              { type: 'instagram', src: 'https://www.instagram.com/p/DaDJji0DY_x/' }
+            ],
             title: 'Hospitality Integration',
             category: 'Hotel Portfolio',
-            description: 'Hotels face unique challenges with varying room occupancies. Our solution provided localized, smart humidity control that adapted in real-time to guest presence.'
+            description: 'Hotels face unique challenges with varying room occupancies. Our solution provided localized, smart humidity control that adapted in real-time to guest presence.',
+            tag: 'Insta'
           },
           {
             id: 'work-yt-1',
-            type: 'youtube',
-            src: 'https://youtu.be/3u_wE0ocFus?si=JHUwwCjkXAab_VFG',
+            sources: [
+              { type: 'youtube', src: 'https://youtu.be/3u_wE0ocFus?si=JHUwwCjkXAab_VFG' }
+            ],
             title: 'NBK111',
             category: 'NBK111 Glimpse',
-            description: '#NBK111 Glimpse - Entry of an Era | NBK | Gopichandh Malineni | Thaman S'
+            description: '#NBK111 Glimpse - Entry of an Era | NBK | Gopichandh Malineni | Thaman S',
+            tag: 'YouTube'
           },
           {
             id: 'work-yt-2',
-            type: 'youtube',
-            src: 'https://youtu.be/FlOzIM7Yov4?si=pdGIj50dAFhKnGQ5',
+            sources: [
+              { type: 'youtube', src: 'https://youtu.be/FlOzIM7Yov4?si=pdGIj50dAFhKnGQ5' }
+            ],
             title: 'Dragon',
             category: 'Dragon Glimpse',
-            description: 'Dragon Glimpse - Telugu | NTR | Anil Kapoor | Rukmini Vasanth | Ravi Basrur | Prashanth Neel'
+            description: 'Dragon Glimpse - Telugu | NTR | Anil Kapoor | Rukmini Vasanth | Ravi Basrur | Prashanth Neel',
+            tag: 'Video'
           },
-
           {
             id: 'work-4',
-            type: 'video',
-            src: VIDEO_SRC,
+            sources: [
+              { type: 'video', src: VIDEO_SRC }
+            ],
             title: 'Commercial HQ',
             category: 'Office Space',
-            description: 'For this 50,000 sq ft office, indoor air quality was the primary concern. CO2 levels were halved and sick days dropped dramatically.'
+            description: 'For this 50,000 sq ft office, indoor air quality was the primary concern. CO2 levels were halved and sick days dropped dramatically.',
+            tag: 'Video'
           },
           {
             id: 'work-5',
-            type: 'video',
-            src: VIDEO_SRC,
+            sources: [
+              { type: 'video', src: VIDEO_SRC }
+            ],
             title: 'Major Installation',
             category: 'Behind the Scenes',
-            description: 'A look at our technology seamlessly integrating into existing infrastructure without heavy roof modifications.'
+            description: 'A look at our technology seamlessly integrating into existing infrastructure without heavy roof modifications.',
+            tag: 'Photo'
           },
-
-          // ── Images ──────────────────────────────────────────────────────
           {
             id: 'work-6',
-            type: 'image',
-            src: './images/auditoriumbg.png',
+            sources: [
+              { type: 'image', src: './images/auditoriumbg.png' }
+            ],
             title: 'Auditorium Retrofit',
             category: 'Large Venue',
             description: 'High-density spaces generate massive latent heat and moisture. Our specialised array kept the environment perfectly crisp even at maximum capacity.'
           },
           {
             id: 'work-7',
-            type: 'video',
-            src: VIDEO_SRC,
+            sources: [
+              { type: 'video', src: VIDEO_SRC }
+            ],
             title: 'System Walkthrough',
             category: 'Tech Deep-Dive',
             description: 'Exploring the inner workings of our advanced moisture capture technology.'
           },
           {
             id: 'work-8',
-            type: 'image',
-            src: './images/seniorlivingbg.png',
+            sources: [
+              { type: 'image', src: './images/seniorlivingbg.png' },
+              { type: 'image', src: './images/auditoriumbg.png' },
+              { type: 'video', src: './video/HEHomeVid.mp4' },
+              { type: 'youtube', src: 'https://youtu.be/3u_wE0ocFus?si=JHUwwCjkXAab_VFG' },
+              { type: 'image', src: './images/auditoriumbg1.png' }
+            ],
             title: 'Senior Living Facility',
             category: 'Healthcare',
-            description: 'Provided essential 100% clean outdoor air while drastically lowering energy load for climate control.'
+            description: 'Provided essential 100% clean outdoor air while drastically lowering energy load for climate control.',
+            tag: 'Photos'
           },
           {
             id: 'work-9',
-            type: 'image',
-            src: './images/codestightening.png',
+            sources: [
+              { type: 'image', src: './images/codestightening.png' }
+            ],
             title: 'Compliance Upgrade',
             category: 'Code Standards',
             description: 'Helped a legacy building meet strict ASHRAE 62.1 requirements instantly.'
           },
           {
             id: 'work-10',
-            type: 'image',
-            src: './images/airqualityworse.png',
+            sources: [
+              { type: 'image', src: './images/airqualityworse.png' }
+            ],
             title: 'Indoor Air Refresh',
             category: 'Air Quality',
             description: 'Purging stale air and eliminating completely the building-related outbreaks.'
           }
-
         ];
 
         // ==========================================
@@ -1116,7 +1396,6 @@
 
         /** Extract a YouTube video ID from any common YouTube URL format */
         function getYouTubeId(url) {
-          // handles: youtu.be/ID, youtube.com/watch?v=ID, youtube.com/embed/ID
           const m = url.match(
             /(?:youtu\.be\/|youtube\.com\/(?:watch\?(?:.*&)?v=|embed\/|v\/))([A-Za-z0-9_-]{11})/
           );
@@ -1134,9 +1413,6 @@
           return m ? m[1] : null;
         }
 
-        // ==========================================
-        // RENDER BENTO GRID
-        // ==========================================
         const gridContainer = document.getElementById('bento-grid-container');
 
         function renderGrid() {
@@ -1152,27 +1428,22 @@
             el.setAttribute('tabindex', '0');
             el.setAttribute('aria-label', `${work.title} — ${work.category}`);
 
-            // ── choose badge label & preview media ──
+            // ── choose badge label & preview media (from first source) ──
             let badge = '';
             let mediaHtml = '';
+            const firstSource = work.sources[0];
 
-            if (work.type === 'youtube') {
-              const ytId = getYouTubeId(work.src);
-              badge = 'YouTube';
+            if (firstSource.type === 'youtube') {
+              const ytId = getYouTubeId(firstSource.src);
+              badge = work.tag || 'YouTube';
               const thumbUrl = getYouTubeThumbnail(ytId);
               mediaHtml = ytId
-                ? `<img src="${thumbUrl}" alt="${work.title}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />`
+                ? `<img src="${thumbUrl}" alt="${work.title}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />`
                 : `<div class="absolute inset-0 w-full h-full" style="background:linear-gradient(135deg,#ff0000 0%,#8b0000 100%);"></div>`;
 
-            } else if (work.type === 'instagram') {
-              badge = 'Instagram';
-              // use a custom thumbnail if provided, otherwise a branded gradient
-              const thumbSrc = work.thumbnail || '';
-              if (thumbSrc) {
-                mediaHtml = `<img src="${thumbSrc}" alt="${work.title}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />`;
-              } else {
-                mediaHtml = `<div class="absolute inset-0 w-full h-full" style="background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);"></div>`;
-              }
+            } else if (firstSource.type === 'instagram') {
+              badge = work.tag || 'Instagram';
+              mediaHtml = `<div class="absolute inset-0 w-full h-full" style="background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);"></div>`;
               // Instagram icon overlay
               mediaHtml += `
             <div class="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
@@ -1182,13 +1453,17 @@
               </svg>
             </div>`;
 
-            } else if (work.type === 'video') {
-              badge = 'Video';
-              mediaHtml = `<video src="${work.src}" autoplay loop muted playsinline preload="auto" class="absolute inset-0 w-full h-full object-cover"></video>`;
+            } else if (firstSource.type === 'video') {
+              badge = work.tag || 'Video';
+              mediaHtml = `<video src="${firstSource.src}" autoplay loop muted playsinline preload="metadata" class="absolute inset-0 w-full h-full object-cover"></video>`;
 
             } else {
-              badge = 'Photo';
-              mediaHtml = `<img src="${work.src}" alt="${work.title}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" />`;
+              badge = work.tag || 'Photo';
+              mediaHtml = `<img src="${firstSource.src}" alt="${work.title}" class="absolute inset-0 w-full h-full object-cover" loading="lazy" onerror="this.style.display='none'" />`;
+            }
+
+            if (work.sources.length > 1) {
+              badge += ` (1/${work.sources.length})`;
             }
 
             // badge colour
@@ -1214,99 +1489,136 @@
         }
 
         // ==========================================
-        // MODAL LOGIC
+        // MODAL LOGIC (Card format with Carousel)
         // ==========================================
         const modal = document.getElementById('media-modal');
         const btnClose = document.getElementById('close-modal');
         const mediaContainer = document.getElementById('modal-media-container');
+        const dotsContainer = document.getElementById('modal-dots-container');
         const titleEl = document.getElementById('modal-title');
         const subtitleEl = document.getElementById('modal-subtitle');
         const descEl = document.getElementById('modal-description');
+        const btnPrev = document.getElementById('modal-prev-btn');
+        const btnNext = document.getElementById('modal-next-btn');
         let lastFocused = null;
+
+        // Autoplay/Pause logic using IntersectionObserver for carousel
+        const mediaObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            const slide = entry.target;
+            const iframe = slide.querySelector('iframe');
+            const video = slide.querySelector('video');
+
+            if (entry.isIntersecting) {
+              // Play
+              if (video) video.play().catch(e => console.log('Autoplay blocked', e));
+              if (iframe && slide.dataset.type === 'youtube') {
+                try {
+                  iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'playVideo' }), '*');
+                } catch (err) { /* iframe not ready yet */ }
+              }
+
+              // Update dots
+              const slides = Array.from(mediaContainer.querySelectorAll('.media-modal__slide'));
+              const slideIndex = slides.indexOf(slide);
+              const dots = dotsContainer.querySelectorAll('.media-modal__dot');
+              if (dots.length > 0) {
+                dots.forEach(d => d.classList.remove('active'));
+                if (dots[slideIndex]) dots[slideIndex].classList.add('active');
+              }
+            } else {
+              // Pause
+              if (video) video.pause();
+              if (iframe && slide.dataset.type === 'youtube') {
+                try {
+                  iframe.contentWindow.postMessage(JSON.stringify({ event: 'command', func: 'pauseVideo' }), '*');
+                } catch (err) { /* ignore */ }
+              }
+            }
+          });
+        }, { threshold: 0.6, root: mediaContainer });
 
         function openModal(work) {
           lastFocused = document.activeElement;
 
+          // Set text content
           titleEl.textContent = work.title;
           subtitleEl.textContent = work.category;
           descEl.innerHTML = `<p>${work.description}</p>`;
 
-          if (work.type === 'youtube') {
-            // ── YouTube embed ──────────────────────────────────────────────
-            const ytId = getYouTubeId(work.src);
-            if (ytId) {
-              // autoplay=1, rel=0 (no related videos), modestbranding=1
-              mediaContainer.innerHTML = `
-            <iframe
-              src="https://www.youtube.com/embed/${ytId}?autoplay=1&rel=0&modestbranding=1"
-              title="${work.title}"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              style="position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:14px;"
-            ></iframe>`;
-              // the media pane needs position:relative for the absolute iframe
-              mediaContainer.style.position = 'relative';
-            } else {
-              mediaContainer.innerHTML = `<p style="color:#fff;padding:20px;">Could not load YouTube video.</p>`;
-            }
+          // Build carousel
+          mediaContainer.innerHTML = '';
+          dotsContainer.innerHTML = '';
 
-          } else if (work.type === 'instagram') {
-            // ── Instagram oEmbed embed ────────────────────────────────────
-            const shortcode = getInstagramShortcode(work.src);
-            if (shortcode) {
-              // The official Instagram embed script renders the blockquote into a
-              // full-width iframe automatically once window.instgrm.Embeds.process()
-              // is called. We inject the blockquote then trigger the process function.
-              mediaContainer.innerHTML = `
-            <div style="width:100%;max-width:480px;max-height:100%;overflow-y:auto;display:flex;align-items:flex-start;justify-content:center;">
-              <blockquote
-                class="instagram-media"
-                data-instgrm-captioned
-                data-instgrm-permalink="https://www.instagram.com/p/${shortcode}/?utm_source=ig_embed"
-                data-instgrm-version="14"
-                style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:480px;min-width:280px;padding:0;width:99%;">
-              </blockquote>
-            </div>`;
-              mediaContainer.style.position = '';
-
-              // Load (or re-trigger) Instagram's embed script
-              if (window.instgrm && window.instgrm.Embeds) {
-                window.instgrm.Embeds.process();
-              } else {
-                const s = document.createElement('script');
-                s.async = true;
-                s.src = '//www.instagram.com/embed.js';
-                document.head.appendChild(s);
-              }
-            } else {
-              mediaContainer.innerHTML = `<p style="color:#fff;padding:20px;">Could not load Instagram post.</p>`;
-            }
-
-          } else if (work.type === 'video') {
-            // ── Local / hosted mp4 ────────────────────────────────────────
-            mediaContainer.style.position = '';
-            mediaContainer.innerHTML = `
-          <video src="${work.src}" autoplay loop controls playsinline muted preload="auto"
-            controlsList="nodownload noremoteplayback noplaybackrate"
-            disablePictureInPicture
-            oncontextmenu="return false"
-            class="w-full h-full object-contain">
-          </video>`;
-
+          let dotsHtml = '';
+          if (work.sources.length > 1) {
+            btnPrev.classList.add('show');
+            btnNext.classList.add('show');
+            work.sources.forEach((_, idx) => {
+              dotsHtml += `<div class="media-modal__dot ${idx === 0 ? 'active' : ''}"></div>`;
+            });
+            dotsContainer.innerHTML = dotsHtml;
           } else {
-            // ── Static image ──────────────────────────────────────────────
-            mediaContainer.style.position = '';
-            mediaContainer.innerHTML = `
-          <img src="${work.src}" alt="${work.title}"
-            class="w-full h-full object-contain"
-            oncontextmenu="return false" />`;
+            btnPrev.classList.remove('show');
+            btnNext.classList.remove('show');
           }
 
+          let hasInstagram = false;
+
+          work.sources.forEach((srcObj, idx) => {
+            const slide = document.createElement('div');
+            slide.className = 'media-modal__slide';
+            slide.dataset.type = srcObj.type;
+
+            let mediaHtml = '';
+            if (srcObj.type === 'video') {
+              // The first slide autoplays muted; native control bar gives
+              // play/pause, timeline, sound (unmute) and fullscreen.
+              mediaHtml = `<video src="${srcObj.src}" loop playsinline muted controls controlslist="nodownload" ${idx === 0 ? 'autoplay' : ''} preload="auto"></video>`;
+            } else if (srcObj.type === 'youtube') {
+              const ytId = getYouTubeId(srcObj.src);
+              // autoplay=1 + mute=1 => reliable muted autoplay on open AND on direct #hash open.
+              mediaHtml = `<iframe src="https://www.youtube.com/embed/${ytId}?enablejsapi=1&rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="iframe-swipe-overlay" onclick="this.style.pointerEvents='none'"></div>`;
+            } else if (srcObj.type === 'instagram') {
+              hasInstagram = true;
+              const shortcode = getInstagramShortcode(srcObj.src);
+              mediaHtml = `<div style="width:100%;height:100%;overflow-y:auto;display:flex;align-items:center;justify-content:center;padding:20px;">
+                <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/${shortcode}/?utm_source=ig_embed" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:480px;min-width:280px;padding:0;width:100%;"></blockquote>
+              </div>`;
+            } else {
+              mediaHtml = `<img src="${srcObj.src}" alt="${work.title}" loading="lazy" />`;
+            }
+
+            slide.innerHTML = mediaHtml;
+            mediaContainer.appendChild(slide);
+
+            // Observe for autoplay
+            mediaObserver.observe(slide);
+          });
+
+          // Ensure layout has happened before trying to scroll
           modal.classList.add('show');
           modal.setAttribute('aria-hidden', 'false');
-          requestAnimationFrame(() => modal.classList.add('fade-in'));
+
+          requestAnimationFrame(() => {
+            modal.classList.add('fade-in');
+            mediaContainer.scrollLeft = 0; // reset scroll
+          });
+
           document.body.style.overflow = 'hidden';
           btnClose.focus();
+
+          if (hasInstagram) {
+            // Trigger IG embed script
+            if (window.instgrm && window.instgrm.Embeds) {
+              window.instgrm.Embeds.process();
+            } else {
+              const s = document.createElement('script');
+              s.async = true;
+              s.src = '//www.instagram.com/embed.js';
+              document.head.appendChild(s);
+            }
+          }
         }
 
         function closeModal() {
@@ -1314,17 +1626,32 @@
           modal.setAttribute('aria-hidden', 'true');
           setTimeout(() => {
             modal.classList.remove('show');
-            mediaContainer.innerHTML = '';   // stop video / unload iframe
-            mediaContainer.style.position = '';
             document.body.style.overflow = '';
+
+            // Unobserve and empty media container to stop all playback
+            mediaContainer.querySelectorAll('.media-modal__slide').forEach(slide => mediaObserver.unobserve(slide));
+            mediaContainer.innerHTML = '';
+            dotsContainer.innerHTML = '';
+
             if (lastFocused && typeof lastFocused.focus === 'function') lastFocused.focus();
           }, 380);
         }
 
         btnClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        modal.addEventListener('click', (e) => {
+          // Only close if clicking outside the card
+          if (e.target === modal || e.target.classList.contains('media-modal')) closeModal();
+        });
         document.addEventListener('keydown', (e) => {
           if (e.key === 'Escape' && modal.classList.contains('show')) closeModal();
+        });
+
+        btnPrev.addEventListener('click', () => {
+          mediaContainer.scrollBy({ left: -mediaContainer.clientWidth, behavior: 'smooth' });
+        });
+
+        btnNext.addEventListener('click', () => {
+          mediaContainer.scrollBy({ left: mediaContainer.clientWidth, behavior: 'smooth' });
         });
 
         renderGrid();
@@ -1341,7 +1668,6 @@
         }
       });
     </script>
-    \n
   </main>
 
 
@@ -1377,30 +1703,30 @@
           </ul>
         </div>
         <div class="footer-links-grid">
-                    <div>
-                        <p class="footer-col-title">Company</p>
-                        <ul class="footer-nav" role="list">
-                            <li><a href="./about-us.html#team" class="footer-link">Our Team</a></li>
-                            <li><a href="./contact.html" class="footer-link">Contact Us</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="footer-col-title">Discover</p>
-                        <ul class="footer-nav" role="list">
-                            <li><a href="./album.html" class="footer-link active">Album</a></li>
-                            <li><a href="./about-us.html#research-sponsors" class="footer-link">Research Sponsors</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="footer-col-title">Legal Policies</p>
-                        <ul class="footer-nav" role="list">
-                            <li><a href="./terms.html" class="footer-link">Terms &amp; Conditions</a></li>
-                            <li><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
+          <div>
+            <p class="footer-col-title">Company</p>
+            <ul class="footer-nav" role="list">
+              <li><a href="./about-us.html#team" class="footer-link">Our Team</a></li>
+              <li><a href="./contact.html" class="footer-link">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-col-title">Discover</p>
+            <ul class="footer-nav" role="list">
+              <li><a href="./album.html" class="footer-link active">Album</a></li>
+              <li><a href="./about-us.html#research-sponsors" class="footer-link">Research Sponsors</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="footer-col-title">Legal Policies</p>
+            <ul class="footer-nav" role="list">
+              <li><a href="./terms.html" class="footer-link">Terms &amp; Conditions</a></li>
+              <li><a href="./privacy.html" class="footer-link">Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
         <div class="footer-divider" aria-hidden="true"></div>
         <p class="footer-copy footer-copy--location"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14"
             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
