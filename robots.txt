@@ -1,10 +1,12 @@
 User-agent: *
 Allow: /
+Allow: /prints.html
 
 # Prevent indexing of 404
 Disallow: /404.html
 
-# Prevent unnecessary crawling of vendor assets
+# Prevent unnecessary crawling of vendor assets and videos
 Disallow: /vendor/
+Disallow: /video/
 
 Sitemap: https://synkynstudios.com/sitemap.xml
