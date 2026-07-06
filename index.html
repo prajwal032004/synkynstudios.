@@ -1133,515 +1133,675 @@
                Scoped under .pipeline-section to prevent global conflicts.
                ========================================================== */
             .pipeline-section {
-              --gold: #e8b34a;
-              --gold-bright: #ffd77e;
-              --ink: #f2f3f6;
-              --ink-dim: #8f95a0;
-              --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
-              --font-body: "Inter", system-ui, sans-serif;
-              --ease-soft: cubic-bezier(0.22, 0.61, 0.2, 1);
-              
-              position: relative;
-              overflow: hidden;
-              background: transparent;
-              color: var(--ink);
-              font-family: var(--font-body);
-              -webkit-font-smoothing: antialiased;
-              padding: 0;
+                --gold: #e8b34a;
+                --gold-bright: #ffd77e;
+                --ink: #f2f3f6;
+                --ink-dim: #8f95a0;
+                --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+                --font-body: "Inter", system-ui, sans-serif;
+                --ease-soft: cubic-bezier(0.22, 0.61, 0.2, 1);
+
+                position: relative;
+                overflow: hidden;
+                background: transparent;
+                color: var(--ink);
+                font-family: var(--font-body);
+                -webkit-font-smoothing: antialiased;
+                padding: 0;
             }
 
             .pipeline-section .flecks {
-              position: absolute;
-              inset: 0;
-              width: 100%;
-              height: 100%;
-              z-index: 0;
-              pointer-events: none;
+                position: absolute;
+                inset: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+                pointer-events: none;
             }
 
             .pipeline-section .fleck {
-              fill: var(--gold);
-              transform-box: fill-box;
-              transform-origin: center;
-              animation:
-                fleck-drift var(--fd, 14s) ease-in-out infinite alternate,
-                fleck-fade  var(--ff, 5s)  ease-in-out infinite alternate;
-              will-change: transform, opacity;
+                fill: var(--gold);
+                transform-box: fill-box;
+                transform-origin: center;
+                animation:
+                    fleck-drift var(--fd, 14s) ease-in-out infinite alternate,
+                    fleck-fade var(--ff, 5s) ease-in-out infinite alternate;
+                will-change: transform, opacity;
             }
 
-            .pipeline-section .fleck.dust { fill: #aab0bd; }
+            .pipeline-section .fleck.dust {
+                fill: #aab0bd;
+            }
 
             @keyframes fleck-drift {
-              from { transform: translate3d(0, 0, 0) rotate(0deg); }
-              to   { transform: translate3d(var(--dx, 10px), var(--dy, -14px), 0) rotate(var(--rot, 30deg)); }
+                from {
+                    transform: translate3d(0, 0, 0) rotate(0deg);
+                }
+
+                to {
+                    transform: translate3d(var(--dx, 10px), var(--dy, -14px), 0) rotate(var(--rot, 30deg));
+                }
             }
 
             @keyframes fleck-fade {
-              from { opacity: 0.06; }
-              to   { opacity: var(--fo, 0.4); }
+                from {
+                    opacity: 0.06;
+                }
+
+                to {
+                    opacity: var(--fo, 0.4);
+                }
             }
 
             /* ==========================================================
                HERO
                ========================================================== */
             .pipeline-section .hero {
-              min-height: 46vh;
-              display: grid;
-              place-content: center;
-              text-align: center;
-              padding: clamp(90px, 14vh, 160px) 24px 20px;
-              background: transparent;
+                min-height: 46vh;
+                display: grid;
+                place-content: center;
+                text-align: center;
+                padding: clamp(90px, 14vh, 160px) 24px 20px;
+                background: transparent;
             }
 
             .pipeline-section .hero-eyebrow {
-              color: var(--gold);
-              font-size: 11.5px;
-              font-weight: 600;
-              letter-spacing: 0.46em;
-              text-transform: uppercase;
-              margin-bottom: 22px;
+                color: var(--gold);
+                font-size: 11.5px;
+                font-weight: 600;
+                letter-spacing: 0.46em;
+                text-transform: uppercase;
+                margin-bottom: 22px;
             }
 
             .pipeline-section .hero-title {
-              font-family: var(--font-display);
-              font-weight: 700;
-              font-size: clamp(34px, 5.4vw, 64px);
-              line-height: 1.08;
-              letter-spacing: -0.02em;
-              display: grid;
-              gap: 2px;
+                font-family: var(--font-display);
+                font-weight: 700;
+                font-size: clamp(34px, 5.4vw, 64px);
+                line-height: 1.08;
+                letter-spacing: -0.02em;
+                display: grid;
+                gap: 2px;
             }
 
             .pipeline-section .hero-gold {
-              background: linear-gradient(100deg, #f6c15e 0%, #ffe3a0 45%, #e0a63e 100%);
-              -webkit-background-clip: text;
-              background-clip: text;
-              color: transparent;
+                background: linear-gradient(100deg, #f6c15e 0%, #ffe3a0 45%, #e0a63e 100%);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
             }
 
-            .pipeline-section .hero-white { color: var(--ink); }
+            .pipeline-section .hero-white {
+                color: var(--ink);
+            }
 
             .pipeline-section .hero-sub {
-              margin-top: 24px;
-              color: var(--ink-dim);
-              font-size: 14.5px;
-              line-height: 1.75;
-              max-width: 460px;
-              margin-inline: auto;
+                margin-top: 24px;
+                color: var(--ink-dim);
+                font-size: 14.5px;
+                line-height: 1.75;
+                max-width: 460px;
+                margin-inline: auto;
             }
 
             /* ==========================================================
                JOURNEY — the winding trail
                ========================================================== */
             .pipeline-section .journey {
-              position: relative;
-              max-width: 1360px;
-              margin-inline: auto;
-              background: transparent;
+                position: relative;
+                max-width: 1360px;
+                margin-inline: auto;
+                background: transparent;
             }
 
             .pipeline-section .journey-svg {
-              display: block;
-              width: min(1200px, 100%);
-              height: auto;
-              margin-inline: auto;
-              overflow: visible;
+                display: block;
+                width: min(1200px, 100%);
+                height: auto;
+                margin-inline: auto;
+                overflow: visible;
             }
 
             .pipeline-section .trail-dim {
-              stroke: #6f5c2f;
-              stroke-width: 1.6;
-              fill: none;
-              opacity: 0.38;
-              stroke-linecap: round;
+                stroke: #6f5c2f;
+                stroke-width: 1.6;
+                fill: none;
+                opacity: 0.38;
+                stroke-linecap: round;
             }
 
             .pipeline-section .trail-halo {
-              stroke: #b97f22;
-              stroke-width: 26;
-              fill: none;
-              opacity: 0.28;
-              stroke-linecap: round;
+                stroke: #b97f22;
+                stroke-width: 26;
+                fill: none;
+                opacity: 0.28;
+                stroke-linecap: round;
             }
 
             .pipeline-section .trail-glow {
-              stroke: #f4b452;
-              stroke-width: 9;
-              fill: none;
-              opacity: 0.55;
-              stroke-linecap: round;
+                stroke: #f4b452;
+                stroke-width: 9;
+                fill: none;
+                opacity: 0.55;
+                stroke-linecap: round;
             }
 
             .pipeline-section .trail-core {
-              stroke: url(#g-trail);
-              stroke-width: 3.4;
-              fill: none;
-              stroke-linecap: round;
+                stroke: url(#g-trail);
+                stroke-width: 3.4;
+                fill: none;
+                stroke-linecap: round;
             }
 
-            .pipeline-section .trail-halo, 
-            .pipeline-section .trail-glow, 
-            .pipeline-section .trail-core { 
-              will-change: stroke-dashoffset; 
+            .pipeline-section .trail-halo,
+            .pipeline-section .trail-glow,
+            .pipeline-section .trail-core {
+                will-change: stroke-dashoffset;
             }
 
             /* traveling rocket */
             .pipeline-section .rocket-traveler {
-              will-change: transform, opacity;
-              transition: opacity 0.4s ease;
+                will-change: transform, opacity;
+                transition: opacity 0.4s ease;
             }
 
-            .pipeline-section .rocket-traveler .rt-glow { 
-              animation: rt-breathe 2.2s ease-in-out infinite alternate; 
+            .pipeline-section .rocket-traveler .rt-glow {
+                animation: rt-breathe 2.2s ease-in-out infinite alternate;
             }
 
             @keyframes rt-breathe {
-              from { opacity: 0.55; transform: scale(0.94); }
-              to   { opacity: 0.85; transform: scale(1.08); }
+                from {
+                    opacity: 0.55;
+                    transform: scale(0.94);
+                }
+
+                to {
+                    opacity: 0.85;
+                    transform: scale(1.08);
+                }
             }
 
-            .pipeline-section .rocket-traveler .rt-flame-core  { animation: rt-flicker 0.12s steps(2) infinite; }
-            .pipeline-section .rocket-traveler .rt-flame-outer { animation: rt-flicker 0.17s steps(2) infinite reverse; }
+            .pipeline-section .rocket-traveler .rt-flame-core {
+                animation: rt-flicker 0.12s steps(2) infinite;
+            }
+
+            .pipeline-section .rocket-traveler .rt-flame-outer {
+                animation: rt-flicker 0.17s steps(2) infinite reverse;
+            }
 
             @keyframes rt-flicker {
-              from { transform: scaleY(1) scaleX(1); }
-              to   { transform: scaleY(1.08) scaleX(0.96); }
+                from {
+                    transform: scaleY(1) scaleX(1);
+                }
+
+                to {
+                    transform: scaleY(1.08) scaleX(0.96);
+                }
             }
 
             /* floating clouds */
             .pipeline-section .cloud {
-              will-change: transform;
-              transform-origin: center;
+                will-change: transform;
+                transform-origin: center;
             }
+
             .pipeline-section .cloud.drift-a {
-              animation: cloud-drift-a 18s ease-in-out infinite alternate;
+                animation: cloud-drift-a 18s ease-in-out infinite alternate;
             }
+
             .pipeline-section .cloud.drift-b {
-              animation: cloud-drift-b 22s ease-in-out infinite alternate;
+                animation: cloud-drift-b 22s ease-in-out infinite alternate;
             }
+
             .pipeline-section .cloud.drift-c {
-              animation: cloud-drift-c 26s ease-in-out infinite alternate;
+                animation: cloud-drift-c 26s ease-in-out infinite alternate;
             }
+
             @keyframes cloud-drift-a {
-              from { transform: translate3d(0, 0, 0) scale(1); }
-              to   { transform: translate3d(24px, -12px, 0) scale(1.03); }
+                from {
+                    transform: translate3d(0, 0, 0) scale(1);
+                }
+
+                to {
+                    transform: translate3d(24px, -12px, 0) scale(1.03);
+                }
             }
+
             @keyframes cloud-drift-b {
-              from { transform: translate3d(0, 0, 0) scale(1); }
-              to   { transform: translate3d(-24px, 12px, 0) scale(1.03); }
+                from {
+                    transform: translate3d(0, 0, 0) scale(1);
+                }
+
+                to {
+                    transform: translate3d(-24px, 12px, 0) scale(1.03);
+                }
             }
+
             @keyframes cloud-drift-c {
-              from { transform: translate3d(0, 0, 0) scale(1) rotate(-1deg); }
-              to   { transform: translate3d(16px, 16px, 0) scale(1.04) rotate(1.5deg); }
+                from {
+                    transform: translate3d(0, 0, 0) scale(1) rotate(-1deg);
+                }
+
+                to {
+                    transform: translate3d(16px, 16px, 0) scale(1.04) rotate(1.5deg);
+                }
             }
 
             /* milestone node rings */
-            .pipeline-section .node { opacity: 0.32; transition: opacity 0.7s ease; }
-            .pipeline-section .node .node-glow { opacity: 0; transition: opacity 0.9s ease; }
-            .pipeline-section .node .node-ring { stroke: #7d6a38; fill: none; stroke-width: 1.6; transition: stroke 0.7s ease; }
-            .pipeline-section .node .node-core { fill: #55503f; transition: fill 0.7s ease; }
+            .pipeline-section .node {
+                opacity: 0.32;
+                transition: opacity 0.7s ease;
+            }
 
-            .pipeline-section .node.lit { opacity: 1; }
-            .pipeline-section .node.lit .node-glow { opacity: 0.9; }
-            .pipeline-section .node.lit .node-ring { stroke: var(--gold-bright); }
-            .pipeline-section .node.lit .node-core { fill: #fffdf4; }
+            .pipeline-section .node .node-glow {
+                opacity: 0;
+                transition: opacity 0.9s ease;
+            }
+
+            .pipeline-section .node .node-ring {
+                stroke: #7d6a38;
+                fill: none;
+                stroke-width: 1.6;
+                transition: stroke 0.7s ease;
+            }
+
+            .pipeline-section .node .node-core {
+                fill: #55503f;
+                transition: fill 0.7s ease;
+            }
+
+            .pipeline-section .node.lit {
+                opacity: 1;
+            }
+
+            .pipeline-section .node.lit .node-glow {
+                opacity: 0.9;
+            }
+
+            .pipeline-section .node.lit .node-ring {
+                stroke: var(--gold-bright);
+            }
+
+            .pipeline-section .node.lit .node-core {
+                fill: #fffdf4;
+            }
 
             /* stop */
             .pipeline-section .stop {
-              position: absolute;
-              top: var(--top);
-              width: min(360px, 34%);
-              display: flex;
-              flex-direction: column;
-              gap: 7px;
-              opacity: 0;
-              transform: translateY(26px);
-              transition:
-                opacity 0.9s var(--ease-soft),
-                transform 0.9s var(--ease-soft);
-              will-change: transform, opacity;
+                position: absolute;
+                top: var(--top);
+                width: min(360px, 34%);
+                display: flex;
+                flex-direction: column;
+                gap: 7px;
+                opacity: 0;
+                transform: translateY(26px);
+                transition:
+                    opacity 0.9s var(--ease-soft),
+                    transform 0.9s var(--ease-soft);
+                will-change: transform, opacity;
             }
 
-            .pipeline-section .stop.in { opacity: 1; transform: translateY(0); }
+            .pipeline-section .stop.in {
+                opacity: 1;
+                transform: translateY(0);
+            }
 
-            .pipeline-section .stop.left  { left: clamp(16px, 6%, 90px); text-align: left; }
-            .pipeline-section .stop.right { right: clamp(16px, 6%, 90px); text-align: right; align-items: flex-end; }
+            .pipeline-section .stop.left {
+                left: clamp(16px, 6%, 90px);
+                text-align: left;
+            }
+
+            .pipeline-section .stop.right {
+                right: clamp(16px, 6%, 90px);
+                text-align: right;
+                align-items: flex-end;
+            }
 
             .pipeline-section .num {
-              color: var(--gold);
-              font-size: 12px;
-              font-weight: 600;
-              letter-spacing: 0.3em;
+                color: var(--gold);
+                font-size: 12px;
+                font-weight: 600;
+                letter-spacing: 0.3em;
             }
 
             .pipeline-section .eyebrow {
-              color: var(--gold);
-              font-size: 11.5px;
-              font-weight: 600;
-              letter-spacing: 0.26em;
-              text-transform: uppercase;
+                color: var(--gold);
+                font-size: 11.5px;
+                font-weight: 600;
+                letter-spacing: 0.26em;
+                text-transform: uppercase;
             }
 
             .pipeline-section .title {
-              margin-top: 4px;
-              font-family: var(--font-display);
-              font-weight: 700;
-              font-size: clamp(22px, 2.2vw, 29px);
-              line-height: 1.14;
-              letter-spacing: -0.015em;
-              color: var(--ink);
-              text-shadow: 0 2px 28px rgba(0, 0, 0, 0.65);
+                margin-top: 4px;
+                font-family: var(--font-display);
+                font-weight: 700;
+                font-size: clamp(22px, 2.2vw, 29px);
+                line-height: 1.14;
+                letter-spacing: -0.015em;
+                color: var(--ink);
+                text-shadow: 0 2px 28px rgba(0, 0, 0, 0.65);
             }
 
             .pipeline-section .desc {
-              margin-top: 3px;
-              color: var(--ink-dim);
-              font-size: 13.5px;
-              line-height: 1.72;
-              max-width: 38ch;
+                margin-top: 3px;
+                color: var(--ink-dim);
+                font-size: 13.5px;
+                line-height: 1.72;
+                max-width: 38ch;
             }
 
             /* outro */
             .pipeline-section .outro {
-              padding: 40px 24px 140px;
-              text-align: center;
+                padding: 40px 24px 140px;
+                text-align: center;
             }
 
             .pipeline-section .outro-line {
-              color: var(--ink-dim);
-              font-size: 13px;
-              letter-spacing: 0.22em;
-              text-transform: uppercase;
+                color: var(--ink-dim);
+                font-size: 13px;
+                letter-spacing: 0.22em;
+                text-transform: uppercase;
             }
 
             /* ==========================================================
                RESPONSIVE
                ========================================================== */
             @media (max-width: 900px) {
-              .pipeline-section .stop { width: min(320px, 42%); }
+                .pipeline-section .stop {
+                    width: min(320px, 42%);
+                }
             }
 
             @media (max-width: 640px) {
-              .pipeline-section .journey-svg {
-                width: 165%;
-                margin-left: -32.5%;
-              }
-              .pipeline-section .journey { overflow: visible; }
+                .pipeline-section .journey-svg {
+                    width: 165%;
+                    margin-left: -32.5%;
+                }
 
-              .pipeline-section .stop { width: min(300px, 62%); }
-              .pipeline-section .stop.left  { left: 16px; }
-              .pipeline-section .stop.right { right: 16px; }
-              .pipeline-section .title { font-size: 20px; }
-              .pipeline-section .desc  { font-size: 12.5px; line-height: 1.65; }
+                .pipeline-section .journey {
+                    overflow: visible;
+                }
+
+                .pipeline-section .stop {
+                    width: min(300px, 62%);
+                }
+
+                .pipeline-section .stop.left {
+                    left: 16px;
+                }
+
+                .pipeline-section .stop.right {
+                    right: 16px;
+                }
+
+                .pipeline-section .title {
+                    font-size: 20px;
+                }
+
+                .pipeline-section .desc {
+                    font-size: 12.5px;
+                    line-height: 1.65;
+                }
             }
 
             @media (prefers-reduced-motion: reduce) {
-              .pipeline-section .stop { opacity: 1; transform: none; }
+                .pipeline-section .stop {
+                    opacity: 1;
+                    transform: none;
+                }
             }
         </style>
         <section class="pipeline-section bg-transparent relative overflow-hidden" id="pipeline-section">
-            <svg class="flecks" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1600 900"></svg>
-            
+            <svg class="flecks" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice"
+                viewBox="0 0 1600 900"></svg>
+
             <header class="hero">
                 <p class="hero-eyebrow">The Pipeline</p>
                 <h1 class="hero-title">
                     <span class="hero-gold">Generative tools.</span>
                     <span class="hero-white">A filmmaker&rsquo;s eye.</span>
                 </h1>
-                <p class="hero-sub">Six stages, one unbroken line — scroll and follow the light from first frame to final grade.</p>
+                <p class="hero-sub">Six stages, one unbroken line — scroll and follow the light from first frame to
+                    final grade.</p>
             </header>
 
             <section class="journey" aria-label="Studio services timeline">
-                <svg class="journey-svg" viewBox="0 0 1200 4400" preserveAspectRatio="xMidYMin meet" aria-hidden="true" focusable="false">
+                <svg class="journey-svg" viewBox="0 0 1200 4400" preserveAspectRatio="xMidYMin meet" aria-hidden="true"
+                    focusable="false">
                     <defs>
                         <linearGradient id="g-trail" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%"   stop-color="#fff4d6"/>
-                            <stop offset="30%"  stop-color="#ffd98a"/>
-                            <stop offset="70%"  stop-color="#f0b452"/>
-                            <stop offset="100%" stop-color="#c98b2e"/>
+                            <stop offset="0%" stop-color="#fff4d6" />
+                            <stop offset="30%" stop-color="#ffd98a" />
+                            <stop offset="70%" stop-color="#f0b452" />
+                            <stop offset="100%" stop-color="#c98b2e" />
                         </linearGradient>
 
                         <radialGradient id="g-node" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%"   stop-color="#ffd77e" stop-opacity=".55"/>
-                            <stop offset="100%" stop-color="#ffb03a" stop-opacity="0"/>
+                            <stop offset="0%" stop-color="#ffd77e" stop-opacity=".55" />
+                            <stop offset="100%" stop-color="#ffb03a" stop-opacity="0" />
                         </radialGradient>
 
                         <filter id="f-soft" x="-120%" y="-120%" width="340%" height="340%">
-                            <feGaussianBlur stdDeviation="6"/>
+                            <feGaussianBlur stdDeviation="6" />
                         </filter>
                         <filter id="f-wide" x="-200%" y="-200%" width="500%" height="500%">
-                            <feGaussianBlur stdDeviation="16"/>
+                            <feGaussianBlur stdDeviation="16" />
                         </filter>
 
                         <linearGradient id="g-fade" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%"    stop-color="#fff" stop-opacity="0"/>
-                            <stop offset="2.5%"  stop-color="#fff" stop-opacity="1"/>
-                            <stop offset="94%"   stop-color="#fff" stop-opacity="1"/>
-                            <stop offset="100%"  stop-color="#fff" stop-opacity="0"/>
+                            <stop offset="0%" stop-color="#fff" stop-opacity="0" />
+                            <stop offset="2.5%" stop-color="#fff" stop-opacity="1" />
+                            <stop offset="94%" stop-color="#fff" stop-opacity="1" />
+                            <stop offset="100%" stop-color="#fff" stop-opacity="0" />
                         </linearGradient>
                         <mask id="m-fade">
-                            <rect x="-200" y="0" width="1600" height="4400" fill="url(#g-fade)"/>
+                            <rect x="-200" y="0" width="1600" height="4400" fill="url(#g-fade)" />
                         </mask>
 
                         <!-- ————— cloud materials ————— -->
                         <radialGradient id="g-cloud-deep" cx="50%" cy="42%" r="70%">
-                            <stop offset="0%"   stop-color="#222b40"/>
-                            <stop offset="55%"  stop-color="#131826"/>
-                            <stop offset="100%" stop-color="#0a0d14" stop-opacity=".1"/>
+                            <stop offset="0%" stop-color="#222b40" />
+                            <stop offset="55%" stop-color="#131826" />
+                            <stop offset="100%" stop-color="#0a0d14" stop-opacity=".1" />
                         </radialGradient>
                         <radialGradient id="g-cloud-mid" cx="47%" cy="32%" r="74%">
-                            <stop offset="0%"   stop-color="#4a5570"/>
-                            <stop offset="52%"  stop-color="#262f42"/>
-                            <stop offset="100%" stop-color="#141a26" stop-opacity=".1"/>
+                            <stop offset="0%" stop-color="#4a5570" />
+                            <stop offset="52%" stop-color="#262f42" />
+                            <stop offset="100%" stop-color="#141a26" stop-opacity=".1" />
                         </radialGradient>
                         <radialGradient id="g-cloud-lit" cx="50%" cy="20%" r="78%">
-                            <stop offset="0%"   stop-color="#aab2c6"/>
-                            <stop offset="28%"  stop-color="#6b7590"/>
-                            <stop offset="65%"  stop-color="#303950"/>
-                            <stop offset="100%" stop-color="#171d2c" stop-opacity=".06"/>
+                            <stop offset="0%" stop-color="#aab2c6" />
+                            <stop offset="28%" stop-color="#6b7590" />
+                            <stop offset="65%" stop-color="#303950" />
+                            <stop offset="100%" stop-color="#171d2c" stop-opacity=".06" />
                         </radialGradient>
                         <radialGradient id="g-cloud-wisp" cx="50%" cy="50%" r="50%">
-                            <stop offset="0%"   stop-color="#ffffff" stop-opacity=".8"/>
-                            <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+                            <stop offset="0%" stop-color="#ffffff" stop-opacity=".8" />
+                            <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
                         </radialGradient>
                         <radialGradient id="g-gold-rim" cx="50%" cy="28%" r="62%">
-                            <stop offset="0%"   stop-color="#ffedc4" stop-opacity=".98"/>
-                            <stop offset="38%"  stop-color="#f8c56e" stop-opacity=".5"/>
-                            <stop offset="100%" stop-color="#c47c2a" stop-opacity="0"/>
+                            <stop offset="0%" stop-color="#ffedc4" stop-opacity=".98" />
+                            <stop offset="38%" stop-color="#f8c56e" stop-opacity=".5" />
+                            <stop offset="100%" stop-color="#c47c2a" stop-opacity="0" />
                         </radialGradient>
 
                         <filter id="f-cloud-back" x="-40%" y="-40%" width="180%" height="180%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.007 0.011" numOctaves="3" seed="7" result="n"/>
-                            <feDisplacementMap in="SourceGraphic" in2="n" scale="85"/>
-                            <feGaussianBlur stdDeviation="15"/>
+                            <feTurbulence type="fractalNoise" baseFrequency="0.007 0.011" numOctaves="3" seed="7"
+                                result="n" />
+                            <feDisplacementMap in="SourceGraphic" in2="n" scale="85" />
+                            <feGaussianBlur stdDeviation="15" />
                         </filter>
                         <filter id="f-cloud-mid" x="-40%" y="-40%" width="180%" height="180%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.017" numOctaves="4" seed="11" result="n"/>
-                            <feDisplacementMap in="SourceGraphic" in2="n" scale="62"/>
-                            <feGaussianBlur stdDeviation="8"/>
+                            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.017" numOctaves="4" seed="11"
+                                result="n" />
+                            <feDisplacementMap in="SourceGraphic" in2="n" scale="62" />
+                            <feGaussianBlur stdDeviation="8" />
                         </filter>
                         <filter id="f-cloud-front" x="-40%" y="-40%" width="180%" height="180%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.019 0.027" numOctaves="4" seed="4" result="n"/>
-                            <feDisplacementMap in="SourceGraphic" in2="n" scale="44"/>
-                            <feGaussianBlur stdDeviation="3.6"/>
+                            <feTurbulence type="fractalNoise" baseFrequency="0.019 0.027" numOctaves="4" seed="4"
+                                result="n" />
+                            <feDisplacementMap in="SourceGraphic" in2="n" scale="44" />
+                            <feGaussianBlur stdDeviation="3.6" />
                         </filter>
                         <filter id="f-cloud-wisp" x="-60%" y="-60%" width="220%" height="220%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.05 0.07" numOctaves="2" seed="21" result="n"/>
-                            <feDisplacementMap in="SourceGraphic" in2="n" scale="18"/>
-                            <feGaussianBlur stdDeviation="1.6"/>
+                            <feTurbulence type="fractalNoise" baseFrequency="0.05 0.07" numOctaves="2" seed="21"
+                                result="n" />
+                            <feDisplacementMap in="SourceGraphic" in2="n" scale="18" />
+                            <feGaussianBlur stdDeviation="1.6" />
                         </filter>
                         <filter id="f-rim" x="-60%" y="-60%" width="220%" height="220%">
-                            <feTurbulence type="fractalNoise" baseFrequency="0.018 0.026" numOctaves="3" seed="9" result="n"/>
-                            <feDisplacementMap in="SourceGraphic" in2="n" scale="34"/>
-                            <feGaussianBlur stdDeviation="6"/>
+                            <feTurbulence type="fractalNoise" baseFrequency="0.018 0.026" numOctaves="3" seed="9"
+                                result="n" />
+                            <feDisplacementMap in="SourceGraphic" in2="n" scale="34" />
+                            <feGaussianBlur stdDeviation="6" />
                         </filter>
-                        <filter id="f-blur-s"><feGaussianBlur stdDeviation="1.4"/></filter>
-                        <filter id="f-blur-m" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="5"/></filter>
+                        <filter id="f-blur-s">
+                            <feGaussianBlur stdDeviation="1.4" />
+                        </filter>
+                        <filter id="f-blur-m" x="-80%" y="-80%" width="260%" height="260%">
+                            <feGaussianBlur stdDeviation="5" />
+                        </filter>
                         <filter id="f-flame-glow" x="-120%" y="-120%" width="340%" height="340%">
-                            <feGaussianBlur stdDeviation="4" result="b"/>
-                            <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            <feGaussianBlur stdDeviation="4" result="b" />
+                            <feMerge>
+                                <feMergeNode in="b" />
+                                <feMergeNode in="b" />
+                                <feMergeNode in="SourceGraphic" />
+                            </feMerge>
                         </filter>
 
                         <!-- ————— rocket materials ————— -->
                         <linearGradient id="g-rocket" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%"   stop-color="#454b57"/>
-                            <stop offset="28%"  stop-color="#8b93a1"/>
-                            <stop offset="52%"  stop-color="#eef2f8"/>
-                            <stop offset="74%"  stop-color="#9aa2ae"/>
-                            <stop offset="100%" stop-color="#3b414c"/>
+                            <stop offset="0%" stop-color="#454b57" />
+                            <stop offset="28%" stop-color="#8b93a1" />
+                            <stop offset="52%" stop-color="#eef2f8" />
+                            <stop offset="74%" stop-color="#9aa2ae" />
+                            <stop offset="100%" stop-color="#3b414c" />
                         </linearGradient>
                         <linearGradient id="g-fin-l" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#333944"/><stop offset="100%" stop-color="#6a7280"/>
+                            <stop offset="0%" stop-color="#333944" />
+                            <stop offset="100%" stop-color="#6a7280" />
                         </linearGradient>
                         <linearGradient id="g-fin-r" x1="0" y1="0" x2="1" y2="0">
-                            <stop offset="0%" stop-color="#5d6472"/><stop offset="100%" stop-color="#272c35"/>
+                            <stop offset="0%" stop-color="#5d6472" />
+                            <stop offset="100%" stop-color="#272c35" />
                         </linearGradient>
                         <linearGradient id="g-nozzle" x1="0" y1="1" x2="0" y2="0">
-                            <stop offset="0%" stop-color="#14171d"/><stop offset="100%" stop-color="#3a4049"/>
+                            <stop offset="0%" stop-color="#14171d" />
+                            <stop offset="100%" stop-color="#3a4049" />
                         </linearGradient>
                         <linearGradient id="g-flame-core" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%"   stop-color="#ffffff"/>
-                            <stop offset="35%"  stop-color="#fff3cf"/>
-                            <stop offset="75%"  stop-color="#ffd166" stop-opacity=".85"/>
-                            <stop offset="100%" stop-color="#ffb340" stop-opacity="0"/>
+                            <stop offset="0%" stop-color="#ffffff" />
+                            <stop offset="35%" stop-color="#fff3cf" />
+                            <stop offset="75%" stop-color="#ffd166" stop-opacity=".85" />
+                            <stop offset="100%" stop-color="#ffb340" stop-opacity="0" />
                         </linearGradient>
                         <linearGradient id="g-flame-outer" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%"   stop-color="#ffdf9a" stop-opacity=".95"/>
-                            <stop offset="45%"  stop-color="#ffab3d" stop-opacity=".6"/>
-                            <stop offset="100%" stop-color="#ff7a1a" stop-opacity="0"/>
+                            <stop offset="0%" stop-color="#ffdf9a" stop-opacity=".95" />
+                            <stop offset="45%" stop-color="#ffab3d" stop-opacity=".6" />
+                            <stop offset="100%" stop-color="#ff7a1a" stop-opacity="0" />
                         </linearGradient>
 
                         <!-- ————— volumetric cloud ————— -->
                         <symbol id="s-cloud" viewBox="0 0 600 360" overflow="visible">
-                            <image href="https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/vecteezy_a-dark-cumulus-cloud-contrasts-sharply-against-a-bright_57176514.png" width="600" height="360" preserveAspectRatio="xMidYMid contain"/>
+                            <image
+                                href="https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/vecteezy_a-dark-cumulus-cloud-contrasts-sharply-against-a-bright_57176514.png"
+                                width="600" height="360" preserveAspectRatio="xMidYMid contain" />
                         </symbol>
 
                         <!-- ————— NASA-style rocket ————— -->
                         <symbol id="s-rocket-up" viewBox="0 0 64 170" overflow="visible">
-                            <path d="M25 148 L39 148 L43 163 L21 163 Z" fill="url(#g-nozzle)"/>
-                            <ellipse cx="32" cy="161.5" rx="10" ry="3" fill="#ffdf9a" opacity=".9" filter="url(#f-blur-s)"/>
-                            <rect x="23.4" y="143" width="17.2" height="6" rx="2" fill="#565d68"/>
-                            <path d="M24.5 140 L9 161 L12.6 122 L24.5 116 Z"  fill="url(#g-fin-l)"/>
-                            <path d="M39.5 140 L55 161 L51.4 122 L39.5 116 Z" fill="url(#g-fin-r)"/>
-                            <path d="M12 156 L14 126" stroke="#8f97a4" stroke-width="1" opacity=".55" fill="none"/>
-                            <path d="M52 156 L50 126" stroke="#1c2027" stroke-width="1" opacity=".7" fill="none"/>
-                            <path d="M24 144 L40 144 L40 62 C40 38 36.5 24 32 10 C27.5 24 24 38 24 62 Z" fill="url(#g-rocket)"/>
-                            <path d="M28.4 142 L31 142 L31 48 C30 38 29.4 32 28.8 28 C28.5 38 28.4 44 28.4 52 Z" fill="#f7fafc" opacity=".55"/>
-                            <rect x="24.6" y="122.9" width="14.8" height="1.1" fill="#12151b" opacity=".5"/>
-                            <rect x="24.6" y="76.9"  width="14.8" height="1.1" fill="#12151b" opacity=".45"/>
-                            <rect x="24.8" y="57"    width="14.2" height="1"   fill="#12151b" opacity=".4"/>
-                            <circle cx="32" cy="106" r="5.2" fill="#0d1118" stroke="#828b99" stroke-width="1.4"/>
-                            <circle cx="30.4" cy="104.3" r="1.5" fill="#7d95b5" opacity=".8"/>
-                            <circle cx="32" cy="88" r="3" fill="#0d1118" stroke="#6f7885" stroke-width="1.1"/>
-                            <path d="M29.5 22 C30.4 17 31.2 13.5 32 10 C32.8 13.5 33.6 17 34.5 22 C33.6 20.6 30.4 20.6 29.5 22 Z" fill="#dfe4ec"/>
-                            <path class="rocket-rim" d="M39.4 143 L39.4 64 C39.4 46 37 32 33.4 18"
-                                  stroke="#ffd08a" stroke-width="1.4" fill="none" opacity=".35" stroke-linecap="round"/>
-                            <path class="rocket-rim" d="M40 143 L52.6 159.6" stroke="#ffd08a" stroke-width="1.2" fill="none" opacity=".3" stroke-linecap="round"/>
+                            <path d="M25 148 L39 148 L43 163 L21 163 Z" fill="url(#g-nozzle)" />
+                            <ellipse cx="32" cy="161.5" rx="10" ry="3" fill="#ffdf9a" opacity=".9"
+                                filter="url(#f-blur-s)" />
+                            <rect x="23.4" y="143" width="17.2" height="6" rx="2" fill="#565d68" />
+                            <path d="M24.5 140 L9 161 L12.6 122 L24.5 116 Z" fill="url(#g-fin-l)" />
+                            <path d="M39.5 140 L55 161 L51.4 122 L39.5 116 Z" fill="url(#g-fin-r)" />
+                            <path d="M12 156 L14 126" stroke="#8f97a4" stroke-width="1" opacity=".55" fill="none" />
+                            <path d="M52 156 L50 126" stroke="#1c2027" stroke-width="1" opacity=".7" fill="none" />
+                            <path d="M24 144 L40 144 L40 62 C40 38 36.5 24 32 10 C27.5 24 24 38 24 62 Z"
+                                fill="url(#g-rocket)" />
+                            <path d="M28.4 142 L31 142 L31 48 C30 38 29.4 32 28.8 28 C28.5 38 28.4 44 28.4 52 Z"
+                                fill="#f7fafc" opacity=".55" />
+                            <rect x="24.6" y="122.9" width="14.8" height="1.1" fill="#12151b" opacity=".5" />
+                            <rect x="24.6" y="76.9" width="14.8" height="1.1" fill="#12151b" opacity=".45" />
+                            <rect x="24.8" y="57" width="14.2" height="1" fill="#12151b" opacity=".4" />
+                            <circle cx="32" cy="106" r="5.2" fill="#0d1118" stroke="#828b99" stroke-width="1.4" />
+                            <circle cx="30.4" cy="104.3" r="1.5" fill="#7d95b5" opacity=".8" />
+                            <circle cx="32" cy="88" r="3" fill="#0d1118" stroke="#6f7885" stroke-width="1.1" />
+                            <path
+                                d="M29.5 22 C30.4 17 31.2 13.5 32 10 C32.8 13.5 33.6 17 34.5 22 C33.6 20.6 30.4 20.6 29.5 22 Z"
+                                fill="#dfe4ec" />
+                            <path class="rocket-rim" d="M39.4 143 L39.4 64 C39.4 46 37 32 33.4 18" stroke="#ffd08a"
+                                stroke-width="1.4" fill="none" opacity=".35" stroke-linecap="round" />
+                            <path class="rocket-rim" d="M40 143 L52.6 159.6" stroke="#ffd08a" stroke-width="1.2"
+                                fill="none" opacity=".3" stroke-linecap="round" />
                         </symbol>
 
                         <!-- ————— exhaust plume ————— -->
                         <symbol id="s-flame-down" viewBox="-20 -4 40 114" overflow="visible">
                             <path class="rt-flame-outer" d="M0 -2 C -10 20 -12 52 0 104 C 12 52 10 20 0 -2 Z"
-                                  fill="url(#g-flame-outer)" filter="url(#f-blur-m)"/>
+                                fill="url(#g-flame-outer)" filter="url(#f-blur-m)" />
                             <path class="rt-flame-outer" d="M0 -1 C -7 16 -8 44 0 82 C 8 44 7 16 0 -1 Z"
-                                  fill="url(#g-flame-outer)" filter="url(#f-flame-glow)"/>
+                                fill="url(#g-flame-outer)" filter="url(#f-flame-glow)" />
                             <path class="rt-flame-core" d="M0 0 C -3.6 12 -4 32 0 58 C 4 32 3.6 12 0 0 Z"
-                                  fill="url(#g-flame-core)" filter="url(#f-blur-s)"/>
+                                fill="url(#g-flame-core)" filter="url(#f-blur-s)" />
                         </symbol>
                     </defs>
 
                     <!-- ————— cloudscape (asymmetric, layered & organic) ————— -->
                     <g class="clouds">
                         <!-- Upper Atmosphere / Intro -->
-                        <use href="#s-cloud" class="cloud drift-a" x="-240" y="-80" width="750" height="450" opacity=".5"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="620"  y="60"  width="580" height="348" opacity=".75"/>
-                        <use href="#s-cloud" class="cloud drift-c" x="80"   y="220" width="460" height="276" opacity=".35"/>
+                        <use href="#s-cloud" class="cloud drift-a" x="-240" y="-80" width="750" height="450"
+                            opacity=".5" />
+                        <use href="#s-cloud" class="cloud drift-b" x="620" y="60" width="580" height="348"
+                            opacity=".75" />
+                        <use href="#s-cloud" class="cloud drift-c" x="80" y="220" width="460" height="276"
+                            opacity=".35" />
 
                         <!-- Upper-Mid Transition -->
-                        <use href="#s-cloud" class="cloud drift-b" x="660"  y="580" width="700" height="420" opacity=".55"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="-180" y="760" width="620" height="372" opacity=".8"/>
-                        <use href="#s-cloud" class="cloud drift-c" x="380"  y="940" width="480" height="288" opacity=".45"/>
+                        <use href="#s-cloud" class="cloud drift-b" x="660" y="580" width="700" height="420"
+                            opacity=".55" />
+                        <use href="#s-cloud" class="cloud drift-a" x="-180" y="760" width="620" height="372"
+                            opacity=".8" />
+                        <use href="#s-cloud" class="cloud drift-c" x="380" y="940" width="480" height="288"
+                            opacity=".45" />
 
                         <!-- Mid Atmosphere -->
-                        <use href="#s-cloud" class="cloud drift-a" x="-280" y="1320" width="800" height="480" opacity=".48"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="640"  y="1500" width="560" height="336" opacity=".85"/>
-                        <use href="#s-cloud" class="cloud drift-c" x="140"  y="1720" width="500" height="300" opacity=".4"/>
+                        <use href="#s-cloud" class="cloud drift-a" x="-280" y="1320" width="800" height="480"
+                            opacity=".48" />
+                        <use href="#s-cloud" class="cloud drift-b" x="640" y="1500" width="560" height="336"
+                            opacity=".85" />
+                        <use href="#s-cloud" class="cloud drift-c" x="140" y="1720" width="500" height="300"
+                            opacity=".4" />
 
                         <!-- Lower-Mid Transition -->
-                        <use href="#s-cloud" class="cloud drift-b" x="680"  y="2050" width="720" height="432" opacity=".55"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="-160" y="2220" width="640" height="384" opacity=".82"/>
-                        <use href="#s-cloud" class="cloud drift-c" x="460"  y="2440" width="480" height="288" opacity=".5"/>
+                        <use href="#s-cloud" class="cloud drift-b" x="680" y="2050" width="720" height="432"
+                            opacity=".55" />
+                        <use href="#s-cloud" class="cloud drift-a" x="-160" y="2220" width="640" height="384"
+                            opacity=".82" />
+                        <use href="#s-cloud" class="cloud drift-c" x="460" y="2440" width="480" height="288"
+                            opacity=".5" />
 
                         <!-- Deep Descent -->
-                        <use href="#s-cloud" class="cloud drift-a" x="-250" y="2780" width="780" height="468" opacity=".58"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="600"  y="2960" width="600" height="360" opacity=".85"/>
-                        <use href="#s-cloud" class="cloud drift-c" x="100"  y="3180" width="520" height="312" opacity=".45"/>
+                        <use href="#s-cloud" class="cloud drift-a" x="-250" y="2780" width="780" height="468"
+                            opacity=".58" />
+                        <use href="#s-cloud" class="cloud drift-b" x="600" y="2960" width="600" height="360"
+                            opacity=".85" />
+                        <use href="#s-cloud" class="cloud drift-c" x="100" y="3180" width="520" height="312"
+                            opacity=".45" />
 
                         <!-- Final Approach & Landing -->
-                        <use href="#s-cloud" class="cloud drift-b" x="660"  y="3500" width="700" height="420" opacity=".65"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="-180" y="3700" width="660" height="396" opacity=".88"/>
-                        <use href="#s-cloud" class="cloud drift-c" x="520"  y="3950" width="620" height="372" opacity=".9"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="-220" y="4100" width="750" height="450" opacity=".92"/>
+                        <use href="#s-cloud" class="cloud drift-b" x="660" y="3500" width="700" height="420"
+                            opacity=".65" />
+                        <use href="#s-cloud" class="cloud drift-a" x="-180" y="3700" width="660" height="396"
+                            opacity=".88" />
+                        <use href="#s-cloud" class="cloud drift-c" x="520" y="3950" width="620" height="372"
+                            opacity=".9" />
+                        <use href="#s-cloud" class="cloud drift-a" x="-220" y="4100" width="750" height="450"
+                            opacity=".92" />
                         <g class="node-clouds"></g>
                     </g>
 
@@ -1656,22 +1816,22 @@
                             C 270 3510, 270 3870, 600 4040
                             C 760 4110, 860 4020, 830 3910
                             C 800 3800, 660 3850, 640 3960
-                            C 630 4030, 690 4110, 780 4400"/>
+                            C 630 4030, 690 4110, 780 4400" />
 
-                        <use href="#trail-geo" class="trail-dim"/>
-                        <use href="#trail-geo" class="trail-halo" filter="url(#f-wide)"/>
-                        <use href="#trail-geo" class="trail-glow" filter="url(#f-soft)"/>
-                        <use href="#trail-geo" class="trail-core"/>
+                        <use href="#trail-geo" class="trail-dim" />
+                        <use href="#trail-geo" class="trail-halo" filter="url(#f-wide)" />
+                        <use href="#trail-geo" class="trail-glow" filter="url(#f-soft)" />
+                        <use href="#trail-geo" class="trail-core" />
                     </g>
 
                     <g class="nodes"></g>
 
                     <g class="rocket-traveler" opacity="0">
-                        <circle class="rt-glow" r="46" fill="url(#g-node)"/>
+                        <circle class="rt-glow" r="46" fill="url(#g-node)" />
                         <g class="rt-assembly">
-                            <use class="rt-flame" href="#s-flame-down" x="-17" y="-4" width="34" height="97"/>
+                            <use class="rt-flame" href="#s-flame-down" x="-17" y="-4" width="34" height="97" />
                             <g class="rt-rocket" transform="scale(.86) translate(-32 -163)">
-                                <use href="#s-rocket-up" width="64" height="170"/>
+                                <use href="#s-rocket-up" width="64" height="170" />
                             </g>
                         </g>
                     </g>
@@ -1682,275 +1842,277 @@
                     <span class="num">01</span>
                     <span class="eyebrow">2.39:1 · Film</span>
                     <h2 class="title">AI Film Production</h2>
-                    <p class="desc">Full sequences, set extensions, and period-accurate worlds — previs to final pixel, built shot by shot with cinematic continuity.</p>
+                    <p class="desc">Full sequences, set extensions, and period-accurate worlds — previs to final pixel,
+                        built shot by shot with cinematic continuity.</p>
                 </article>
 
                 <article class="stop right" data-stop="1" style="--top: 22.2%">
                     <span class="num">02</span>
                     <span class="eyebrow">16:9 · 9:16 · Commercial</span>
                     <h2 class="title">Ad Films &amp; Campaigns</h2>
-                    <p class="desc">Agency-polish product films, automotive and FMCG spots, and platform-native cutdowns — delivered in days, not production quarters.</p>
+                    <p class="desc">Agency-polish product films, automotive and FMCG spots, and platform-native cutdowns
+                        — delivered in days, not production quarters.</p>
                 </article>
 
                 <article class="stop left" data-stop="2" style="--top: 37.7%">
                     <span class="num">03</span>
                     <span class="eyebrow">27×40 · One-Sheet</span>
                     <h2 class="title">Key Art &amp; Motion Posters</h2>
-                    <p class="desc">Theatrical-grade posters and looping motion key art with controlled palettes, real typography space, and print-ready detail.</p>
+                    <p class="desc">Theatrical-grade posters and looping motion key art with controlled palettes, real
+                        typography space, and print-ready detail.</p>
                 </article>
 
                 <article class="stop right" data-stop="3" style="--top: 53.2%">
                     <span class="num">04</span>
                     <span class="eyebrow">Boards · Previs</span>
                     <h2 class="title">Storyboards &amp; Previs</h2>
-                    <p class="desc">Director-ready boards and animatics that lock blocking, lensing, and tone before a single crew call is made.</p>
+                    <p class="desc">Director-ready boards and animatics that lock blocking, lensing, and tone before a
+                        single crew call is made.</p>
                 </article>
 
                 <article class="stop left" data-stop="4" style="--top: 68.6%">
                     <span class="num">05</span>
                     <span class="eyebrow">Plates · Comp</span>
                     <h2 class="title">VFX &amp; Set Extension</h2>
-                    <p class="desc">Generative plates, crowd and environment extension, cleanup, and style-consistent fixes that cut into live-action invisibly.</p>
+                    <p class="desc">Generative plates, crowd and environment extension, cleanup, and style-consistent
+                        fixes that cut into live-action invisibly.</p>
                 </article>
 
                 <article class="stop right" data-stop="5" style="--top: 84.1%">
                     <span class="num">06</span>
                     <span class="eyebrow">LUT · Look Dev</span>
                     <h2 class="title">Look Development</h2>
-                    <p class="desc">Custom visual languages for brands and films — palettes, grain, halation, and grade recipes the models obey across every shot.</p>
+                    <p class="desc">Custom visual languages for brands and films — palettes, grain, halation, and grade
+                        recipes the models obey across every shot.</p>
                 </article>
             </section>
-
-            <footer class="outro">
-                <p class="outro-line">The line ends where the picture begins.</p>
-            </footer>
         </section>
         <script>
-        (() => {
-          "use strict";
+            (() => {
+                "use strict";
 
-          const SVG_NS = "http://www.w3.org/2000/svg";
-          const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          const rand = (min, max) => min + Math.random() * (max - min);
+                const SVG_NS = "http://www.w3.org/2000/svg";
+                const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                const rand = (min, max) => min + Math.random() * (max - min);
 
-          /* ————————————————————————————————
-             Ambient flecks (triangles + dust)
-          ———————————————————————————————— */
-          const fleckLayer = document.querySelector(".pipeline-section .flecks");
-          if (fleckLayer) {
-            const frag = document.createDocumentFragment();
-            for (let i = 0; i < 64; i++) {
-              const isTri = Math.random() < 0.6;
-              let el;
-              if (isTri) {
-                el = document.createElementNS(SVG_NS, "path");
-                const s = rand(3, 8);
-                el.setAttribute("d", `M0 0 L${s} ${s * 0.36} L${s * 0.2} ${s} Z`);
-              } else {
-                el = document.createElementNS(SVG_NS, "circle");
-                el.setAttribute("r", rand(0.6, 1.6).toFixed(2));
-              }
-              const x = rand(0, 1600).toFixed(1);
-              const y = rand(0, 900).toFixed(1);
-              if (isTri) el.setAttribute("transform", `translate(${x} ${y}) rotate(${rand(0, 360).toFixed(0)})`);
-              else { el.setAttribute("cx", x); el.setAttribute("cy", y); }
+                /* ————————————————————————————————
+                   Ambient flecks (triangles + dust)
+                ———————————————————————————————— */
+                const fleckLayer = document.querySelector(".pipeline-section .flecks");
+                if (fleckLayer) {
+                    const frag = document.createDocumentFragment();
+                    for (let i = 0; i < 64; i++) {
+                        const isTri = Math.random() < 0.6;
+                        let el;
+                        if (isTri) {
+                            el = document.createElementNS(SVG_NS, "path");
+                            const s = rand(3, 8);
+                            el.setAttribute("d", `M0 0 L${s} ${s * 0.36} L${s * 0.2} ${s} Z`);
+                        } else {
+                            el = document.createElementNS(SVG_NS, "circle");
+                            el.setAttribute("r", rand(0.6, 1.6).toFixed(2));
+                        }
+                        const x = rand(0, 1600).toFixed(1);
+                        const y = rand(0, 900).toFixed(1);
+                        if (isTri) el.setAttribute("transform", `translate(${x} ${y}) rotate(${rand(0, 360).toFixed(0)})`);
+                        else { el.setAttribute("cx", x); el.setAttribute("cy", y); }
 
-              el.setAttribute("class", "fleck" + (Math.random() < 0.35 ? " dust" : ""));
-              el.style.setProperty("--fd", `${rand(10, 22).toFixed(1)}s`);
-              el.style.setProperty("--ff", `${rand(3.5, 8).toFixed(1)}s`);
-              el.style.setProperty("--fo", rand(0.18, 0.5).toFixed(2));
-              el.style.setProperty("--dx", `${rand(-16, 16).toFixed(1)}px`);
-              el.style.setProperty("--dy", `${rand(-22, -6).toFixed(1)}px`);
-              el.style.setProperty("--rot", `${rand(-40, 40).toFixed(0)}deg`);
-              el.style.animationDelay = `${rand(0, 8).toFixed(2)}s, ${rand(0, 5).toFixed(2)}s`;
-              if (reduceMotion) el.style.opacity = "0.25";
-              frag.appendChild(el);
-            }
-            fleckLayer.appendChild(frag);
-          }
+                        el.setAttribute("class", "fleck" + (Math.random() < 0.35 ? " dust" : ""));
+                        el.style.setProperty("--fd", `${rand(10, 22).toFixed(1)}s`);
+                        el.style.setProperty("--ff", `${rand(3.5, 8).toFixed(1)}s`);
+                        el.style.setProperty("--fo", rand(0.18, 0.5).toFixed(2));
+                        el.style.setProperty("--dx", `${rand(-16, 16).toFixed(1)}px`);
+                        el.style.setProperty("--dy", `${rand(-22, -6).toFixed(1)}px`);
+                        el.style.setProperty("--rot", `${rand(-40, 40).toFixed(0)}deg`);
+                        el.style.animationDelay = `${rand(0, 8).toFixed(2)}s, ${rand(0, 5).toFixed(2)}s`;
+                        if (reduceMotion) el.style.opacity = "0.25";
+                        frag.appendChild(el);
+                    }
+                    fleckLayer.appendChild(frag);
+                }
 
-          /* ————————————————————————————————
-             Trail geometry
-          ———————————————————————————————— */
-          const section = document.getElementById("pipeline-section");
-          const geo = document.getElementById("trail-geo");
-          if (!section || !geo) return;
-          const journey = section.querySelector(".journey");
+                /* ————————————————————————————————
+                   Trail geometry
+                ———————————————————————————————— */
+                const section = document.getElementById("pipeline-section");
+                const geo = document.getElementById("trail-geo");
+                if (!section || !geo) return;
+                const journey = section.querySelector(".journey");
 
-          const layers = ["trail-halo", "trail-glow", "trail-core"]
-            .map((cls) => section.querySelector(`.${cls}`));
-          const rocketTraveler = section.querySelector(".rocket-traveler");
-          const rocketAssembly = section.querySelector(".rt-assembly");
-          const nodeLayer = section.querySelector(".nodes");
-          const stops = Array.from(section.querySelectorAll(".stop"));
+                const layers = ["trail-halo", "trail-glow", "trail-core"]
+                    .map((cls) => section.querySelector(`.${cls}`));
+                const rocketTraveler = section.querySelector(".rocket-traveler");
+                const rocketAssembly = section.querySelector(".rt-assembly");
+                const nodeLayer = section.querySelector(".nodes");
+                const stops = Array.from(section.querySelectorAll(".stop"));
 
-          const L = geo.getTotalLength();
-          layers.forEach((el) => {
-            el.style.strokeDasharray = `${L}`;
-            el.style.strokeDashoffset = `${L}`;
-          });
+                const L = geo.getTotalLength();
+                layers.forEach((el) => {
+                    el.style.strokeDasharray = `${L}`;
+                    el.style.strokeDashoffset = `${L}`;
+                });
 
-          /* find the path length where the trail reaches a given y (monotonic in y) */
-          const lengthAtY = (targetY) => {
-            let lo = 0, hi = L;
-            for (let i = 0; i < 28; i++) {
-              const mid = (lo + hi) / 2;
-              if (geo.getPointAtLength(mid).y < targetY) lo = mid;
-              else hi = mid;
-            }
-            return (lo + hi) / 2;
-          };
+                /* find the path length where the trail reaches a given y (monotonic in y) */
+                const lengthAtY = (targetY) => {
+                    let lo = 0, hi = L;
+                    for (let i = 0; i < 28; i++) {
+                        const mid = (lo + hi) / 2;
+                        if (geo.getPointAtLength(mid).y < targetY) lo = mid;
+                        else hi = mid;
+                    }
+                    return (lo + hi) / 2;
+                };
 
-          /* local direction of travel in degrees, standard SVG atan2 (0=+x, 90=+y/down, -90=-y/up) */
-          const travelAngle = (len) => {
-            const a = geo.getPointAtLength(Math.max(0, len - 4));
-            const b = geo.getPointAtLength(Math.min(L, len + 4));
-            return Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
-          };
+                /* local direction of travel in degrees, standard SVG atan2 (0=+x, 90=+y/down, -90=-y/up) */
+                const travelAngle = (len) => {
+                    const a = geo.getPointAtLength(Math.max(0, len - 4));
+                    const b = geo.getPointAtLength(Math.min(L, len + 4));
+                    return Math.atan2(b.y - a.y, b.x - a.x) * 180 / Math.PI;
+                };
 
-          const rocketRotation = (len) => travelAngle(len) + 90;
+                const rocketRotation = (len) => travelAngle(len) + 90;
 
-          /* ————————————————————————————————
-             Milestone clouds + simple lit rings at each bend apex
-          ———————————————————————————————— */
-          const APEX_Y = [300, 980, 1660, 2340, 3020, 3700];
-          const nodeCloudLayer = section.querySelector(".node-clouds");
+                /* ————————————————————————————————
+                   Milestone clouds + simple lit rings at each bend apex
+                ———————————————————————————————— */
+                const APEX_Y = [300, 980, 1660, 2340, 3020, 3700];
+                const nodeCloudLayer = section.querySelector(".node-clouds");
 
-          const nodes = APEX_Y.map((y, i) => {
-            const len = lengthAtY(y);
-            const pt = geo.getPointAtLength(len);
+                const nodes = APEX_Y.map((y, i) => {
+                    const len = lengthAtY(y);
+                    const pt = geo.getPointAtLength(len);
 
-            if (nodeCloudLayer) {
-              const createCloud = (xPos, yPos, w, h, op, cls, delay) => {
-                const cloud = document.createElementNS(SVG_NS, "use");
-                cloud.setAttribute("href", "#s-cloud");
-                cloud.setAttribute("x", xPos);
-                cloud.setAttribute("y", yPos);
-                cloud.setAttribute("width", w);
-                cloud.setAttribute("height", h);
-                cloud.setAttribute("opacity", op);
-                cloud.setAttribute("class", `cloud ${cls}`);
-                cloud.style.animationDelay = `${delay}s`;
-                nodeCloudLayer.appendChild(cloud);
-              };
+                    if (nodeCloudLayer) {
+                        const createCloud = (xPos, yPos, w, h, op, cls, delay) => {
+                            const cloud = document.createElementNS(SVG_NS, "use");
+                            cloud.setAttribute("href", "#s-cloud");
+                            cloud.setAttribute("x", xPos);
+                            cloud.setAttribute("y", yPos);
+                            cloud.setAttribute("width", w);
+                            cloud.setAttribute("height", h);
+                            cloud.setAttribute("opacity", op);
+                            cloud.setAttribute("class", `cloud ${cls}`);
+                            cloud.style.animationDelay = `${delay}s`;
+                            nodeCloudLayer.appendChild(cloud);
+                        };
 
-              // Create an asymmetric, cinematic composition hugging each apex bend
-              const isRightBend = i % 2 === 0;
-              if (isRightBend) {
-                // Prominent foreground cloud wrapping around the outer right bend apex
-                createCloud((pt.x - 240).toFixed(1), (pt.y - 220).toFixed(1), "660", "396", "0.9", "drift-a", (i * 1.3).toFixed(1));
-                // Staggered softer background bank on the opposite (left) side
-                createCloud("-180", (pt.y - 80).toFixed(1), "560", "336", "0.55", "drift-c", (i * 1.3 + 2.5).toFixed(1));
-              } else {
-                // Prominent foreground cloud wrapping around the outer left bend apex
-                createCloud((pt.x - 420).toFixed(1), (pt.y - 220).toFixed(1), "660", "396", "0.9", "drift-b", (i * 1.3).toFixed(1));
-                // Staggered softer background bank on the opposite (right) side
-                createCloud("680", (pt.y - 120).toFixed(1), "580", "348", "0.6", "drift-a", (i * 1.3 + 2.5).toFixed(1));
-              }
-            }
+                        // Create an asymmetric, cinematic composition hugging each apex bend
+                        const isRightBend = i % 2 === 0;
+                        if (isRightBend) {
+                            // Prominent foreground cloud wrapping around the outer right bend apex
+                            createCloud((pt.x - 240).toFixed(1), (pt.y - 220).toFixed(1), "660", "396", "0.9", "drift-a", (i * 1.3).toFixed(1));
+                            // Staggered softer background bank on the opposite (left) side
+                            createCloud("-180", (pt.y - 80).toFixed(1), "560", "336", "0.55", "drift-c", (i * 1.3 + 2.5).toFixed(1));
+                        } else {
+                            // Prominent foreground cloud wrapping around the outer left bend apex
+                            createCloud((pt.x - 420).toFixed(1), (pt.y - 220).toFixed(1), "660", "396", "0.9", "drift-b", (i * 1.3).toFixed(1));
+                            // Staggered softer background bank on the opposite (right) side
+                            createCloud("680", (pt.y - 120).toFixed(1), "580", "348", "0.6", "drift-a", (i * 1.3 + 2.5).toFixed(1));
+                        }
+                    }
 
-            const g = document.createElementNS(SVG_NS, "g");
-            g.setAttribute("class", "node");
-            g.setAttribute("transform", `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
+                    const g = document.createElementNS(SVG_NS, "g");
+                    g.setAttribute("class", "node");
+                    g.setAttribute("transform", `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
 
-            const glow = document.createElementNS(SVG_NS, "circle");
-            glow.setAttribute("r", "40");
-            glow.setAttribute("fill", "url(#g-node)");
-            glow.setAttribute("class", "node-glow");
+                    const glow = document.createElementNS(SVG_NS, "circle");
+                    glow.setAttribute("r", "40");
+                    glow.setAttribute("fill", "url(#g-node)");
+                    glow.setAttribute("class", "node-glow");
 
-            const ring = document.createElementNS(SVG_NS, "circle");
-            ring.setAttribute("r", "9");
-            ring.setAttribute("class", "node-ring");
+                    const ring = document.createElementNS(SVG_NS, "circle");
+                    ring.setAttribute("r", "9");
+                    ring.setAttribute("class", "node-ring");
 
-            const core = document.createElementNS(SVG_NS, "circle");
-            core.setAttribute("r", "3.4");
-            core.setAttribute("class", "node-core");
+                    const core = document.createElementNS(SVG_NS, "circle");
+                    core.setAttribute("r", "3.4");
+                    core.setAttribute("class", "node-core");
 
-            g.append(glow, ring, core);
-            nodeLayer.appendChild(g);
+                    g.append(glow, ring, core);
+                    nodeLayer.appendChild(g);
 
-            return { el: g, len, stop: stops[i] || null };
-          });
+                    return { el: g, len, stop: stops[i] || null };
+                });
 
-          /* ————————————————————————————————
-             Scroll-driven drawing
-          ———————————————————————————————— */
-          const setProgress = (p) => {
-            const drawn = L * p;
-            const offset = `${L - drawn}`;
-            layers.forEach((el) => { el.style.strokeDashoffset = offset; });
+                /* ————————————————————————————————
+                   Scroll-driven drawing
+                ———————————————————————————————— */
+                const setProgress = (p) => {
+                    const drawn = L * p;
+                    const offset = `${L - drawn}`;
+                    layers.forEach((el) => { el.style.strokeDashoffset = offset; });
 
-            const clampedLen = Math.min(Math.max(drawn, 0.5), L - 0.5);
-            const pt = geo.getPointAtLength(clampedLen);
-            const rot = rocketRotation(clampedLen);
+                    const clampedLen = Math.min(Math.max(drawn, 0.5), L - 0.5);
+                    const pt = geo.getPointAtLength(clampedLen);
+                    const rot = rocketRotation(clampedLen);
 
-            rocketTraveler.setAttribute("transform", `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
-            rocketTraveler.setAttribute("opacity", p > 0.004 && p < 0.996 ? "1" : "0");
-            if (rocketAssembly) rocketAssembly.setAttribute("transform", `rotate(${rot.toFixed(1)})`);
+                    rocketTraveler.setAttribute("transform", `translate(${pt.x.toFixed(1)} ${pt.y.toFixed(1)})`);
+                    rocketTraveler.setAttribute("opacity", p > 0.004 && p < 0.996 ? "1" : "0");
+                    if (rocketAssembly) rocketAssembly.setAttribute("transform", `rotate(${rot.toFixed(1)})`);
 
-            nodes.forEach((n) => {
-              const lit = drawn >= n.len - 6;
-              n.el.classList.toggle("lit", lit);
-              if (n.stop) n.stop.classList.toggle("in", lit || drawn >= n.len - L * 0.055);
-            });
-          };
+                    nodes.forEach((n) => {
+                        const lit = drawn >= n.len - 6;
+                        n.el.classList.toggle("lit", lit);
+                        if (n.stop) n.stop.classList.toggle("in", lit || drawn >= n.len - L * 0.055);
+                    });
+                };
 
-          if (reduceMotion) {
-            layers.forEach((el) => { el.style.strokeDashoffset = "0"; });
-            rocketTraveler.setAttribute("opacity", "0");
-            nodes.forEach((n) => {
-              n.el.classList.add("lit");
-              if (n.stop) n.stop.classList.add("in");
-            });
-            return;
-          }
+                if (reduceMotion) {
+                    layers.forEach((el) => { el.style.strokeDashoffset = "0"; });
+                    rocketTraveler.setAttribute("opacity", "0");
+                    nodes.forEach((n) => {
+                        n.el.classList.add("lit");
+                        if (n.stop) n.stop.classList.add("in");
+                    });
+                    return;
+                }
 
-          let target = 0;
-          let current = -1;
-          let ticking = false;
-          let lastScrollY = window.scrollY;
-          let travelDirection = 1;
+                let target = 0;
+                let current = -1;
+                let ticking = false;
+                let lastScrollY = window.scrollY;
+                let travelDirection = 1;
 
-          const readScroll = () => {
-            const sy = window.scrollY;
-            if (Math.abs(sy - lastScrollY) > 0.4) {
-              travelDirection = sy > lastScrollY ? 1 : -1;
-              lastScrollY = sy;
-            }
-            if (!journey) return;
-            const rect = journey.getBoundingClientRect();
-            const vh = window.innerHeight;
-            const raw = (vh * 0.5 - rect.top) / rect.height;
-            target = Math.max(0, Math.min(1, raw));
-          };
+                const readScroll = () => {
+                    const sy = window.scrollY;
+                    if (Math.abs(sy - lastScrollY) > 0.4) {
+                        travelDirection = sy > lastScrollY ? 1 : -1;
+                        lastScrollY = sy;
+                    }
+                    if (!journey) return;
+                    const rect = journey.getBoundingClientRect();
+                    const vh = window.innerHeight;
+                    const raw = (vh * 0.5 - rect.top) / rect.height;
+                    target = Math.max(0, Math.min(1, raw));
+                };
 
-          const loop = () => {
-            const diff = target - current;
-            if (Math.abs(diff) > 0.0004) {
-              current += diff * 0.09;
-              setProgress(current);
-              requestAnimationFrame(loop);
-            } else if (current !== target) {
-              current = target;
-              setProgress(current);
-              ticking = false;
-            } else {
-              ticking = false;
-            }
-          };
+                const loop = () => {
+                    const diff = target - current;
+                    if (Math.abs(diff) > 0.0004) {
+                        current += diff * 0.09;
+                        setProgress(current);
+                        requestAnimationFrame(loop);
+                    } else if (current !== target) {
+                        current = target;
+                        setProgress(current);
+                        ticking = false;
+                    } else {
+                        ticking = false;
+                    }
+                };
 
-          const onScroll = () => {
-            readScroll();
-            if (!ticking) {
-              ticking = true;
-              requestAnimationFrame(loop);
-            }
-          };
+                const onScroll = () => {
+                    readScroll();
+                    if (!ticking) {
+                        ticking = true;
+                        requestAnimationFrame(loop);
+                    }
+                };
 
-          window.addEventListener("scroll", onScroll, { passive: true });
-          window.addEventListener("resize", onScroll, { passive: true });
-          onScroll();
-        })();
+                window.addEventListener("scroll", onScroll, { passive: true });
+                window.addEventListener("resize", onScroll, { passive: true });
+                onScroll();
+            })();
         </script>
 
         <section
