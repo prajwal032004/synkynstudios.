@@ -995,6 +995,33 @@
             }
         }
 
+        @media (max-width: 600px) {
+            .pf-lb__img {
+                max-width: 98vw;
+                max-height: 50vh;
+                border-radius: 8px;
+            }
+
+            .pf-lb__nav {
+                width: 38px;
+                height: 38px;
+            }
+
+            .pf-lb__nav--prev {
+                left: 6px;
+            }
+
+            .pf-lb__nav--next {
+                right: 6px;
+            }
+
+            .pf-lb__counter {
+                top: 10px;
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+
         .pf-lb__img.swap {
             opacity: 0;
         }
@@ -1397,11 +1424,10 @@
             }
         }
 
-        /* Featured — mobile */
         @media (max-width: 600px) {
             .pf-feat {
                 grid-template-columns: 1fr;
-                grid-auto-rows: 230px;
+                grid-auto-rows: auto;
                 gap: 14px;
             }
 
@@ -1415,6 +1441,28 @@
 
             .pf-feat-card.s-hero {
                 grid-row: span 1;
+                aspect-ratio: 21 / 9;
+                min-height: 160px;
+            }
+
+            .pf-feat-card.s-portrait {
+                aspect-ratio: 3 / 4;
+                min-height: 280px;
+            }
+
+            .pf-feat-card.s-half {
+                aspect-ratio: 16 / 9;
+                min-height: 200px;
+            }
+
+            .pf-feat-card.s-wide {
+                aspect-ratio: 21 / 9;
+                min-height: 160px;
+            }
+
+            .pf-media img {
+                object-fit: cover;
+                object-position: center;
             }
 
             .pf-controls {
@@ -1427,6 +1475,33 @@
 
             .pf-filters {
                 flex: 1 1 100%;
+            }
+
+            .pf-cap__title {
+                font-size: 14px;
+            }
+
+            .pf-badge {
+                top: 10px;
+                left: 10px;
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+
+            .pf-count {
+                top: 10px;
+                right: 10px;
+                padding: 5px 10px;
+                font-size: 10px;
+            }
+
+            .pf-arrow {
+                width: 36px;
+                height: 36px;
+            }
+
+            .pf-cap {
+                padding: 10px;
             }
         }
 
@@ -2095,22 +2170,16 @@
         <div class="pf-toast" id="pf-toast" role="status" aria-live="polite"></div>
     </main>
 
-    <!-- ===================== PORTFOLIO SCRIPT ===================== -->
     <script>
         (function () {
             'use strict';
 
-            /* =====================================================================
-               DATA — add a new object here and the whole page updates automatically.
-               Each project needs: id, title, category, description, images[].
-               Optional: featured:true (promotes it into the Featured showcase).
-               ===================================================================== */
             const projects = [
                 {
                     id: 'project-1',
-                    title: 'Senior Living Facility',
-                    category: 'Healthcare',
-                    description: 'A full climate retrofit delivering 100% clean outdoor air while cutting the building’s energy load for comfortable, healthy spaces.',
+                    title: 'Zlade',
+                    category: 'Skincare',
+                    description: 'A bold new print campaign for Zlade – a men’s grooming brand that blends sharp design with clean formulas. Through striking visuals and a confident tone, we capture the essence of precision, performance, and modern self-care.',
                     featured: true,
                     images: [
                         'https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/Prints/Zlade_horizontal.png',
@@ -2231,9 +2300,7 @@
                 .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
                 .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
-            // aspect ratios cycled to create an organic Google-Photos-style justified grid
-            // even before real images load. Stored as width/height numbers.
-            const ratios = [1.33, 0.8, 1.5, 0.75, 1.45, 1.0, 1.6, 0.83, 1.25, 1.4];
+            const ratios = [2.33, 0.8, 1.5, 0.75, 1.45, 1.0, 1.6, 0.83, 1.25, 1.4];
             // featured size pattern
             const featSizes = ['s-hero', 's-portrait', 's-half', 's-half', 's-wide'];
 
@@ -2402,11 +2469,12 @@
 
             function targetRowHeight() {
                 const w = window.innerWidth;
-                if (w < 480) return 150;
-                if (w < 768) return 185;
-                if (w < 1200) return 225;
-                if (w < 1700) return 260;
-                return 290;
+                if (w < 380) return 180;
+                if (w < 480) return 200;
+                if (w < 768) return 220;
+                if (w < 1200) return 245;
+                if (w < 1700) return 270;
+                return 300;
             }
 
             function buildGridCards(list) {
