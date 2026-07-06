@@ -1319,6 +1319,9 @@
             .pipeline-section .cloud.drift-b {
               animation: cloud-drift-b 22s ease-in-out infinite alternate;
             }
+            .pipeline-section .cloud.drift-c {
+              animation: cloud-drift-c 26s ease-in-out infinite alternate;
+            }
             @keyframes cloud-drift-a {
               from { transform: translate3d(0, 0, 0) scale(1); }
               to   { transform: translate3d(24px, -12px, 0) scale(1.03); }
@@ -1326,6 +1329,10 @@
             @keyframes cloud-drift-b {
               from { transform: translate3d(0, 0, 0) scale(1); }
               to   { transform: translate3d(-24px, 12px, 0) scale(1.03); }
+            }
+            @keyframes cloud-drift-c {
+              from { transform: translate3d(0, 0, 0) scale(1) rotate(-1deg); }
+              to   { transform: translate3d(16px, 16px, 0) scale(1.04) rotate(1.5deg); }
             }
 
             /* milestone node rings */
@@ -1603,20 +1610,38 @@
                         </symbol>
                     </defs>
 
-                    <!-- ————— cloudscape ————— -->
+                    <!-- ————— cloudscape (asymmetric, layered & organic) ————— -->
                     <g class="clouds">
-                        <use href="#s-cloud" class="cloud drift-a" x="-150" y="-40" width="600" height="360" opacity=".85"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="750"  y="-40" width="600" height="360" opacity=".85"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="-150" y="800" width="600" height="360" opacity=".75"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="750"  y="800" width="600" height="360" opacity=".75"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="-150" y="1700" width="600" height="360" opacity=".75"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="750"  y="1700" width="600" height="360" opacity=".75"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="-150" y="2600" width="600" height="360" opacity=".75"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="750"  y="2600" width="600" height="360" opacity=".75"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="-150" y="3400" width="600" height="360" opacity=".8"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="750"  y="3400" width="600" height="360" opacity=".8"/>
-                        <use href="#s-cloud" class="cloud drift-b" x="-100" y="4000" width="650" height="390" opacity=".9"/>
-                        <use href="#s-cloud" class="cloud drift-a" x="650"  y="4000" width="650" height="390" opacity=".9"/>
+                        <!-- Upper Atmosphere / Intro -->
+                        <use href="#s-cloud" class="cloud drift-a" x="-240" y="-80" width="750" height="450" opacity=".5"/>
+                        <use href="#s-cloud" class="cloud drift-b" x="620"  y="60"  width="580" height="348" opacity=".75"/>
+                        <use href="#s-cloud" class="cloud drift-c" x="80"   y="220" width="460" height="276" opacity=".35"/>
+
+                        <!-- Upper-Mid Transition -->
+                        <use href="#s-cloud" class="cloud drift-b" x="660"  y="580" width="700" height="420" opacity=".55"/>
+                        <use href="#s-cloud" class="cloud drift-a" x="-180" y="760" width="620" height="372" opacity=".8"/>
+                        <use href="#s-cloud" class="cloud drift-c" x="380"  y="940" width="480" height="288" opacity=".45"/>
+
+                        <!-- Mid Atmosphere -->
+                        <use href="#s-cloud" class="cloud drift-a" x="-280" y="1320" width="800" height="480" opacity=".48"/>
+                        <use href="#s-cloud" class="cloud drift-b" x="640"  y="1500" width="560" height="336" opacity=".85"/>
+                        <use href="#s-cloud" class="cloud drift-c" x="140"  y="1720" width="500" height="300" opacity=".4"/>
+
+                        <!-- Lower-Mid Transition -->
+                        <use href="#s-cloud" class="cloud drift-b" x="680"  y="2050" width="720" height="432" opacity=".55"/>
+                        <use href="#s-cloud" class="cloud drift-a" x="-160" y="2220" width="640" height="384" opacity=".82"/>
+                        <use href="#s-cloud" class="cloud drift-c" x="460"  y="2440" width="480" height="288" opacity=".5"/>
+
+                        <!-- Deep Descent -->
+                        <use href="#s-cloud" class="cloud drift-a" x="-250" y="2780" width="780" height="468" opacity=".58"/>
+                        <use href="#s-cloud" class="cloud drift-b" x="600"  y="2960" width="600" height="360" opacity=".85"/>
+                        <use href="#s-cloud" class="cloud drift-c" x="100"  y="3180" width="520" height="312" opacity=".45"/>
+
+                        <!-- Final Approach & Landing -->
+                        <use href="#s-cloud" class="cloud drift-b" x="660"  y="3500" width="700" height="420" opacity=".65"/>
+                        <use href="#s-cloud" class="cloud drift-a" x="-180" y="3700" width="660" height="396" opacity=".88"/>
+                        <use href="#s-cloud" class="cloud drift-c" x="520"  y="3950" width="620" height="372" opacity=".9"/>
+                        <use href="#s-cloud" class="cloud drift-a" x="-220" y="4100" width="750" height="450" opacity=".92"/>
                         <g class="node-clouds"></g>
                     </g>
 
@@ -1796,20 +1821,32 @@
             const pt = geo.getPointAtLength(len);
 
             if (nodeCloudLayer) {
-              const createCloud = (xPos, cls) => {
+              const createCloud = (xPos, yPos, w, h, op, cls, delay) => {
                 const cloud = document.createElementNS(SVG_NS, "use");
                 cloud.setAttribute("href", "#s-cloud");
                 cloud.setAttribute("x", xPos);
-                cloud.setAttribute("y", (pt.y - 180).toFixed(1));
-                cloud.setAttribute("width", "600");
-                cloud.setAttribute("height", "360");
-                cloud.setAttribute("opacity", "0.85");
+                cloud.setAttribute("y", yPos);
+                cloud.setAttribute("width", w);
+                cloud.setAttribute("height", h);
+                cloud.setAttribute("opacity", op);
                 cloud.setAttribute("class", `cloud ${cls}`);
-                cloud.style.animationDelay = `${(i * 1.5).toFixed(1)}s`;
+                cloud.style.animationDelay = `${delay}s`;
                 nodeCloudLayer.appendChild(cloud);
               };
-              createCloud("-150", i % 2 ? "drift-b" : "drift-a");
-              createCloud("750", i % 2 ? "drift-a" : "drift-b");
+
+              // Create an asymmetric, cinematic composition hugging each apex bend
+              const isRightBend = i % 2 === 0;
+              if (isRightBend) {
+                // Prominent foreground cloud wrapping around the outer right bend apex
+                createCloud((pt.x - 240).toFixed(1), (pt.y - 220).toFixed(1), "660", "396", "0.9", "drift-a", (i * 1.3).toFixed(1));
+                // Staggered softer background bank on the opposite (left) side
+                createCloud("-180", (pt.y - 80).toFixed(1), "560", "336", "0.55", "drift-c", (i * 1.3 + 2.5).toFixed(1));
+              } else {
+                // Prominent foreground cloud wrapping around the outer left bend apex
+                createCloud((pt.x - 420).toFixed(1), (pt.y - 220).toFixed(1), "660", "396", "0.9", "drift-b", (i * 1.3).toFixed(1));
+                // Staggered softer background bank on the opposite (right) side
+                createCloud("680", (pt.y - 120).toFixed(1), "580", "348", "0.6", "drift-a", (i * 1.3 + 2.5).toFixed(1));
+              }
             }
 
             const g = document.createElementNS(SVG_NS, "g");
