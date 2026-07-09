@@ -852,7 +852,7 @@
         <section aria-label="Hero"
             class="flex flex-col flex-none place-content-center items-center w-full overflow-hidden relative" id="hero"
             style="padding: 0; height: 100dvh;">
-            <div class="relative w-full h-full p-0 sm:p-3 md:p-4 lg:p-6">
+            <div class="relative w-full h-full p-0">
                 <div class="relative overflow-hidden mx-auto w-full h-full hero-inner" style="background-color: #000">
 
                     <!-- BACKGROUND: Vimeo cover-fill (background=1 -> always muted, autoplays, loops) -->
@@ -981,16 +981,16 @@
                     }
 
                     .v-header-title {
-                        position: absolute;
-                        top: 24px;
-                        left: 24px;
+                        position: relative;
                         z-index: 20;
                         color: rgba(255, 255, 255, 0.95);
                         font-family: inherit;
-                        font-weight: 800;
-                        font-size: clamp(0.95rem, 2.2vw, 1.25rem);
-                        letter-spacing: 0.06em;
+                        font-weight: 900;
+                        font-size: clamp(1.4rem, 3.8vw, 2.5rem);
+                        letter-spacing: 0.12em;
+                        text-align: center;
                         pointer-events: none;
+                        margin-bottom: 24px;
                         transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
                         opacity: 1;
                         transform: translateY(0);
@@ -998,13 +998,12 @@
 
                     .v-header-title.hidden-ui {
                         opacity: 0;
-                        transform: translateY(-12px);
+                        transform: translateY(-16px);
                     }
 
                     @media (max-width: 640px) {
                         .v-header-title {
-                            top: 16px;
-                            left: 16px;
+                            margin-bottom: 14px;
                         }
                     }
 
@@ -1205,10 +1204,10 @@
                     <div id="modal-backdrop"
                         class="absolute inset-0 cinematic-backdrop transition-opacity duration-500 cursor-pointer"
                         style="opacity: 0;" onclick="closeVideoModal()" aria-hidden="true"></div>
+                    <div id="v-title" class="v-header-title hidden-ui">SHOWREEL 2026</div>
                     <div id="modal-content"
                         class="relative bg-black overflow-hidden ring-1 ring-white/10 flex flex-col pointer-events-auto modal-card"
                         style="transform-origin: center; will-change: transform, opacity, border-radius; backface-visibility: hidden; transform: translateZ(0);">
-                        <div id="v-title" class="v-header-title hidden-ui">SHOWREEL 2026</div>
                         <button id="modal-close-btn" onclick="closeVideoModal()"
                             class="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/40 text-white/90 hover:bg-black/60 hover:text-white transition-all backdrop-blur-md border border-white/10 group cursor-pointer"
                             style="opacity: 0;" aria-label="Close modal">
@@ -2963,7 +2962,6 @@
                 player.on("play", function () { isPlaying = true; setPlayIcon(); });
                 player.on("pause", function () { isPlaying = false; setPlayIcon(); });
                 player.on("ended", function () { isPlaying = false; setPlayIcon(); });
-                player.on("volumechange", function (d) { isMuted = (d.volume === 0); setMuteIcon(); });
                 return player;
             }
 

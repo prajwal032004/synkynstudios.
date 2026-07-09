@@ -1886,7 +1886,6 @@
           player.on('play', function () { isPlaying = true; setPlayIcon(); showControls(); });
           player.on('pause', function () { isPlaying = false; setPlayIcon(); });
           player.on('ended', function () { isPlaying = false; setPlayIcon(); });
-          player.on('volumechange', function (d) { isMuted = (d.volume === 0); setMuteIcon(); });
 
           function togglePlay() { if (isPlaying) player.pause().catch(() => { }); else player.play().catch(() => { }); }
           if (playBtn) playBtn.addEventListener('click', function (e) { e.stopPropagation(); togglePlay(); });
