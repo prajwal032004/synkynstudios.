@@ -1031,7 +1031,24 @@
         .media-modal__nav-btn {
           width: 40px;
           height: 40px;
-          background: rgba(0, 0, 0, 0.42);
+          background: transparent !important;
+          border: none !important;
+          backdrop-filter: none !important;
+          -webkit-backdrop-filter: none !important;
+          box-shadow: none !important;
+          color: #ffffff !important;
+        }
+
+        .media-modal__nav-btn:hover {
+          background: transparent !important;
+        }
+
+        .media-modal__nav-btn--prev {
+          left: 8px !important;
+        }
+
+        .media-modal__nav-btn--next {
+          right: 8px !important;
         }
 
         .media-modal__nav-btn.show {
