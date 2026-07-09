@@ -924,14 +924,14 @@
                                     </p>
                                 </div>
                                 <div class="shrink-0 hidden lg:block">
-                                    <button aria-label="Watch Show Reel"
+                                    <button aria-label="Watch SHOWREEL 2026"
                                         class="relative block w-[340px] h-[200px] overflow-hidden group active:scale-[0.98] transition-transform bg-black border-6 border-accent dark:border-secondary rounded-2xl cursor-pointer outline-none focus-visible:ring-4 focus-visible:ring-secondary/50 dark:focus-visible:ring-accent/30"
                                         id="hero-how-it-works-btn" onclick="openVideoModal()" type="button">
                                         <iframe
                                             class="absolute inset-0 w-full h-full object-cover pointer-events-none transition-all duration-500 group-hover:blur-sm grayscale-50"
                                             id="hero-thumbnail-video"
                                             src="https://player.vimeo.com/video/1208152583?background=1&autopause=0&muted=1&loop=1&dnt=1&quality=1080p"
-                                            title="Synkyn Studios Show Reel preview" tabindex="-1" frameborder="0"
+                                            title="Synkyn Studios SHOWREEL 2026 preview" tabindex="-1" frameborder="0"
                                             allow="autoplay; fullscreen; picture-in-picture"></iframe>
                                         <div
                                             class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/60 z-10">
@@ -941,8 +941,7 @@
                                         <div class="absolute bottom-0 right-0 flex items-center justify-center px-4 py-2 rounded-tl-2xl border-t border-l z-10 overflow-hidden"
                                             style="background: linear-gradient(135deg, #ffe08a 0%, #f2d400 100%); border-color: rgba(255, 255, 255, 0.35); box-shadow: 0 -2px 18px rgba(242, 212, 0, 0.35);">
                                             <span class="micra-badge inline-block"
-                                                style="color: #0a0a0a; font-weight: 800; letter-spacing: .02em;">Show
-                                                Reel</span>
+                                                style="color: #0a0a0a; font-weight: 800; letter-spacing: .02em;">SHOWREEL 2026</span>
                                         </div>
                                     </button>
                                 </div>
@@ -1195,7 +1194,7 @@
                             <!-- controls=0 => native Vimeo UI hidden; autoplay=0 => no sound until we open -->
                             <iframe id="modal-video" class="v-iframe"
                                 src="https://player.vimeo.com/video/1208152583?autoplay=0&loop=1&title=0&byline=0&portrait=0&badge=0&controls=0&dnt=1&transparent=0"
-                                title="Synkyn Studios Show Reel" frameborder="0"
+                                title="Synkyn Studios SHOWREEL 2026" frameborder="0"
                                 referrerpolicy="strict-origin-when-cross-origin"
                                 allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
                                 allowfullscreen></iframe>
@@ -3054,12 +3053,15 @@
                     navbar.style.pointerEvents = "none";
                 }
 
-                var startRect = opener ? opener.getBoundingClientRect() : { left: window.innerWidth / 2, top: window.innerHeight / 2, width: 0, height: 0 };
+                var visibleOpener = (opener && opener.offsetParent !== null) ? opener : null;
+                var startRect = visibleOpener
+                    ? visibleOpener.getBoundingClientRect()
+                    : { left: window.innerWidth / 2, top: window.innerHeight / 2, width: 0, height: 0 };
                 var finalRect = modalContent.getBoundingClientRect();
                 var tx = startRect.left + startRect.width / 2 - (finalRect.left + finalRect.width / 2);
                 var ty = startRect.top + startRect.height / 2 - (finalRect.top + finalRect.height / 2);
-                var sx = finalRect.width > 0 ? startRect.width / finalRect.width : 1;
-                var sy = finalRect.height > 0 ? startRect.height / finalRect.height : 1;
+                var sx = visibleOpener && finalRect.width > 0 ? startRect.width / finalRect.width : 0.28;
+                var sy = visibleOpener && finalRect.height > 0 ? startRect.height / finalRect.height : 0.28;
 
                 modalContent.style.transition = "none";
                 modalContent.style.transform = "translate(" + tx + "px, " + ty + "px) scale(" + sx + ", " + sy + ")";
