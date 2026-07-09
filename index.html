@@ -1313,6 +1313,8 @@
                 transform: translate(-50%, -50%);
                 border: 0;
                 pointer-events: none;
+                opacity: 1 !important;
+                filter: none !important;
             }
 
             .hero-bg-mobile {
@@ -2067,9 +2069,22 @@
                                 href="https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/vecteezy_a-dark-cumulus-cloud-contrasts-sharply-against-a-bright_57176514.png"
                                 width="600" height="360" preserveAspectRatio="xMidYMid contain" />
                         </symbol>
-                        <symbol id="s-rocket-up" viewBox="0 0 132 171" overflow="visible">
-                            <image width="132" height="171"
-                                xlink:href="data:image/png;base64,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" />
+                        <symbol id="s-rocket-up" viewBox="0 0 64 170" overflow="visible">
+                            <!-- Uploaded rocket.svg, cropped to its artwork and placed nose-up.
+                                 Keep rocket.svg in the same folder as this file. -->
+                            <svg x="-24.3" y="8" width="112.5" height="150" viewBox="81 40 668 891"
+                                preserveAspectRatio="xMidYMid meet" overflow="visible">
+                                <image href="./images/rocket.svg" x="0" y="0" width="810" height="1012"
+                                    preserveAspectRatio="xMidYMid meet" />
+                            </svg>
+                        </symbol>
+                        <symbol id="s-flame-down" viewBox="-20 -4 40 114" overflow="visible">
+                            <path class="rt-flame-outer" d="M0 -2 C -10 20 -12 52 0 104 C 12 52 10 20 0 -2 Z"
+                                fill="url(#g-flame-outer)" filter="url(#f-blur-m)" />
+                            <path class="rt-flame-outer" d="M0 -1 C -7 16 -8 44 0 82 C 8 44 7 16 0 -1 Z"
+                                fill="url(#g-flame-outer)" filter="url(#f-flame-glow)" />
+                            <path class="rt-flame-core" d="M0 0 C -3.6 12 -4 32 0 58 C 4 32 3.6 12 0 0 Z"
+                                fill="url(#g-flame-core)" filter="url(#f-blur-s)" />
                         </symbol>
                     </defs>
 
