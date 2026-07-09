@@ -1333,6 +1333,33 @@
         text-align: center;
       }
 
+      .media-modal__media-wrapper:fullscreen,
+      .media-modal__media-wrapper:-webkit-full-screen {
+        width: 100vw !important;
+        height: 100vh !important;
+        max-height: none !important;
+        background: #000 !important;
+      }
+
+      .media-modal__media-wrapper:fullscreen .vmo-stage,
+      .media-modal__media-wrapper:-webkit-full-screen .vmo-stage {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        height: 100% !important;
+        width: 100% !important;
+      }
+
+      .media-modal__media-wrapper:fullscreen .media-modal__nav-btn,
+      .media-modal__media-wrapper:-webkit-full-screen .media-modal__nav-btn {
+        z-index: 999999 !important;
+      }
+
+      .media-modal__media-wrapper:fullscreen .media-modal__dots,
+      .media-modal__media-wrapper:-webkit-full-screen .media-modal__dots {
+        z-index: 999999 !important;
+        bottom: 24px !important;
+      }
+
       .vmo-stage:fullscreen,
       .vmo-stage:-webkit-full-screen {
         width: 100vw;
@@ -1897,9 +1924,9 @@
           function toggleFS() {
             const fs = document.fullscreenElement || document.webkitFullscreenElement;
             if (fs) { (document.exitFullscreen || document.webkitExitFullscreen || function () { }).call(document); return; }
-            if (stage && stage.requestFullscreen) { stage.requestFullscreen().catch(function () { if (player.requestFullscreen) player.requestFullscreen().catch(() => { }); }); }
-            else if (stage && stage.webkitRequestFullscreen) { stage.webkitRequestFullscreen(); }
-            else if (player.requestFullscreen) { player.requestFullscreen().catch(() => { }); }
+            const wrapper = slide.closest('.media-modal__media-wrapper') || stage;
+            if (wrapper && wrapper.requestFullscreen) { wrapper.requestFullscreen().catch(() => { }); }
+            else if (wrapper && wrapper.webkitRequestFullscreen) { wrapper.webkitRequestFullscreen(); }
           }
           if (fsBtn) fsBtn.addEventListener('click', function (e) { e.stopPropagation(); toggleFS(); });
           document.addEventListener('fullscreenchange', setFsIcon);
@@ -1949,7 +1976,7 @@
               mediaHtml = `<video src="${srcObj.src}" loop playsinline controls controlslist="nodownload" ${idx === 0 ? 'autoplay' : ''} preload="auto"></video>`;
             } else if (srcObj.type === 'youtube') {
               const ytId = getYouTubeId(srcObj.src);
-              mediaHtml = `<iframe src="https://www.youtube.com/embed/${ytId}?enablejsapi=1&rel=0&modestbranding=1&autoplay=1&mute=1&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="iframe-swipe-overlay" onclick="this.style.pointerEvents='none'"></div>`;
+              mediaHtml = `<iframe src="https://www.youtube.com/embed/${ytId}?enablejsapi=1&rel=0&modestbranding=1&autoplay=1&mute=0&playsinline=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="iframe-swipe-overlay" onclick="this.style.pointerEvents='none'"></div>`;
             } else if (srcObj.type === 'vimeo') {
               const vid = getVimeoId(srcObj.src);
               mediaHtml = `
