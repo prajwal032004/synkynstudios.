@@ -1479,18 +1479,20 @@
             }
 
             .pipeline-section .trail-halo {
+                filter: none !important;
                 stroke: #b97f22;
                 stroke-width: 26;
                 fill: none;
-                opacity: 0.28;
+                opacity: 0.22;
                 stroke-linecap: round;
             }
 
             .pipeline-section .trail-glow {
+                filter: none !important;
                 stroke: #f4b452;
-                stroke-width: 9;
+                stroke-width: 12;
                 fill: none;
-                opacity: 0.55;
+                opacity: 0.45;
                 stroke-linecap: round;
             }
 
@@ -1912,6 +1914,13 @@
                 .pipeline-section .stop {
                     opacity: 1;
                     transform: none;
+                }
+            }
+
+            @media (min-width: 1024px) {
+                .pipeline-graphic {
+                    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+                    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
                 }
             }
         </style>
