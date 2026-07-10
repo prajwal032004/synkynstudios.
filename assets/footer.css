@@ -200,6 +200,12 @@ footer.site-footer {
     display: block;
     width: 20px;
     height: 20px;
+    color: #ffffff;
+    transition: color 0.3s ease;
+}
+
+.site-footer .footer-social-link:hover svg {
+    color: #ffd84d;
 }
 
 /* ── links grid ── */
