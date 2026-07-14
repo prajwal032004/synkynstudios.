@@ -46,8 +46,8 @@
             <nav class="mobile-menu-links">
                 <a href="./" class="mobile-menu-link" data-path="index.html">Home</a>
                 <a href="./about-us.html" class="mobile-menu-link" data-path="about-us.html">About Us</a>
-                <a href="./album.html" class="mobile-menu-link" data-path="album.html">Gallery</a>
-                <a href="./prints.html" class="mobile-menu-link" data-path="prints.html">Prints</a>
+                <a href="./library.html" class="mobile-menu-link" data-path="library.html">Gallery</a>
+                <a href="./printalbum.html" class="mobile-menu-link" data-path="printalbum.html">Printalbum</a>
                 <a href="./about-us.html#team" class="mobile-menu-link" data-path="about-us.html#team">Our Team</a>
                 <a href="./contact.html" class="mobile-menu-link" data-path="contact.html">Contact</a>
             </nav>
@@ -323,7 +323,7 @@ window.SynkynWhatsNew = {
     src: './images/ns-img-485.png', // using the default image
     title: 'NBK111 Glimpse',
     description: '#NBK111 Glimpse - Entry of an Era',
-    link: './album.html#work-yt-1'
+    link: './library.html#work-yt-1'
 };
 
 document.addEventListener('DOMContentLoaded', () => {

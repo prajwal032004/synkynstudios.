@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Allow: /prints.html
+Allow: /printalbum.html
 
 # Prevent indexing of 404
 Disallow: /404.html

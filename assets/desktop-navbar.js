@@ -28,7 +28,7 @@ if (desktopNav) {
                 <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 px-2 pb-2.5 pt-1 font-semibold uppercase tracking-wide">Explore</p>
                 <ul class="space-y-3 flex-1">
                     <li>
-                        <a class="group relative flex items-center justify-between rounded-[14px] border border-transparent dark:border-white/5 bg-[#1a1a1a] p-4 transition-all duration-300 hover:border-white/10 hover:bg-[#252525]" href="./album.html">
+                        <a class="group relative flex items-center justify-between rounded-[14px] border border-transparent dark:border-white/5 bg-[#1a1a1a] p-4 transition-all duration-300 hover:border-white/10 hover:bg-[#252525]" href="./library.html">
                             <div class="flex items-center gap-4">
                                 <div class="flex size-[44px] shrink-0 items-center justify-center rounded-[12px] bg-[#2a2a2a] transition-colors duration-300 group-hover:bg-[#333]">
                                     <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -49,7 +49,7 @@ if (desktopNav) {
                         </a>
                     </li>
                     <li>
-                        <a class="group relative flex items-center justify-between rounded-[14px] border border-transparent dark:border-white/5 bg-[#1a1a1a] p-4 transition-all duration-300 hover:border-white/10 hover:bg-[#252525]" href="./prints.html">
+                        <a class="group relative flex items-center justify-between rounded-[14px] border border-transparent dark:border-white/5 bg-[#1a1a1a] p-4 transition-all duration-300 hover:border-white/10 hover:bg-[#252525]" href="./printalbum.html">
                             <div class="flex items-center gap-4">
                                 <div class="flex size-[44px] shrink-0 items-center justify-center rounded-[12px] bg-[#2a2a2a] transition-colors duration-300 group-hover:bg-[#333]">
                                     <svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +72,7 @@ if (desktopNav) {
             <!-- RIGHT: What's new (single blurred featured card) -->
             <div class="flex-1 flex flex-col">
                 <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 px-2 pb-2.5 pt-1 font-semibold uppercase tracking-wide">What&rsquo;s new</p>
-                <a href="./prints.html#project-1"
+                <a href="./printalbum.html#project-1"
                     class="group relative block flex-1 w-full overflow-hidden rounded-[24px] border border-stroke-1 dark:border-white/10 cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 min-h-[220px] bg-[#1a1a1a] isolate"
                     style="transform: translateZ(0); mask-image: radial-gradient(white, black); -webkit-mask-image: -webkit-radial-gradient(white, black);">
                     <!-- Blurred image fill -->
@@ -198,7 +198,7 @@ if (desktopNav) {
             <!-- COLUMN 3: What's new (blurred + rounded, matches Works) -->
             <div class="flex-1 flex flex-col">
                 <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 px-2 pb-2.5 pt-1 font-semibold uppercase tracking-wide">What&rsquo;s new</p>
-                <a href="./album.html#work-nbk111"
+                <a href="./library.html#work-nbk111"
                     class="group relative block flex-1 w-full overflow-hidden rounded-[24px] border border-stroke-1 dark:border-white/10 cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 min-h-[220px] bg-[#1a1a1a] isolate"
                     style="transform: translateZ(0); mask-image: radial-gradient(white, black); -webkit-mask-image: -webkit-radial-gradient(white, black);">
                     <div class="absolute inset-0 h-full w-full overflow-hidden rounded-[24px] z-0">
