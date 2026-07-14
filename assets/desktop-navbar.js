@@ -69,35 +69,38 @@ if (desktopNav) {
                 </ul>
             </div>
 
-<!-- RIGHT: What's new (single blurred featured card) -->
-<div class="flex-1 flex flex-col">
-    <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 px-2 pb-2.5 pt-1 font-semibold uppercase tracking-wide">What&rsquo;s new</p>
-    <a href="./prints.html#project-1"
-        class="group relative block flex-1 w-full overflow-hidden rounded-[24px] border border-stroke-1 dark:border-white/10 cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 min-h-[220px] bg-[#1a1a1a] isolate"
-        style="transform: translateZ(0); mask-image: radial-gradient(white, black); -webkit-mask-image: -webkit-radial-gradient(white, black);">
-        <!-- Blurred image fill -->
-        <div class="absolute inset-0 h-full w-full overflow-hidden rounded-[24px] z-0">
-            <img alt="NBK111 Glimpse"
-                class="h-full w-full object-cover blur-sm scale-[1.20] transition-transform duration-[900ms] ease-out group-hover:scale-[1.25]"
-                decoding="async" loading="lazy"
-                src="https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/Prints/Zlade/11.png?updatedAt=1783513857260"
-                onerror="this.style.display='none'" />
-            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 rounded-[24px]"></div>
-        </div>
-        <!-- Bottom bar -->
-        <div class="absolute inset-x-0 bottom-0 z-10 p-3">
-            <div class="flex items-center justify-between bg-black/60 backdrop-blur-md p-2 pl-3 rounded-full border border-white/10 shadow-lg group-hover:bg-black/80 transition-colors">
-                <p class="text-[13px] text-white font-medium drop-shadow-lg leading-tight truncate mr-2">NBK111 Glimpse</p>
-                <div class="group-hover:bg-helix-blue bg-white/20 relative flex h-7 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[40px] transition-all duration-500 ease-in-out">
-                    <figure class="relative size-4 overflow-hidden">
-    <img alt="new-arrow" class="absolute inset-0 size-full -translate-x-4 object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E" />
-    <img alt="new-arrow" class="size-full object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-4" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E" />
-</figure>
-                </div>
+            <!-- RIGHT: What's new (single blurred featured card) -->
+            <div class="flex-1 flex flex-col">
+                <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 px-2 pb-2.5 pt-1 font-semibold uppercase tracking-wide">What&rsquo;s new</p>
+                <a href="./prints.html#project-1"
+                    class="group relative block flex-1 w-full overflow-hidden rounded-[24px] border border-stroke-1 dark:border-white/10 cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 min-h-[220px] bg-[#1a1a1a] isolate"
+                    style="transform: translateZ(0); mask-image: radial-gradient(white, black); -webkit-mask-image: -webkit-radial-gradient(white, black);">
+                    <!-- Blurred image fill -->
+                    <div class="absolute inset-0 h-full w-full overflow-hidden rounded-[24px] z-0">
+                        <img alt="Grooming - Zlade"
+                            class="h-full w-full object-cover blur-sm scale-[1.20] transition-transform duration-[900ms] ease-out group-hover:scale-[1.25]"
+                            decoding="async" loading="lazy"
+                            src="https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/Prints/Zlade/11.png?updatedAt=1783513857260"
+                            onerror="this.style.display='none'" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 rounded-[24px]"></div>
+                    </div>
+                    <!-- Bottom bar -->
+                    <div class="absolute inset-x-0 bottom-0 z-10 p-3">
+                        <div class="flex items-center justify-between bg-black/60 backdrop-blur-md p-2 pl-3 rounded-full border border-white/10 shadow-lg group-hover:bg-black/80 transition-colors">
+                            <div class="flex flex-col min-w-0 mr-2">
+                                <p class="text-[13px] text-white font-medium drop-shadow-lg leading-tight truncate">NBK111 Glimpse</p>
+                                <p class="text-[10px] text-white/70 font-normal drop-shadow-md leading-tight truncate mt-0.5">#NBK111 Glimpse - Entry of an Era</p>
+                            </div>
+                            <div class="group-hover:bg-helix-blue bg-white/20 relative flex h-7 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[40px] transition-all duration-500 ease-in-out">
+                                <figure class="relative size-4 overflow-hidden">
+                                    <img alt="new-arrow" class="absolute inset-0 size-full -translate-x-4 object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E" />
+                                    <img alt="new-arrow" class="size-full object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-4" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E" />
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </a>
             </div>
-        </div>
-    </a>
-</div>
 
         </div>
     </div>
@@ -209,30 +212,31 @@ if (desktopNav) {
             <!-- COLUMN 3: What's new (blurred + rounded, matches Works) -->
             <div class="flex-1 flex flex-col">
                 <p class="text-tagline-2 text-secondary/60 dark:text-accent/60 px-2 pb-2.5 pt-1 font-semibold uppercase tracking-wide">What&rsquo;s new</p>
-                <a href="./album.html#work-yt-1"
-                    class="group relative block flex-1 w-full overflow-hidden rounded-[24px] border border-stroke-1 dark:border-white/10 cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 min-h-[220px] isolate"
+                <a href="./album.html#work-nbk111"
+                    class="group relative block flex-1 w-full overflow-hidden rounded-[24px] border border-stroke-1 dark:border-white/10 cursor-pointer shadow-md hover:shadow-xl transition-shadow duration-300 min-h-[220px] bg-[#1a1a1a] isolate"
                     style="transform: translateZ(0); mask-image: radial-gradient(white, black); -webkit-mask-image: -webkit-radial-gradient(white, black);">
-                    <div class="absolute inset-0 h-full w-full overflow-hidden rounded-[24px]">
+                    <div class="absolute inset-0 h-full w-full overflow-hidden rounded-[24px] z-0">
                         <picture>
                             <source srcset="./images/ns-img-485.avif" type="image/avif" />
                             <source srcset="./images/ns-img-485.webp" type="image/webp" />
                             <img alt="NBK111 Glimpse"
                                 class="h-full w-full object-cover blur-sm scale-[1.20] transition-transform duration-[900ms] ease-out group-hover:scale-[1.25]"
-                                decoding="async" loading="lazy" src="./images/ns-img-485.png" />
+                                decoding="async" loading="lazy" src="./images/ns-img-485.png"
+                                onerror="this.style.display='none'" />
                         </picture>
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 rounded-[24px]"></div>
-                    </div>
-                    <div class="absolute top-3 right-3 z-10 flex size-9 items-center justify-center rounded-full bg-black/50 border border-white/20 text-white backdrop-blur-md transition-all duration-300 group-hover:bg-primary-500 group-hover:border-primary-500 group-hover:scale-110 shadow-xl">
-                        <svg class="size-4 ml-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 rounded-[24px]"></div>
                     </div>
                     <div class="absolute inset-x-0 bottom-0 z-10 p-3">
                         <div class="flex items-center justify-between bg-black/60 backdrop-blur-md p-2 pl-3 rounded-full border border-white/10 shadow-lg group-hover:bg-black/80 transition-colors">
-                            <p class="text-[13px] text-white font-medium drop-shadow-lg leading-tight truncate mr-2">NBK111 Glimpse</p>
+                            <div class="flex flex-col min-w-0 mr-2">
+                                <p class="text-[13px] text-white font-medium drop-shadow-lg leading-tight truncate">NBK111 Glimpse</p>
+                                <p class="text-[10px] text-white/70 font-normal drop-shadow-md leading-tight truncate mt-0.5">#NBK111 Glimpse - Entry of an Era</p>
+                            </div>
                             <div class="group-hover:bg-helix-blue bg-white/20 relative flex h-7 w-12 shrink-0 items-center justify-center overflow-hidden rounded-[40px] transition-all duration-500 ease-in-out">
                                 <figure class="relative size-4 overflow-hidden">
-    <img alt="new-arrow" class="absolute inset-0 size-full -translate-x-4 object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E" />
-    <img alt="new-arrow" class="size-full object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-4" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E" />
-</figure>
+                                    <img alt="new-arrow" class="absolute inset-0 size-full -translate-x-4 object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-1" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E" />
+                                    <img alt="new-arrow" class="size-full object-cover transition-transform duration-400 ease-in-out group-hover:translate-x-4" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E" />
+                                </figure>
                             </div>
                         </div>
                     </div>

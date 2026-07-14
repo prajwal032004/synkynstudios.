@@ -113,6 +113,8 @@
     body {
       overflow-x: hidden !important;
       max-width: 100% !important;
+      background-color: #080808;
+      color: #fff;
     }
   </style>
   <link href="./assets/footer.css?v=2" rel="stylesheet" />
@@ -1850,12 +1852,16 @@
 
         renderGrid();
 
-        if (window.location.hash) {
+        function handleHash() {
+          if (!window.location.hash) return;
           const hashId = window.location.hash.substring(1);
           const targetWork = worksData.find(w => w.id === hashId);
           if (targetWork) setTimeout(() => { openModal(targetWork); }, 300);
           else if (hashId === 'recent-post' && worksData.length > 0) setTimeout(() => { openModal(worksData[0]); }, 300);
         }
+        
+        handleHash();
+        window.addEventListener('hashchange', handleHash);
       });
     </script>
   </main>
