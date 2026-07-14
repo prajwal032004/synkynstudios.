@@ -239,21 +239,153 @@
   </header>
 
   <main>
-    <section class="max-[1920px]:px-5 py-14 md:py-24 lg:py-32 xl:py-40 bg-transparent">
-      <div class="mx-auto max-w-[1880px] py-12 md:px-5 xl:py-16">
+    <style>
+      .pf-hero {
+          --pf-accent: #f2d400;
+          --pf-accent-2: #ffd84d;
+          --pf-bg: transparent;
+          --pf-ease: cubic-bezier(.22, .68, 0, 1.04);
+          position: relative;
+          min-height: 100svh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: flex-start;
+          overflow: hidden;
+          isolation: isolate;
+          padding: 200px 22px 90px;
+          text-align: center;
+      }
+      .pf-hero__canvas {
+          position: absolute;
+          inset: 0;
+          z-index: -3;
+          width: 100%;
+          height: 100%;
+          display: block;
+      }
+      .pf-hero__glow {
+          position: absolute;
+          z-index: -2;
+          border-radius: 50%;
+          filter: blur(90px);
+          opacity: .5;
+          pointer-events: none;
+          will-change: transform;
+      }
+      .pf-hero__glow--a {
+          width: 60vw;
+          height: 60vw;
+          max-width: 760px;
+          max-height: 760px;
+          top: -16%;
+          left: -8%;
+          background: radial-gradient(circle, rgba(242, 212, 0, .42), transparent 62%);
+      }
+      .pf-hero__glow--b {
+          width: 52vw;
+          height: 52vw;
+          max-width: 640px;
+          max-height: 640px;
+          bottom: -22%;
+          right: -10%;
+          background: radial-gradient(circle, rgba(255, 216, 77, .28), transparent 60%);
+      }
+      .pf-hero::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          z-index: -1;
+          background: radial-gradient(120% 90% at 50% 30%, transparent 40%, rgba(0, 0, 0, .55) 100%), linear-gradient(to bottom, transparent 55%, var(--pf-bg) 100%);
+          pointer-events: none;
+      }
+      .pf-hero__inner {
+          position: relative;
+          max-width: 1080px;
+          margin: 0 auto;
+      }
+      .pf-reveal {
+          opacity: 0;
+          transform: translateY(26px);
+          filter: blur(6px);
+          transition: opacity .9s var(--pf-ease), transform .9s var(--pf-ease), filter .9s var(--pf-ease);
+          will-change: opacity, transform;
+      }
+      .pf-reveal.is-in {
+          opacity: 1;
+          transform: none;
+          filter: none;
+      }
+      .btn-explore-gallery {
+          transition: all 0.3s ease !important;
+      }
+      .btn-explore-gallery:hover {
+          background-color: #000000 !important;
+          background-image: none !important;
+          color: #ffffff !important;
+          border-color: rgba(255, 255, 0, 0.3) !important;
+      }
+      .btn-explore-gallery:hover::before {
+          opacity: 0 !important;
+      }
+      .explore-svg1 {
+          width: 20px;
+          height: 20px;
+          flex-shrink: 0;
+          display: inline-block;
+          vertical-align: middle;
+      }
+      .btn-explore-gallery .explore-svg1-path {
+          stroke: #1a1a1c !important;
+          transition: stroke 0.3s ease !important;
+      }
+      .btn-explore-gallery:hover .explore-svg1-path {
+          stroke: #ffffff !important;
+      }
+    </style>
+
+    <section class="pf-hero" id="pf-top">
+        <canvas class="pf-hero__canvas" id="pf-particles" aria-hidden="true"></canvas>
+        <span class="pf-hero__glow pf-hero__glow--a" aria-hidden="true"></span>
+        <span class="pf-hero__glow pf-hero__glow--b" aria-hidden="true"></span>
+
+        <div class="pf-hero__inner">
+            <div class="space-y-5 text-center relative z-10 pointer-events-none">
+                <span class="inline-block badge badge-gradient-helix pointer-events-auto pf-reveal" data-delay="0.1"
+                    data-ns-animate="" data-orion-obstacle="">
+                    Our Works
+                </span>
+                <div class="md:space-y-4 space-y-2 lg:max-w-full md:max-w-[600px] sm:max-w-[550px] min-[500px]:max-w-[450px] max-w-[350px] lg:mx-0 mx-auto pointer-events-none">
+                    <h2 class="font-jersey text-accent pointer-events-auto w-fit max-w-full mx-auto max-md:text-[38px] max-md:leading-[1.1] pf-reveal"
+                        data-delay="0.2" data-ns-animate="" data-orion-obstacle="">
+                        Projects <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-helix-blue">crafted
+                            by Synkyn Studios</span>
+                    </h2>
+                    <p class="text-accent/60 pointer-events-auto w-fit text-base md:w-[700px] max-w-full mx-auto md:text-lg pf-reveal"
+                        data-delay="0.3" data-ns-animate="" data-orion-obstacle="">
+                        Every project reflects our commitment to exceptional design, precision, and creativity. Explore our
+                        portfolio of branding, print, signage, and visual solutions that have helped businesses stand out and make
+                        a lasting impression.
+                    </p>
+                </div>
+            </div>
+            <ul class="flex items-center text-center sm:flex-row flex-col gap-4 justify-center md:mt-14 mt-8 pointer-events-none relative z-10">
+                <li class="w-full sm:w-auto pointer-events-auto pf-reveal" data-delay="0.4" data-direction="left"
+                    data-ns-animate="" data-offset="50" data-orion-obstacle="">
+                    <a class="btn btn-secondary dark:btn-accent btn-explore-gallery btn-xl sm:w-auto w-[85%]" href="#bento-grid-container">
+                        <span>Explore our works</span>
+                        <svg fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="explore-svg1">
+                            <path class="explore-svg1-path" d="M2.5 14.166l7.5 3.334 7.5-3.334M2.5 9.166l7.5 3.334 7.5-3.334M10 2.5L2.5 5.833l7.5 3.334 7.5-3.334L10 2.5z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="max-[1920px]:px-5 py-14 md:py-24 lg:py-32 xl:py-40 bg-transparent pt-0 md:pt-0 lg:pt-0 xl:pt-0">
+      <div class="mx-auto max-w-[1880px] md:px-5 xl:pb-16">
         <div class="main-container 2xl:!max-w-[1440px]">
-          <div class="text-center space-y-4 mb-10 md:mb-14">
-            <span class="inline-block badge badge-gradient-helix">Our Works</span>
-            <h2 class="text-secondary dark:text-accent max-md:text-[34px] max-md:leading-[1.1]">
-              Projects <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-helix-blue">crafted
-                by Synkyn Studios</span>
-            </h2>
-            <p class="text-secondary/60 dark:text-accent/60 max-w-[700px] mx-auto md:text-lg">
-              Every project reflects our commitment to exceptional design, precision, and creativity. Explore our
-              portfolio of branding, print, signage, and visual solutions that have helped businesses stand out and make
-              a lasting impression.
-            </p>
-          </div>
           <div id="bento-grid-container" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-4">
             <!-- Javascript will populate this with Bento logic -->
           </div>
