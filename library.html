@@ -437,7 +437,7 @@
     <section class="pf-works max-[1920px]:px-5 py-14 md:py-24 lg:py-32 xl:py-40 pt-16 md:pt-24 lg:pt-28 xl:pt-32">
       <div class="mx-auto max-w-[1880px] md:px-5 xl:pb-16">
         <div class="main-container 2xl:!max-w-[1440px]">
-          <div id="bento-grid-container" class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-4"></div>
+          <div id="bento-grid-container"></div>
         </div>
       </div>
     </section>
@@ -513,73 +513,132 @@
         }
       }
 
+      /* ══════════════════════════════════════════════════════════════
+         BENTO GRID — column widths are DERIVED, never guessed.
+
+         Ratios:  portrait  9:16 → height = 1.777778 × width
+                  square    1:1  → height = 1        × width
+                  landscape 16:9 → height = 0.5625   × width
+
+         ── DESKTOP (≥1024px) ─────────────────────────────────────────
+         Mid column stack (3 children → 2 gaps):
+             landscape     0.5625·Wm
+             squares row   (Wm − g) / 2
+             landscape     0.5625·Wm
+             + 2g
+           mid height  = 1.625·Wm + 1.5·g
+           rail height = (16/9)·Ws
+
+         Set them equal:
+           (16/9)·Ws = 1.625·Wm + 1.5·g
+           Ws        = 0.9140625·Wm + 0.84375·g
+
+         Feed into the container equation  2·Ws + Wm + 2g = C :
+           2(0.9140625·Wm + 0.84375·g) + Wm + 2g = C
+           1.828125·Wm + 1.6875·g + Wm + 2g      = C
+           2.828125·Wm + 3.6875·g                = C
+           Wm = (C − 3.6875·g) / 2.828125     ← the --mid-col calc()
+
+         Verified flush (rail height == mid height) at:
+           C=1024 g=16 →  578.48 /  578.48
+           C=1200 g=18 →  678.36 /  678.36
+           C=1400 g=20 →  792.04 /  792.04
+           C=1880 g=22 → 1066.61 / 1066.61
+
+         ── TABLET (641–1023px) ───────────────────────────────────────
+         Two equal columns of 3 tiles. Each column carries exactly one
+         portrait + one landscape + one square:
+           1.777778 + 0.5625 + 1 = 3.340278·w + 2g   (both columns)
+         Identical sums + identical gap counts → both end level.
+
+         ── MOBILE (≤640px) ───────────────────────────────────────────
+         One column. Every tile keeps its exact ratio — nothing cropped.
+         ══════════════════════════════════════════════════════════════ */
+
       #bento-grid-container {
+        --bento-gap: clamp(12px, 1.4vw, 22px);
+        --mid-col: calc((100% - 3.6875 * var(--bento-gap)) / 2.828125);
         display: flex;
         flex-direction: column;
-        gap: clamp(12px, 1.4vw, 22px);
+        gap: calc(var(--bento-gap) * 1.7);
       }
 
       .bento-pattern-block {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-        gap: clamp(12px, 1.4vw, 22px);
         width: 100%;
       }
 
-      @media (min-width: 1024px) {
-        .bento-pattern-block {
-          grid-template-columns: 1fr 1.093fr 1fr;
-        }
+      /* ── Desktop ── */
+      .bento-block--desktop {
+        display: grid;
+        gap: var(--bento-gap);
+        align-items: start;
+        grid-template-columns: 1fr var(--mid-col) 1fr;
+      }
 
-        .bento-pattern-block.is-pattern-b {
-          grid-template-columns: 1.093fr 1fr 1fr;
-        }
-
-        .bento-pattern-block.is-pattern-loose {
-          grid-template-columns: repeat(3, 1fr);
-        }
+      .bento-block--desktop.is-pattern-b {
+        grid-template-columns: var(--mid-col) 1fr 1fr;
       }
 
       .bento-pattern-mid-col {
         display: flex;
         flex-direction: column;
-        gap: clamp(12px, 1.4vw, 22px);
+        gap: var(--bento-gap);
         min-width: 0;
       }
 
       .bento-pattern-squares {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        gap: var(--bento-gap);
+        min-width: 0;
+      }
+
+      /* ── Tablet ── */
+      .bento-block--tablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--bento-gap);
         align-items: start;
-        gap: clamp(12px, 1.4vw, 22px);
       }
 
-      /* ── Mobile: single-column stack with exact aspect ratios ── */
-      @media (max-width: 1023.98px) {
-        .bento-pattern-block {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-        }
+      /* ── Mobile ── */
+      .bento-block--mobile {
+        display: flex;
+        flex-direction: column;
+        gap: var(--bento-gap);
+      }
 
-        .bento-pattern-mid-col {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          width: 100%;
-        }
+      /* shared vertical stack */
+      .bento-col {
+        display: flex;
+        flex-direction: column;
+        gap: var(--bento-gap);
+        min-width: 0;
+      }
 
-        .bento-pattern-squares {
-          display: flex;
-          flex-direction: column;
-          gap: 14px;
-          width: 100%;
+      /* ── Partial block (fewer than 6 tiles) — uniform 1:1 keeps rows level ── */
+      .bento-block--loose {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--bento-gap);
+      }
+
+      @media (min-width: 641px) and (max-width: 1023.98px) {
+        .bento-block--loose {
+          grid-template-columns: repeat(2, 1fr);
         }
       }
 
+      @media (max-width: 640px) {
+        .bento-block--loose {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* ── Tile ── */
       .bento-item {
         position: relative;
+        display: block;
         padding: 0;
         width: 100%;
         height: auto;
@@ -603,30 +662,15 @@
         aspect-ratio: 16 / 9;
       }
 
-      /* Mobile: keep exact aspect ratios — 9:16, 16:9, 1:1 — no cutting */
-      @media (max-width: 1023.98px) {
-        .bento-ar--portrait {
-          aspect-ratio: 9 / 16;
-        }
-
-        .bento-ar--landscape {
-          aspect-ratio: 16 / 9;
-        }
-
-        .bento-ar--square {
-          aspect-ratio: 1 / 1;
-        }
-
-        .bento-item {
-          width: 100%;
-          align-self: stretch;
-        }
-      }
-
       .bento-item:hover {
         transform: translateY(-4px);
         box-shadow: 0 20px 40px rgba(0, 0, 0, .5);
         border-color: rgba(242, 212, 0, .45);
+      }
+
+      .bento-item:focus-visible {
+        outline: 2px solid #f2d400;
+        outline-offset: 3px;
       }
 
       .bento-item__overlay {
@@ -636,6 +680,33 @@
       .bento-item__badge {
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
+      }
+
+      @media (min-width: 641px) and (max-width: 1023.98px) {
+        #bento-grid-container {
+          --bento-gap: 14px;
+          gap: 26px;
+        }
+
+        .bento-item {
+          border-radius: 15px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        #bento-grid-container {
+          --bento-gap: 12px;
+          gap: 18px;
+        }
+
+        .bento-item {
+          border-radius: 14px;
+        }
+
+        .bento-item:hover {
+          transform: none;
+          box-shadow: none;
+        }
       }
 
       .media-modal {
@@ -1094,10 +1165,6 @@
           opacity: 1 !important;
           pointer-events: auto !important;
         }
-
-        .bento-item {
-          display: flex !important;
-        }
       }
 
       @media (max-width: 600px) {
@@ -1155,10 +1222,6 @@
           align-self: stretch;
           justify-content: center;
           margin-top: 20px;
-        }
-
-        .bento-item {
-          display: flex !important;
         }
       }
 
@@ -1436,6 +1499,9 @@
           "</svg>"
         );
 
+        /* Every 6 items = one block.
+           Pattern A → [portrait] [landscape, square+square, landscape] [portrait]
+           Pattern B → [square+square, landscape, landscape] [portrait] [portrait] */
         const worksData = [
           {
             id: 'work-ig-1',
@@ -1508,7 +1574,7 @@
             ]
           },
           {
-            id: 'work-camel',
+            id: 'work-camel-2',
             title: 'Camel',
             category: 'Crayons',
             tag: 'Film',
@@ -1519,7 +1585,7 @@
             ]
           },
           {
-            id: 'work-senior-living',
+            id: 'work-senior-living-2',
             title: 'Senior Living Facility',
             category: 'Healthcare',
             tag: 'Photos',
@@ -1681,9 +1747,9 @@
           return `<img src="${src}" alt="${alt}" class="absolute inset-0 w-full h-full" style="object-fit:cover;object-position:center;display:block;" loading="lazy" onerror="this.style.display='none'" />`;
         }
 
-        function createBentoItem(work, aspectClass) {
+        function createBentoItem(work, ar) {
           const el = document.createElement('div');
-          el.className = `relative bg-white dark:bg-background-8 group bento-item ${aspectClass}`;
+          el.className = `relative bg-white dark:bg-background-8 group bento-item bento-ar--${ar}`;
           el.dataset.id = work.id;
           el.setAttribute('role', 'button');
           el.setAttribute('tabindex', '0');
@@ -1708,14 +1774,13 @@
             if (firstSource.type === 'youtube') {
               const ytId = getYouTubeId(firstSource.src);
               badge = work.tag || 'YouTube';
-              const thumbUrl = getYouTubeThumbnail(ytId);
               mediaHtml = ytId
-                ? fillThumb(thumbUrl, work.title)
+                ? fillThumb(getYouTubeThumbnail(ytId), work.title)
                 : `<div class="absolute inset-0 w-full h-full" style="background:linear-gradient(135deg,#ff0000 0%,#8b0000 100%);"></div>`;
             } else if (firstSource.type === 'instagram') {
               badge = work.tag || 'Instagram';
-              const thumbUrl = 'https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/skorman_web.png';
-              mediaHtml = fillThumb(thumbUrl, work.title) + `<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>`;
+              mediaHtml = fillThumb('https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/skorman_web.png', work.title) +
+                `<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>`;
             } else if (firstSource.type === 'vimeo') {
               badge = work.tag || 'Video';
               mediaHtml = `<div class="absolute inset-0 w-full h-full" style="background:linear-gradient(135deg,#101010 0%,#000 100%);"></div>`;
@@ -1735,9 +1800,9 @@
         ${mediaHtml}
         <span class="bento-item__badge absolute top-3 left-3 z-20 text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full"
           style="${badgeColour}">${badge}</span>
-        <div class="bento-item__overlay absolute inset-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-5 md:p-6 bg-gradient-to-t from-black/90 via-black/40 to-transparent">
+        <div class="bento-item__overlay absolute inset-0 opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-4 md:p-6">
           <p class="text-[#ffd84d] uppercase text-[10px] md:text-xs tracking-wider font-bold mb-1 drop-shadow-md">${work.category}</p>
-          <h4 class="text-white text-lg md:text-xl font-bold drop-shadow-md">${work.title}</h4>
+          <h4 class="text-white text-base md:text-xl font-bold drop-shadow-md leading-tight">${work.title}</h4>
         </div>
       `;
 
@@ -1748,79 +1813,141 @@
           return el;
         }
 
-        function buildPatternA(chunk) {
-          const block = document.createElement('div');
-          block.className = 'bento-pattern-block';
+        function makeEl(cls) {
+          const d = document.createElement('div');
+          d.className = cls;
+          return d;
+        }
 
-          block.appendChild(createBentoItem(chunk[0], 'bento-ar--portrait'));
+        /* ══════════════════════════════════════════════════
+           DESKTOP — rail | mid | rail  (A)
+                     mid | rail | rail  (B)
+           Column widths come from the --mid-col calc() in CSS,
+           so the rails and the mid stack always end level.
+           ══════════════════════════════════════════════════ */
+        function buildDesktopA(chunk) {
+          const block = makeEl('bento-pattern-block bento-block--desktop is-pattern-a');
+          block.appendChild(createBentoItem(chunk[0], 'portrait'));
 
-          const midCol = document.createElement('div');
-          midCol.className = 'bento-pattern-mid-col';
-          midCol.appendChild(createBentoItem(chunk[1], 'bento-ar--landscape'));
+          const mid = makeEl('bento-pattern-mid-col');
+          mid.appendChild(createBentoItem(chunk[1], 'landscape'));
+          const squares = makeEl('bento-pattern-squares');
+          squares.appendChild(createBentoItem(chunk[2], 'square'));
+          squares.appendChild(createBentoItem(chunk[3], 'square'));
+          mid.appendChild(squares);
+          mid.appendChild(createBentoItem(chunk[4], 'landscape'));
+          block.appendChild(mid);
 
-          const squares = document.createElement('div');
-          squares.className = 'bento-pattern-squares';
-          squares.appendChild(createBentoItem(chunk[2], 'bento-ar--square'));
-          squares.appendChild(createBentoItem(chunk[3], 'bento-ar--square'));
-          midCol.appendChild(squares);
-
-          midCol.appendChild(createBentoItem(chunk[4], 'bento-ar--landscape'));
-          block.appendChild(midCol);
-
-          block.appendChild(createBentoItem(chunk[5], 'bento-ar--portrait'));
+          block.appendChild(createBentoItem(chunk[5], 'portrait'));
           return block;
         }
 
-        function buildPatternB(chunk) {
-          const block = document.createElement('div');
-          block.className = 'bento-pattern-block is-pattern-b';
+        function buildDesktopB(chunk) {
+          const block = makeEl('bento-pattern-block bento-block--desktop is-pattern-b');
 
-          const midCol = document.createElement('div');
-          midCol.className = 'bento-pattern-mid-col';
+          const mid = makeEl('bento-pattern-mid-col');
+          const squares = makeEl('bento-pattern-squares');
+          squares.appendChild(createBentoItem(chunk[0], 'square'));
+          squares.appendChild(createBentoItem(chunk[1], 'square'));
+          mid.appendChild(squares);
+          mid.appendChild(createBentoItem(chunk[2], 'landscape'));
+          mid.appendChild(createBentoItem(chunk[3], 'landscape'));
+          block.appendChild(mid);
 
-          const squares = document.createElement('div');
-          squares.className = 'bento-pattern-squares';
-          squares.appendChild(createBentoItem(chunk[0], 'bento-ar--square'));
-          squares.appendChild(createBentoItem(chunk[1], 'bento-ar--square'));
-          midCol.appendChild(squares);
-
-          midCol.appendChild(createBentoItem(chunk[2], 'bento-ar--landscape'));
-          midCol.appendChild(createBentoItem(chunk[3], 'bento-ar--landscape'));
-          block.appendChild(midCol);
-
-          block.appendChild(createBentoItem(chunk[4], 'bento-ar--portrait'));
-          block.appendChild(createBentoItem(chunk[5], 'bento-ar--portrait'));
+          block.appendChild(createBentoItem(chunk[4], 'portrait'));
+          block.appendChild(createBentoItem(chunk[5], 'portrait'));
           return block;
         }
 
-        function renderGrid() {
+        /* ══════════════════════════════════════════════════
+           TABLET — 2 columns × 3 tiles.
+           Each column = portrait + landscape + square
+                       = 3.340278·w + 2g  →  both end level.
+           ══════════════════════════════════════════════════ */
+        const TABLET_PATTERNS = {
+          a: [
+            [[0, 'portrait'], [1, 'landscape'], [2, 'square']],
+            [[3, 'square'], [4, 'landscape'], [5, 'portrait']]
+          ],
+          b: [
+            [[0, 'square'], [1, 'landscape'], [2, 'portrait']],
+            [[3, 'portrait'], [4, 'landscape'], [5, 'square']]
+          ]
+        };
+
+        function buildTablet(chunk, variant) {
+          const block = makeEl('bento-pattern-block bento-block--tablet');
+          TABLET_PATTERNS[variant].forEach((colDef) => {
+            const col = makeEl('bento-col');
+            colDef.forEach(([idx, ar]) => col.appendChild(createBentoItem(chunk[idx], ar)));
+            block.appendChild(col);
+          });
+          return block;
+        }
+
+        /* ══════════════════════════════════════════════════
+           MOBILE — one column, exact ratios, nothing cropped.
+           ══════════════════════════════════════════════════ */
+        const MOBILE_PATTERNS = {
+          a: ['portrait', 'landscape', 'square', 'square', 'landscape', 'portrait'],
+          b: ['square', 'square', 'landscape', 'landscape', 'portrait', 'portrait']
+        };
+
+        function buildMobile(chunk, variant) {
+          const block = makeEl('bento-pattern-block bento-block--mobile');
+          MOBILE_PATTERNS[variant].forEach((ar, idx) => {
+            block.appendChild(createBentoItem(chunk[idx], ar));
+          });
+          return block;
+        }
+
+        function buildLoose(chunk) {
+          const block = makeEl('bento-pattern-block bento-block--loose');
+          chunk.forEach((work) => block.appendChild(createBentoItem(work, 'square')));
+          return block;
+        }
+
+        function getLayout() {
+          const w = window.innerWidth;
+          if (w >= 1024) return 'desktop';
+          if (w >= 641) return 'tablet';
+          return 'mobile';
+        }
+
+        function buildBlock(layout, chunk, variant) {
+          if (layout === 'desktop') return variant === 'a' ? buildDesktopA(chunk) : buildDesktopB(chunk);
+          if (layout === 'tablet') return buildTablet(chunk, variant);
+          return buildMobile(chunk, variant);
+        }
+
+        function renderGrid(layout) {
           gridContainer.innerHTML = '';
-          const gridItems = worksData;
           let blockIndex = 0;
-
-          for (let i = 0; i < gridItems.length; i += 6) {
-            const chunk = gridItems.slice(i, i + 6);
-
+          for (let i = 0; i < worksData.length; i += 6) {
+            const chunk = worksData.slice(i, i + 6);
             if (chunk.length === 6) {
-              gridContainer.appendChild(
-                blockIndex % 2 === 0 ? buildPatternA(chunk) : buildPatternB(chunk)
-              );
+              gridContainer.appendChild(buildBlock(layout, chunk, blockIndex % 2 === 0 ? 'a' : 'b'));
               blockIndex++;
             } else {
-              const block = document.createElement('div');
-              block.className = 'bento-pattern-block is-pattern-loose';
-              chunk.forEach((work) => {
-                let arClass = 'bento-ar--square';
-                if (work.sources[0]) {
-                  if (work.sources[0].type === 'instagram') arClass = 'bento-ar--portrait';
-                  else if (['youtube', 'vimeo', 'video'].includes(work.sources[0].type)) arClass = 'bento-ar--landscape';
-                }
-                block.appendChild(createBentoItem(work, arClass));
-              });
-              gridContainer.appendChild(block);
+              gridContainer.appendChild(buildLoose(chunk));
             }
           }
         }
+
+        let currentLayout = null;
+        function syncGrid() {
+          const next = getLayout();
+          if (next === currentLayout) return;
+          currentLayout = next;
+          renderGrid(next);
+        }
+
+        let resizeTimer = null;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(syncGrid, 140);
+        }, { passive: true });
+        window.addEventListener('orientationchange', () => setTimeout(syncGrid, 160));
 
         const modal = document.getElementById('media-modal');
         const btnClose = document.getElementById('close-modal');
@@ -2062,11 +2189,7 @@
             if (srcObj.type === 'vimeo') initVimeoSlide(slide);
           });
 
-          if (hasInstagram) {
-            modal.classList.add('media-modal--instagram');
-          } else {
-            modal.classList.remove('media-modal--instagram');
-          }
+          modal.classList.toggle('media-modal--instagram', hasInstagram);
 
           modal.classList.add('show');
           modal.setAttribute('aria-hidden', 'false');
@@ -2113,7 +2236,7 @@
         btnPrev.addEventListener('click', () => { mediaContainer.scrollBy({ left: -mediaContainer.clientWidth, behavior: 'smooth' }); });
         btnNext.addEventListener('click', () => { mediaContainer.scrollBy({ left: mediaContainer.clientWidth, behavior: 'smooth' }); });
 
-        renderGrid();
+        syncGrid();
 
         function handleHash() {
           if (!window.location.hash) return;
@@ -2125,6 +2248,93 @@
 
         handleHash();
         window.addEventListener('hashchange', handleHash);
+
+        /* hero particles */
+        (function initParticles() {
+          const canvas = document.getElementById('pf-particles');
+          const hero = document.getElementById('pf-top');
+          if (!canvas || !hero) return;
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { canvas.style.display = 'none'; return; }
+          const ctx = canvas.getContext('2d');
+          let w = 0, h = 0, parts = [], running = true;
+          const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+          function resize() {
+            const r = hero.getBoundingClientRect();
+            w = r.width; h = r.height;
+            canvas.width = w * dpr; canvas.height = h * dpr;
+            canvas.style.width = w + 'px'; canvas.style.height = h + 'px';
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            const target = Math.round(Math.min(90, (w * h) / 16000));
+            parts = [];
+            for (let i = 0; i < target; i++) {
+              parts.push({
+                x: Math.random() * w, y: Math.random() * h,
+                r: Math.random() * 1.8 + 0.4,
+                vx: (Math.random() - 0.5) * 0.25,
+                vy: (Math.random() - 0.5) * 0.25,
+                a: Math.random() * 0.5 + 0.15
+              });
+            }
+          }
+
+          function frame() {
+            if (!running) return;
+            ctx.clearRect(0, 0, w, h);
+            for (const p of parts) {
+              p.x += p.vx; p.y += p.vy;
+              if (p.x < -10) p.x = w + 10; if (p.x > w + 10) p.x = -10;
+              if (p.y < -10) p.y = h + 10; if (p.y > h + 10) p.y = -10;
+              ctx.beginPath();
+              ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+              ctx.fillStyle = 'rgba(242,212,0,' + p.a + ')';
+              ctx.fill();
+            }
+            for (let i = 0; i < parts.length; i++) {
+              for (let j = i + 1; j < parts.length; j++) {
+                const a = parts[i], b = parts[j];
+                const d2 = (a.x - b.x) * (a.x - b.x) + (a.y - b.y) * (a.y - b.y);
+                if (d2 < 12000) {
+                  ctx.strokeStyle = 'rgba(242,212,0,' + (0.06 * (1 - d2 / 12000)) + ')';
+                  ctx.lineWidth = 1;
+                  ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
+                }
+              }
+            }
+            requestAnimationFrame(frame);
+          }
+
+          resize();
+          window.addEventListener('resize', resize, { passive: true });
+          requestAnimationFrame(frame);
+
+          if ('IntersectionObserver' in window) {
+            new IntersectionObserver((entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting && !running) { running = true; requestAnimationFrame(frame); }
+                else if (!e.isIntersecting) { running = false; }
+              });
+            }, { threshold: 0 }).observe(hero);
+          }
+        })();
+
+        /* scroll reveals */
+        (function initReveals() {
+          const els = Array.from(document.querySelectorAll('.pf-reveal'));
+          if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            els.forEach((el) => el.classList.add('is-in'));
+            return;
+          }
+          const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) { e.target.classList.add('is-in'); obs.unobserve(e.target); }
+            });
+          }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+          els.forEach((el, i) => {
+            el.style.transitionDelay = Math.min(i * 45, 320) + 'ms';
+            io.observe(el);
+          });
+        })();
       });
     </script>
   </main>
