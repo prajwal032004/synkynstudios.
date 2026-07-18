@@ -117,7 +117,7 @@
     }
   </style>
   <link href="./assets/footer.css?v=2" rel="stylesheet" />
-    <meta name="google-site-verification" content="gj7RmRKG4U9jAcIZ-Un31uUunZXLUf6AQuKdNDEYZVU" />
+  <meta name="google-site-verification" content="gj7RmRKG4U9jAcIZ-Un31uUunZXLUf6AQuKdNDEYZVU" />
 </head>
 
 <body class="bg-background-3 dark:bg-helix-blue-dark-2">
@@ -128,10 +128,12 @@
       <div>
         <a class="flex min-w-0 shrink-0 items-center gap-2" href="./">
           <figure class="m-0 hidden lg:block lg:max-w-[112px]">
-            <img alt="Synkyn Studios" class="w-[80px] h-auto object-contain" src="https://www.synkynstudios.com/images/logo.png" />
+            <img alt="Synkyn Studios" class="w-[80px] h-auto object-contain"
+              src="https://www.synkynstudios.com/images/logo.png" />
           </figure>
           <figure class="m-0 flex max-w-[52px] shrink-0 lg:hidden">
-            <img alt="Synkyn Studios" class="w-full h-auto object-contain" src="https://www.synkynstudios.com/images/logo.png" />
+            <img alt="Synkyn Studios" class="w-full h-auto object-contain"
+              src="https://www.synkynstudios.com/images/logo.png" />
           </figure>
         </a>
       </div>
@@ -399,12 +401,12 @@
         <div class="space-y-5 text-center relative z-10 pointer-events-none">
           <span class="inline-block badge badge-gradient-helix pointer-events-auto pf-reveal" data-delay="0.1"
             data-ns-animate="" data-orion-obstacle="">
-            Our Works
+            Library
           </span>
           <div
             class="md:space-y-4 space-y-2 lg:max-w-full md:max-w-[600px] sm:max-w-[550px] min-[500px]:max-w-[450px] max-w-[350px] lg:mx-0 mx-auto pointer-events-none">
             <h2
-              class="font-creato text-accent pointer-events-auto w-fit max-w-full mx-auto max-md:text-[38px] max-md:leading-[1.1] pf-reveal"
+              class="text-accent pointer-events-auto w-fit max-w-full mx-auto max-md:text-[38px] max-md:leading-[1.1] pf-reveal"
               data-delay="0.2" data-ns-animate="" data-orion-obstacle="">
               Projects <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-helix-blue">crafted
                 by Synkyn Studios</span>
@@ -423,7 +425,7 @@
             data-ns-animate="" data-offset="50" data-orion-obstacle="">
             <a class="btn btn-secondary dark:btn-accent btn-explore-gallery btn-xl sm:w-auto w-[85%]"
               href="#bento-grid-container">
-              <span>Explore our works</span>
+              <span>Explore our work</span>
               <svg fill="none" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="explore-svg1">
                 <path class="explore-svg1-path"
                   d="M2.5 14.166l7.5 3.334 7.5-3.334M2.5 9.166l7.5 3.334 7.5-3.334M10 2.5L2.5 5.833l7.5 3.334 7.5-3.334L10 2.5z"
@@ -491,22 +493,22 @@
         position: relative;
         z-index: 2;
         background: #080808;
-        border-top: 1px solid rgba(242, 212, 0, .14);
-        border-radius: 28px 28px 0 0;
-        box-shadow: 0 -34px 70px rgba(0, 0, 0, .72);
+        border-top: none;
+        box-shadow: none;
       }
 
       .pf-works::before {
         content: "";
         position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: min(180px, 40%);
-        height: 1px;
-        background: linear-gradient(90deg, transparent, #f2d400, transparent);
-        opacity: .8;
+        bottom: 100%;
+        left: 0;
+        right: 0;
+        height: 250px;
+        background: linear-gradient(to top, #080808 0%, transparent 100%);
+        pointer-events: none;
       }
+
+
 
       @media (max-width: 767.98px) {
         .pf-works {
@@ -558,80 +560,21 @@
 
       #bento-grid-container {
         --bento-gap: clamp(12px, 1.4vw, 22px);
-        --mid-col: calc((100% - 3.6875 * var(--bento-gap)) / 2.828125);
-        display: flex;
-        flex-direction: column;
-        gap: calc(var(--bento-gap) * 1.7);
-      }
-
-      .bento-pattern-block {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-flow: row dense;
+        gap: var(--bento-gap);
         width: 100%;
       }
 
-      /* ── Desktop ── */
-      .bento-block--desktop {
-        display: grid;
-        gap: var(--bento-gap);
-        align-items: start;
-        grid-template-columns: 1fr var(--mid-col) 1fr;
-      }
-
-      .bento-block--desktop.is-pattern-b {
-        grid-template-columns: var(--mid-col) 1fr 1fr;
-      }
-
-      .bento-pattern-mid-col {
-        display: flex;
-        flex-direction: column;
-        gap: var(--bento-gap);
-        min-width: 0;
-      }
-
-      .bento-pattern-squares {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--bento-gap);
-        min-width: 0;
-      }
-
-      /* ── Tablet ── */
-      .bento-block--tablet {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: var(--bento-gap);
-        align-items: start;
-      }
-
-      /* ── Mobile ── */
-      .bento-block--mobile {
-        display: flex;
-        flex-direction: column;
-        gap: var(--bento-gap);
-      }
-
-      /* shared vertical stack */
-      .bento-col {
-        display: flex;
-        flex-direction: column;
-        gap: var(--bento-gap);
-        min-width: 0;
-      }
-
-      /* ── Partial block (fewer than 6 tiles) — uniform 1:1 keeps rows level ── */
-      .bento-block--loose {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--bento-gap);
-      }
-
-      @media (min-width: 641px) and (max-width: 1023.98px) {
-        .bento-block--loose {
+      @media (max-width: 1023.98px) {
+        #bento-grid-container {
           grid-template-columns: repeat(2, 1fr);
         }
       }
 
       @media (max-width: 640px) {
-        .bento-block--loose {
+        #bento-grid-container {
           grid-template-columns: 1fr;
         }
       }
@@ -642,8 +585,7 @@
         display: block;
         padding: 0;
         width: 100%;
-        height: auto;
-        align-self: start;
+        height: 100%;
         border-radius: 16px;
         overflow: hidden;
         border: 1px solid rgba(255, 255, 255, .05);
@@ -652,15 +594,14 @@
       }
 
       .bento-ar--portrait {
-        aspect-ratio: 9 / 16;
-      }
-
-      .bento-ar--square {
-        aspect-ratio: 1 / 1;
+        grid-row: span 3;
+        grid-column: span 1;
       }
 
       .bento-ar--landscape {
         aspect-ratio: 16 / 9;
+        grid-row: span 1;
+        grid-column: span 1;
       }
 
       .bento-item:hover {
@@ -1496,7 +1437,7 @@
           "<defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'>" +
           "<stop offset='0' stop-color='#1c1c1c'/><stop offset='1' stop-color='#050505'/></linearGradient></defs>" +
           "<rect width='600' height='600' fill='url(#g)'/>" +
-          "<text x='50%' y='50%' fill='#f2d400' font-family='Arial, sans-serif' font-size='38' text-anchor='middle' dominant-baseline='middle' opacity='0.75'>Add media</text>" +
+          "<text x='50%' y='50%' fill='#f2d400' font-family='Arial, sans-serif' font-size='38' text-anchor='middle' dominant-baseline='middle' opacity='0.75'>Work in progress</text>" +
           "</svg>"
         );
 
@@ -1508,46 +1449,23 @@
             id: 'work-ig-1',
             title: 'skromanautomation',
             category: 'reels',
-            tag: 'Insta',
-            thumbnail: 'https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/skorman_web.png',
+            tag: 'Reels',
+            ratio: '9:16',
+            thumbnail: 'https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/For%20Album/Album%20Covers/hf_20260621_211115_a8ae6a61-15eb-4fcd-a87e-8b37d91256cf.png?updatedAt=1784388403481',
             description: 'Your home should be as smart as your smartphone ✨<br><br>Imagine controlling your lights, security, curtains & appliances with just one tap or voice command.<br><br>Welcome to the future with Skroman Smart Home Automation.<br><br>🔥 Smart Lighting<br>🔐 Advanced Home Security<br>🎙 Voice & App Control<br>⚡ Energy Saving Automation<br>🏠 Luxury Smart Living Experience<br><br>Turn your ordinary home into an intelligent lifestyle.<br><br>Comfort. Security. Convenience. All automated.',
             sources: [
-              { type: 'instagram', src: 'https://www.instagram.com/reel/DZCmDTOhcIK/' }
+              { type: 'vimeo', src: 'https://player.vimeo.com/video/1211043365' }
             ]
           },
           {
             id: 'work-dragon',
             title: 'Dragon',
             category: 'Dragon Glimpse',
-            tag: 'Video',
+            tag: 'Youtube',
+            ratio: '16:9',
             description: 'Dragon Glimpse - Telugu | NTR | Anil Kapoor | Rukmini Vasanth | Ravi Basrur | Prashanth Neel',
             sources: [
               { type: 'youtube', src: 'https://youtu.be/FlOzIM7Yov4?si=pdGIj50dAFhKnGQ5' }
-            ]
-          },
-          {
-            id: 'work-senior-living',
-            title: 'Senior Living Facility',
-            category: 'Healthcare',
-            tag: 'Photos',
-            description: 'Provided essential 100% clean outdoor air while drastically lowering energy load for climate control.',
-            sources: [
-              { type: 'image', src: './images/seniorlivingbg.png' },
-              { type: 'image', src: './images/auditoriumbg.png' },
-              { type: 'video', src: './video/HEHomeVid.mp4' },
-              { type: 'youtube', src: 'https://youtu.be/3u_wE0ocFus?si=JHUwwCjkXAab_VFG' },
-              { type: 'image', src: './images/auditoriumbg1.png' }
-            ]
-          },
-          {
-            id: 'work-camel',
-            title: 'Camel',
-            category: 'Crayons',
-            tag: 'Film',
-            thumbnail: './images/thumbnails/Camel.png',
-            description: 'Camel Crayons- Fun is Unlimited',
-            sources: [
-              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208876567' }
             ]
           },
           {
@@ -1561,42 +1479,14 @@
             ]
           },
           {
-            id: 'work-red-bus',
-            title: 'Red Bus',
-            category: 'Ad Film',
-            tag: 'Film',
-            thumbnail: 'https://media.licdn.com/dms/image/v2/C561BAQE3ZZlockj37Q/company-background_10000/company-background_10000/0/1631693597522/redbus_global_cover?e=2147483647&v=beta&t=T2jPuqX6vsQXHR805JjrP7QMXHpL8La8Lh6M1h8WSeI',
-            description: 'RedBus — four short, cinematic ad-film cuts crafted at Synkyn Studios. Swipe through them and tap the sound button to listen.',
-            sources: [
-              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208148385' },
-              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208148389' },
-              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208148384' },
-              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208148386' }
-            ]
-          },
-          {
             id: 'work-camel-2',
             title: 'Camel',
             category: 'Crayons',
             tag: 'Film',
-            thumbnail: './images/thumbnails/Camel.png',
+            thumbnail: 'https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/For%20Album/Album%20Covers/hf_20260303_194843_2dc8f410-cfc2-417f-9dbd-b15e9bdd28c6.png?updatedAt=1784389455208',
             description: 'Camel Crayons- Fun is Unlimited',
             sources: [
               { type: 'vimeo', src: 'https://player.vimeo.com/video/1208876567' }
-            ]
-          },
-          {
-            id: 'work-senior-living-2',
-            title: 'Senior Living Facility',
-            category: 'Healthcare',
-            tag: 'Photos',
-            description: 'Provided essential 100% clean outdoor air while drastically lowering energy load for climate control.',
-            sources: [
-              { type: 'image', src: './images/seniorlivingbg.png' },
-              { type: 'image', src: './images/auditoriumbg.png' },
-              { type: 'video', src: './video/HEHomeVid.mp4' },
-              { type: 'youtube', src: 'https://youtu.be/3u_wE0ocFus?si=JHUwwCjkXAab_VFG' },
-              { type: 'image', src: './images/auditoriumbg1.png' }
             ]
           },
           {
@@ -1612,100 +1502,31 @@
             ]
           },
           {
-            id: 'work-air-refresh',
-            title: 'Indoor Air Refresh',
-            category: 'Air Quality',
-            description: 'Purging stale air and eliminating completely the building-related outbreaks.',
+            id: 'work-red-bus',
+            title: 'RedBus',
+            category: 'Ad Film',
+            tag: 'Film',
+            thumbnail: 'https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/For%20Album/Album%20Covers/redbuss.png?updatedAt=1784389746357',
+            description: 'RedBus — four short, cinematic ad-film cuts crafted at Synkyn Studios. Swipe through them and tap the sound button to listen.',
             sources: [
-              { type: 'image', src: './images/airqualityworse.png' }
+              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208148385' },
+              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208148389' },
+              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208148384' },
+              { type: 'vimeo', src: 'https://player.vimeo.com/video/1208148386' }
             ]
           },
+
+
           {
-            id: 'work-custom-11',
-            title: 'Custom Project 11',
-            category: 'Category',
-            tag: 'New',
-            thumbnail: PLACEHOLDER_IMG,
-            description: 'Add your project description here.',
+            id: 'work-skroman',
+            title: 'skromanautomation',
+            category: 'Insta',
+            tag: 'Insta',
+            thumbnail: 'https://ik.imagekit.io/mkzeqs9lt/For-Website-Synkyn/skorman_web.png',
+            description: 'Your home should be as smart as your smartphone ✨<br><br>Imagine controlling your lights, security, curtains & appliances with just one tap or voice command.<br><br>Welcome to the future with Skroman Smart Home Automation.<br><br>🔥 Smart Lighting<br>🔐 Advanced Home Security<br>🎙 Voice & App Control<br>⚡ Energy Saving Automation<br>🏠 Luxury Smart Living Experience<br><br>Turn your ordinary home into an intelligent lifestyle.<br><br>Comfort. Security. Convenience. All automated.',
             sources: [
-              { type: 'image', src: PLACEHOLDER_IMG }
-            ]
-          },
-          {
-            id: 'work-custom-12',
-            title: 'Custom Project 12',
-            category: 'Category',
-            tag: 'New',
-            thumbnail: PLACEHOLDER_IMG,
-            description: 'Add your project description here.',
-            sources: [
-              { type: 'image', src: PLACEHOLDER_IMG }
-            ]
-          },
-          {
-            id: 'work-custom-13',
-            title: 'Custom Project 13',
-            category: 'Category',
-            tag: 'New',
-            thumbnail: PLACEHOLDER_IMG,
-            description: 'Add your project description here.',
-            sources: [
-              { type: 'image', src: PLACEHOLDER_IMG }
-            ]
-          },
-          {
-            id: 'work-custom-14',
-            title: 'Custom Project 14',
-            category: 'Category',
-            tag: 'New',
-            thumbnail: PLACEHOLDER_IMG,
-            description: 'Add your project description here.',
-            sources: [
-              { type: 'image', src: PLACEHOLDER_IMG }
-            ]
-          },
-          {
-            id: 'work-custom-15',
-            title: 'Custom Project 15',
-            category: 'Category',
-            tag: 'New',
-            thumbnail: PLACEHOLDER_IMG,
-            description: 'Add your project description here.',
-            sources: [
-              { type: 'image', src: PLACEHOLDER_IMG }
-            ]
-          },
-          {
-            id: 'work-custom-16',
-            title: 'Custom Project 16',
-            category: 'Category',
-            tag: 'New',
-            thumbnail: PLACEHOLDER_IMG,
-            description: 'Add your project description here.',
-            sources: [
-              { type: 'image', src: PLACEHOLDER_IMG }
-            ]
-          },
-          {
-            id: 'work-custom-17',
-            title: 'Custom Project 17',
-            category: 'Category',
-            tag: 'New',
-            thumbnail: PLACEHOLDER_IMG,
-            description: 'Add your project description here.',
-            sources: [
-              { type: 'image', src: PLACEHOLDER_IMG }
-            ]
-          },
-          {
-            id: 'work-custom-18',
-            title: 'Custom Project 18',
-            category: 'Category',
-            tag: 'New',
-            thumbnail: PLACEHOLDER_IMG,
-            description: 'Add your project description here.',
-            sources: [
-              { type: 'image', src: PLACEHOLDER_IMG }
+
+              { type: 'instagram', src: 'https://www.instagram.com/reel/DZCmDTOhcIK/' }
             ]
           }
         ];
@@ -1814,141 +1635,25 @@
           return el;
         }
 
-        function makeEl(cls) {
-          const d = document.createElement('div');
-          d.className = cls;
-          return d;
-        }
-
-        /* ══════════════════════════════════════════════════
-           DESKTOP — rail | mid | rail  (A)
-                     mid | rail | rail  (B)
-           Column widths come from the --mid-col calc() in CSS,
-           so the rails and the mid stack always end level.
-           ══════════════════════════════════════════════════ */
-        function buildDesktopA(chunk) {
-          const block = makeEl('bento-pattern-block bento-block--desktop is-pattern-a');
-          block.appendChild(createBentoItem(chunk[0], 'portrait'));
-
-          const mid = makeEl('bento-pattern-mid-col');
-          mid.appendChild(createBentoItem(chunk[1], 'landscape'));
-          const squares = makeEl('bento-pattern-squares');
-          squares.appendChild(createBentoItem(chunk[2], 'square'));
-          squares.appendChild(createBentoItem(chunk[3], 'square'));
-          mid.appendChild(squares);
-          mid.appendChild(createBentoItem(chunk[4], 'landscape'));
-          block.appendChild(mid);
-
-          block.appendChild(createBentoItem(chunk[5], 'portrait'));
-          return block;
-        }
-
-        function buildDesktopB(chunk) {
-          const block = makeEl('bento-pattern-block bento-block--desktop is-pattern-b');
-
-          const mid = makeEl('bento-pattern-mid-col');
-          const squares = makeEl('bento-pattern-squares');
-          squares.appendChild(createBentoItem(chunk[0], 'square'));
-          squares.appendChild(createBentoItem(chunk[1], 'square'));
-          mid.appendChild(squares);
-          mid.appendChild(createBentoItem(chunk[2], 'landscape'));
-          mid.appendChild(createBentoItem(chunk[3], 'landscape'));
-          block.appendChild(mid);
-
-          block.appendChild(createBentoItem(chunk[4], 'portrait'));
-          block.appendChild(createBentoItem(chunk[5], 'portrait'));
-          return block;
-        }
-
-        /* ══════════════════════════════════════════════════
-           TABLET — 2 columns × 3 tiles.
-           Each column = portrait + landscape + square
-                       = 3.340278·w + 2g  →  both end level.
-           ══════════════════════════════════════════════════ */
-        const TABLET_PATTERNS = {
-          a: [
-            [[0, 'portrait'], [1, 'landscape'], [2, 'square']],
-            [[3, 'square'], [4, 'landscape'], [5, 'portrait']]
-          ],
-          b: [
-            [[0, 'square'], [1, 'landscape'], [2, 'portrait']],
-            [[3, 'portrait'], [4, 'landscape'], [5, 'square']]
-          ]
-        };
-
-        function buildTablet(chunk, variant) {
-          const block = makeEl('bento-pattern-block bento-block--tablet');
-          TABLET_PATTERNS[variant].forEach((colDef) => {
-            const col = makeEl('bento-col');
-            colDef.forEach(([idx, ar]) => col.appendChild(createBentoItem(chunk[idx], ar)));
-            block.appendChild(col);
-          });
-          return block;
-        }
-
-        /* ══════════════════════════════════════════════════
-           MOBILE — one column, exact ratios, nothing cropped.
-           ══════════════════════════════════════════════════ */
-        const MOBILE_PATTERNS = {
-          a: ['portrait', 'landscape', 'square', 'square', 'landscape', 'portrait'],
-          b: ['square', 'square', 'landscape', 'landscape', 'portrait', 'portrait']
-        };
-
-        function buildMobile(chunk, variant) {
-          const block = makeEl('bento-pattern-block bento-block--mobile');
-          MOBILE_PATTERNS[variant].forEach((ar, idx) => {
-            block.appendChild(createBentoItem(chunk[idx], ar));
-          });
-          return block;
-        }
-
-        function buildLoose(chunk) {
-          const block = makeEl('bento-pattern-block bento-block--loose');
-          chunk.forEach((work) => block.appendChild(createBentoItem(work, 'square')));
-          return block;
-        }
-
-        function getLayout() {
-          const w = window.innerWidth;
-          if (w >= 1024) return 'desktop';
-          if (w >= 641) return 'tablet';
-          return 'mobile';
-        }
-
-        function buildBlock(layout, chunk, variant) {
-          if (layout === 'desktop') return variant === 'a' ? buildDesktopA(chunk) : buildDesktopB(chunk);
-          if (layout === 'tablet') return buildTablet(chunk, variant);
-          return buildMobile(chunk, variant);
-        }
-
-        function renderGrid(layout) {
+        function renderGrid() {
           gridContainer.innerHTML = '';
-          let blockIndex = 0;
-          for (let i = 0; i < worksData.length; i += 6) {
-            const chunk = worksData.slice(i, i + 6);
-            if (chunk.length === 6) {
-              gridContainer.appendChild(buildBlock(layout, chunk, blockIndex % 2 === 0 ? 'a' : 'b'));
-              blockIndex++;
-            } else {
-              gridContainer.appendChild(buildLoose(chunk));
-            }
-          }
+          worksData.forEach(work => {
+            const ratio = work.ratio || '16:9';
+            const arClass = ratio === '9:16' ? 'portrait' : 'landscape';
+            gridContainer.appendChild(createBentoItem(work, arClass));
+          });
         }
 
-        let currentLayout = null;
-        function syncGrid() {
-          const next = getLayout();
-          if (next === currentLayout) return;
-          currentLayout = next;
-          renderGrid(next);
-        }
+        renderGrid();
 
         let resizeTimer = null;
         window.addEventListener('resize', () => {
           clearTimeout(resizeTimer);
-          resizeTimer = setTimeout(syncGrid, 140);
+          resizeTimer = setTimeout(renderGrid, 150);
         }, { passive: true });
-        window.addEventListener('orientationchange', () => setTimeout(syncGrid, 160));
+        window.addEventListener('orientationchange', () => setTimeout(renderGrid, 160));
+
+
 
         const modal = document.getElementById('media-modal');
         const btnClose = document.getElementById('close-modal');
