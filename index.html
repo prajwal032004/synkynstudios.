@@ -1184,12 +1184,16 @@
             }
 
             .pipeline-section .hero-sub {
-                margin-top: 24px;
-                color: var(--ink-dim);
-                font-size: 14.5px;
-                line-height: 1.75;
-                max-width: 460px;
+                margin-top: 16px;
+                color: var(--gold);
+                font-size: clamp(18px, 2.5vw, 26px);
+                font-weight: 500;
+                letter-spacing: 0.2em;
+                line-height: 1.6;
+                max-width: 800px;
                 margin-inline: auto;
+                text-transform: uppercase;
+                text-shadow: 0 2px 14px rgba(255, 216, 77, 0.3);
             }
 
             .pipeline-section .journey {
@@ -1197,6 +1201,7 @@
                 max-width: 1360px;
                 margin-inline: auto;
                 background: transparent;
+                margin-top: -60px;
             }
 
             .pipeline-section .journey-svg {
@@ -1667,16 +1672,14 @@
 
             <header class="hero">
                 <p class="hero-eyebrow">The Pipeline</p>
-                <h1 class="font-creato hero-title">
-                    <span class="hero-gold">Generative tools.</span>
-                    <span class="hero-white">A filmmaker&rsquo;s eye.</span>
+                <h1 class="hero-title">
+                    <span class="hero-white">WHAT DO WE DO?</span>
                 </h1>
-                <p class="hero-sub">Six stages, one unbroken line — scroll and follow the light from first frame to
-                    final grade.</p>
+                <p class="hero-sub">Five pillars of Filmmaking</p>
             </header>
 
             <section class="journey" aria-label="Studio services timeline">
-                <svg class="journey-svg" viewBox="0 0 1200 4400" preserveAspectRatio="xMidYMin meet" aria-hidden="true"
+                <svg class="journey-svg" viewBox="0 0 1200 3760" preserveAspectRatio="xMidYMin meet" aria-hidden="true"
                     focusable="false">
                     <defs>
                         <linearGradient id="g-trail" x1="0" y1="0" x2="0" y2="1">
@@ -1702,7 +1705,7 @@
                             <stop offset="100%" stop-color="#fff" stop-opacity="0" />
                         </linearGradient>
                         <mask id="m-fade">
-                            <rect x="-200" y="0" width="1600" height="4400" fill="url(#g-fade)" />
+                            <rect x="-200" y="0" width="1600" height="3760" fill="url(#g-fade)" />
                         </mask>
                         <linearGradient id="g-cloud-fade" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="0%" stop-color="#fff" stop-opacity="1" />
@@ -1870,10 +1873,6 @@
                             opacity=".65" />
                         <use href="#s-cloud" class="cloud drift-a" x="-180" y="3700" width="660" height="396"
                             opacity=".88" />
-                        <use href="#s-cloud" class="cloud drift-c" x="520" y="3950" width="620" height="372"
-                            opacity=".9" />
-                        <use href="#s-cloud" class="cloud drift-a" x="-220" y="4100" width="750" height="450"
-                            opacity=".92" />
                         <g class="node-clouds"></g>
                     </g>
 
@@ -1885,10 +1884,9 @@
                             C 930 1490, 930 1850, 600 2000
                             C 270 2150, 270 2510, 600 2680
                             C 930 2850, 930 3210, 600 3360
-                            C 270 3510, 270 3870, 600 4040
-                            C 760 4110, 860 4020, 830 3910
-                            C 800 3800, 660 3850, 640 3960
-                            C 630 4030, 690 4110, 780 4400" />
+                            C 440 3430, 340 3340, 370 3230
+                            C 400 3120, 540 3170, 560 3280
+                            C 570 3350, 510 3430, 420 3720" />
                         <use href="#trail-geo" class="trail-dim" />
                         <use href="#trail-geo" class="trail-halo" filter="url(#f-wide)" />
                         <use href="#trail-geo" class="trail-glow" filter="url(#f-soft)" />
@@ -1911,52 +1909,44 @@
                     <g class="clouds fg-clouds" mask="url(#m-cloud-fade)"></g>
                 </svg>
 
-                <article class="stop left" data-stop="0" style="--top: 6.8%">
+                <article class="stop left" data-stop="0" style="--top: 8.0%">
                     <span class="num">01</span>
+                    <h2 class="title">Films</h2>
                     <span class="eyebrow">2.39:1 &middot; Film</span>
-                    <h2 class="title">AI Film Production</h2>
-                    <p class="desc">Full sequences, set extensions, and period-accurate worlds — previs to final pixel,
+                    <p class="desc">Full sequences, set extensions, and period-accurate worlds, previs to final pixel,
                         built shot by shot with cinematic continuity.</p>
                 </article>
 
-                <article class="stop right" data-stop="1" style="--top: 22.2%">
+                <article class="stop right" data-stop="1" style="--top: 26.0%">
                     <span class="num">02</span>
+                    <h2 class="title">Brand &amp; Advertising</h2>
                     <span class="eyebrow">16:9 &middot; 9:16 &middot; Commercial</span>
-                    <h2 class="title">Ad Films &amp; Campaigns</h2>
                     <p class="desc">Agency-polish product films, automotive and FMCG spots, and platform-native cutdowns
                         — delivered in days, not production quarters.</p>
                 </article>
 
-                <article class="stop left" data-stop="2" style="--top: 37.7%">
+                <article class="stop left" data-stop="2" style="--top: 44.1%">
                     <span class="num">03</span>
-                    <span class="eyebrow">27&times;40 &middot; One-Sheet</span>
-                    <h2 class="title">Key Art &amp; Motion Posters</h2>
-                    <p class="desc">Theatrical-grade posters and looping motion key art with controlled palettes, real
-                        typography space, and print-ready detail.</p>
+                    <h2 class="title">Digital &amp; Print Campaigns</h2>
+                    <span class="eyebrow">4:5 | 16:9</span>
+                    <p class="desc">Cohesive campaign visuals across every surface — from platform-native social
+                        cutdowns to print-ready posters and one-sheets, palette-locked and pixel-perfect end to end.</p>
                 </article>
 
-                <article class="stop right" data-stop="3" style="--top: 53.2%">
+                <article class="stop right" data-stop="3" style="--top: 62.3%">
                     <span class="num">04</span>
-                    <span class="eyebrow">Boards &middot; Previs</span>
                     <h2 class="title">Storyboards &amp; Previs</h2>
+                    <span class="eyebrow">Boards &middot; Previs</span>
                     <p class="desc">Director-ready boards and animatics that lock blocking, lensing, and tone before a
                         single crew call is made.</p>
                 </article>
 
-                <article class="stop left" data-stop="4" style="--top: 68.6%">
+                <article class="stop left" data-stop="4" style="--top: 80.3%">
                     <span class="num">05</span>
+                    <h2 class="title">AI VFX &amp; Set Extension</h2>
                     <span class="eyebrow">Plates &middot; Comp</span>
-                    <h2 class="title">VFX &amp; Set Extension</h2>
                     <p class="desc">Generative plates, crowd and environment extension, cleanup, and style-consistent
                         fixes that cut into live-action invisibly.</p>
-                </article>
-
-                <article class="stop right" data-stop="5" style="--top: 84.1%">
-                    <span class="num">06</span>
-                    <span class="eyebrow">LUT &middot; Look Dev</span>
-                    <h2 class="title">Look Development</h2>
-                    <p class="desc">Custom visual languages for brands and films — palettes, grain, halation, and grade
-                        recipes the models obey across every shot.</p>
                 </article>
             </section>
         </section>
