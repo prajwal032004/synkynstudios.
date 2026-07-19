@@ -156,7 +156,6 @@
             --loader-ease-out: cubic-bezier(.16, 1, .3, 1);
         }
 
-        html,
         body {
             overflow-x: hidden !important;
             max-width: 100% !important;
@@ -454,6 +453,164 @@
         }
     </style>
     <meta name="google-site-verification" content="gj7RmRKG4U9jAcIZ-Un31uUunZXLUf6AQuKdNDEYZVU" />
+    <!-- ================= NEW RESPONSIVE CSS (Mobile + Tablet First) ================= -->
+    <style id="synkyn-enhanced-responsive">
+        /* ===== GLOBAL SMOOTH SCROLL & TOUCH ===== */
+        * {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+        }
+
+        /* ===== HERO - FRESH MOBILE/TABLET EXPERIENCE ===== */
+        #hero {
+            height: 100svh;
+            min-height: 560px;
+            position: relative;
+        }
+
+        .hero-inner {
+            border-radius: 0;
+        }
+
+        @media (min-width: 640px) {
+            .hero-inner {
+                border-radius: 32px;
+                border: 12px solid #000;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .hero-inner {
+                border-radius: 64px;
+                border: 16px solid #000;
+            }
+        }
+
+        .hero-brand {
+            font-weight: 700;
+            line-height: 0.92;
+            letter-spacing: -0.04em;
+        }
+
+        /* Mobile Hero (≤767px) */
+        @media (max-width: 767px) {
+            .hero-top-layout {
+                gap: 2rem !important;
+                padding-top: 1.5rem;
+            }
+
+            .hero-brand {
+                font-size: clamp(2.1rem, 11vw, 3.4rem) !important;
+                line-height: 0.9 !important;
+            }
+
+            .hero-services-list {
+                gap: 0.6rem !important;
+            }
+
+            .hero-services {
+                font-size: clamp(1.05rem, 4.8vw, 1.45rem) !important;
+                line-height: 1.1 !important;
+            }
+
+            .hero-tagline {
+                font-size: clamp(1.05rem, 4.2vw, 1.35rem) !important;
+                line-height: 1.38 !important;
+            }
+
+            #hero-how-it-works-btn {
+                width: 100% !important;
+                max-width: 320px;
+                height: 180px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Tablet (768px - 1023px) */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .hero-brand {
+                font-size: clamp(3.2rem, 7.5vw, 5.2rem) !important;
+            }
+
+            .hero-services {
+                font-size: clamp(1.35rem, 3vw, 2.1rem) !important;
+            }
+
+            .hero-tagline {
+                font-size: clamp(1.2rem, 2.6vw, 1.8rem) !important;
+            }
+        }
+
+        /* ===== PIPELINE SECTION - ENHANCED MOBILE ===== */
+        .pipeline-section {
+            padding: 0 1rem;
+        }
+
+        .pipeline-section .hero {
+            padding: clamp(120px, 18vh, 220px) 1rem 80px;
+        }
+
+        @media (max-width: 767px) {
+            .journey-svg {
+                width: 138% !important;
+                margin-left: -19% !important;
+                max-height: 4200px;
+            }
+
+            .stop {
+                width: 92% !important;
+                margin: 2rem auto !important;
+                padding: 1.25rem 1.5rem;
+                background: rgba(10, 10, 10, 0.85);
+                border-radius: 20px;
+                border: 1px solid rgba(255, 216, 77, 0.2);
+                backdrop-filter: blur(16px);
+            }
+
+            .stop.left,
+            .stop.right {
+                left: auto !important;
+                right: auto !important;
+                text-align: center !important;
+                align-items: center !important;
+            }
+
+            .pipeline-section .title {
+                font-size: 1.65rem !important;
+            }
+        }
+
+        /* ===== SPACE EARTH TEXT ===== */
+        #space-earth-text {
+            font-size: clamp(2.2rem, 9vw, 4.2rem);
+            line-height: 1.05;
+            text-align: center;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer-grid {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .footer-grid {
+                grid-template-columns: 1.1fr 1fr;
+            }
+        }
+
+        /* ===== VIDEO MODAL - MOBILE OPTIMIZED ===== */
+        @media (max-width: 640px) {
+            .modal-card {
+                border-radius: 0 !important;
+                max-height: 100vh !important;
+                height: 100vh !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="loading bg-background-2 dark:bg-helix-blue-dark-2">
@@ -465,7 +622,7 @@
         <div class="loader-stack">
             <div class="loader-tag">AI-NATIVE PRODUCTION</div>
             <div class="loader-logo">
-                <img src="https://www.synkynstudios.com/images/logo.png" alt="Synkyn Studios" />
+                <img src="./images/logo.png" alt="Synkyn Studios" />
             </div>
             <div class="loader-bar"><i></i></div>
             <div class="loader-pct">00%</div>
@@ -478,12 +635,10 @@
             <div>
                 <a class="flex min-w-0 shrink-0 items-center gap-2" href="/">
                     <figure class="m-0 hidden lg:block lg:max-w-[112px]">
-                        <img alt="Synkyn Studios" class="w-[80px] h-auto object-contain"
-                            src="https://www.synkynstudios.com/images/logo.png" />
+                        <img alt="Synkyn Studios" class="w-[80px] h-auto object-contain" src="./images/logo.png" />
                     </figure>
                     <figure class="m-0 flex max-w-[52px] shrink-0 lg:hidden">
-                        <img alt="Synkyn Studios" class="w-full h-auto object-contain"
-                            src="https://www.synkynstudios.com/images/logo.png" />
+                        <img alt="Synkyn Studios" class="w-full h-auto object-contain" src="./images/logo.png" />
                     </figure>
                 </a>
             </div>
@@ -597,12 +752,12 @@
                     <!-- BACKGROUND: Vimeo cover-fill (autoplays, loops, muted, full opacity) -->
                     <div class="absolute inset-0 -z-0 overflow-hidden hero-video-bg" aria-hidden="true">
                         <iframe class="hero-bg-iframe hero-bg-desktop"
-                            data-src="https://player.vimeo.com/video/1208143871?autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&dnt=1&h=54d20a4071&quality=1080p"
+                            src="https://player.vimeo.com/video/1208143871?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&dnt=1&h=54d20a4071&quality=1080p"
                             title="Synkyn Studios background" tabindex="-1" frameborder="0"
                             referrerpolicy="strict-origin-when-cross-origin"
                             allow="autoplay; fullscreen; picture-in-picture"></iframe>
                         <iframe class="hero-bg-iframe hero-bg-mobile"
-                            data-src="https://player.vimeo.com/video/1205020750?autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&dnt=1&quality=1080p"
+                            src="https://player.vimeo.com/video/1205020750?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&dnt=1&quality=1080p"
                             title="Synkyn Studios background (mobile)" tabindex="-1" frameborder="0"
                             referrerpolicy="strict-origin-when-cross-origin"
                             allow="autoplay; fullscreen; picture-in-picture"></iframe>
@@ -667,7 +822,7 @@
                                         <iframe
                                             class="absolute inset-0 w-full h-full object-cover pointer-events-none transition-all duration-500 group-hover:blur-sm"
                                             id="hero-thumbnail-video"
-                                            src="https://player.vimeo.com/video/1210886734?autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&dnt=1&quality=1080p"
+                                            src="https://player.vimeo.com/video/1210886734?background=1&autoplay=1&loop=1&muted=1&controls=0&title=0&byline=0&portrait=0&playsinline=1&dnt=1&quality=1080p"
                                             title="Synkyn Studios SHOWREEL 2026 preview" tabindex="-1" frameborder="0"
                                             allow="autoplay; fullscreen; picture-in-picture"></iframe>
                                         <div
@@ -959,7 +1114,7 @@
 
                         <div class="v-stage">
                             <!-- controls=0 => native Vimeo UI hidden; autoplay=0 => no sound until we open -->
-                            <iframe id="modal-video" class="v-iframe"
+                            <iframe id="modal-video" class="v-iframe" loading="lazy"
                                 src="https://player.vimeo.com/video/1210886734?autoplay=0&loop=1&title=0&byline=0&portrait=0&badge=0&controls=0&dnt=1&transparent=0"
                                 title="Synkyn Studios SHOWREEL 2026" frameborder="0"
                                 referrerpolicy="strict-origin-when-cross-origin"
@@ -1577,33 +1732,73 @@
             }
 
             @media (max-width: 768px) {
-                .pipeline-section .journey-svg {
-                    width: 140%;
-                    margin-left: -20%;
+                .pipeline-section .hero {
+                    padding-bottom: 30px !important;
                 }
 
                 .pipeline-section .journey {
-                    overflow: visible;
+                    position: relative;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: 40px !important;
+                    padding: 20px 0 80px 0 !important;
+                }
+
+                .pipeline-section .journey-svg {
+                    position: absolute !important;
+                    top: 0;
+                    left: 0;
+                    width: 100% !important;
+                    height: 100% !important;
+                    opacity: 0 !important;
+                    pointer-events: none !important;
+                    z-index: -1;
+                }
+
+                .pipeline-section .journey::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 24px;
+                    width: 2px;
+                    background: linear-gradient(to bottom, var(--gold) calc(var(--scroll-p, 0) * 100%), rgba(255, 255, 255, 0.1) calc(var(--scroll-p, 0) * 100%));
+                    z-index: 10;
+                }
+
+                .pipeline-section .mobile-rocket {
+                    display: block !important;
+                    position: absolute;
+                    top: calc(var(--scroll-p, 0) * 100%);
+                    left: 24px;
+                    width: 70px;
+                    height: 140px;
+                    transform: translate(-50%, -50%);
+                    z-index: 11;
+                    transition: top 0.1s linear;
                 }
 
                 .pipeline-section .stop {
-                    width: min(310px, 76%);
-                    padding: 14px 16px;
-                    background: rgba(8, 11, 18, 0.75);
-                    backdrop-filter: blur(14px);
-                    -webkit-backdrop-filter: blur(14px);
-                    border: 1px solid rgba(255, 208, 138, 0.15);
-                    border-radius: 16px;
-                    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75);
+                    position: relative !important;
+                    top: auto !important;
+                    width: calc(100% - 56px) !important;
+                    margin: 0 0 0 44px !important;
+                    padding: 24px 20px;
+                    background: rgba(8, 11, 18, 0.85);
+                    backdrop-filter: blur(18px);
+                    -webkit-backdrop-filter: blur(18px);
+                    border: 1px solid rgba(255, 208, 138, 0.2);
+                    border-radius: 20px;
+                    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.85);
                     z-index: 40 !important;
+                    text-align: left !important;
+                    align-items: flex-start !important;
                 }
 
-                .pipeline-section .stop.left {
-                    left: 14px;
-                }
-
+                .pipeline-section .stop.left,
                 .pipeline-section .stop.right {
-                    right: 14px;
+                    left: 0 !important;
+                    right: auto !important;
                 }
 
                 .pipeline-section .num {
@@ -1624,31 +1819,11 @@
                     line-height: 1.65;
                     margin-top: 2px;
                     color: #e2e8f0;
-                }
-
-                .pipeline-section .trail-halo {
-                    filter: none !important;
-                    stroke-width: 22px !important;
-                    opacity: 0.22 !important;
-                }
-
-                .pipeline-section .trail-glow {
-                    filter: none !important;
-                    stroke-width: 12px !important;
-                    opacity: 0.45 !important;
-                }
-
-                .pipeline-section .cloud {
-                    animation: none !important;
-                    opacity: 0.72 !important;
+                    text-align: left;
                 }
 
                 .pipeline-section .flecks .fleck {
                     display: none !important;
-                }
-
-                .pipeline-section .rocket-traveler {
-                    will-change: transform, opacity;
                 }
             }
 
@@ -1679,6 +1854,21 @@
             </header>
 
             <section class="journey" aria-label="Studio services timeline">
+                <div class="mobile-rocket" aria-hidden="true" style="display: none;">
+                    <svg viewBox="-60 -180 120 240" overflow="visible" style="width: 100%; height: 100%;">
+                        <g transform="rotate(180)">
+                            <circle class="rt-glow" r="46" fill="url(#g-node)" />
+                            <g class="rt-assembly-mobile">
+                                <g style="transform: translate(0px, -15px) scale(1.9); transform-origin: 0px 0px;">
+                                    <use class="rt-flame" href="#s-flame-down" x="-17" y="-4" width="34" height="97" />
+                                </g>
+                                <g class="rt-rocket" transform="scale(.86) translate(-32 -163)">
+                                    <use href="#s-rocket-up" width="64" height="170" />
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </div>
                 <svg class="journey-svg" viewBox="0 0 1200 3760" preserveAspectRatio="xMidYMin meet" aria-hidden="true"
                     focusable="false">
                     <defs>
@@ -2119,6 +2309,7 @@
                 });
 
                 const setProgress = (p) => {
+                    journey.style.setProperty('--scroll-p', p);
                     const drawn = L * p;
                     const offset = (L - drawn).toFixed(1);
                     layers.forEach((el) => { el.style.strokeDashoffset = offset; });

@@ -113,8 +113,8 @@
     this.depth = 0.35 + Math.random() * 0.65;          // 0.35 (far) → 1 (near)
     var d = this.depth;
 
-    // mobile: reduced by half per request; desktop: ~1.2–6px
-    this.size = IS_MOBILE ? (0.3 + d * 1.0) : (1.2 + d * 4.8);
+    // mobile: increased size so they are visible without tapping; desktop: ~1.2–6px
+    this.size = IS_MOBILE ? (1.5 + d * 2.5) : (1.2 + d * 4.8);
 
     this.x = Math.random() * W;
     this.y = scatter ? Math.random() * H : H + this.size + 6;
@@ -127,9 +127,9 @@
     this.rotV = (Math.random() - 0.5) * 0.009;
 
     // base opacity tied to depth (far = fainter) — kept low so crystals
-    // never obscure text. Mobile gets even lower opacity.
+    // never obscure text. Mobile gets a higher base opacity so they are visible.
     this.baseA = IS_MOBILE
-      ? (0.03 + Math.random() * 0.10) * (0.35 + d * 0.45)
+      ? (0.15 + Math.random() * 0.15) * (0.45 + d * 0.55)
       : (0.04 + Math.random() * 0.16) * (0.40 + d * 0.50);
     this.a = this.baseA;
 
@@ -193,7 +193,7 @@
     var glowPulse = this.glow ? (0.7 + 0.3 * pulse) : 1;
     var alpha = (this.a * glowPulse) + this.boost * 0.5;
     if (alpha <= 0.004) return;
-    if (alpha > (IS_MOBILE ? 0.40 : 0.55)) alpha = IS_MOBILE ? 0.40 : 0.55;
+    if (alpha > (IS_MOBILE ? 0.60 : 0.55)) alpha = IS_MOBILE ? 0.60 : 0.55;
 
     var s = this.size * (1 + this.boost * 0.35);
 
