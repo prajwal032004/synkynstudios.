@@ -2,16 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta name="msvalidate.01" content="41DF851FCE84360A9074BDC7D98E6FE8" />
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PST0K7RG3R"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-PST0K7RG3R');
-    </script>
+  <meta name="msvalidate.01" content="41DF851FCE84360A9074BDC7D98E6FE8" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PST0K7RG3R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-PST0K7RG3R');
+  </script>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
   <meta content="Synkyn Studios | Library" name="title" />
@@ -127,7 +127,7 @@
     }
   </style>
   <link href="./assets/footer.css?v=2" rel="stylesheet" />
-  <meta name="google-site-verification" content="gj7RmRKG4U9jAcIZ-Un31uUunZXLUf6AQuKdNDEYZVU" />
+  <meta name="google-site-verification" content="U6ECGq1OyJuADOEHcX9TC1W24aWH9jZQienHQgxDD1s" />
   <!-- ================= NEW RESPONSIVE CSS (Mobile + Tablet First) ================= -->
   <style id="synkyn-enhanced-responsive">
     /* ===== GLOBAL SMOOTH SCROLL & TOUCH ===== */
@@ -1816,15 +1816,15 @@
 
             el.addEventListener('mouseenter', () => {
               if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-              
+
               hoverTimeout = setTimeout(() => {
                 if (!previewContainer) {
                   previewContainer = document.createElement('div');
                   previewContainer.className = 'absolute inset-0 z-[5] bg-black opacity-0 transition-opacity duration-700 pointer-events-none flex items-center justify-center overflow-hidden';
-                  
+
                   const iframeStyle = "position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:100vw; height:56.25vw; min-width:177.77vh; min-height:100vh; pointer-events:none;";
                   let innerHtml = '';
-                  
+
                   if (firstVideoSrc.type === 'vimeo') {
                     const vId = getVimeoId(firstVideoSrc.src);
                     innerHtml = `<iframe src="https://player.vimeo.com/video/${vId}?background=1&autoplay=1&loop=1&muted=1&autopause=0" frameborder="0" allow="autoplay; fullscreen" style="${iframeStyle}"></iframe>`;
@@ -1834,28 +1834,28 @@
                   } else if (firstVideoSrc.type === 'video') {
                     innerHtml = `<video src="${firstVideoSrc.src}" autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover pointer-events-none"></video>`;
                   }
-                  
+
                   previewContainer.innerHTML = innerHtml;
                   el.insertBefore(previewContainer, el.querySelector('.bento-item__overlay'));
-                  
+
                   let loaded = false;
                   const showPreview = () => {
                     if (loaded) return;
                     loaded = true;
                     if (previewContainer) previewContainer.style.opacity = '1';
                   };
-                  
+
                   const iframe = previewContainer.querySelector('iframe');
                   const video = previewContainer.querySelector('video');
-                  
+
                   if (iframe) iframe.onload = showPreview;
                   if (video) video.onloadeddata = showPreview;
-                  
+
                   setTimeout(showPreview, 600);
                 } else {
                   previewContainer.style.opacity = '1';
                   const v = previewContainer.querySelector('video');
-                  if (v) v.play().catch(() => {});
+                  if (v) v.play().catch(() => { });
                 }
               }, 250);
             });
